@@ -1,12 +1,16 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; opacity: 1; flex-wrap: nowrap; align-self: flex-start; justify-content: flex-start; width: 50%; margin-left: 45px; height: 85%; align-content: auto; flex-direction: column; margin-top: 28px; visibility: visible; display: flex; overflow: visible;">
-        <ui:TextField label="" placeholder-text="Player " enabled="true" hide-placeholder-on-focus="false" readonly="false" is-delayed="false" hide-mobile-input="false" multiline="false"/>
+    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; opacity: 1; flex-wrap: nowrap; align-self: flex-start; justify-content: flex-start; width: 60%; margin-left: 45px; height: 85%; align-content: auto; flex-direction: column; margin-top: 28px; visibility: visible; display: flex; overflow: visible; border-right-width: 0; border-left-color: rgb(9, 161, 176); border-right-color: rgb(9, 161, 176); border-top-color: rgb(9, 161, 176); border-bottom-color: rgb(9, 161, 176); border-top-width: 0; border-bottom-width: 0; border-left-width: 0;">
+        <ui:TextField label="" placeholder-text="Player " enabled="true" hide-placeholder-on-focus="false" readonly="false" is-delayed="true" hide-mobile-input="false" multiline="false" name="player-name"/>
         <ui:DropdownField label="" name="DropdownField" style="flex-grow: 0;"/>
         <ui:VisualElement picking-mode="Ignore" class="color-picker" style="flex-grow: 1; height: 65%;">
             <ui:VisualElement name="wheel-container" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Textures/ColorWheel.png?fileID=2800000&amp;guid=f30a2579519d72c4cac6d0593d6e656a&amp;type=3#ColorWheel&quot;); flex-wrap: nowrap; flex-direction: column; align-self: center; align-items: auto; justify-content: flex-start; align-content: auto; aspect-ratio: 1;"/>
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement style="flex-grow: 1; align-content: flex-end; justify-content: flex-end; height: auto;">
-        <ui:Button text="Enter"/>
+        <ui:Button text="Enter">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="text" table="GUID:238899406e9c1ee4aa920157fdbc1779" entry="Id(17440157696)"/>
+            </Bindings>
+        </ui:Button>
     </ui:VisualElement>
 </ui:UXML>

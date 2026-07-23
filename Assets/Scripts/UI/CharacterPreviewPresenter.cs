@@ -14,6 +14,7 @@ public class CharacterPreviewPresenter : MonoBehaviour
     public void Init()
     {
         material = mesh.sharedMaterial;
+        material.color = PlayerInfoSave.GetColor();
         if (ServiceLocator.TryGet<ColorPickerController>(out colorPickerController))
         {
             colorPickerController.ColorChanged += OnColorChanged;
@@ -30,6 +31,7 @@ public class CharacterPreviewPresenter : MonoBehaviour
             return;
         }
         animator.SetTrigger(triggerId);
+        PlayerInfoSave.SaveColor(material.color);
     }
 
     private void OnColorChanged(Color color)

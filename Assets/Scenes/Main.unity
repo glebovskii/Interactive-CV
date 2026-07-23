@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 448717652}
   - component: {fileID: 448717651}
   - component: {fileID: 448717653}
+  - component: {fileID: 448717654}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -486,6 +487,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13186489f3aaaf549abe22324cc19fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorPickerController
+--- !u!114 &448717654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448717650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7154d6e424d40c540b186ff6e56202f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerNameController
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
