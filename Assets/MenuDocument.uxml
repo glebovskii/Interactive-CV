@@ -7,7 +7,7 @@
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement style="flex-grow: 1; align-content: flex-end; justify-content: flex-end; height: auto;">
-        <ui:Button text="Enter">
+        <ui:Button text="Enter" name="enter-button">
             <Bindings>
                 <UnityEngine.Localization.LocalizedString property="text" table="GUID:238899406e9c1ee4aa920157fdbc1779" entry="Id(17440157696)"/>
             </Bindings>
