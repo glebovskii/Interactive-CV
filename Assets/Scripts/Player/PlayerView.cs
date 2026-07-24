@@ -9,6 +9,8 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private PlayerCameraController playerCameraControllerPrefab;
     [SerializeField] private Transform cameraTarget;
 
+    [SerializeField] private SkinnedMeshRenderer renderer;
+
     private PlayerCameraController playerCameraController;
 
     private int SpeedId = Animator.StringToHash("Speed");
@@ -16,6 +18,7 @@ public class PlayerView : MonoBehaviour
     private void Awake()
     {
         playerMovement.OnSpawn += Init;
+        renderer.sharedMaterial.color = PlayerInfoSave.GetColor();
     }
 
     public void Init()

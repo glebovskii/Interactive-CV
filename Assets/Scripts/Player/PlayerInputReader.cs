@@ -48,7 +48,7 @@ public sealed class PlayerInputReader : MonoBehaviour
         if (!CanRead(moveAction))
             return Vector2.zero;
 
-        return Vector2.ClampMagnitude(moveAction.action.ReadValue<Vector2>(), 1f);
+        return moveAction.action.ReadValue<Vector2>();// Vector2.ClampMagnitude(moveAction.action.ReadValue<Vector2>(), 1f);
     }
 
     public bool CheckIsClicked(out Vector2 screenPosition)

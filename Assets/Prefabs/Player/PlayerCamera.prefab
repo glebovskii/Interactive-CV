@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2715360175376940651}
   - component: {fileID: 5484643458990302499}
+  - component: {fileID: 8161170652304668682}
   - component: {fileID: 6625697719561974863}
   - component: {fileID: -4976653718708573107}
   m_Layer: 0
@@ -27,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215545040825367325}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.32479167, y: 0.39454806, z: -0.15145282, w: 0.8461112}
-  m_LocalPosition: {x: -8.993734, y: 9.3731, z: 7.7484684}
+  m_LocalRotation: {x: 0.3247917, y: 0.3945481, z: -0.15145284, w: 0.84611124}
+  m_LocalPosition: {x: -6.2054014, y: 5.948161, z: -5.2069516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
-    Enabled: 0
+    Enabled: 1
     m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2
@@ -78,6 +79,37 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &8161170652304668682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215545040825367325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
+  CameraDistance: 10
+  DeadZoneDepth: 0
+  Composition:
+    ScreenPosition: {x: 0, y: 0}
+    DeadZone:
+      Enabled: 1
+      Size: {x: 0.8, y: 0.7}
+    HardLimits:
+      Enabled: 0
+      Size: {x: 0.8, y: 0.8}
+      Offset: {x: 0, y: 0}
+  CenterOnActivate: 1
+  TargetOffset: {x: 0, y: -1, z: 0}
+  Damping: {x: 1, y: 1, z: 1}
+  Lookahead:
+    Enabled: 0
+    Time: 0
+    Smoothing: 0
+    IgnoreY: 0
 --- !u!114 &6625697719561974863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +171,7 @@ Transform:
   m_GameObject: {fileID: 6469278246495110752}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.716732, y: -5.6882143, z: 7.6904745}
+  m_LocalPosition: {x: -0.00000047683716, y: 0.99999976, z: 9.999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
