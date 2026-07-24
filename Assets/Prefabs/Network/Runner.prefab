@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1999550834254544127}
   - component: {fileID: 1147319973206067289}
   - component: {fileID: -8284361535364142832}
+  - component: {fileID: 74164380766662250}
   m_Layer: 0
   m_Name: Runner
   m_TagString: Untagged
@@ -144,3 +145,17 @@ MonoBehaviour:
   LogSceneLoadErrors: 1
   DestroySpawnedPrefabsOnSceneUnload: 1
   AddressableScenesLabel: FusionScenes
+--- !u!114 &74164380766662250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2682160290405162230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a85c5db207b9346915aa2b3e361ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawner
+  playerPrefab: {fileID: 5057409695151164625, guid: c0bfefc367c89b249b86600f50b87d88, type: 3}
+  spawnPoints: {fileID: 0}
