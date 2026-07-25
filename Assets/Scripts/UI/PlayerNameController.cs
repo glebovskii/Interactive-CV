@@ -33,6 +33,6 @@ public class PlayerNameController : MonoBehaviour
 
     private void OnInputFinished(ChangeEvent<string> evt)
     {
-        string finalText = evt.newValue;
+        PlayerInfoSave.SaveName(evt.newValue);
     }
 }

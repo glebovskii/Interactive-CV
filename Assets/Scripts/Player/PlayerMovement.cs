@@ -1,9 +1,7 @@
 using Fusion;
 using System;
-using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.AI;
-using static UnityEditorInternal.ReorderableList;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(NetworkObject))]
 [RequireComponent(typeof(NetworkTransform))]
@@ -18,97 +16,68 @@ public sealed class PlayerMovement : NetworkBehaviour
     [SerializeField, Min(0f)]
     private float rotationSpeed = 12f;
 
+    [SerializeField, Min(0f)]
+    private float stoppingDistance = 0.15f;
+
     [SerializeField]
     private float groundedVerticalVelocity = -2f;
 
-    [Header("Physics")]
-    [SerializeField] private LayerMask walkableLayer;
-    [SerializeField, Min(0f)]
-    private float movingTurnSpeed = 540f;
+    [Header("Mouse Movement")]
+    [SerializeField]
+    private LayerMask walkableLayer;
 
     [SerializeField, Min(0f)]
-    private float slowTurnSpeed = 900f;
-    [SerializeField] private CharacterController characterController;
+    private float maximumRayDistance = 1000f;
+
+    [Header("References")]
+    [SerializeField]
+    private CharacterController characterController;
+
+    [SerializeField]
+    private Camera playerCamera;
+
     private PlayerInputReader inputReader;
 
+    private Vector3 pointerTarget;
+    private Vector3 currentMoveDirection;
+
     private float verticalVelocity;
-
+    private bool hasPointerTarget;
     private RaycastHit[] hits;
-    private Camera camera;
 
-    private NavMeshAgent agent;
+    public event Action<bool> OnSpawn;
 
-    private Vector3 moveDirection;
-
-    public event Action OnSpawn;
-    public Vector3 Velocity { get; private set; }
-
-    private bool isNavMeshMove = false;
+    [Networked] public Vector3 Velocity { get; private set; }
+    [Networked] public Color Color { get; private set; }
 
     public override void Spawned()
     {
         bool isLocallyControlled = HasStateAuthority;
 
+        if (isLocallyControlled)
+        {
+            var name = PlayerInfoSave.GetName();
+            Color = PlayerInfoSave.GetColor();
+        }
         inputReader = GetComponent<PlayerInputReader>();
-        agent = GetComponentInChildren<NavMeshAgent>();
+
+        if (characterController == null)
+            characterController = GetComponent<CharacterController>();
+
+        if (playerCamera == null && isLocallyControlled)
+            playerCamera = Camera.main;
 
         inputReader.SetInputEnabled(isLocallyControlled);
         characterController.enabled = isLocallyControlled;
 
-        agent.enabled = isLocallyControlled;
-        camera = Camera.main;
-        hits = new RaycastHit[1];
+        hasPointerTarget = false;
+        currentMoveDirection = Vector3.zero;
+        Velocity = Vector3.zero;
 
-        //agent.speed = moveSpeed;
-        agent.updateRotation = false;
-        if (NavMesh.SamplePosition(transform.position, out var hit, float.MaxValue, NavMesh.AllAreas))
-        {
-            agent.transform.position = hit.position;
-        }
+        if (isLocallyControlled)
+            hits = new RaycastHit[1];
 
-        OnSpawn?.Invoke();
-    }
-
-    private void HandleMovement()
-    {
-        if (inputReader.CheckIsClicked(out var clickPos))
-        {
-            HandleNavMeshMovement(clickPos);
-        }
-        else
-        {
-            HandleInputMovement();
-            HandleInputRotation();
-        }
-    }
-
-    private void HandleInputMovement()
-    {
-        Vector2 moveInput = inputReader.ReadMovement();
-        moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
-
-        if (moveDirection.sqrMagnitude <= 0)
-        {
-            characterController.Move(Vector3.zero);
-            return;
-        }
-        agent.isStopped = true;
-        isNavMeshMove = false;
-
-        Vector3 velocity = moveDirection.normalized;
-        velocity.y = verticalVelocity;
-
-        characterController.Move(velocity * moveSpeed * Runner.DeltaTime);
-
-    }
-
-    private void HandleNavMeshMovement(Vector2 clickPos)
-    {
-        var ray = camera.ScreenPointToRay(clickPos);
-        if (Physics.RaycastNonAlloc(ray, hits, 1000f, walkableLayer.value) > 0)
-        {
-            MoveTo(hits[0]);
-        }
+        OnSpawn?.Invoke(isLocallyControlled);
     }
 
     public override void FixedUpdateNetwork()
@@ -116,60 +85,134 @@ public sealed class PlayerMovement : NetworkBehaviour
         if (!HasStateAuthority)
             return;
 
-        UpdateGravity();
-        HandleMovement();
-        Velocity = isNavMeshMove ? agent.velocity.normalized : characterController.velocity.normalized;
-        HandleAgentRotation();
-    }
-
-    private void HandleInputRotation()
-    {
-        if (moveDirection.sqrMagnitude < 0.001f)
+        if (!characterController.enabled)
             return;
 
-        Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+        UpdateGravity();
+        HandleMovement();
+    }
+
+    private void HandleMovement()
+    {
+        Vector2 keyboardInput =
+            inputReader.ReadMovement();
+
+        if (keyboardInput.sqrMagnitude > 0.001f)
+        {
+            hasPointerTarget = false;
+            HandleKeyboardMovement(keyboardInput);
+            return;
+        }
+
+        if (inputReader.TryReadPointerPosition(out Vector2 pointerPosition))
+        {
+            TryUpdatePointerTarget(pointerPosition);
+        }
+
+        if (inputReader.TryConsumePointerRelease(out bool wasClick))
+        {
+            if (!wasClick)
+            {
+                // This was a hold or drag.
+                // Stop immediately when released.
+                hasPointerTarget = false;
+                MoveCharacter(Vector3.zero);
+                return;
+            }
+        }
+
+        if (hasPointerTarget)
+        {
+            HandlePointerMovement();
+            return;
+        }
+
+        MoveCharacter(Vector3.zero);
+    }
+
+    private void HandleKeyboardMovement(Vector2 input)
+    {
+        Vector3 direction = new(input.x, 0f, input.y);
+
+        direction = Vector3.ClampMagnitude(direction, 1f);
+
+        MoveCharacter(direction);
+    }
+
+    private void HandlePointerMovement()
+    {
+        Vector3 toTarget = pointerTarget - transform.position;
+
+        toTarget.y = 0f;
+
+        float stoppingDistanceSquared = stoppingDistance * stoppingDistance;
+
+        if (toTarget.sqrMagnitude <= stoppingDistanceSquared)
+        {
+            hasPointerTarget = false;
+            MoveCharacter(Vector3.zero);
+            return;
+        }
+
+        Vector3 direction = toTarget.normalized;
+
+        MoveCharacter(direction);
+    }
+
+    private bool TryUpdatePointerTarget(Vector2 screenPosition)
+    {
+        if (playerCamera == null)
+            return false;
+
+        Ray ray = playerCamera.ScreenPointToRay(screenPosition);
+
+        if (Physics.RaycastNonAlloc(ray, hits, maximumRayDistance, walkableLayer.value) < 1)
+        {
+            return false;
+        }
+        pointerTarget = hits[0].point;
+        hasPointerTarget = true;
+
+        return true;
+    }
+
+    private void MoveCharacter(Vector3 horizontalDirection)
+    {
+        currentMoveDirection = horizontalDirection;
+        currentMoveDirection.y = 0f;
+
+        if (currentMoveDirection.sqrMagnitude > 1f)
+            currentMoveDirection.Normalize();
+
+        Vector3 velocity = currentMoveDirection * moveSpeed;
+
+        velocity.y = verticalVelocity;
+
+        Vector3 previousPosition = transform.position;
+
+        characterController.Move(velocity * Runner.DeltaTime);
+
+        Velocity = (transform.position - previousPosition) / Runner.DeltaTime;
+
+        HandleRotation(currentMoveDirection);
+    }
+
+    private void HandleRotation(Vector3 direction)
+    {
+        direction.y = 0f;
+
+        if (direction.sqrMagnitude < 0.001f)
+            return;
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction.normalized, Vector3.up);
 
         float interpolation = 1f - Mathf.Exp(-rotationSpeed * Runner.DeltaTime);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, interpolation);
     }
 
-    private void HandleAgentRotation()
-    {
-        if (!agent.isOnNavMesh || !isNavMeshMove)
-            return;
-
-        Vector3 direction = agent.desiredVelocity;
-        direction.y = 0f;
-
-        if (direction.sqrMagnitude < 0.001f)
-            return;
-
-        Quaternion targetRotation =
-            Quaternion.LookRotation(direction.normalized, Vector3.up);
-
-        float speedRatio = agent.speed > 0f
-            ? Mathf.Clamp01(agent.velocity.magnitude / agent.speed)
-            : 0f;
-
-        float currentTurnSpeed = Mathf.Lerp(slowTurnSpeed, movingTurnSpeed, speedRatio);
-
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, currentTurnSpeed * Time.deltaTime);
-    }
-
-    private void MoveTo(RaycastHit hit)
-    {
-        agent.isStopped = false;
-        agent.angularSpeed = movingTurnSpeed;
-        isNavMeshMove = true;
-        agent.SetDestination(hit.point);
-    }
-
     private void UpdateGravity()
     {
-        if (isNavMeshMove)
-            return;
-
         if (characterController.isGrounded && verticalVelocity < 0f)
         {
             verticalVelocity = groundedVerticalVelocity;
@@ -180,8 +223,14 @@ public sealed class PlayerMovement : NetworkBehaviour
         }
     }
 
+    public void StopMovement()
+    {
+        hasPointerTarget = false;
+        currentMoveDirection = Vector3.zero;
+    }
+
     public override void Despawned(NetworkRunner runner, bool hasState)
     {
-        inputReader.SetInputEnabled(false);
+        inputReader?.SetInputEnabled(false);
     }
 }

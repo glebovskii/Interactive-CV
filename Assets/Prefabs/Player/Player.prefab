@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6154703485621114062}
   - component: {fileID: 7826994490954851516}
   - component: {fileID: 4936536806661504634}
-  - component: {fileID: 9050789997212441056}
   - component: {fileID: 7511645092575362281}
   m_Layer: 0
   m_Name: Player
@@ -39,6 +38,7 @@ Transform:
   m_Children:
   - {fileID: 262047478250357803}
   - {fileID: 3786555910457558082}
+  - {fileID: 5860815295389154141}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7823364879267345985
@@ -139,6 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputReader
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   clickAction: {fileID: 7884282176571884813, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  maximumClickDuration: 0.2
+  maximumClickMovement: 10
 --- !u!114 &4936536806661504634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,35 +155,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 4
   rotationSpeed: 12
+  stoppingDistance: 0.15
   groundedVerticalVelocity: -2
   walkableLayer:
     serializedVersion: 2
     m_Bits: 8
-  movingTurnSpeed: 540
-  slowTurnSpeed: 900
+  maximumRayDistance: 1000
   characterController: {fileID: 6154703485621114062}
---- !u!195 &9050789997212441056
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383688313207201357}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.35
-  m_Speed: 5
-  m_Acceleration: 500
-  avoidancePriority: 50
-  m_AngularSpeed: 360
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.8
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  playerCamera: {fileID: 0}
+  _Velocity: {x: 0, y: 0, z: 0}
+  _Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &7511645092575362281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +180,8 @@ MonoBehaviour:
   animator: {fileID: 7823364879267345985}
   playerMovement: {fileID: 4936536806661504634}
   playerCameraControllerPrefab: {fileID: -4976653718708573107, guid: 1023a02373eebd44e9f93f91ddb3702b, type: 3}
+  playerUIPrefab: {fileID: 528528637288131661, guid: f11e122fb3d933e4fbb6634ddb0817b1, type: 3}
+  playerUISpawnPosition: {fileID: 5860815295389154141}
   cameraTarget: {fileID: 3786555910457558082}
   renderer: {fileID: 2552364403198309420}
 --- !u!1 &3728992260341715850
@@ -322,3 +307,34 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000005066395, y: 0.080699235, z: -0.02786547}
     m_Extent: {x: 0.861657, y: 0.89901435, z: 0.17526042}
   m_DirtyAABB: 0
+--- !u!1 &8297952919493886573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5860815295389154141}
+  m_Layer: 5
+  m_Name: PlayerCanvasParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5860815295389154141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297952919493886573}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.306, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 7055156853933966253}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
