@@ -68,7 +68,7 @@ public sealed class PlayerMovement : NetworkBehaviour
             playerCamera = Camera.main;
 
         inputReader.SetInputEnabled(isLocallyControlled);
-        characterController.enabled = isLocallyControlled;
+        //characterController.enabled = isLocallyControlled;
 
         hasPointerTarget = false;
         currentMoveDirection = Vector3.zero;

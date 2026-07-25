@@ -23,8 +23,11 @@ public class PlayerUI : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (camera == null) return;
-
+        if (camera == null)
+        {
+            Debug.LogError("CAMERA IS NULL");
+            return;
+        }
         transform.rotation = camera.rotation;
     }
 
@@ -43,7 +46,7 @@ public class PlayerUI : MonoBehaviour
 
     public void SetVisible(bool value)
     {
-        panelRenderer.enabled = value;
+        gameObject.SetActive(value);
     }
 
     

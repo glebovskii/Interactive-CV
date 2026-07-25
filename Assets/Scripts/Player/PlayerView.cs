@@ -15,9 +15,13 @@ public class PlayerView : MonoBehaviour
 
     [SerializeField] private SkinnedMeshRenderer renderer;
 
+    [SerializeField] private PlayerTrigger playerTrigger;
+
 
     private PlayerCameraController playerCameraController;
     private PlayerUI playerUI;
+
+    private bool isLocalPlayer;
 
     private int SpeedId = Animator.StringToHash("Speed");
 
@@ -28,16 +32,31 @@ public class PlayerView : MonoBehaviour
 
     public void Init(bool isLocalPlayer)
     {
-        //if (!isLocalPlayer)
-        //    return;
+        this.isLocalPlayer = isLocalPlayer;
 
-        InitPlayerCameraController(isLocalPlayer);
-        InitPlayerUI(isLocalPlayer);
-        renderer.sharedMaterial.color = playerMovement.Color;
-        //playerUI.SetVisible(isLocalPlayer);
+        if (isLocalPlayer)
+        {
+            playerTrigger.TriggerEnter += OnTriggerEnterPlayer;
+            playerTrigger.TriggerExit += OnTriggerExitPlayer;
+            renderer.sharedMaterial.color = playerMovement.Color;
+        }
+
+        InitPlayerCameraController();
+        InitPlayerUI();
+        playerUI.SetVisible(isLocalPlayer);
     }
 
-    private void InitPlayerUI(bool isLocalPlayer)
+    private void OnTriggerExitPlayer(PlayerView playerView)
+    {
+        playerView.playerUI.SetVisible(false);
+    }
+
+    private void OnTriggerEnterPlayer(PlayerView playerView)
+    {
+        playerView.playerUI.SetVisible(true);
+    }
+
+    private void InitPlayerUI()
     {
         playerUI = Instantiate<PlayerUI>(playerUIPrefab, new InstantiateParameters()
         {
@@ -47,7 +66,7 @@ public class PlayerView : MonoBehaviour
 
     }
 
-    private void InitPlayerCameraController(bool isLocalPlayer)
+    private void InitPlayerCameraController()
     {
         playerCameraController = Instantiate<PlayerCameraController>(playerCameraControllerPrefab);
         playerCameraController.CinemachineCamera.Priority = isLocalPlayer ? 1 : -100;
@@ -68,5 +87,11 @@ public class PlayerView : MonoBehaviour
     private void OnDestroy()
     {
         playerMovement.OnSpawn -= Init;
+
+        if (isLocalPlayer)
+        {
+            playerTrigger.TriggerEnter -= OnTriggerEnterPlayer;
+            playerTrigger.TriggerExit -= OnTriggerExitPlayer;
+        }
     }
 }
