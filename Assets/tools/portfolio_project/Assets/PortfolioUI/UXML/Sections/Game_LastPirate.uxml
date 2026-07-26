@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement class="section-card game-card">
+        <ui:VisualElement class="game-hero game-hero--last-pirate"/>
+        <ui:VisualElement class="game-copy">
+            <ui:VisualElement class="section-heading-row">
+                <ui:VisualElement>
+                    <ui:Label text="Last Pirate: Island Survival" class="game-title"/>
+                    <ui:Label text="RetroStyle Games · Mobile survival" class="game-meta"/>
+                </ui:VisualElement>
+                <ui:Button name="last-pirate-link" text="App Store" class="secondary-button"/>
+            </ui:VisualElement>
+            <ui:Label text="Worked on NPC behavior, gameplay flow, bug fixing, and optimization within a mobile survival project." class="body-text"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

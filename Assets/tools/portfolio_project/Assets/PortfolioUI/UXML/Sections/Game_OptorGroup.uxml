@@ -1,0 +1,50 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement class="section-card">
+        <ui:VisualElement class="section-heading-row">
+            <ui:VisualElement>
+                <ui:Label text="Selected Optor Group Games" class="section-title section-title--compact"/>
+                <ui:Label text="Published mobile titles and prototypes" class="game-meta"/>
+            </ui:VisualElement>
+            <ui:Button name="optor-store-link" text="Developer page" class="secondary-button"/>
+        </ui:VisualElement>
+        <ui:Label text="Work across this portfolio included gameplay prototypes, AI, UI integration, and asset/performance optimization." class="body-text body-text--spaced"/>
+        <ui:VisualElement class="game-grid">
+            <ui:Button name="water-sort-link" class="mini-game-card">
+                <ui:VisualElement class="mini-game-thumb mini-game-thumb--water"/>
+                <ui:VisualElement class="mini-game-copy">
+                    <ui:Label text="Water Sort Puzzle" class="mini-game-title"/>
+                    <ui:Label text="Puzzle · Casual" class="mini-game-meta"/>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:Button name="sudoku-link" class="mini-game-card">
+                <ui:VisualElement class="mini-game-thumb mini-game-thumb--sudoku"/>
+                <ui:VisualElement class="mini-game-copy">
+                    <ui:Label text="Classic Sudoku" class="mini-game-title"/>
+                    <ui:Label text="Puzzle" class="mini-game-meta"/>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:Button name="war-strategy-link" class="mini-game-card">
+                <ui:VisualElement class="mini-game-thumb mini-game-thumb--war"/>
+                <ui:VisualElement class="mini-game-copy">
+                    <ui:Label text="War Strategy" class="mini-game-title"/>
+                    <ui:Label text="Strategy" class="mini-game-meta"/>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:Button name="poker-link" class="mini-game-card">
+                <ui:VisualElement class="mini-game-thumb mini-game-thumb--poker"/>
+                <ui:VisualElement class="mini-game-copy">
+                    <ui:Label text="World of Poker" class="mini-game-title"/>
+                    <ui:Label text="Card · Practice" class="mini-game-meta"/>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:VisualElement class="mini-game-card mini-game-card--static">
+                <ui:VisualElement class="mini-game-thumb mini-game-thumb--racing"/>
+                <ui:VisualElement class="mini-game-copy">
+                    <ui:Label text="Real Racing Car Games 3D" class="mini-game-title"/>
+                    <ui:Label text="Racing" class="mini-game-meta"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

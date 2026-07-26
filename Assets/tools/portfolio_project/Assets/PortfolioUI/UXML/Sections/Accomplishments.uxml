@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement class="section-card">
+        <ui:Label text="Independent Work" class="section-title"/>
+        <ui:VisualElement class="bullet-row">
+            <ui:VisualElement class="bullet-dot"/>
+            <ui:Label text="Freelance asset developer producing technical and visual tools for Unity projects." class="bullet-text"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="bullet-row">
+            <ui:VisualElement class="bullet-dot"/>
+            <ui:Label text="Published shader and editor-tool assets on the Unity Asset Store." class="bullet-text"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="bullet-row">
+            <ui:VisualElement class="bullet-dot"/>
+            <ui:Label text="Created and published the Photon Fusion multiplayer project Art Guard." class="bullet-text"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

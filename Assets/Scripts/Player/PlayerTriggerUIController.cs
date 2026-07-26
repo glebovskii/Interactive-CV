@@ -22,8 +22,11 @@ public class PlayerTriggerUIController : MonoBehaviour
         playerTrigger.TriggerEnter += PlayTriggerOn;
         playerTrigger.TriggerExit += PlayTriggerOff;
 
-        triggerMat = renderer.sharedMaterial;
+        triggerMat = renderer.material;
         emissionColor = GetBaseEmissionColor(triggerMat.GetColor(EmissionColorId));
+
+        triggerMat.SetFloat(CutoffId, 1f);
+        //SetEmissionExposure(0);
     }
 
     private static Color GetBaseEmissionColor(Color hdrColor)

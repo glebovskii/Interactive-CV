@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement class="section-card job-card">
+        <ui:VisualElement class="section-heading-row">
+            <ui:VisualElement>
+                <ui:Label text="Junior Unity Developer" class="job-role"/>
+                <ui:Label text="Anatoliy Mesheryak Games" class="job-company"/>
+            </ui:VisualElement>
+            <ui:Label text="Jun 2020 - Dec 2021" class="job-date"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="bullet-list">
+            <ui:VisualElement class="bullet-row">
+                <ui:VisualElement class="bullet-dot"/>
+                <ui:Label text="Implemented gameplay mechanics and user interfaces." class="bullet-text"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bullet-row">
+                <ui:VisualElement class="bullet-dot"/>
+                <ui:Label text="Integrated third-party assets into existing production codebases." class="bullet-text"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bullet-row">
+                <ui:VisualElement class="bullet-dot"/>
+                <ui:Label text="Integrated IAP, analytics, and advertising services." class="bullet-text"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,171 @@
+:root {
+    --portfolio-bg: rgb(10, 15, 24);
+    --portfolio-panel: rgb(17, 25, 38);
+    --portfolio-card: rgb(24, 35, 51);
+    --portfolio-card-hover: rgb(30, 44, 63);
+    --portfolio-text: rgb(239, 244, 250);
+    --portfolio-muted: rgb(163, 178, 199);
+    --portfolio-border: rgba(168, 187, 211, 0.18);
+    --portfolio-accent: rgb(59, 205, 190);
+}
+
+Label { color: var(--portfolio-text); white-space: normal; }
+Button { color: var(--portfolio-text); }
+
+.portfolio-root {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-backdrop {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-color: rgba(3, 7, 12, 0.76);
+}
+
+.document-frame {
+    width: 92%;
+    max-width: 1180px;
+    height: 90%;
+    max-height: 900px;
+    background-color: var(--portfolio-panel);
+    border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;
+    border-left-color: var(--portfolio-border); border-right-color: var(--portfolio-border); border-top-color: var(--portfolio-border); border-bottom-color: var(--portfolio-border);
+    border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
+    overflow: hidden;
+}
+
+.document-toolbar {
+    height: 52px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 22px;
+    padding-right: 14px;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--portfolio-border);
+    background-color: rgba(11, 18, 29, 0.92);
+}
+.toolbar-label { font-size: 13px; color: var(--portfolio-muted); -unity-font-style: bold; }
+.close-button {
+    width: 36px; height: 36px; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: transparent; font-size: 25px;
+    border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-left-radius: 18px; border-bottom-right-radius: 18px;
+}
+.close-button:hover { background-color: rgba(255,255,255,0.08); }
+
+.document-scroll { flex-grow: 1; padding: 22px 22px 30px 22px; }
+.content-stack { width: 100%; }
+.section-card {
+    margin-bottom: 14px;
+    padding: 20px;
+    background-color: var(--portfolio-card);
+    border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;
+    border-left-color: var(--portfolio-border); border-right-color: var(--portfolio-border); border-top-color: var(--portfolio-border); border-bottom-color: var(--portfolio-border);
+    border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;
+}
+.section-card--hero { flex-direction: row; align-items: center; padding: 26px; background-color: rgb(18, 40, 50); }
+.section-title { font-size: 21px; -unity-font-style: bold; margin-bottom: 13px; }
+.section-title--compact { margin-bottom: 2px; }
+.subsection-title { font-size: 14px; -unity-font-style: bold; color: var(--portfolio-accent); margin-bottom: 8px; }
+.body-text { font-size: 15px; color: rgb(221, 229, 239); line-height: 21px; }
+.body-text--secondary { margin-top: 9px; color: var(--portfolio-muted); }
+.body-text--spaced { margin-bottom: 15px; }
+.meta-text { color: var(--portfolio-muted); font-size: 13px; }
+
+.profile-monogram {
+    width: 92px; height: 92px; min-width: 92px;
+    align-items: center; justify-content: center;
+    margin-right: 22px;
+    background-color: var(--portfolio-accent);
+    border-top-left-radius: 46px; border-top-right-radius: 46px; border-bottom-left-radius: 46px; border-bottom-right-radius: 46px;
+}
+.profile-monogram__text { font-size: 30px; -unity-font-style: bold; color: rgb(8, 22, 27); }
+.profile-copy { flex-grow: 1; }
+.profile-name { font-size: 34px; -unity-font-style: bold; margin-bottom: 4px; }
+.profile-role { font-size: 17px; color: rgb(199, 230, 230); margin-bottom: 13px; }
+.profile-contact { color: var(--portfolio-muted); margin-top: 10px; font-size: 14px; }
+.chip-row { flex-direction: row; flex-wrap: wrap; }
+.chip {
+    margin-right: 7px; margin-bottom: 7px; padding: 5px 9px;
+    background-color: rgba(59, 205, 190, 0.12); color: rgb(152, 235, 226); font-size: 12px;
+    border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+}
+
+.skill-grid { flex-direction: row; flex-wrap: wrap; }
+.skill-block { width: 31%; min-width: 230px; flex-grow: 1; margin-right: 12px; margin-bottom: 8px; padding: 14px; background-color: rgba(9, 16, 26, 0.32); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
+.skill-line { font-size: 14px; color: rgb(211, 220, 232); margin-bottom: 6px; }
+
+.section-heading-row { flex-direction: row; align-items: flex-start; justify-content: space-between; }
+.job-role { font-size: 18px; -unity-font-style: bold; }
+.job-company { margin-top: 2px; color: var(--portfolio-accent); font-size: 15px; }
+.job-date { color: var(--portfolio-muted); font-size: 13px; margin-left: 14px; }
+.bullet-list { margin-top: 14px; }
+.bullet-row { flex-direction: row; align-items: flex-start; margin-bottom: 8px; }
+.bullet-dot { width: 6px; height: 6px; min-width: 6px; margin-top: 7px; margin-right: 10px; background-color: var(--portfolio-accent); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+.bullet-text { flex-grow: 1; font-size: 14px; color: rgb(216, 225, 236); line-height: 20px; }
+
+.education-degree { font-size: 18px; -unity-font-style: bold; margin-bottom: 4px; }
+.education-school { font-size: 15px; color: rgb(190, 228, 225); margin-bottom: 9px; }
+.language-row { flex-direction: row; justify-content: space-between; align-items: center; }
+.language-row--spaced { margin-top: 13px; }
+.language-name { font-size: 14px; }
+.level-track { height: 5px; margin-top: 7px; background-color: rgba(255,255,255,0.09); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; overflow: hidden; }
+.level-fill { height: 5px; background-color: var(--portfolio-accent); }
+.level-fill--full { width: 100%; }
+.level-fill--medium { width: 62%; }
+
+.game-card { padding: 0; overflow: hidden; }
+.game-hero { height: 250px; -unity-background-scale-mode: scale-and-crop; }
+.game-hero--corepunk { background-image: url("../Images/GameThumbnails/corepunk.png"); }
+.game-hero--last-pirate { background-image: url("../Images/GameThumbnails/last_pirate.png"); }
+.game-copy { padding: 20px; }
+.game-title { font-size: 22px; -unity-font-style: bold; }
+.game-meta { color: var(--portfolio-muted); margin-top: 3px; font-size: 13px; }
+.secondary-button {
+    min-width: 112px; height: 36px; margin-left: 12px;
+    background-color: rgba(59,205,190,0.12); color: rgb(159,237,229);
+    border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;
+    border-left-color: rgba(59,205,190,0.35); border-right-color: rgba(59,205,190,0.35); border-top-color: rgba(59,205,190,0.35); border-bottom-color: rgba(59,205,190,0.35);
+    border-top-left-radius: 9px; border-top-right-radius: 9px; border-bottom-left-radius: 9px; border-bottom-right-radius: 9px;
+}
+.secondary-button:hover { background-color: rgba(59,205,190,0.22); }
+
+.game-grid { flex-direction: row; flex-wrap: wrap; margin-right: -10px; }
+.mini-game-card {
+    width: 48%; min-width: 300px; height: 128px; flex-direction: row; align-items: stretch;
+    padding: 0; margin-right: 10px; margin-bottom: 10px;
+    background-color: rgba(8, 15, 25, 0.42); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 11px; border-top-right-radius: 11px; border-bottom-left-radius: 11px; border-bottom-right-radius: 11px; overflow: hidden;
+}
+.mini-game-card:hover { background-color: var(--portfolio-card-hover); }
+.mini-game-card--static:hover { background-color: rgba(8, 15, 25, 0.42); }
+.mini-game-thumb { width: 205px; min-width: 205px; -unity-background-scale-mode: scale-and-crop; }
+.mini-game-thumb--water { background-image: url("../Images/GameThumbnails/water_sort.png"); }
+.mini-game-thumb--sudoku { background-image: url("../Images/GameThumbnails/sudoku.png"); }
+.mini-game-thumb--war { background-image: url("../Images/GameThumbnails/war_strategy.png"); }
+.mini-game-thumb--poker { background-image: url("../Images/GameThumbnails/poker.png"); }
+.mini-game-thumb--racing { background-image: url("../Images/GameThumbnails/real_racing.png"); }
+.mini-game-copy { flex-grow: 1; justify-content: center; padding: 14px; }
+.mini-game-title { font-size: 15px; -unity-font-style: bold; }
+.mini-game-meta { margin-top: 5px; font-size: 12px; color: var(--portfolio-muted); }
+
+.links-card { margin-top: 6px; }
+.link-grid { flex-direction: row; flex-wrap: wrap; margin-right: -10px; }
+.link-tile {
+    width: 48%; min-width: 270px; height: 74px; flex-direction: row; align-items: center;
+    margin-right: 10px; margin-bottom: 10px; padding: 12px;
+    background-color: rgba(8, 15, 25, 0.42); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 11px; border-top-right-radius: 11px; border-bottom-left-radius: 11px; border-bottom-right-radius: 11px;
+}
+.link-tile:hover { background-color: var(--portfolio-card-hover); }
+.social-icon { width: 38px; height: 38px; min-width: 38px; margin-right: 12px; -unity-background-scale-mode: scale-to-fit; }
+.social-icon--github { background-image: url("../Icons/github.svg"); }
+.social-icon--linkedin { background-image: url("../Icons/linkedin.svg"); }
+.social-icon--asset-store { background-image: url("../Icons/asset_store.svg"); }
+.social-icon--itch { background-image: url("../Icons/itch.svg"); }
+.social-icon--cv { background-image: url("../Icons/cv.svg"); }
+.link-copy { flex-grow: 1; }
+.link-title { font-size: 15px; -unity-font-style: bold; }
+.link-subtitle { font-size: 12px; color: var(--portfolio-muted); margin-top: 3px; }
+.link-arrow { color: var(--portfolio-accent); font-size: 18px; margin-left: 8px; }
+.footer-label { align-self: center; margin-top: 8px; margin-bottom: 6px; color: rgba(163,178,199,0.6); font-size: 11px; }

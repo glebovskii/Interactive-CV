@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement class="section-card game-card game-card--corepunk" style="justify-content: flex-start; align-self: auto; align-content: auto; flex-grow: 1; flex-wrap: nowrap;">
+        <ui:VisualElement class="game-hero game-hero--corepunk" style="height: 132px;"/>
+        <ui:VisualElement class="game-copy">
+            <ui:VisualElement class="section-heading-row">
+                <ui:VisualElement>
+                    <ui:Label text="Corepunk" class="game-title"/>
+                    <ui:Label text="Artificial Core · PC MMORPG" class="game-meta"/>
+                </ui:VisualElement>
+                <ui:Button name="corepunk-link" text="Open project" class="secondary-button"/>
+            </ui:VisualElement>
+            <ui:Label text="Asset integration and optimization work for a seamless open-world MMORPG combining MMORPG, MOBA, and ARPG systems." class="body-text"/>
+            <ui:VisualElement class="chip-row">
+                <ui:Label text="Asset pipelines" class="chip"/>
+                <ui:Label text="Rendering optimization" class="chip"/>
+                <ui:Label text="VFX" class="chip"/>
+                <ui:Label text="Animation consistency" class="chip"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

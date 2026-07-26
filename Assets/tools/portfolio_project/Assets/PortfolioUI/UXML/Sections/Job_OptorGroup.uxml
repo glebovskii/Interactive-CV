@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement class="section-card job-card">
+        <ui:VisualElement class="section-heading-row">
+            <ui:VisualElement>
+                <ui:Label text="Unity Developer" class="job-role"/>
+                <ui:Label text="Optor Group" class="job-company"/>
+            </ui:VisualElement>
+            <ui:Label text="Mar 2023 - Aug 2024" class="job-date"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="bullet-list">
+            <ui:VisualElement class="bullet-row">
+                <ui:VisualElement class="bullet-dot"/>
+                <ui:Label text="Built MVPs and prototypes across puzzle, strategy, casino, and simulation genres." class="bullet-text"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bullet-row">
+                <ui:VisualElement class="bullet-dot"/>
+                <ui:Label text="Implemented sophisticated AI for large-scale army battles and compact Sudoku-style games." class="bullet-text"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bullet-row">
+                <ui:VisualElement class="bullet-dot"/>
+                <ui:Label text="Optimized third-party assets using LODs, culling, billboards, and terrain segmentation." class="bullet-text"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bullet-row">
+                <ui:VisualElement class="bullet-dot"/>
+                <ui:Label text="Handled asset, UI, texture, and VFX integration and optimization." class="bullet-text"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

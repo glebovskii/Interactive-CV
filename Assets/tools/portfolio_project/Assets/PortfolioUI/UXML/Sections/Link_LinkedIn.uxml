@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:Button name="linkedin-link" class="link-tile">
+        <ui:VisualElement class="social-icon social-icon--linkedin accent-tint"/>
+        <ui:VisualElement class="link-copy">
+            <ui:Label text="LinkedIn" class="link-title"/>
+            <ui:Label text="Professional profile" class="link-subtitle"/>
+        </ui:VisualElement>
+        <ui:Label text="↗" class="link-arrow"/>
+    </ui:Button>
+</ui:UXML>

@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement class="section-card">
+        <ui:Label text="Languages" class="section-title"/>
+        <ui:VisualElement class="language-row">
+            <ui:Label text="Ukrainian" class="language-name"/>
+            <ui:Label text="Native" class="meta-text"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="level-track">
+            <ui:VisualElement class="level-fill level-fill--full"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="language-row language-row--spaced">
+            <ui:Label text="English" class="language-name"/>
+            <ui:Label text="Intermediate" class="meta-text"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="level-track">
+            <ui:VisualElement class="level-fill level-fill--medium"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,6 +1,8 @@
 using Fusion;
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerView : MonoBehaviour
 {
@@ -25,6 +27,8 @@ public class PlayerView : MonoBehaviour
 
     private int SpeedId = Animator.StringToHash("Speed");
 
+    public CinemachineCamera Camera => playerCameraController.CinemachineCamera;
+
     private void Awake()
     {
         playerMovement.OnSpawn += Init;
@@ -38,7 +42,7 @@ public class PlayerView : MonoBehaviour
         {
             playerTrigger.TriggerEnter += OnTriggerEnterPlayer;
             playerTrigger.TriggerExit += OnTriggerExitPlayer;
-            renderer.sharedMaterial.color = playerMovement.Color;
+            renderer.material.color = playerMovement.Color;
         }
 
         InitPlayerCameraController();
@@ -93,5 +97,21 @@ public class PlayerView : MonoBehaviour
             playerTrigger.TriggerEnter -= OnTriggerEnterPlayer;
             playerTrigger.TriggerExit -= OnTriggerExitPlayer;
         }
+    }
+
+    public void AddTarget(Transform panel)
+    {
+        if (!isLocalPlayer)
+            return;
+
+        playerCameraController.CinemachineTargetGroup.AddMember(panel, 10, 1);
+    }
+
+    public void RemoveTarget(Transform panel)
+    {
+        if (!isLocalPlayer)
+            return;
+
+        playerCameraController.CinemachineTargetGroup.RemoveMember(panel);
     }
 }

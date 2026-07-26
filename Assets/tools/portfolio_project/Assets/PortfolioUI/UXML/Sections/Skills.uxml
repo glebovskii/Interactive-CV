@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement class="section-card">
+        <ui:Label text="Skills" class="section-title"/>
+        <ui:VisualElement class="skill-grid">
+            <ui:VisualElement class="skill-block">
+                <ui:Label text="Engine &amp; Code" class="subsection-title"/>
+                <ui:Label text="Unity · C# · Photon Fusion" class="skill-line"/>
+                <ui:Label text="Addressables · ECS / DOTS" class="skill-line"/>
+                <ui:Label text="UI Toolkit" class="skill-line"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="skill-block">
+                <ui:Label text="Technical Art" class="subsection-title"/>
+                <ui:Label text="Shader Graph · HLSL" class="skill-line"/>
+                <ui:Label text="LOD · batching · culling" class="skill-line"/>
+                <ui:Label text="Texture and VFX optimization" class="skill-line"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="skill-block">
+                <ui:Label text="Tools &amp; Diagnostics" class="subsection-title"/>
+                <ui:Label text="Unity Editor tools" class="skill-line"/>
+                <ui:Label text="Profiler · Frame Debugger" class="skill-line"/>
+                <ui:Label text="Git · SVN" class="skill-line"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

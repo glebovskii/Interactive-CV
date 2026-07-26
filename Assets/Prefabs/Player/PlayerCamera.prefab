@@ -171,7 +171,7 @@ Transform:
   m_GameObject: {fileID: 6469278246495110752}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0.99999976, z: 9.999999}
+  m_LocalPosition: {x: 0.0000038146973, y: 1.0000012, z: 10.000026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eb80d8e62d9d145bb50fb783c0f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineTargetGroup
-  PositionMode: 0
+  PositionMode: 1
   RotationMode: 1
   UpdateMethod: 2
   Targets: []
