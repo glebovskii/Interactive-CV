@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1215545040825367325}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3247917, y: 0.3945481, z: -0.15145284, w: 0.84611124}
-  m_LocalPosition: {x: -6.2054014, y: 5.948161, z: -5.2069516}
+  m_LocalPosition: {x: 11.223334, y: 31.21442, z: 9.417321}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52,7 +52,7 @@ MonoBehaviour:
     Enabled: 1
     m_Value: 0
   OutputChannel: 1
-  StandbyUpdate: 2
+  StandbyUpdate: 0
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
@@ -103,7 +103,7 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: -1, z: 0}
+  TargetOffset: {x: 0, y: 0, z: 0}
   Damping: {x: 1, y: 1, z: 1}
   Lookahead:
     Enabled: 0
@@ -125,10 +125,10 @@ MonoBehaviour:
   FramingMode: 2
   FramingSize: 0.195
   CenterOffset: {x: 0, y: 0}
-  Damping: 2
+  Damping: 5
   SizeAdjustment: 2
   LateralAdjustment: 0
-  FovRange: {x: 1, y: 100}
+  FovRange: {x: 60, y: 60}
   DollyRange: {x: -100, y: 100}
   OrthoSizeRange: {x: 1, y: 1000}
 --- !u!114 &-4976653718708573107
@@ -171,7 +171,7 @@ Transform:
   m_GameObject: {fileID: 6469278246495110752}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000038146973, y: 1.0000012, z: 10.000026}
+  m_LocalPosition: {x: 0.000004529953, y: 1.0000174, z: 10.000054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

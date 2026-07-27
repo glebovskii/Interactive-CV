@@ -17,7 +17,7 @@ MonoBehaviour:
   m_TargetTexture: {fileID: 0}
   m_RenderMode: 1
   m_ColliderUpdateMode: 0
-  m_ColliderIsTrigger: 1
+  m_ColliderIsTrigger: 0
   m_ScaleMode: 1
   m_ReferenceSpritePixelsPerUnit: 100
   m_PixelsPerUnit: 100
@@ -36,7 +36,7 @@ MonoBehaviour:
   m_VertexBudget: 0
   m_TextureSlotCount: 8
   m_DynamicAtlasSettings:
-    m_MinAtlasSize: 64
+    m_MinAtlasSize: 1024
     m_MaxAtlasSize: 4096
     m_MaxSubTextureSize: 64
     m_ActiveFilters: -1

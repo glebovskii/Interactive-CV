@@ -169,3 +169,165 @@ Button { color: var(--portfolio-text); }
 .link-subtitle { font-size: 12px; color: var(--portfolio-muted); margin-top: 3px; }
 .link-arrow { color: var(--portfolio-accent); font-size: 18px; margin-left: 8px; }
 .footer-label { align-self: center; margin-top: 8px; margin-bottom: 6px; color: rgba(163,178,199,0.6); font-size: 11px; }
+
+/* --------------------------------------------------------------------------
+   Corepunk world-space job panel
+   These selectors are scoped to Game_Corepunk.uxml.
+   -------------------------------------------------------------------------- */
+
+.corepunk-card {
+    background-color: rgb(20, 30, 45);
+}
+
+.corepunk-hero {
+    height: 195px;
+}
+
+.corepunk-copy {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 18px;
+    padding-bottom: 24px;
+}
+
+.corepunk-heading-row {
+    align-items: flex-start;
+}
+
+.corepunk-heading-copy {
+    flex-grow: 1;
+    min-width: 0;
+    margin-right: 18px;
+}
+
+/* Keep project and role on the same line to save vertical space. */
+.corepunk-title-role-row {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.corepunk-title {
+    margin-right: 11px;
+    font-size: 30px;
+    -unity-font-style: bold;
+    color: rgb(248, 251, 255);
+}
+
+.corepunk-title-role {
+    margin-top: 2px;
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(224, 244, 247);
+}
+
+.corepunk-meta {
+    margin-top: 4px;
+    font-size: 16px;
+    color: rgba(218, 230, 241, 0.86);
+}
+
+.corepunk-heading-actions {
+    min-width: 160px;
+    align-items: flex-end;
+}
+
+.corepunk-date {
+    margin-top: 8px;
+    margin-left: 0;
+    font-size: 15px;
+    color: rgba(207, 220, 235, 0.8);
+}
+
+.corepunk-bullet-list {
+    margin-top: 14px;
+}
+
+/* Center each bullet against its complete text block instead of placing it above
+   the first line. This is more stable under perspective distortion. */
+.corepunk-bullet-row {
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.corepunk-bullet-dot {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    margin-top: 0;
+    margin-right: 12px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.corepunk-bullet-text {
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(242, 247, 252, 0.95);
+}
+
+.corepunk-chip-row {
+    margin-top: 14px;
+}
+
+.corepunk-chip {
+    min-height: 32px;
+    margin-right: 9px;
+    margin-bottom: 9px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 15px;
+    -unity-font-style: bold;
+    color: rgb(205, 255, 247);
+    background-color: rgba(32, 160, 150, 0.30);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(73, 225, 211, 0.32);
+    border-right-color: rgba(73, 225, 211, 0.32);
+    border-top-color: rgba(73, 225, 211, 0.32);
+    border-bottom-color: rgba(73, 225, 211, 0.32);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.corepunk-project-button {
+    min-width: 150px;
+    height: 46px;
+    margin-left: 0;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 18px;
+    -unity-font-style: bold;
+    background-color: rgba(16, 118, 119, 0.92);
+    color: rgb(245, 255, 254);
+    border-left-color: rgba(74, 229, 218, 0.72);
+    border-right-color: rgba(74, 229, 218, 0.72);
+    border-top-color: rgba(74, 229, 218, 0.72);
+    border-bottom-color: rgba(74, 229, 218, 0.72);
+    scale: 1 1;
+    transition-property: background-color, border-color, scale;
+    transition-duration: 0.12s, 0.12s, 0.12s;
+    transition-timing-function: ease-out, ease-out, ease-out;
+}
+
+.corepunk-project-button:hover {
+    background-color: rgb(20, 153, 153);
+    border-left-color: rgb(105, 255, 238);
+    border-right-color: rgb(105, 255, 238);
+    border-top-color: rgb(105, 255, 238);
+    border-bottom-color: rgb(105, 255, 238);
+    scale: 1.025 1.025;
+}
+
+.corepunk-project-button:active {
+    background-color: rgb(10, 92, 96);
+    scale: 0.98 0.98;
+}

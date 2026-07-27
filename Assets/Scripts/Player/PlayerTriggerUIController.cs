@@ -45,6 +45,9 @@ public class PlayerTriggerUIController : MonoBehaviour
 
     private void PlayTriggerOn(PlayerView view)
     {
+        if (!view.IsLocalPlayer)
+            return;
+
         if (playerTrigger.Triggers.Count == 0)
         {
             Play(animationTime);
@@ -53,7 +56,10 @@ public class PlayerTriggerUIController : MonoBehaviour
 
     private void PlayTriggerOff(PlayerView view)
     {
-        if(playerTrigger.Triggers.Count == 1)
+        if (!view.IsLocalPlayer)
+            return;
+
+        if (playerTrigger.Triggers.Count == 1)
         {
             PlayReverse(animationTime);
         }

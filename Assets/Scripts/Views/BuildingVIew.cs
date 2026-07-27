@@ -17,12 +17,18 @@ public class BuildingVIew : MonoBehaviour, IView
 
     private void Show(PlayerView view)
     {
+        if (!view.IsLocalPlayer)
+            return;
+
         view.AddTarget(Panel.transform);
         panel.Show(view.Camera);
     }
 
     private void Hide(PlayerView view)
     {
+        if (!view.IsLocalPlayer)
+            return;
+
         view.RemoveTarget(Panel.transform);
         Hide();
     }

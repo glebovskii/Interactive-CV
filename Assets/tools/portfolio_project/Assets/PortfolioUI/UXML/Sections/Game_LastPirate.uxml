@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
     <ui:VisualElement class="section-card game-card">
-        <ui:VisualElement class="game-hero game-hero--last-pirate"/>
+        <ui:VisualElement class="game-hero game-hero--last-pirate" style="height: 176px;"/>
         <ui:VisualElement class="game-copy">
             <ui:VisualElement class="section-heading-row">
                 <ui:VisualElement>

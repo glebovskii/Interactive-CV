@@ -162,6 +162,9 @@ MonoBehaviour:
   walkableLayer:
     serializedVersion: 2
     m_Bits: 8
+  uiBlockLayer:
+    serializedVersion: 2
+    m_Bits: 32
   maximumRayDistance: 1000
   characterController: {fileID: 6154703485621114062}
   playerCamera: {fileID: 0}

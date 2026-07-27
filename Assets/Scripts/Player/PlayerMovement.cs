@@ -23,8 +23,8 @@ public sealed class PlayerMovement : NetworkBehaviour
     private float groundedVerticalVelocity = -2f;
 
     [Header("Mouse Movement")]
-    [SerializeField]
-    private LayerMask walkableLayer;
+    [SerializeField] private LayerMask walkableLayer;
+    [SerializeField] private LayerMask uiBlockLayer;
 
     [SerializeField, Min(0f)]
     private float maximumRayDistance = 1000f;
@@ -43,12 +43,13 @@ public sealed class PlayerMovement : NetworkBehaviour
 
     private float verticalVelocity;
     private bool hasPointerTarget;
-    private RaycastHit[] hits;
 
     public event Action<bool> OnSpawn;
 
     [Networked] public Vector3 Velocity { get; private set; }
     [Networked] public Color Color { get; private set; }
+
+    private int combinedRaycastMask;
 
     public override void Spawned()
     {
@@ -68,14 +69,12 @@ public sealed class PlayerMovement : NetworkBehaviour
             playerCamera = Camera.main;
 
         inputReader.SetInputEnabled(isLocallyControlled);
-        //characterController.enabled = isLocallyControlled;
 
         hasPointerTarget = false;
         currentMoveDirection = Vector3.zero;
         Velocity = Vector3.zero;
 
-        if (isLocallyControlled)
-            hits = new RaycastHit[1];
+        combinedRaycastMask = walkableLayer.value | uiBlockLayer.value;
 
         OnSpawn?.Invoke(isLocallyControlled);
     }
@@ -94,8 +93,7 @@ public sealed class PlayerMovement : NetworkBehaviour
 
     private void HandleMovement()
     {
-        Vector2 keyboardInput =
-            inputReader.ReadMovement();
+        Vector2 keyboardInput = inputReader.ReadMovement();
 
         if (keyboardInput.sqrMagnitude > 0.001f)
         {
@@ -113,8 +111,6 @@ public sealed class PlayerMovement : NetworkBehaviour
         {
             if (!wasClick)
             {
-                // This was a hold or drag.
-                // Stop immediately when released.
                 hasPointerTarget = false;
                 MoveCharacter(Vector3.zero);
                 return;
@@ -166,11 +162,16 @@ public sealed class PlayerMovement : NetworkBehaviour
 
         Ray ray = playerCamera.ScreenPointToRay(screenPosition);
 
-        if (Physics.RaycastNonAlloc(ray, hits, maximumRayDistance, walkableLayer.value) < 1)
+        if (!Physics.Raycast(ray, out var hit, maximumRayDistance, combinedRaycastMask))
         {
             return false;
         }
-        pointerTarget = hits[0].point;
+
+        int hitLayerMask = 1 << hit.collider.gameObject.layer;
+        if ((uiBlockLayer.value & hitLayerMask) != 0)
+            return false;
+
+        pointerTarget = hit.point;
         hasPointerTarget = true;
 
         return true;

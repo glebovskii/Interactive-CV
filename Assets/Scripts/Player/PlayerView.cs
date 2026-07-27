@@ -23,7 +23,7 @@ public class PlayerView : MonoBehaviour
     private PlayerCameraController playerCameraController;
     private PlayerUI playerUI;
 
-    private bool isLocalPlayer;
+    public bool IsLocalPlayer { get; private set; }
 
     private int SpeedId = Animator.StringToHash("Speed");
 
@@ -31,19 +31,20 @@ public class PlayerView : MonoBehaviour
 
     private void Awake()
     {
+        IsLocalPlayer = false;
         playerMovement.OnSpawn += Init;
     }
 
     public void Init(bool isLocalPlayer)
     {
-        this.isLocalPlayer = isLocalPlayer;
+        this.IsLocalPlayer = isLocalPlayer;
 
         if (isLocalPlayer)
         {
             playerTrigger.TriggerEnter += OnTriggerEnterPlayer;
             playerTrigger.TriggerExit += OnTriggerExitPlayer;
-            renderer.material.color = playerMovement.Color;
         }
+        renderer.material.color = playerMovement.Color;
 
         InitPlayerCameraController();
         InitPlayerUI();
@@ -66,15 +67,15 @@ public class PlayerView : MonoBehaviour
         {
             parent = playerUISpawnPosition,
         });
-        playerUI.Init(playerCameraController.CinemachineCamera, isLocalPlayer);
+        playerUI.Init(playerCameraController.CinemachineCamera, IsLocalPlayer);
 
     }
 
     private void InitPlayerCameraController()
     {
         playerCameraController = Instantiate<PlayerCameraController>(playerCameraControllerPrefab);
-        playerCameraController.CinemachineCamera.Priority = isLocalPlayer ? 1 : -100;
-        if (isLocalPlayer)
+        playerCameraController.CinemachineCamera.Priority = IsLocalPlayer ? 1 : -100;
+        if (IsLocalPlayer)
             playerCameraController.CinemachineTargetGroup.AddMember(cameraTarget, 1, 1);
     }
 
@@ -92,7 +93,7 @@ public class PlayerView : MonoBehaviour
     {
         playerMovement.OnSpawn -= Init;
 
-        if (isLocalPlayer)
+        if (IsLocalPlayer)
         {
             playerTrigger.TriggerEnter -= OnTriggerEnterPlayer;
             playerTrigger.TriggerExit -= OnTriggerExitPlayer;
@@ -101,7 +102,7 @@ public class PlayerView : MonoBehaviour
 
     public void AddTarget(Transform panel)
     {
-        if (!isLocalPlayer)
+        if (!IsLocalPlayer)
             return;
 
         playerCameraController.CinemachineTargetGroup.AddMember(panel, 10, 1);
@@ -109,7 +110,7 @@ public class PlayerView : MonoBehaviour
 
     public void RemoveTarget(Transform panel)
     {
-        if (!isLocalPlayer)
+        if (!IsLocalPlayer)
             return;
 
         playerCameraController.CinemachineTargetGroup.RemoveMember(panel);
