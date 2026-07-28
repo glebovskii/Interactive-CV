@@ -1,50 +1,59 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
-    <ui:VisualElement class="section-card">
-        <ui:VisualElement class="section-heading-row">
-            <ui:VisualElement>
-                <ui:Label text="Selected Optor Group Games" class="section-title section-title--compact"/>
-                <ui:Label text="Published mobile titles and prototypes" class="game-meta"/>
+    <ui:VisualElement name="panel-root" class="section-card game-card game-section-card">
+        <ui:VisualElement class="game-section-gallery-hero">
+            <ui:VisualElement class="game-section-gallery-item game-section-gallery-item--water">
+                <ui:Label text="Water Sort" class="game-section-gallery-label"/>
             </ui:VisualElement>
-            <ui:Button name="optor-store-link" text="Developer page" class="secondary-button"/>
-        </ui:VisualElement>
-        <ui:Label text="Work across this portfolio included gameplay prototypes, AI, UI integration, and asset/performance optimization." class="body-text body-text--spaced"/>
-        <ui:VisualElement class="game-grid">
-            <ui:Button name="water-sort-link" class="mini-game-card">
-                <ui:VisualElement class="mini-game-thumb mini-game-thumb--water"/>
-                <ui:VisualElement class="mini-game-copy">
-                    <ui:Label text="Water Sort Puzzle" class="mini-game-title"/>
-                    <ui:Label text="Puzzle · Casual" class="mini-game-meta"/>
-                </ui:VisualElement>
-            </ui:Button>
-            <ui:Button name="sudoku-link" class="mini-game-card">
-                <ui:VisualElement class="mini-game-thumb mini-game-thumb--sudoku"/>
-                <ui:VisualElement class="mini-game-copy">
-                    <ui:Label text="Classic Sudoku" class="mini-game-title"/>
-                    <ui:Label text="Puzzle" class="mini-game-meta"/>
-                </ui:VisualElement>
-            </ui:Button>
-            <ui:Button name="war-strategy-link" class="mini-game-card">
-                <ui:VisualElement class="mini-game-thumb mini-game-thumb--war"/>
-                <ui:VisualElement class="mini-game-copy">
-                    <ui:Label text="War Strategy" class="mini-game-title"/>
-                    <ui:Label text="Strategy" class="mini-game-meta"/>
-                </ui:VisualElement>
-            </ui:Button>
-            <ui:Button name="poker-link" class="mini-game-card">
-                <ui:VisualElement class="mini-game-thumb mini-game-thumb--poker"/>
-                <ui:VisualElement class="mini-game-copy">
-                    <ui:Label text="World of Poker" class="mini-game-title"/>
-                    <ui:Label text="Card · Practice" class="mini-game-meta"/>
-                </ui:VisualElement>
-            </ui:Button>
-            <ui:VisualElement class="mini-game-card mini-game-card--static">
-                <ui:VisualElement class="mini-game-thumb mini-game-thumb--racing"/>
-                <ui:VisualElement class="mini-game-copy">
-                    <ui:Label text="Real Racing Car Games 3D" class="mini-game-title"/>
-                    <ui:Label text="Racing" class="mini-game-meta"/>
-                </ui:VisualElement>
+            <ui:VisualElement class="game-section-gallery-item game-section-gallery-item--sudoku">
+                <ui:Label text="Sudoku" class="game-section-gallery-label"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="game-section-gallery-item game-section-gallery-item--war">
+                <ui:Label text="War Strategy" class="game-section-gallery-label"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="game-section-gallery-item game-section-gallery-item--poker">
+                <ui:Label text="Poker" class="game-section-gallery-label"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="game-section-gallery-item game-section-gallery-item--racing">
+                <ui:Label text="Racing" class="game-section-gallery-label"/>
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement class="game-copy game-section-copy">
+            <ui:VisualElement class="section-heading-row game-section-heading-row">
+                <ui:VisualElement class="game-section-heading-copy">
+                    <ui:VisualElement class="game-section-title-role-row">
+                        <ui:Label text="Optor Group" class="game-title game-section-title"/>
+                        <ui:Label text="Unity Developer" class="game-section-role"/>
+                    </ui:VisualElement>
+                    <ui:Label text="Optor Group · Published mobile games and prototypes" class="game-meta game-section-meta"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="game-section-heading-actions">
+                    <ui:Button name="button-link" text="View projects" tooltip="Open the Optor Group developer page" class="secondary-button game-section-link-button"/>
+                    <ui:Label text="Mar 2023 – Aug 2024" class="game-section-date"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="bullet-list game-section-bullet-list">
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Built MVPs and prototypes across puzzle, strategy, casino, and racing projects." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Implemented gameplay systems, army AI, UI, and supporting production features." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Integrated and optimized third-party assets using LODs, culling, billboards, texture, terrain, and VFX improvements." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="chip-row game-section-chip-row">
+                <ui:Label text="Prototyping" class="chip game-section-chip"/>
+                <ui:Label text="Gameplay" class="chip game-section-chip"/>
+                <ui:Label text="AI" class="chip game-section-chip"/>
+                <ui:Label text="UI" class="chip game-section-chip"/>
+                <ui:Label text="Optimization" class="chip game-section-chip"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" />
     </ui:VisualElement>
 </ui:UXML>

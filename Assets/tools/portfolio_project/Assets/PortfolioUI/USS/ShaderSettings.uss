@@ -1,0 +1,300 @@
+/*
+ * Runtime shader-settings document.
+ * The font is centralized here. If the asset moves, update only this URL.
+ */
+.shader-settings-card {
+    width: 92%;
+    max-width: 1080px;
+    height: 88%;
+    max-height: 820px;
+    padding: 26px 30px 28px 30px;
+    overflow: hidden;
+    background-color: rgb(20, 30, 45);
+    -unity-font-definition: url("project://database/Assets/Settings/NotoSans-Regular%20SDF.asset");
+}
+
+.shader-settings-header {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.shader-settings-heading-copy {
+    flex-grow: 1;
+    min-width: 0;
+    margin-right: 20px;
+}
+
+.shader-settings-title-row {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.shader-settings-title {
+    margin-right: 12px;
+    font-size: 30px;
+    color: rgb(248, 251, 255);
+}
+
+.shader-settings-role {
+    font-size: 19px;
+    -unity-font-style: bold;
+    color: rgb(224, 244, 247);
+}
+
+.shader-settings-meta {
+    margin-top: 5px;
+    font-size: 15px;
+    color: rgba(218, 230, 241, 0.86);
+}
+
+.shader-settings-project-button {
+    min-width: 150px;
+    height: 46px;
+    margin-left: 0;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 18px;
+    -unity-font-style: bold;
+    background-color: rgba(16, 118, 119, 0.92);
+    color: rgb(245, 255, 254);
+    border-left-color: rgba(74, 229, 218, 0.72);
+    border-right-color: rgba(74, 229, 218, 0.72);
+    border-top-color: rgba(74, 229, 218, 0.72);
+    border-bottom-color: rgba(74, 229, 218, 0.72);
+    scale: 1 1;
+    transition-property: background-color, border-color, scale;
+    transition-duration: 0.12s, 0.12s, 0.12s;
+    transition-timing-function: ease-out, ease-out, ease-out;
+}
+
+.shader-settings-project-button:hover {
+    background-color: rgb(20, 153, 153);
+    border-left-color: rgb(105, 255, 238);
+    border-right-color: rgb(105, 255, 238);
+    border-top-color: rgb(105, 255, 238);
+    border-bottom-color: rgb(105, 255, 238);
+    scale: 1.025 1.025;
+}
+
+.shader-settings-project-button:active {
+    background-color: rgb(10, 92, 96);
+    scale: 0.98 0.98;
+}
+
+.shader-tab-view {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+    background-color: transparent;
+}
+
+/*
+ * TabView's "content viewport" is the TAB HEADER STRIP, not the tab content.
+ * It must stay short and must never flex-grow.
+ */
+.shader-tab-view > .unity-tab-view__content-viewport {
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 38px;
+    min-height: 38px;
+    max-height: 38px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.shader-tab-view .unity-tab-view__header-container {
+    flex-direction: row;
+    align-items: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 38px;
+    min-height: 38px;
+    max-height: 38px;
+}
+
+/* The actual content area receives all remaining height. */
+.shader-tab-view > .unity-tab-view__content-container {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+    margin-top: 0;
+    padding: 18px 20px;
+    overflow: hidden;
+    background-color: rgba(7, 13, 22, 0.38);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(168, 187, 211, 0.12);
+    border-right-color: rgba(168, 187, 211, 0.12);
+    border-top-color: rgba(168, 187, 211, 0.12);
+    border-bottom-color: rgba(168, 187, 211, 0.12);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.shader-tab-view .unity-tab {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+}
+
+.shader-tab-view .unity-tab__content-container {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+    padding: 0;
+}
+
+.shader-tab-view .unity-tab__header {
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 34px;
+    min-height: 34px;
+    max-height: 34px;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: rgba(255, 255, 255, 0.025);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.shader-tab-view .unity-tab__header:hover {
+    background-color: rgba(59, 205, 190, 0.12);
+}
+
+.shader-tab-view .unity-tab__header-label {
+    font-size: 14px;
+    color: rgba(215, 228, 240, 0.82);
+    -unity-text-align: middle-center;
+}
+
+.shader-tab-view .unity-tab__header:hover > .unity-tab__header-label {
+    color: rgb(244, 250, 255);
+}
+
+.shader-tab-view .unity-tab__header:checked {
+    background-color: rgba(32, 160, 150, 0.30);
+}
+
+.shader-tab-view .unity-tab__header:checked > .unity-tab__header-label {
+    color: rgb(218, 255, 250);
+    -unity-font-style: bold;
+}
+
+.shader-tab-view .unity-tab__header:checked > .unity-tab__header-underline {
+    height: 3px;
+    background-color: rgb(59, 205, 190);
+}
+
+.shader-tab-view .unity-tab-view__next-button,
+.shader-tab-view .unity-tab-view__previous-button {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 28px;
+    height: 34px;
+    min-height: 34px;
+    max-height: 34px;
+}
+
+.shader-tab-scroll {
+    flex-grow: 1;
+    min-height: 0;
+}
+
+.shader-tab-heading-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.shader-tab-title {
+    font-size: 22px;
+    -unity-font-style: bold;
+    color: rgb(244, 249, 255);
+}
+
+.shader-enable-toggle {
+    min-width: 120px;
+    font-size: 16px;
+    color: rgb(202, 245, 238);
+}
+
+.shader-fields {
+    padding-right: 8px;
+}
+
+.shader-control-row {
+    flex-direction: row;
+    align-items: center;
+    min-height: 48px;
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.shader-control-row:hover {
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+.shader-control-label {
+    width: 230px;
+    min-width: 230px;
+    margin-right: 18px;
+    font-size: 16px;
+    color: rgba(230, 239, 248, 0.94);
+}
+
+.shader-slider {
+    flex-grow: 1;
+    min-width: 280px;
+}
+
+.shader-inline-toggles {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    padding: 10px 8px;
+    background-color: rgba(59, 205, 190, 0.055);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.shader-option-toggle {
+    min-width: 245px;
+    margin-right: 22px;
+    font-size: 15px;
+    color: rgba(220, 237, 244, 0.9);
+}
+
+.shader-note {
+    display: none;
+    margin-top: 8px;
+    padding: 9px 11px;
+    font-size: 13px;
+    color: rgba(176, 202, 218, 0.82);
+    background-color: rgba(255, 255, 255, 0.025);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}

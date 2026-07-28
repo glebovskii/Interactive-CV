@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4409bed452f18fe43b0555bb4a2735ff
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Materials/Spheres.mat
+  uploadId: 866726

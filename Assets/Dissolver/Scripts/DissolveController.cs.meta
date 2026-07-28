@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: e323bae01dbc451894d2585f6c3a1770
+timeCreated: 1731606373
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Scripts/DissolveController.cs
+  uploadId: 866726

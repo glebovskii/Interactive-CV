@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fc29a90860ed91f4f89df27dbc0a6ef8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Materials/Armor.mat
+  uploadId: 866726

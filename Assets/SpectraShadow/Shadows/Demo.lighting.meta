@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 099c1c7983fcc1e48abc0acd31ad8fd1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shadows/Demo.lighting
+  uploadId: 871002

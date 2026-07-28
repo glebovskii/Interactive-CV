@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6053d1c78d96eb74193829ef3539d6a1
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shader/MyLitForwardPass.hlsl
+  uploadId: 871002

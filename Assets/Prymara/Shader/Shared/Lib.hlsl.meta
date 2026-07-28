@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b18764ca444e0334fb14395236d1a6c4
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 375996
+  packageName: Prymara Post Procsss
+  packageVersion: 1.1
+  assetPath: Assets/Prymara/Shader/Shared/Lib.hlsl
+  uploadId: 957826

@@ -1,9 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
-    <ui:VisualElement class="section-card">
+    <ui:VisualElement name="panel-root" class="section-card">
         <ui:Label text="Education" class="section-title"/>
         <ui:Label text="Master&apos;s Degree · Computer Science" class="education-degree"/>
         <ui:Label text="National Technical University of Ukraine “Igor Sikorsky Kyiv Polytechnic Institute”" class="education-school"/>
         <ui:Label text="2021 · Ukraine" class="meta-text"/>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" />
     </ui:VisualElement>
 </ui:UXML>

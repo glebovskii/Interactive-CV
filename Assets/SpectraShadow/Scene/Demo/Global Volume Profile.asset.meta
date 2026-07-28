@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 63c3c11e58f44ff47be26daab37c02e5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Scene/Demo/Global Volume Profile.asset
+  uploadId: 871002

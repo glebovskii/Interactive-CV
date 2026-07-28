@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2673d6825981fec4f8781c2975f4c764
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shader/MyRealtimeLights.hlsl
+  uploadId: 871002

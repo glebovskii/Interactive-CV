@@ -171,86 +171,96 @@ Button { color: var(--portfolio-text); }
 .footer-label { align-self: center; margin-top: 8px; margin-bottom: 6px; color: rgba(163,178,199,0.6); font-size: 11px; }
 
 /* --------------------------------------------------------------------------
-   Corepunk world-space job panel
-   These selectors are scoped to Game_Corepunk.uxml.
+   Shared world-space game panel layout
+
+   Font path is intentionally centralized here. If the font asset is moved,
+   update only the URL in .game-section-card.
    -------------------------------------------------------------------------- */
 
-.corepunk-card {
+.game-section-card {
     background-color: rgb(20, 30, 45);
+    -unity-font-definition: url("project://database/Assets/Settings/NotoSans-Regular%20SDF.asset");
+    -unity-text-generator: advanced;
 }
 
-.corepunk-hero {
+.game-section-hero {
     height: 195px;
+    -unity-background-scale-mode: scale-and-crop;
 }
 
-.corepunk-copy {
+.game-section-hero--corepunk {
+    background-image: url("../Images/GameThumbnails/corepunk.png");
+}
+
+.game-section-hero--last-pirate {
+    background-image: url("../Images/GameThumbnails/last_pirate.png");
+}
+
+.game-section-copy {
     padding-left: 28px;
     padding-right: 28px;
     padding-top: 18px;
     padding-bottom: 24px;
 }
 
-.corepunk-heading-row {
+.game-section-heading-row {
     align-items: flex-start;
 }
 
-.corepunk-heading-copy {
+.game-section-heading-copy {
     flex-grow: 1;
     min-width: 0;
     margin-right: 18px;
 }
 
-/* Keep project and role on the same line to save vertical space. */
-.corepunk-title-role-row {
+.game-section-title-role-row {
     flex-direction: row;
     align-items: baseline;
     flex-wrap: wrap;
 }
 
-.corepunk-title {
+.game-section-title {
     margin-right: 11px;
     font-size: 30px;
     -unity-font-style: bold;
     color: rgb(248, 251, 255);
 }
 
-.corepunk-title-role {
+.game-section-role {
     margin-top: 2px;
     font-size: 20px;
     -unity-font-style: bold;
     color: rgb(224, 244, 247);
 }
 
-.corepunk-meta {
+.game-section-meta {
     margin-top: 4px;
     font-size: 16px;
     color: rgba(218, 230, 241, 0.86);
 }
 
-.corepunk-heading-actions {
+.game-section-heading-actions {
     min-width: 160px;
     align-items: flex-end;
 }
 
-.corepunk-date {
+.game-section-date {
     margin-top: 8px;
     margin-left: 0;
     font-size: 15px;
     color: rgba(207, 220, 235, 0.8);
 }
 
-.corepunk-bullet-list {
+.game-section-bullet-list {
     margin-top: 14px;
 }
 
-/* Center each bullet against its complete text block instead of placing it above
-   the first line. This is more stable under perspective distortion. */
-.corepunk-bullet-row {
+.game-section-bullet-row {
     align-items: center;
     margin-bottom: 8px;
 }
 
-.corepunk-bullet-dot {
+.game-section-bullet-dot {
     width: 8px;
     height: 8px;
     min-width: 8px;
@@ -262,17 +272,17 @@ Button { color: var(--portfolio-text); }
     border-bottom-right-radius: 4px;
 }
 
-.corepunk-bullet-text {
-    font-size: 18px;
-    line-height: 24px;
+.game-section-bullet-text {
+    font-size: 25px;
+    line-height: 32px;
     color: rgba(242, 247, 252, 0.95);
 }
 
-.corepunk-chip-row {
+.game-section-chip-row {
     margin-top: 14px;
 }
 
-.corepunk-chip {
+.game-section-chip {
     min-height: 32px;
     margin-right: 9px;
     margin-bottom: 9px;
@@ -280,8 +290,9 @@ Button { color: var(--portfolio-text); }
     padding-right: 13px;
     padding-top: 6px;
     padding-bottom: 6px;
-    font-size: 15px;
+    font-size: 20px;
     -unity-font-style: bold;
+    -unity-text-align: middle-center;
     color: rgb(205, 255, 247);
     background-color: rgba(32, 160, 150, 0.30);
     border-left-width: 1px;
@@ -298,7 +309,7 @@ Button { color: var(--portfolio-text); }
     border-bottom-right-radius: 12px;
 }
 
-.corepunk-project-button {
+.game-section-link-button {
     min-width: 150px;
     height: 46px;
     margin-left: 0;
@@ -318,7 +329,7 @@ Button { color: var(--portfolio-text); }
     transition-timing-function: ease-out, ease-out, ease-out;
 }
 
-.corepunk-project-button:hover {
+.game-section-link-button:hover {
     background-color: rgb(20, 153, 153);
     border-left-color: rgb(105, 255, 238);
     border-right-color: rgb(105, 255, 238);
@@ -327,7 +338,91 @@ Button { color: var(--portfolio-text); }
     scale: 1.025 1.025;
 }
 
-.corepunk-project-button:active {
+.game-section-link-button:active {
     background-color: rgb(10, 92, 96);
     scale: 0.98 0.98;
+}
+
+/* Optor Group uses the same card layout with a multi-game hero strip. */
+.game-section-gallery-hero {
+    height: 195px;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.game-section-gallery-item {
+    flex-grow: 1;
+    min-width: 0;
+    justify-content: flex-end;
+    -unity-background-scale-mode: scale-and-crop;
+    border-right-width: 1px;
+    border-right-color: rgba(255, 255, 255, 0.12);
+}
+
+.game-section-gallery-item--water {
+    background-image: url("../Images/GameThumbnails/water_sort.png");
+}
+
+.game-section-gallery-item--sudoku {
+    background-image: url("../Images/GameThumbnails/sudoku.png");
+}
+
+.game-section-gallery-item--war {
+    background-image: url("../Images/GameThumbnails/war_strategy.png");
+}
+
+.game-section-gallery-item--poker {
+    background-image: url("../Images/GameThumbnails/poker.png");
+}
+
+.game-section-gallery-item--racing {
+    background-image: url("../Images/GameThumbnails/real_racing.png");
+    border-right-width: 0;
+}
+
+.game-section-gallery-label {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    align-self: center;
+    font-size: 14px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: rgb(248, 251, 255);
+    background-color: rgba(8, 14, 23, 0.82);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.job-optor-hero {
+    height: 195px;
+    background-color: rgb(12, 20, 31);
+    background-image: url("../Images/GameThumbnails/optor.png");
+    
+}
+
+.game-section-card {
+    overflow: hidden;
+}
+
+.panel-static-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    opacity: 0;
+
+    background-image:
+        url("project://database/Assets/PortfolioUI/Textures/tv_static.png");
+
+    -unity-background-scale-mode: scale-and-crop;
 }

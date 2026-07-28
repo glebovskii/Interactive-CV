@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b56e29055bedcf14990e423c9e2a67c2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shadows/LightingData.asset
+  uploadId: 871002

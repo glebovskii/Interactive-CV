@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 20b7c28f99c2f4341a8b90efee2e3e20
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Editor/ChromaShadowGUI.cs
+  uploadId: 871002

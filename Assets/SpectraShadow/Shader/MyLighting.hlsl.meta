@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 22a0502ad02a77d4e9b61088058485fa
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shader/MyLighting.hlsl
+  uploadId: 871002

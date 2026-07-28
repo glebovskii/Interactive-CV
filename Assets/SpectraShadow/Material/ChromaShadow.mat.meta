@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: be29805517654db44a1220ffde5179f1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Material/ChromaShadow.mat
+  uploadId: 871002

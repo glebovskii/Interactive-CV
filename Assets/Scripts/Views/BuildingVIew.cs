@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class BuildingVIew : MonoBehaviour, IView
+public class BuildingView : MonoBehaviour, IView
 {
     [SerializeField] private PanelUI panel;
     [SerializeField] private PlayerTrigger playerTrigger;

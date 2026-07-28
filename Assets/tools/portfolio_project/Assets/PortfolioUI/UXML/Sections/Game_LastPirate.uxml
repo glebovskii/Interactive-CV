@@ -1,16 +1,42 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
-    <ui:VisualElement class="section-card game-card">
-        <ui:VisualElement class="game-hero game-hero--last-pirate" style="height: 176px;"/>
-        <ui:VisualElement class="game-copy">
-            <ui:VisualElement class="section-heading-row">
-                <ui:VisualElement>
-                    <ui:Label text="Last Pirate: Island Survival" class="game-title"/>
-                    <ui:Label text="RetroStyle Games · Mobile survival" class="game-meta"/>
+    <ui:VisualElement name="panel-root" class="section-card game-card game-section-card">
+        <ui:VisualElement class="game-hero game-section-hero game-section-hero--last-pirate"/>
+        <ui:VisualElement class="game-copy game-section-copy">
+            <ui:VisualElement class="section-heading-row game-section-heading-row">
+                <ui:VisualElement class="game-section-heading-copy">
+                    <ui:VisualElement class="game-section-title-role-row">
+                        <ui:Label text="Last Pirate" class="game-title game-section-title"/>
+                        <ui:Label text="Unity Developer" class="game-section-role"/>
+                    </ui:VisualElement>
+                    <ui:Label text="RetroStyle Games · Mobile survival" class="game-meta game-section-meta"/>
                 </ui:VisualElement>
-                <ui:Button name="last-pirate-link" text="App Store" class="secondary-button"/>
+                <ui:VisualElement class="game-section-heading-actions">
+                    <ui:Button name="button-link" text="View project" tooltip="Open Last Pirate in the App Store" class="secondary-button game-section-link-button"/>
+                    <ui:Label text="Jan 2022 – Dec 2022" class="game-section-date"/>
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:Label text="Worked on NPC behavior, gameplay flow, bug fixing, and optimization within a mobile survival project." class="body-text"/>
+            <ui:VisualElement class="bullet-list game-section-bullet-list">
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Developed and refined NPC behavior and gameplay systems for a mobile survival title." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Worked with game design to integrate features and improve moment-to-moment player flow." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Fixed gameplay issues and optimized project performance across supported mobile devices." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="chip-row game-section-chip-row">
+                <ui:Label text="NPC AI" class="chip game-section-chip"/>
+                <ui:Label text="Gameplay" class="chip game-section-chip"/>
+                <ui:Label text="Mobile" class="chip game-section-chip"/>
+                <ui:Label text="Optimization" class="chip game-section-chip"/>
+            </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
     </ui:VisualElement>
 </ui:UXML>

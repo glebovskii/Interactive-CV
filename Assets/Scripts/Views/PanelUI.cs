@@ -3,16 +3,17 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(PanelRevealAnimation))]
 public sealed class PanelUI : MonoBehaviour
 {
     [SerializeField] private PanelRenderer panelRenderer;
-    [SerializeField] private float threshold = 3f;
+    [SerializeField] private PanelRevealAnimation panelRevealAnimation;
 
     [Header("Camera tilt")]
-    [SerializeField, Range(0f, 45f)]
+    [SerializeField, Range(-45f, 45f)]
     private float maximumXTilt = 6f;
 
-    [SerializeField, Range(0f, 90f)]
+    [SerializeField, Range(-90f, 90f)]
     private float maximumYTilt = 18f;
 
     [SerializeField, Min(0f)]
@@ -43,13 +44,13 @@ public sealed class PanelUI : MonoBehaviour
         // Store the panel's normal resting orientation.
         baseRotation = transform.rotation;
 
-        panelRenderer.gameObject.SetActive(true);
+        panelRevealAnimation.Show();
     }
 
     public void Hide()
     {
         cameraTransform = null;
-        panelRenderer.gameObject.SetActive(false);
+        panelRevealAnimation.Hide();
         transform.rotation = baseRotation;
     }
 

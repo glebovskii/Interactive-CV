@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ced9de9ef32c1bb4f8194c71b1f3c827
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Prefabs/Haze.prefab
+  uploadId: 866726

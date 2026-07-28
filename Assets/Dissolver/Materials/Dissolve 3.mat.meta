@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7bce453b9f830ef4ba607e0488fa6fbc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Materials/Dissolve 3.mat
+  uploadId: 866726

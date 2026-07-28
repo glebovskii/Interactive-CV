@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-470558282811395658
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.ShaderGraph.Editor::UnityEditor.Rendering.BuiltIn.AssetVersion
+  version: 0
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Prymara
+  m_Shader: {fileID: -6465566751694194690, guid: 3e3824ab7a81f4d4f8e03e38461cbbf0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _USE_EDGE
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CameraOpaque:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CameraOpaqueTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Grid:
+        m_Texture: {fileID: 2800000, guid: 2256b93a4cf19354d8d00c66a581f8f6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MotionVectorTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PrevFrameTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PrevTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DArray_2ba2047e492a48f59760b94141390ea1_TextureArray_1_Texture2DArray:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_fae826ce78d5489c8b1e7a944500f113_Out_0_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AberrationMinDepth: 0
+    - _Alpha: 0.021
+    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueOffset: 0
+    - _Density: 0
+    - _EdgePower: 0.33
+    - _Edge_Strength: 1.52
+    - _FrameComparison: 0.238
+    - _Fullscreen_AlphaBlendOperation: 0
+    - _Fullscreen_BlendMode: 1
+    - _Fullscreen_ColorBlendOperation: 0
+    - _Fullscreen_DepthTest: 4
+    - _Fullscreen_DepthWrite: 0
+    - _Fullscreen_DstAlphaBlend: 10
+    - _Fullscreen_DstColorBlend: 10
+    - _Fullscreen_SrcAlphaBlend: 1
+    - _Fullscreen_SrcColorBlend: 5
+    - _Fullscreen_Stencil: 0
+    - _Fullscreen_StencilComparison: 8
+    - _Fullscreen_StencilDepthFail: 0
+    - _Fullscreen_StencilFail: 0
+    - _Fullscreen_StencilPass: 0
+    - _Fullscreen_StencilReadMask: 255
+    - _Fullscreen_StencilReference: 0
+    - _Fullscreen_StencilWriteMask: 255
+    - _GridSize: 122
+    - _GridSoftness: -3.8
+    - _Hardness: 1
+    - _INVERTALPHA: 0
+    - _Kernel_Size: 9.8
+    - _KuwaharaMinDepth: 0
+    - _Kuwahara_Alpha: 1.25
+    - _MaxDepthVal: 1000
+    - _MinDepth: 0.37
+    - _MinDepthVal: 0
+    - _Min_Edge: 0.82
+    - _Min_Edge_Depth: 1.76
+    - _OffsetBlue: 0
+    - _OffsetGreen: 0
+    - _OffsetRed: 0
+    - _Oil_Radius: 1.72
+    - _Oil_minDepth: 7.5
+    - _Oil_thickness: 4.79
+    - _Q: 0.8
+    - _QueueControl: -1
+    - _QueueOffset: 0
+    - _Radius: 4.96
+    - _Size: 2.69
+    - _Smoothness: 0
+    - _Softness: 0.13
+    - _Thickness: 0.592
+    - _Threshold: 0.824
+    - _USE_ABERRATION: 0
+    - _USE_EDGE: 1
+    - _USE_GRID: 0
+    - _USE_GRID_TEXTURE: 0
+    - _USE_KUWAHARA: 0
+    - _USE_OIL: 0
+    - _Zero_crossing: 1.97
+    - _Zeta: 0.84
+    - _centreOffset: 0.0022
+    - _comparer: 0.545
+    - _frameComparison: 0.5
+    - _gridSize: 53.5
+    - _n: 5.01
+    m_Colors:
+    - _Color: {r: 1, g: 0, b: 0.835309, a: 1}
+    - _EdgeColor: {r: 0.01938888, g: 0.8867924, b: 0, a: 1}
+    - _EdgeColor_1: {r: 0, g: 0, b: 0, a: 1}
+    - _FarEdgeColor: {r: 0.020754695, g: 1, b: 0.9745751, a: 1}
+    - _FarGridColor: {r: 0.025952289, g: 0.0980476, b: 0.10188681, a: 1}
+    - _GridColor: {r: 0.002370916, g: 0.1697723, b: 0.4188679, a: 1}
+    - _NearEdgeColor: {r: 0, g: 0.381132, b: 0.3403055, a: 1}
+    - _NearGridColor: {r: 0.019743668, g: 0.16351917, b: 0.17735851, a: 1}
+    - _OffsetBlue: {r: 0.03, g: 0, b: 0, a: 0}
+    - _OffsetGreen: {r: -1, g: 0, b: 0, a: 0}
+    - _OffsetRed: {r: 1, g: 0, b: 0, a: 0}
+    - _Spectr: {r: 0, g: 0, b: 0, a: 0}
+    - _TFM: {r: 0.52, g: 0.45, b: 0.45, a: 0.24}
+    - _centreColor: {r: 0.24313724, g: 0.5036448, b: 0.54901963, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

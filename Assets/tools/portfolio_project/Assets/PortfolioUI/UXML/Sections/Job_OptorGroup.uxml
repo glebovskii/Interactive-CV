@@ -1,30 +1,47 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
-    <ui:VisualElement class="section-card job-card">
-        <ui:VisualElement class="section-heading-row">
-            <ui:VisualElement>
-                <ui:Label text="Unity Developer" class="job-role"/>
-                <ui:Label text="Optor Group" class="job-company"/>
+    <ui:VisualElement name="panel-root" class="section-card game-card game-section-card job-optor-card">
+        <ui:VisualElement name="header-picture" class="game-section-hero job-optor-hero"/>
+        <ui:VisualElement class="game-copy game-section-copy">
+            <ui:VisualElement class="section-heading-row game-section-heading-row">
+                <ui:VisualElement class="game-section-heading-copy">
+                    <ui:VisualElement class="game-section-title-role-row">
+                        <ui:Label text="Optor Group" class="game-title game-section-title"/>
+                        <ui:Label text="— Unity Developer" class="game-section-role"/>
+                    </ui:VisualElement>
+                    <ui:Label text="Mobile games · Puzzle, strategy, casino, and simulation" class="game-meta game-section-meta"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="game-section-heading-actions">
+                    <ui:Button name="button-link" text="View projects" tooltip="Open the Optor Group developer page" class="secondary-button game-section-link-button"/>
+                    <ui:Label text="Mar 2023 – Aug 2024" class="game-section-date"/>
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:Label text="Mar 2023 - Aug 2024" class="job-date"/>
+            <ui:VisualElement class="bullet-list game-section-bullet-list">
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Built MVPs and prototypes across puzzle, strategy, casino, and simulation genres." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Implemented gameplay systems, large-scale army AI, and compact Sudoku-style games." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Optimized third-party assets using LODs, culling, billboards, and terrain segmentation." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Handled asset, UI, texture, and VFX integration and optimization across projects." class="bullet-text game-section-bullet-text"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="chip-row game-section-chip-row">
+                <ui:Label text="Prototyping" class="chip game-section-chip"/>
+                <ui:Label text="Gameplay" class="chip game-section-chip"/>
+                <ui:Label text="AI" class="chip game-section-chip"/>
+                <ui:Label text="Optimization" class="chip game-section-chip"/>
+                <ui:Label text="UI" class="chip game-section-chip"/>
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement class="bullet-list">
-            <ui:VisualElement class="bullet-row">
-                <ui:VisualElement class="bullet-dot"/>
-                <ui:Label text="Built MVPs and prototypes across puzzle, strategy, casino, and simulation genres." class="bullet-text"/>
-            </ui:VisualElement>
-            <ui:VisualElement class="bullet-row">
-                <ui:VisualElement class="bullet-dot"/>
-                <ui:Label text="Implemented sophisticated AI for large-scale army battles and compact Sudoku-style games." class="bullet-text"/>
-            </ui:VisualElement>
-            <ui:VisualElement class="bullet-row">
-                <ui:VisualElement class="bullet-dot"/>
-                <ui:Label text="Optimized third-party assets using LODs, culling, billboards, and terrain segmentation." class="bullet-text"/>
-            </ui:VisualElement>
-            <ui:VisualElement class="bullet-row">
-                <ui:VisualElement class="bullet-dot"/>
-                <ui:Label text="Handled asset, UI, texture, and VFX integration and optimization." class="bullet-text"/>
-            </ui:VisualElement>
-        </ui:VisualElement>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
     </ui:VisualElement>
 </ui:UXML>

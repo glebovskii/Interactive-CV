@@ -75,8 +75,6 @@ public sealed class PanelLinkButton : MonoBehaviour
         if (linkButton == null)
             return;
 
-        Debug.LogError("UNREGISTER");
-
         linkButton.clicked -= OpenLink;
         linkButton = null;
     }

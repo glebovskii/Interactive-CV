@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8847f5f814421a44897ae73de73a3811
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shader/MyPBRForwardPass.hlsl
+  uploadId: 871002

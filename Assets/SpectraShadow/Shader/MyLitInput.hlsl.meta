@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6970f667a36a77741abca1b4c05029c2
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shader/MyLitInput.hlsl
+  uploadId: 871002

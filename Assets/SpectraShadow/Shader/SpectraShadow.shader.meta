@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e5ce86458f9d01a4aafea186db86dc98
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shader/SpectraShadow.shader
+  uploadId: 871002

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c315cf80800874042a2b1b10dc7f8236
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Docs/Notices.txt
+  uploadId: 866726

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 876dc399e05e80e48a3d4a614c46c657
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Demo/Main Camera Profile.asset
+  uploadId: 866726

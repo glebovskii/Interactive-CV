@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d64ea38fb2969324fabd13543cf47ea7
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 375996
+  packageName: Prymara Post Procsss
+  packageVersion: 1.1
+  assetPath: Assets/Prymara/Scripts/URP/Prymara.URP.asmdef
+  uploadId: 957826

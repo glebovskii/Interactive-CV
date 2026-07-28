@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4fe826eb50a607c4e8914b7ea3c7ad5e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 60072b568d64c40a485e0fc55012dc9f, type: 3}
+  documentationPath: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 375996
+  packageName: Prymara Post Procsss
+  packageVersion: 1.1
+  assetPath: Assets/Prymara/Shader/Shared/Grid.shadersubgraph
+  uploadId: 957826

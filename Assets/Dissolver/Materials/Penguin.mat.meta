@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c0671294ce798df4a88692b95a3c7af6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Materials/Penguin.mat
+  uploadId: 866726

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 30cbf9fae5c97dd4e9d69e0dd92e3b8a
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shader/MyGlobalIllumination.hlsl
+  uploadId: 871002

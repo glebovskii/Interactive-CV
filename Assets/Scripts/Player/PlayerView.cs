@@ -24,6 +24,10 @@ public class PlayerView : MonoBehaviour
     private PlayerUI playerUI;
 
     public bool IsLocalPlayer { get; private set; }
+    public SkinnedMeshRenderer Renderer => renderer;
+
+    private Material cachedMaterial;
+
 
     private int SpeedId = Animator.StringToHash("Speed");
 
@@ -45,6 +49,7 @@ public class PlayerView : MonoBehaviour
             playerTrigger.TriggerExit += OnTriggerExitPlayer;
         }
         renderer.material.color = playerMovement.Color;
+        cachedMaterial = renderer.material;
 
         InitPlayerCameraController();
         InitPlayerUI();
@@ -114,5 +119,10 @@ public class PlayerView : MonoBehaviour
             return;
 
         playerCameraController.CinemachineTargetGroup.RemoveMember(panel);
+    }
+
+    public void ResetMaterial()
+    {
+        renderer.material = cachedMaterial;
     }
 }

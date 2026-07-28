@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d1905808556e5a844b73bbded6074590
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Prefabs/ExampleHolder.prefab
+  uploadId: 866726

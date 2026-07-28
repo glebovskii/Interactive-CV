@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3686f7f193eed2c4c8bc67d75e4f63e0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Scripts/Demo/ExampleHolder.cs
+  uploadId: 866726

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e2dd6273de493904dbb38db90746b427
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364564
+  packageName: Spectra Shadow
+  packageVersion: 1.0
+  assetPath: Assets/SpectraShadow/Shader/MyShadows.hlsl
+  uploadId: 871002

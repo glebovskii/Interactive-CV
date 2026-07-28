@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0153fbe43d47e954b8b36bb411829e53
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304081
+  packageName: Dissolver
+  packageVersion: 1.0.1
+  assetPath: Assets/Dissolver/Scripts/Demo/CameraMover.cs
+  uploadId: 866726
