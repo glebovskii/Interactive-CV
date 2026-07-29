@@ -25,10 +25,11 @@ public class DissolverRoomView : MonoBehaviour, IView
 
     private void Hide(PlayerView view)
     {
-        //if (!view.IsLocalPlayer)
-            //return;
-
         view.ResetMaterial();
+        if (!view.IsLocalPlayer)
+            return;
+
+        controller.Hide();
     }
 
     public void Hide()

@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDissolveController
   dissolveMat: {fileID: 2100000, guid: 64400827e8a55ed429228c2ed6367be6, type: 2}
+  dissolveShader: {fileID: -6465566751694194690, guid: a12058d26497cd24ca733c1288949574, type: 3}
   _Dissolve: 0
   _EdgeWidth: 0
   _Axis: 0

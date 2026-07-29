@@ -1,11 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
-    <ui:Button name="asset-store-link" class="link-tile">
-        <ui:VisualElement class="social-icon social-icon--asset-store accent-tint"/>
-        <ui:VisualElement class="link-copy">
-            <ui:Label text="Unity Asset Store" class="link-title"/>
-            <ui:Label text="Published tools and shaders" class="link-subtitle"/>
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/LinkIcon.uss?fileID=7433441132597879392&amp;guid=5f9c93b2541056145b5d9a14e6d5d8ba&amp;type=3#LinkIcon"/>
+    <ui:Button name="link" class="link-orb">
+        <ui:VisualElement picking-mode="Ignore" class="link-orb__fill-mask">
+            <ui:VisualElement name="fill" picking-mode="Ignore" class="link-orb__fill" style="height: 0%;"/>
         </ui:VisualElement>
-        <ui:Label text="↗" class="link-arrow"/>
+        <ui:VisualElement name="asset-store-icon" picking-mode="Ignore" class="link-orb__icon" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Icons/asset_store.svg?fileID=7388822144124034973&amp;guid=58ec9865e528f614eb0da6f1bfacb15b&amp;type=3#asset_store&quot;);"/>
     </ui:Button>
 </ui:UXML>

@@ -45,20 +45,20 @@ public class PlayerView : MonoBehaviour
     public void Init(bool isLocalPlayer)
     {
         this.IsLocalPlayer = isLocalPlayer;
+        renderer.material.color = playerMovement.Color;
+        cachedMaterial = renderer.material;
 
         if (isLocalPlayer)
         {
             playerTrigger.TriggerEnter += OnTriggerEnterPlayer;
             playerTrigger.TriggerExit += OnTriggerExitPlayer;
         }
-        renderer.material.color = playerMovement.Color;
-        cachedMaterial = renderer.material;
 
+        dissolveController.Init(Renderer);
         InitPlayerCameraController();
         InitPlayerUI();
         playerUI.SetVisible(isLocalPlayer);
 
-        dissolveController.Init(Renderer);
     }
 
     private void OnTriggerExitPlayer(PlayerView playerView)

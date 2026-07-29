@@ -25,18 +25,17 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _AXIS_Y
+  - _AXIS_X
   - _BUILTIN_ALPHATEST_ON
   - _BUILTIN_AlphaClip
   - _DIRECTION_FORWARD
-  - _NOISE_SIMPLE
+  - _NOISE_GRADIENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: TransparentCutout
+  m_CustomRenderQueue: 2450
+  stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -114,7 +113,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _AngleOffset: 56.65
-    - _AxisProp: 1
+    - _AxisProp: 0
     - _BUILTIN_AlphaClip: 1
     - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 0
@@ -129,6 +128,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
+    - _CastShadows: 1
     - _CellDensity: 21.79
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -139,10 +139,10 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DirectionProp: 0
-    - _Dissolve: 1.86
+    - _Dissolve: 0.23
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _EdgeWidth: 0.726
+    - _EdgeWidth: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -166,12 +166,14 @@ Material:
     - _TimeScale: 12
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
+    - _ZTest: 4
     - _ZWrite: 1
+    - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 0.8867924, g: 0.7144535, b: 0.7144535, a: 1}
+    - _BaseColor: {r: 1, g: 0.9656368, b: 0.18134046, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Direction: {r: 0, g: 0, b: 0, a: 0}
-    - _Emission: {r: 3.935918, g: 3.477775, b: 0, a: 0}
+    - _Emission: {r: 2.6449687, g: 0.14714785, b: 3.3908072, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

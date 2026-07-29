@@ -2,6 +2,7 @@ using Fusion;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerDissolveController : NetworkBehaviour
 {
@@ -35,7 +36,8 @@ public class PlayerDissolveController : NetworkBehaviour
             "Back"
         };
 
-    [SerializeField] private Material dissolveMat;
+    private Material dissolveMat;
+    [SerializeField] private Shader dissolveShader;
 
     [Networked, OnChangedRender("OnDissolveChange")] public float Dissolve { get; set; }
     [Networked, OnChangedRender("OnEdgeWidthChange")] public float EdgeWidth { get; set; }
@@ -44,11 +46,25 @@ public class PlayerDissolveController : NetworkBehaviour
 
     public void Init(SkinnedMeshRenderer renderer)
     {
-        dissolveMat.SetColor(baseColorId, renderer.material.color);
-        Dissolve = dissolveMat.GetFloat(DissolveProp);
-        EdgeWidth = dissolveMat.GetFloat(EdgeWidthProp);
-        Axis = 1;
-        Direction = 0;
+        
+    }
+
+    public override void Spawned()
+    {
+        dissolveMat = new Material(dissolveShader);
+        dissolveMat.SetColor(baseColorId, GetComponent<PlayerView>().Renderer.material.color);
+        if (HasStateAuthority)
+        {
+            Dissolve = dissolveMat.GetFloat(DissolveProp);
+            EdgeWidth = dissolveMat.GetFloat(EdgeWidthProp);
+            Axis = 1;
+            Direction = 0;
+
+            OnDirectionChange();
+            OnAxisChange();
+            OnDissolveChange();
+            OnEdgeWidthChange();
+        }
     }
 
     private void OnDissolveChange()

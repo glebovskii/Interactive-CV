@@ -3,7 +3,6 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UIElements;
 
-[RequireComponent(typeof(PanelRevealAnimation))]
 public sealed class PanelUI : MonoBehaviour
 {
     [SerializeField] private PanelRenderer panelRenderer;

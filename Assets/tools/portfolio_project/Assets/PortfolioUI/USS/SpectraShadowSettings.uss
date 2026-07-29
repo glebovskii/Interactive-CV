@@ -1,0 +1,79 @@
+/*
+ * Spectra Shadow-specific layout.
+ * Shared typography, button, row, slider, and single-content styles come from
+ * ShaderSettings.uss and DissolverSettings.uss-style shared class names.
+ */
+.spectra-shadow-settings-card {
+    height: 78%;
+}
+
+.spectra-shadow-content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+
+    padding: 20px 22px 18px 22px;
+
+    background-color: rgba(7, 13, 22, 0.38);
+
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+
+    border-left-color: rgba(168, 187, 211, 0.12);
+    border-right-color: rgba(168, 187, 211, 0.12);
+    border-top-color: rgba(168, 187, 211, 0.12);
+    border-bottom-color: rgba(168, 187, 211, 0.12);
+
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.spectra-shadow-fields {
+    flex-grow: 1;
+}
+
+.spectra-shadow-group-title {
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding-left: 8px;
+
+    font-size: 17px;
+    -unity-font-style: bold;
+    color: rgb(205, 238, 242);
+}
+
+.spectra-shadow-color-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 12px;
+    margin-bottom: 4px;
+    padding-right: 8px;
+}
+
+.spectra-shadow-color-preview {
+    width: 78px;
+    height: 28px;
+
+    background-color: rgb(255, 255, 255);
+
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+
+    border-left-color: rgba(225, 239, 250, 0.44);
+    border-right-color: rgba(225, 239, 250, 0.44);
+    border-top-color: rgba(225, 239, 250, 0.44);
+    border-bottom-color: rgba(225, 239, 250, 0.44);
+
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}

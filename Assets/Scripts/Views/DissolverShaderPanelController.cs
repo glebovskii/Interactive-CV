@@ -15,19 +15,18 @@ namespace Dissolver
 
         private PlayerDissolveController dissolveController;
 
+        private void Awake()
+        {
+            if (panelRenderer == null)
+                panelRenderer = GetComponent<PanelRenderer>();
+
+        }
+
         public void SetPlayer(PlayerDissolveController controller)
         {
             dissolveController = controller;
 
-            if (panelRenderer == null)
-                panelRenderer = GetComponent<PanelRenderer>();
-
-            if (panelRenderer == null)
-            {
-                Debug.LogError($"{nameof(DissolverShaderPanelController)} requires a PanelRenderer.", this);
-
-                return;
-            }
+            UnbindUI();
             panelRenderer.RegisterUIReloadCallback(OnUIReload);
         }
 
@@ -42,6 +41,9 @@ namespace Dissolver
         private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
         {
             UnbindUI();
+
+            if (dissolveController == null || !dissolveController.HasStateAuthority)
+                return;
 
             BindEdge(root, "slider-edge-width");
 
@@ -144,6 +146,11 @@ namespace Dissolver
             }
 
             unbindActions.Clear();
+        }
+
+        public void Hide()
+        {
+            UnbindUI();
         }
     }
 }

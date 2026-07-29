@@ -1,0 +1,76 @@
+.link-orb {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    min-height: 72px;
+    max-width: 72px;
+    max-height: 72px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: none;
+    background-color: rgba(8, 15, 24, 0.72);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(108, 221, 211, 0.68);
+    border-right-color: rgba(108, 221, 211, 0.68);
+    border-top-color: rgba(108, 221, 211, 0.68);
+    border-bottom-color: rgba(108, 221, 211, 0.68);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transition-property: background-color, border-left-color, border-right-color, border-top-color, border-bottom-color;
+    transition-duration: 160ms;
+    transition-timing-function: ease-out;
+}
+
+
+
+
+
+.link-orb__fill-mask {
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+    overflow: hidden;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.link-orb__fill {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0%;
+    background-color: rgba(77, 212, 199, 0.34);
+    transition-property: height;
+    transition-duration: 180ms;
+    transition-timing-function: ease-out;
+}
+
+.link-orb__icon {
+    position: absolute;
+    left: 17px;
+    right: 17px;
+    top: 17px;
+    bottom: 17px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    background-image: url("project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/Icons/AssetStoreIcon.svg");
+    -unity-background-scale-mode: scale-to-fit;
+}
