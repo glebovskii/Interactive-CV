@@ -88,13 +88,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _AberrationMinDepth: 0
-    - _Alpha: 0.021
+    - _Alpha: 0.387
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
     - _Density: 0
-    - _EdgePower: 0.33
-    - _Edge_Strength: 1.52
-    - _FrameComparison: 0.238
+    - _EdgePower: 0.12
+    - _Edge_Strength: 13.8
+    - _FrameComparison: 1
     - _Fullscreen_AlphaBlendOperation: 0
     - _Fullscreen_BlendMode: 1
     - _Fullscreen_ColorBlendOperation: 0
@@ -112,55 +112,55 @@ Material:
     - _Fullscreen_StencilReadMask: 255
     - _Fullscreen_StencilReference: 0
     - _Fullscreen_StencilWriteMask: 255
-    - _GridSize: 122
+    - _GridSize: 1
     - _GridSoftness: -3.8
-    - _Hardness: 1
+    - _Hardness: 20
     - _INVERTALPHA: 0
-    - _Kernel_Size: 9.8
-    - _KuwaharaMinDepth: 0
-    - _Kuwahara_Alpha: 1.25
+    - _Kernel_Size: 4
+    - _KuwaharaMinDepth: 1000
+    - _Kuwahara_Alpha: 0.766
     - _MaxDepthVal: 1000
-    - _MinDepth: 0.37
+    - _MinDepth: 1000
     - _MinDepthVal: 0
     - _Min_Edge: 0.82
-    - _Min_Edge_Depth: 1.76
-    - _OffsetBlue: 0
-    - _OffsetGreen: 0
-    - _OffsetRed: 0
-    - _Oil_Radius: 1.72
-    - _Oil_minDepth: 7.5
-    - _Oil_thickness: 4.79
-    - _Q: 0.8
+    - _Min_Edge_Depth: 50
+    - _OffsetBlue: 0.0434
+    - _OffsetGreen: -0.041
+    - _OffsetRed: 0.03
+    - _Oil_Radius: 2.65
+    - _Oil_minDepth: 0
+    - _Oil_thickness: 1.78
+    - _Q: 13.9
     - _QueueControl: -1
     - _QueueOffset: 0
     - _Radius: 4.96
     - _Size: 2.69
     - _Smoothness: 0
-    - _Softness: 0.13
-    - _Thickness: 0.592
-    - _Threshold: 0.824
+    - _Softness: 0.07
+    - _Thickness: 0.12
+    - _Threshold: 0.66
     - _USE_ABERRATION: 0
     - _USE_EDGE: 1
     - _USE_GRID: 0
     - _USE_GRID_TEXTURE: 0
     - _USE_KUWAHARA: 0
     - _USE_OIL: 0
-    - _Zero_crossing: 1.97
-    - _Zeta: 0.84
+    - _Zero_crossing: 180
+    - _Zeta: 7.08
     - _centreOffset: 0.0022
     - _comparer: 0.545
     - _frameComparison: 0.5
     - _gridSize: 53.5
-    - _n: 5.01
+    - _n: 10
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0.835309, a: 1}
     - _EdgeColor: {r: 0.01938888, g: 0.8867924, b: 0, a: 1}
     - _EdgeColor_1: {r: 0, g: 0, b: 0, a: 1}
     - _FarEdgeColor: {r: 0.020754695, g: 1, b: 0.9745751, a: 1}
-    - _FarGridColor: {r: 0.025952289, g: 0.0980476, b: 0.10188681, a: 1}
+    - _FarGridColor: {r: 0.17598432, g: 0.8350815, b: 0.87169814, a: 1}
     - _GridColor: {r: 0.002370916, g: 0.1697723, b: 0.4188679, a: 1}
-    - _NearEdgeColor: {r: 0, g: 0.381132, b: 0.3403055, a: 1}
-    - _NearGridColor: {r: 0.019743668, g: 0.16351917, b: 0.17735851, a: 1}
+    - _NearEdgeColor: {r: 0.8792453, g: 0.35802788, b: 0.13769306, a: 1}
+    - _NearGridColor: {r: 0.18260586, g: 0.8828464, b: 0.93962264, a: 1}
     - _OffsetBlue: {r: 0.03, g: 0, b: 0, a: 0}
     - _OffsetGreen: {r: -1, g: 0, b: 0, a: 0}
     - _OffsetRed: {r: 1, g: 0, b: 0, a: 0}

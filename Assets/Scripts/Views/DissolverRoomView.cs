@@ -1,14 +1,11 @@
+using Dissolver;
 using UnityEngine;
 
 public class DissolverRoomView : MonoBehaviour, IView
 {
     [SerializeField] private PlayerTrigger playerTrigger;
 
-    [SerializeField] private Material dissolveMat;
-
-    private Material defaultMat;
-
-    private int baseColorId = Shader.PropertyToID("_BaseColor");
+    [SerializeField] private DissolverShaderPanelController controller;
 
     private void Awake()
     {
@@ -20,12 +17,10 @@ public class DissolverRoomView : MonoBehaviour, IView
 
     private void Show(PlayerView view)
     {
-        //if (!view.IsLocalPlayer)
-        //    return;
+        if (!view.IsLocalPlayer)
+            controller.SetPlayer(view.DissolveController);
 
-        defaultMat = view.Renderer.material;
-        view.Renderer.material = dissolveMat;
-        view.Renderer.material.SetColor(baseColorId, defaultMat.color);
+        view.SetDissolveMaterial();
     }
 
     private void Hide(PlayerView view)

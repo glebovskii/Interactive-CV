@@ -25,11 +25,11 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _AXIS_Y
+  - _AXIS_X
   - _BUILTIN_ALPHATEST_ON
   - _BUILTIN_AlphaClip
-  - _DIRECTION_FORWARD
-  - _NOISE_SIMPLE
+  - _DIRECTION_BACK
+  - _NOISE_FROM_TEXTURE
   m_InvalidKeywords:
   - _EMISSION
   m_LightmapFlags: 2

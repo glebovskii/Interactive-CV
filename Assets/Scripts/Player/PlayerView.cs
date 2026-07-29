@@ -18,6 +18,7 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private SkinnedMeshRenderer renderer;
 
     [SerializeField] private PlayerTrigger playerTrigger;
+    [SerializeField] private PlayerDissolveController dissolveController;
 
 
     private PlayerCameraController playerCameraController;
@@ -124,5 +125,10 @@ public class PlayerView : MonoBehaviour
     public void ResetMaterial()
     {
         renderer.material = cachedMaterial;
+    }
+
+    public void SetDissolveMaterial()
+    {
+        dissolveController.SetDissolveMaterial(Renderer);
     }
 }

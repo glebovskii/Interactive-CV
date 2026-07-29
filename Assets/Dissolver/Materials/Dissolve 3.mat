@@ -38,7 +38,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _AXIS_Y
+  - _AXIS_X
   - _BUILTIN_ALPHATEST_ON
   - _BUILTIN_AlphaClip
   - _DIRECTION_FORWARD

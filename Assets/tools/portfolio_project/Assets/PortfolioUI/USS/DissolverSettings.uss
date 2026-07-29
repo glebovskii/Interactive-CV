@@ -1,0 +1,86 @@
+/*
+ * Additional layout for the single-page Dissolver settings document.
+ * Shared typography, header, sliders, and project-button styles come from
+ * ShaderSettings.uss.
+ */
+.dissolver-settings-card {
+    height: 62%;
+    min-height: 440px;
+    max-height: 580px;
+}
+
+.shader-single-content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+
+    padding: 20px 22px 18px 22px;
+
+    background-color: rgba(7, 13, 22, 0.38);
+
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+
+    border-left-color: rgba(168, 187, 211, 0.12);
+    border-right-color: rgba(168, 187, 211, 0.12);
+    border-top-color: rgba(168, 187, 211, 0.12);
+    border-bottom-color: rgba(168, 187, 211, 0.12);
+
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.shader-single-heading-row {
+    flex-direction: row;
+    align-items: center;
+
+    margin-bottom: 14px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.dissolver-fields {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.shader-dropdown {
+    flex-grow: 1;
+    min-width: 280px;
+    height: 34px;
+}
+
+.shader-dropdown > .unity-base-field__input {
+    min-height: 34px;
+
+    color: rgb(238, 246, 252);
+    background-color: rgba(255, 255, 255, 0.045);
+
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+
+    border-left-color: rgba(168, 187, 211, 0.22);
+    border-right-color: rgba(168, 187, 211, 0.22);
+    border-top-color: rgba(168, 187, 211, 0.22);
+    border-bottom-color: rgba(168, 187, 211, 0.22);
+
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.shader-dropdown:hover > .unity-base-field__input {
+    background-color: rgba(59, 205, 190, 0.09);
+
+    border-left-color: rgba(59, 205, 190, 0.48);
+    border-right-color: rgba(59, 205, 190, 0.48);
+    border-top-color: rgba(59, 205, 190, 0.48);
+    border-bottom-color: rgba(59, 205, 190, 0.48);
+}
