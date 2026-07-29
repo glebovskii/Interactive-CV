@@ -123,7 +123,7 @@ Material:
     - _MinDepth: 1000
     - _MinDepthVal: 0
     - _Min_Edge: 0.82
-    - _Min_Edge_Depth: 50
+    - _Min_Edge_Depth: 0
     - _OffsetBlue: 0.0434
     - _OffsetGreen: -0.041
     - _OffsetRed: 0.03

@@ -42,9 +42,13 @@ public class PlayerDissolveController : NetworkBehaviour
     [Networked, OnChangedRender("OnAxisChange")] public int Axis { get; set; }
     [Networked, OnChangedRender("OnDirectionChange")] public int Direction { get; set; }
 
-    public override void Spawned()
+    public void Init(SkinnedMeshRenderer renderer)
     {
-        dissolveMat.SetColor(baseColorId, GetComponent<SkinnedMeshRenderer>().material.color);
+        dissolveMat.SetColor(baseColorId, renderer.material.color);
+        Dissolve = dissolveMat.GetFloat(DissolveProp);
+        EdgeWidth = dissolveMat.GetFloat(EdgeWidthProp);
+        Axis = 1;
+        Direction = 0;
     }
 
     private void OnDissolveChange()

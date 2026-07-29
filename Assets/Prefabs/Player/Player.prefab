@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7826994490954851516}
   - component: {fileID: 4936536806661504634}
   - component: {fileID: 7511645092575362281}
+  - component: {fileID: 7212550310696207308}
   - component: {fileID: 8333996507032165700}
   m_Layer: 6
   m_Name: Player
@@ -84,6 +85,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 8508008017542183307}
   - {fileID: 4936536806661504634}
+  - {fileID: 7212550310696207308}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &8508008017542183307
 MonoBehaviour:
@@ -190,6 +192,24 @@ MonoBehaviour:
   cameraTarget: {fileID: 3786555910457558082}
   renderer: {fileID: 2552364403198309420}
   playerTrigger: {fileID: 3385221223788103399}
+  dissolveController: {fileID: 7212550310696207308}
+--- !u!114 &7212550310696207308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383688313207201357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16f2e3636ea1b3489934c2885bf6539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDissolveController
+  dissolveMat: {fileID: 2100000, guid: 64400827e8a55ed429228c2ed6367be6, type: 2}
+  _Dissolve: 0
+  _EdgeWidth: 0
+  _Axis: 0
+  _Direction: 0
 --- !u!54 &8333996507032165700
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -57,6 +57,8 @@ public class PlayerView : MonoBehaviour
         InitPlayerCameraController();
         InitPlayerUI();
         playerUI.SetVisible(isLocalPlayer);
+
+        dissolveController.Init(Renderer);
     }
 
     private void OnTriggerExitPlayer(PlayerView playerView)

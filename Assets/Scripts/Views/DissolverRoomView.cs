@@ -17,7 +17,7 @@ public class DissolverRoomView : MonoBehaviour, IView
 
     private void Show(PlayerView view)
     {
-        if (!view.IsLocalPlayer)
+        if (view.IsLocalPlayer)
             controller.SetPlayer(view.DissolveController);
 
         view.SetDissolveMaterial();
