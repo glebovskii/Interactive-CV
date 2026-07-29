@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace Dissolver
 {
@@ -50,7 +49,7 @@ namespace Dissolver
 
             BindAxis(root, "dropdown-dissolve-direction", PlayerDissolveController.AxisChoices, dissolveController.Axis);
 
-            BindDirection(root, "dropdown-dissolve-start", StartDirectionChoices, dissolveController.Direction);
+            BindDirection(root, "dropdown-dissolve-start", PlayerDissolveController.StartDirectionChoices, dissolveController.Direction);
         }
 
         private void BindDissolve(VisualElement root, string controlName)
@@ -135,45 +134,6 @@ namespace Dissolver
             dropdown.RegisterValueChangedCallback(callback);
 
             unbindActions.Add(() => dropdown.UnregisterValueChangedCallback(callback));
-        }
-
-        private int GetSelectedIndex(int propertyId, string[] keywords)
-        {
-            for (int index = 0; index < keywords.Length; index++)
-            {
-                if (targetMaterial.IsKeywordEnabled(keywords[index]))
-                    return index;
-            }
-
-            if (targetMaterial.HasProperty(propertyId))
-            {
-                return Mathf.RoundToInt(targetMaterial.GetFloat(propertyId));
-            }
-
-            return 0;
-        }
-
-        private void SetStartDirection(int selectedIndex)
-        {
-            selectedIndex = Mathf.Clamp(selectedIndex, 0, StartDirectionKeywords.Length - 1);
-
-            if (targetMaterial.HasProperty(StartDirectionProperty))
-            {
-                targetMaterial.SetFloat(StartDirectionProperty, selectedIndex);
-            }
-
-            SetExclusiveKeyword(StartDirectionKeywords, selectedIndex);
-        }
-
-        private void SetExclusiveKeyword(string[] keywords, int enabledIndex)
-        {
-            for (int index = 0; index < keywords.Length; index++)
-            {
-                if (index == enabledIndex)
-                    targetMaterial.EnableKeyword(keywords[index]);
-                else
-                    targetMaterial.DisableKeyword(keywords[index]);
-            }
         }
 
         private void UnbindUI()

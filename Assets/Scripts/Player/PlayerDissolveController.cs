@@ -23,13 +23,13 @@ public class PlayerDissolveController : NetworkBehaviour
             "_DIRECTION_FORWARD",
             "_DIRECTION_BACK"
         };
-    private static readonly List<string> AxisChoices = new()
+    public static readonly List<string> AxisChoices = new()
         {
             "X",
             "Y",
             "Z"
         };
-    private static readonly List<string> StartDirectionChoices = new()
+    public static readonly List<string> StartDirectionChoices = new()
         {
             "Forward",
             "Back"

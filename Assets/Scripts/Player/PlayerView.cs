@@ -20,6 +20,8 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private PlayerTrigger playerTrigger;
     [SerializeField] private PlayerDissolveController dissolveController;
 
+    public PlayerDissolveController DissolveController => dissolveController;
+
 
     private PlayerCameraController playerCameraController;
     private PlayerUI playerUI;
