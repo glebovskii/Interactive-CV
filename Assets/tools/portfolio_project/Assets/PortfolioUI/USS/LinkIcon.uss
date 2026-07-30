@@ -55,6 +55,6 @@
     width: auto;
     height: auto;
     margin: 0;
-    background-image: url("project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/Icons/AssetStoreIcon.svg");
+    /* background-image: url("project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/Icons/AssetStoreIcon.svg"); */
     -unity-background-scale-mode: scale-to-fit;
 }

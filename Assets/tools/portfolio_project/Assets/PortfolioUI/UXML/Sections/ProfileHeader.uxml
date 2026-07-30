@@ -5,7 +5,7 @@
             <ui:Label text="HZ" class="profile-monogram__text"/>
         </ui:VisualElement>
         <ui:VisualElement class="profile-copy">
-            <ui:Label text="Hlib Zadachyn" class="profile-name"/>
+            <ui:Label text="Hlib Zadachyn" class="profile-name" style="width: 191px; flex-direction: column; justify-content: flex-start; align-items: auto; align-self: auto; align-content: auto;"/>
             <ui:Label text="Unity Developer · Technical Art · Optimization" class="profile-role"/>
             <ui:VisualElement class="chip-row">
                 <ui:Label text="4+ years" class="chip"/>

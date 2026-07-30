@@ -35,6 +35,10 @@ public sealed class TriggerLinkController : MonoBehaviour
         StopIdle();
     }
 
+    private void Update()
+    {
+        transform.rotation = Camera.main.transform.rotation;
+    }
     private void OnDestroy()
     {
         StopIdle();

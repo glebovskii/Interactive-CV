@@ -3,17 +3,17 @@
     <ui:VisualElement name="panel-root" class="section-card">
         <ui:Label text="Independent Work" class="section-title"/>
         <ui:VisualElement class="bullet-row">
-            <ui:VisualElement class="bullet-dot"/>
+            <ui:VisualElement class="bullet-dot" style="align-self: center;"/>
             <ui:Label text="Freelance asset developer producing technical and visual tools for Unity projects." class="bullet-text"/>
         </ui:VisualElement>
         <ui:VisualElement class="bullet-row">
-            <ui:VisualElement class="bullet-dot"/>
+            <ui:VisualElement class="bullet-dot" style="align-self: center;"/>
             <ui:Label text="Published shader and editor-tool assets on the Unity Asset Store." class="bullet-text"/>
         </ui:VisualElement>
         <ui:VisualElement class="bullet-row">
-            <ui:VisualElement class="bullet-dot"/>
+            <ui:VisualElement class="bullet-dot" style="align-self: center;"/>
             <ui:Label text="Created and published the Photon Fusion multiplayer project Art Guard." class="bullet-text"/>
         </ui:VisualElement>
-        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" />
-    </ui:VisualElement>
+     <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
+        </ui:VisualElement>
 </ui:UXML>
