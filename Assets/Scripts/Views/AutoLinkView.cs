@@ -1,0 +1,62 @@
+using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class AutoLinkView : MonoBehaviour
+{
+    [SerializeField] private Link link;
+    [SerializeField] private float totalTime = 2f;
+    [SerializeField] private PlayerTrigger playerTrigger;
+    [SerializeField] private TriggerLinkController linkController;
+
+    private IEnumerator routine;
+
+    private void OnEnable()
+    {
+        routine = LinkRoutine();
+
+        linkController.SetFill(0.22f);
+
+        playerTrigger.TriggerEnter += TriggerEnter;
+        playerTrigger.TriggerExit += TriggerExit;
+    }
+
+    private void TriggerEnter(PlayerView view)
+    {
+        if (!view.IsLocalPlayer)
+            return;
+
+        routine = LinkRoutine();
+        StartCoroutine(routine);
+    }
+
+    private IEnumerator LinkRoutine()
+    {
+        float time = 0;
+        linkController.SetFill(0);
+        while (time < totalTime)
+        {
+            linkController.SetFill(time / totalTime);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        //yield return null;
+        linkController.SetFill(1);
+        link.OpenLink();
+    }
+
+    private void TriggerExit(PlayerView view)
+    {
+        if (!view.IsLocalPlayer)
+            return;
+
+        StopCoroutine(routine);
+        linkController.SetFill(0);
+    }
+
+    private void OnDisable()
+    {
+        playerTrigger.TriggerEnter -= TriggerEnter;
+        playerTrigger.TriggerExit -= TriggerExit;
+    }
+}

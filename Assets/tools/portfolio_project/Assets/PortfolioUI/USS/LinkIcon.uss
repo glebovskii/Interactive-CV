@@ -28,38 +28,22 @@
     border-top-right-radius: 50%;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
-    transition-property: background-color, border-left-color, border-right-color, border-top-color, border-bottom-color;
-    transition-duration: 160ms;
-    transition-timing-function: ease-out;
 }
 
-
-
-
-
 .link-orb__fill-mask {
-    position: absolute;
-    left: 2px;
-    right: 2px;
-    top: 2px;
-    bottom: 2px;
+    position: relative;
     overflow: hidden;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
 }
 
 .link-orb__fill {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 0%;
-    background-color: rgba(77, 212, 199, 0.34);
-    transition-property: height;
-    transition-duration: 180ms;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    scale: 0 0;
+    transition-property: scale;
+    transition-duration: 220ms;
     transition-timing-function: ease-out;
+    background-color: rgba(77, 212, 199, 0.34);
 }
 
 .link-orb__icon {

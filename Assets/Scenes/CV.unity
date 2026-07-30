@@ -837,6 +837,7 @@ GameObject:
   - component: {fileID: 352975809}
   - component: {fileID: 352975811}
   - component: {fileID: 352975810}
+  - component: {fileID: 352975812}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -916,6 +917,28 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &352975812
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352975808}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &359426618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,8 +1525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  panelRenderer: {fileID: 595208950}
   link: https://play.google.com/store/apps/developer?id=Optor+Group
+  checkLinkValidOnClick: 1
+  panelRenderer: {fileID: 595208950}
 --- !u!4 &595208952
 Transform:
   m_ObjectHideFlags: 0
@@ -1643,6 +1667,9 @@ GameObject:
   m_Component:
   - component: {fileID: 685371837}
   - component: {fileID: 685371834}
+  - component: {fileID: 685371839}
+  - component: {fileID: 685371838}
+  - component: {fileID: 685371840}
   m_Layer: 0
   m_Name: LinkView
   m_TagString: Untagged
@@ -1665,7 +1692,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1690,6 +1717,48 @@ Transform:
   - {fileID: 352975809}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &685371838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685371833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Link
+  link: https://assetstore.unity.com/publishers/105938
+  checkLinkValidOnClick: 0
+--- !u!114 &685371839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685371833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a653df3458cd20408b68a37380c1566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
+  link: {fileID: 685371838}
+  totalTime: 2
+  playerTrigger: {fileID: 685371840}
+  linkController: {fileID: 1009674232}
+--- !u!114 &685371840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685371833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9467363220cdf04ead3bcd07aed5979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
 --- !u!1 &715001829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,8 +2062,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  panelRenderer: {fileID: 739124884}
   link: https://apps.apple.com/ua/app/last-pirate-survival-island/id1449724605
+  checkLinkValidOnClick: 1
+  panelRenderer: {fileID: 739124884}
 --- !u!4 &739124886
 Transform:
   m_ObjectHideFlags: 0
@@ -2349,8 +2419,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  panelRenderer: {fileID: 898442552}
   link: https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/prymara-post-procsss-375996
+  checkLinkValidOnClick: 1
+  panelRenderer: {fileID: 898442552}
 --- !u!114 &898442551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2529,8 +2600,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1009674228}
   - component: {fileID: 1009674231}
-  - component: {fileID: 1009674230}
-  - component: {fileID: 1009674229}
   - component: {fileID: 1009674232}
   m_Layer: 5
   m_Name: UI
@@ -2554,38 +2623,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 685371837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1009674229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009674227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  panelRenderer: {fileID: 1009674231}
-  link: https://assetstore.unity.com/packages/vfx/shaders/spectra-shadow-364564
---- !u!114 &1009674230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009674227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 1009674231}
-  panelRevealAnimation: {fileID: 0}
-  maximumXTilt: 17.5
-  maximumYTilt: 29.4
-  rotationSmoothness: 1
-  frontFacesNegativeZ: 1
 --- !u!1931382934 &1009674231
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -2785,8 +2822,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  panelRenderer: {fileID: 1319712759}
   link: https://assetstore.unity.com/packages/vfx/shaders/dissolver-304081
+  checkLinkValidOnClick: 1
+  panelRenderer: {fileID: 1319712759}
 --- !u!114 &1319712758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3210,8 +3248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  panelRenderer: {fileID: 1396108781}
   link: https://assetstore.unity.com/packages/vfx/shaders/spectra-shadow-364564
+  checkLinkValidOnClick: 1
+  panelRenderer: {fileID: 1396108781}
 --- !u!4 &1396108784
 Transform:
   m_ObjectHideFlags: 0
@@ -3350,8 +3389,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  panelRenderer: {fileID: 1488326343}
   link: https://corepunk.com/en-gb
+  checkLinkValidOnClick: 1
+  panelRenderer: {fileID: 1488326343}
 --- !u!114 &1488326346
 MonoBehaviour:
   m_ObjectHideFlags: 0

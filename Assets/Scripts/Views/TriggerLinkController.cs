@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(PanelRenderer))]
-public sealed class LinkOrbController : MonoBehaviour
+public sealed class TriggerLinkController : MonoBehaviour
 {
     [SerializeField] private PanelRenderer panelRenderer;
-    [SerializeField] private string buttonName = "asset-store-link";
-    [SerializeField] private string fillName = "asset-store-fill";
+    [SerializeField] private string buttonName = "link";
+    [SerializeField] private string fillName = "fill";
     [SerializeField, Min(0f)] private float idleDistance = 3f;
     [SerializeField, Min(0.1f)] private float halfCycleSeconds = 0.9f;
 
@@ -19,13 +19,15 @@ public sealed class LinkOrbController : MonoBehaviour
 
     private void Awake()
     {
-        if (panelRenderer == null) panelRenderer = GetComponent<PanelRenderer>();
+        if (panelRenderer == null) 
+            panelRenderer = GetComponent<PanelRenderer>();
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
     }
 
     private void OnEnable()
     {
-        if (orb != null) StartIdle();
+        if (orb != null) 
+            StartIdle();
     }
 
     private void OnDisable()
@@ -36,13 +38,15 @@ public sealed class LinkOrbController : MonoBehaviour
     private void OnDestroy()
     {
         StopIdle();
-        if (panelRenderer != null) panelRenderer.UnregisterUIReloadCallback(OnUIReload);
+        if (panelRenderer != null) 
+            panelRenderer.UnregisterUIReloadCallback(OnUIReload);
     }
 
     public void SetFill(float value)
     {
         normalizedFill = Mathf.Clamp01(value);
-        if (fill != null) fill.style.height = Length.Percent(normalizedFill * 100f);
+        if (fill != null)
+            fill.style.scale = new Scale(new Vector3(normalizedFill, normalizedFill, 1f));
     }
 
     private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
@@ -50,18 +54,22 @@ public sealed class LinkOrbController : MonoBehaviour
         StopIdle();
         orb = root.Q<VisualElement>(buttonName);
         fill = root.Q<VisualElement>(fillName);
-        if (fill != null) fill.style.height = Length.Percent(normalizedFill * 100f);
-        if (orb == null) return;
+        if (fill != null)
+            fill.style.scale = new Scale(new Vector3(normalizedFill, normalizedFill, 1f));
 
-        basePosition = orb.transform.position;
-        if (isActiveAndEnabled) StartIdle();
+        if (orb == null) 
+            return;
+
+        basePosition = orb.resolvedStyle.translate;
+        if (isActiveAndEnabled) 
+            StartIdle();
     }
 
     private void StartIdle()
     {
         StopIdle();
-        orb.transform.position = basePosition + Vector3.down * idleDistance;
-        idleTween = DOVirtual.Float(-idleDistance, idleDistance, halfCycleSeconds, y => orb.transform.position = basePosition + Vector3.up * y)
+        orb.style.translate = basePosition + Vector3.down * idleDistance;
+        idleTween = DOVirtual.Float(-idleDistance, idleDistance, halfCycleSeconds, y => orb.style.translate = basePosition + Vector3.up * y)
             .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
     }
 
@@ -69,6 +77,7 @@ public sealed class LinkOrbController : MonoBehaviour
     {
         idleTween?.Kill();
         idleTween = null;
-        if (orb != null) orb.transform.position = basePosition;
+        if (orb != null) 
+            orb.style.translate = basePosition;
     }
 }
