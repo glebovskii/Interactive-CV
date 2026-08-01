@@ -249,10 +249,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3a1aef2ec162043a37cf22f799b813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterGrassInteractor
-  maxHeight: 18.66
   grassLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 264
+  maxHeight: 10.67
+  rayOriginOffset: 0.25
+  minimumMoveDistance: 0.001
+  teleportThreshold: 2
 --- !u!1 &3728992260341715850
 GameObject:
   m_ObjectHideFlags: 0

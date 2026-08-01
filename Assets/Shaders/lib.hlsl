@@ -40,7 +40,7 @@ void Vertex_float(in float3 normal, in float shellIndex, in float shellCount, in
 }
 
 
-void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, out float4 color)
+void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, in float characterPlace, out float4 color)
 {
 				// As explained in the video, this multiplies the uv coordinates to create more strands because it generates more seeds
     float2 newUV = uv * density;
@@ -71,7 +71,7 @@ void Fragment_float(in float2 uv, in float density, in float shellIndex, in floa
 				// and we also modify the thickness and make it thinner as height increases based on the height of the blade occupying this space that way
 				// there aren't like weird hard cutoff tapers, you can try deleting the rand or replacing it with like 1 or something to see how this changes
 				// the appearance of the grass or hair
-    int outsideThickness = (localDistanceFromCenter) > (thickness * (rand - h));
+    int outsideThickness = (localDistanceFromCenter) > (thickness * (rand - h)) || characterPlace > 0;
 				
 				// This culls the pixel if it is outside the thickness of the strand, it also ensures that the base shell is fully opaque that way there aren't
 				// any real holes in the mesh, although there's certainly better ways to do that

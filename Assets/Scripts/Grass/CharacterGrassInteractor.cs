@@ -1,72 +1,103 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-    public class CharacterGrassInteractor : MonoBehaviour
+public sealed class CharacterGrassInteractor : MonoBehaviour
+{
+    [Header("Ground Detection")]
+    [SerializeField] private LayerMask grassLayer;
+    [SerializeField, Min(0.01f)] private float maxHeight = 2f;
+    [SerializeField, Min(0f)] private float rayOriginOffset = 0.25f;
+
+    [Header("Movement")]
+    [SerializeField, Min(0f)] private float minimumMoveDistance = 0.001f;
+    [SerializeField, Min(0.1f)] private float teleportThreshold = 2f;
+
+    public event Action<Vector4> OnWalk;
+
+    private readonly RaycastHit[] hits = new RaycastHit[4];
+
+    private Vector3 previousPosition;
+    private bool hasPreviousPosition;
+
+    private void OnEnable()
     {
-        private const float ColorMax = 256f;
-        private const float RotationMax = 360;
-
-        [Tooltip(
-            "Max distance to check snow material collision. Decrease if character leaves tracks on snow when jumping")]
-        [SerializeField]
-        private float maxHeight = 2f;
-
-        [SerializeField] private LayerMask grassLayer;
-
-
-        Texture2D input;
-        private List<MaterialData> materialData;
-
-        public event Action<Vector4> OnWalk;
-
-        private RaycastHit[] hit = new RaycastHit[1];
-        // private RaycastHit hit;
-
-        private void Awake()
-        {
-
-        }
-
-        public void Init(List<MaterialData> data)
-        {
-            materialData = data;
-        }
-
-        private void FixedUpdate()
-        {
-            Draw();
-        }
-
-        private void Draw()
-        {
-        //UpdateMaterials();
-
-
-        if (Physics.RaycastNonAlloc(new Ray(transform.position, transform.up * -1), hit, float.MaxValue, grassLayer) > 0)
-         //if(Physics.Raycast(new Ray(transform.position + transform.up * 2f, transform.up * -1),  out var hit, maxHeight, grassLayer))
-        {
-            Debug.LogError($"WALK {hit[0].collider.gameObject.name}");
-            OnWalk?.Invoke(new Vector4(hit[0].textureCoord.x, hit[0].textureCoord.y, 0, 0));
-            //Debug.LogError($"WALK {hit.collider.gameObject.name}");
-            //OnWalk?.Invoke(new Vector4(hit.textureCoord.x, hit.textureCoord.y, 0, 0));
-            //UpdateMaterials();
-        }
+        previousPosition = transform.position;
+        hasPreviousPosition = true;
     }
 
-        private void UpdateMaterials()
+    private void LateUpdate()
+    {
+        Draw();
+    }
+
+    private void Draw()
+    {
+        Vector3 currentPosition = transform.position;
+
+        if (!hasPreviousPosition)
         {
-            foreach (var material in materialData)
-            {
-                var playerPos = transform.position;
-                material.Material.SetVector(Player,
-                    new Vector4(playerPos.x, playerPos.z, transform.rotation.eulerAngles.y, 0));
-                material.Material.SetFloat(Dirty, Random.Range(0, 100));
-            }
+            previousPosition = currentPosition;
+            hasPreviousPosition = true;
+            return;
         }
 
-        private static readonly int Player = Shader.PropertyToID("_Player");
-        private static readonly int Dirty = Shader.PropertyToID("_Dirty");
+        Vector3 movement = currentPosition - previousPosition;
+        previousPosition = currentPosition;
 
+        movement = Vector3.ProjectOnPlane(movement, transform.up);
+
+        float movementDistance = movement.magnitude;
+
+        if (movementDistance < minimumMoveDistance)
+            return;
+
+        // Prevent teleports and large network corrections from drawing tracks.
+        if (movementDistance > teleportThreshold)
+            return;
+
+        Vector3 movementDirection = movement / movementDistance;
+        Vector3 origin = currentPosition + transform.up * rayOriginOffset;
+
+        int hitCount = Physics.RaycastNonAlloc(
+            origin,
+            -transform.up,
+            hits,
+            maxHeight,
+            grassLayer,
+            QueryTriggerInteraction.Ignore);
+
+        if (hitCount == 0)
+            return;
+
+        RaycastHit closestHit = default;
+        float closestDistance = float.MaxValue;
+        bool foundMeshCollider = false;
+
+        // RaycastNonAlloc results are not guaranteed to be sorted.
+        for (int i = 0; i < hitCount; i++)
+        {
+            RaycastHit currentHit = hits[i];
+
+            if (currentHit.collider is not MeshCollider)
+                continue;
+
+            if (currentHit.distance >= closestDistance)
+                continue;
+
+            closestHit = currentHit;
+            closestDistance = currentHit.distance;
+            foundMeshCollider = true;
+        }
+
+        if (!foundMeshCollider)
+            return;
+
+        Vector2 uv = closestHit.textureCoord;
+
+        OnWalk?.Invoke(new Vector4(
+            uv.x,
+            uv.y,
+            movementDirection.x,
+            movementDirection.z));
     }
+}
