@@ -33,7 +33,6 @@ public sealed class PlayerMovement : NetworkBehaviour
     [SerializeField]
     private CharacterController characterController;
 
-    [SerializeField]
     private Camera playerCamera;
 
     private PlayerInputReader inputReader;

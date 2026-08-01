@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7511645092575362281}
   - component: {fileID: 7212550310696207308}
   - component: {fileID: 8333996507032165700}
+  - component: {fileID: 8244001945155035591}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -169,7 +170,6 @@ MonoBehaviour:
     m_Bits: 32
   maximumRayDistance: 1000
   characterController: {fileID: 6154703485621114062}
-  playerCamera: {fileID: 0}
   _Velocity: {x: 0, y: 0, z: 0}
   _Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &7511645092575362281
@@ -205,7 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16f2e3636ea1b3489934c2885bf6539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDissolveController
-  dissolveMat: {fileID: 2100000, guid: 64400827e8a55ed429228c2ed6367be6, type: 2}
   dissolveShader: {fileID: -6465566751694194690, guid: a12058d26497cd24ca733c1288949574, type: 3}
   _Dissolve: 0
   _EdgeWidth: 0
@@ -238,6 +237,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8244001945155035591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383688313207201357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3a1aef2ec162043a37cf22f799b813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterGrassInteractor
+  maxHeight: 18.66
+  grassLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3728992260341715850
 GameObject:
   m_ObjectHideFlags: 0

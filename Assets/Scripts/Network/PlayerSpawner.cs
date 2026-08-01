@@ -1,4 +1,5 @@
 using Fusion;
+using System;
 using UnityEngine;
 
 public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
@@ -6,6 +7,13 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
     [SerializeField] private NetworkObject playerPrefab;
 
     private PlayerSpawnPoints spawnPoints;
+
+    public event Action<NetworkObject> OnPlayerSpawned;
+
+    private void Awake()
+    {
+        ServiceLocator.RegisterOrReplace(this);
+    }
 
     void IPlayerJoined.PlayerJoined(PlayerRef player)
     {
@@ -31,5 +39,6 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
         }
 
         Runner.SetPlayerObject(player, playerObject);
+        OnPlayerSpawned?.Invoke(playerObject);
     }
 }

@@ -69,8 +69,7 @@ public sealed class NetworkSessionService : MonoBehaviour
 
             DontDestroyOnLoad(newRunner.gameObject);
 
-            NetworkSceneManagerDefault sceneManager =
-                newRunner.GetComponent<NetworkSceneManagerDefault>();
+            NetworkSceneManagerDefault sceneManager = newRunner.GetComponent<NetworkSceneManagerDefault>();
 
             if (sceneManager == null)
             {
@@ -123,6 +122,8 @@ public sealed class NetworkSessionService : MonoBehaviour
             }
 
             Runner = newRunner;
+
+
             SetState(NetworkSessionState.Connected);
 
             Debug.Log(
