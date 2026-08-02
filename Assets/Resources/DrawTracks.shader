@@ -3,9 +3,10 @@ Shader "Hidden/DrawTracks"
     Properties
     {
         _MainTex("Previous Interaction Map", 2D) = "black" {}
-        _Coordinate("UV And Direction", Vector) = (0, 0, 0, 0)
+        _Coordinate("Brush UV", Vector) = (0, 0, 0, 0)
         _Size("Brush Radius In Pixels", Float) = 24
         _BrushStrength("Brush Strength", Range(0, 1)) = 1
+        _BrushFalloff("Brush Falloff", Range(0.1, 8)) = 1
     }
 
     SubShader
@@ -48,61 +49,80 @@ Shader "Hidden/DrawTracks"
             float4 _MainTex_TexelSize;
 
             CBUFFER_START(UnityPerMaterial)
+                // XY contains the brush position in texture UV space.
+                // ZW previously contained movement direction, but is unused now.
                 float4 _Coordinate;
+
                 float _Size;
                 float _BrushStrength;
+                float _BrushFalloff;
             CBUFFER_END
 
             Varyings Vert(Attributes input)
             {
                 Varyings output;
+
                 output.positionHCS = TransformObjectToHClip(input.positionOS.xyz);
                 output.uv = input.uv;
+
                 return output;
             }
 
             float4 Frag(Varyings input) : SV_Target
             {
-                float4 previous = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv);
+                float4 previous = SAMPLE_TEXTURE2D(
+                    _MainTex,
+                    sampler_MainTex,
+                    input.uv);
 
-                float2 pixelOffset = (input.uv - _Coordinate.xy) * _MainTex_TexelSize.zw;
+                // Convert the UV distance from the brush center into pixels.
+                float2 pixelOffset =
+                    (input.uv - _Coordinate.xy) *
+                    _MainTex_TexelSize.zw;
+
                 float distancePixels = length(pixelOffset);
-
                 float radius = max(_Size, 1.0);
-                float brush = 1.0 - smoothstep(radius * 0.65, radius, distancePixels);
+
+                // 1 at the brush center, gradually falling to 0 at its edge.
+                float normalizedDistance = saturate(distancePixels / radius);
+                float brush = 1.0 - normalizedDistance;
+
+                // Controls the shape of the radial falloff.
+                //
+                // Falloff < 1: broad and soft
+                // Falloff = 1: linear
+                // Falloff > 1: concentrated near the center
+                brush = pow(brush, max(_BrushFalloff, 0.0001));
+
                 float stampStrength = saturate(brush * _BrushStrength);
+
+                float oldMask = saturate(previous.r);
+
+                // Preserve the strongest value already written.
+                float newMask = max(oldMask, stampStrength);
+
+                /*
+                Direction storage is disabled for now.
 
                 float2 newDirection = _Coordinate.zw;
                 float newDirectionLength = length(newDirection);
 
-                // Do not modify the texture when no valid movement direction
-                // was supplied.
-                if (newDirectionLength < 0.00001 || stampStrength <= 0.0)
-                    return previous;
+                if (newDirectionLength > 0.00001)
+                    newDirection /= newDirectionLength;
 
-                newDirection /= newDirectionLength;
+                float directionBlend =
+                    stampStrength / max(newMask, 0.00001);
 
-                float oldMask = saturate(previous.r);
-                float newMask = max(oldMask, stampStrength);
+                float2 blendedDirection = lerp(
+                    previous.gb,
+                    newDirection,
+                    directionBlend);
+                */
 
-                // Strongly overwrite direction near the center of the newest
-                // stamp while preserving previous direction around its edge.
-                float directionBlend = stampStrength / max(newMask, 0.00001);
-                float2 blendedDirection = lerp(previous.gb, newDirection, directionBlend);
-
-                float blendedLength = length(blendedDirection);
-
-                if (blendedLength > 0.00001)
-                    blendedDirection /= blendedLength;
-                else
-                    blendedDirection = newDirection;
-
-                // Do not saturate G/B. They must preserve negative values.
-                return float4(
-                    newMask,
-                    blendedDirection.x,
-                    blendedDirection.y,
-                    max(previous.a, stampStrength));
+                // R = interaction strength.
+                // G/B = unused.
+                // A = duplicate interaction strength.
+                return float4(newMask, 0.0, 0.0, newMask);
             }
             ENDHLSL
         }

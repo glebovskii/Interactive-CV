@@ -3234,12 +3234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03525fff6b75523488647c822660cea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrassControllerCorrect
-  shellMesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  shellMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
   shellShader: {fileID: -6465566751694194690, guid: 04a117d3036c4474f9ff373465c3b3a4, type: 3}
   updateStatics: 1
   scale: 1600
   shellCount: 124
-  shellLength: 0.15
+  shellLength: 0.019
   distanceAttenuation: 0.87
   density: 1130
   noiseMin: 0
@@ -3270,8 +3270,9 @@ MonoBehaviour:
   size: 2048
   drawShader: {fileID: 4800000, guid: 1d2e4c4d1b89c9b44840879e2aa2fdd5, type: 3}
   showDrawMap: 1
-  brushRadiusPixels: 8
+  brushRadiusPixels: 9.2
   brushStrength: 1
+  brushFalloff: 0.63
   updateTrackPropertiesInRuntime: 1
 --- !u!1 &739124882
 GameObject:

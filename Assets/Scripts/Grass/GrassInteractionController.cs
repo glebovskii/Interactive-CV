@@ -12,6 +12,7 @@ public sealed class GrassInteractionController : MonoBehaviour
     [Header("Brush")]
     [SerializeField, Range(1f, 256f)] private float brushRadiusPixels = 24f;
     [SerializeField, Range(0f, 1f)] private float brushStrength = 1f;
+    [SerializeField, Range(0.1f, 8f)] private float brushFalloff = 1f;
     [SerializeField] private bool updateTrackPropertiesInRuntime = true;
 
     private List<CharacterGrassInteractor> characters = new();
@@ -123,6 +124,7 @@ public sealed class GrassInteractionController : MonoBehaviour
 
         drawMaterial.SetFloat(SizeID, Mathf.Max(1f, brushRadiusPixels));
         drawMaterial.SetFloat(BrushStrengthID, brushStrength);
+        drawMaterial.SetFloat(BrushFalloffID, brushFalloff);
     }
 
     private void ApplyInteractionMap()
@@ -228,4 +230,5 @@ public sealed class GrassInteractionController : MonoBehaviour
     private static readonly int CoordinateID = Shader.PropertyToID("_Coordinate");
     private static readonly int SizeID = Shader.PropertyToID("_Size");
     private static readonly int BrushStrengthID = Shader.PropertyToID("_BrushStrength");
+    private static readonly int BrushFalloffID = Shader.PropertyToID("_BrushFalloff");
 }

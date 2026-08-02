@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class SimpleShell : MonoBehaviour
 {
@@ -25,8 +21,6 @@ public class SimpleShell : MonoBehaviour
     private int shellColorProp = Shader.PropertyToID("_ShellColor");
     private int shellDirectionProp = Shader.PropertyToID("_ShellDirection");
     private int scaleProp = Shader.PropertyToID("_Scale");
-
-
 
     public bool updateStatics = true;
 
@@ -88,6 +82,8 @@ public class SimpleShell : MonoBehaviour
         for (int i = 0; i < shellCount; ++i)
         {
             shells[i] = new GameObject("Shell " + i.ToString());
+            shells[i].transform.rotation = Quaternion.Euler(90,0,0);
+            shells[i].transform.localScale *= 10;
             shells[i].layer = LayerMask.NameToLayer("Grass");
             shells[i].AddComponent<MeshFilter>();
             shells[i].AddComponent<MeshRenderer>();
