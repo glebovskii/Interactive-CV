@@ -14,6 +14,12 @@ public sealed class GrassInteractionController : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float brushStrength = 1f;
     [SerializeField] private bool updateTrackPropertiesInRuntime = true;
 
+    [SerializeField] private Transform tessellationTarget;
+
+    private static readonly int PlayerPositionWSID = Shader.PropertyToID("_PlayerPositionWS");
+
+    private static readonly int PlayerPositionValidID = Shader.PropertyToID("_PlayerPositionValid");
+
     private List<CharacterGrassInteractor> characters = new();
     private List<MeshRenderer> layerRenderers = new();
 
@@ -45,11 +51,31 @@ public sealed class GrassInteractionController : MonoBehaviour
         if (!player.TryGetComponent(out CharacterGrassInteractor interactor))
             return;
 
-        if (characters.Contains(interactor))
-            return;
+        if (!characters.Contains(interactor))
+        {
+            characters.Add(interactor);
+            interactor.OnWalk += Blit;
+        }
 
-        characters.Add(interactor);
-        interactor.OnWalk += Blit;
+        if (player.HasInputAuthority)
+            tessellationTarget = player.transform;
+    }
+
+    private void LateUpdate()
+    {
+        if (tessellationTarget == null)
+        {
+            Shader.SetGlobalFloat(PlayerPositionValidID, 0f);
+            return;
+        }
+
+        Vector3 position = tessellationTarget.position;
+
+        Shader.SetGlobalVector(
+            PlayerPositionWSID,
+            new Vector4(position.x, position.y, position.z, 1f));
+
+        Shader.SetGlobalFloat(PlayerPositionValidID, 1f);
     }
 
     public void SetLayers(GameObject[] shells)

@@ -3235,7 +3235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrassControllerCorrect
   shellMesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
-  shellShader: {fileID: -6465566751694194690, guid: 04a117d3036c4474f9ff373465c3b3a4, type: 3}
+  shellShader: {fileID: 4800000, guid: 22785036bb2cee94b9f2aeca6490ba9d, type: 3}
   updateStatics: 1
   scale: 1600
   shellCount: 124
@@ -3273,6 +3273,7 @@ MonoBehaviour:
   brushRadiusPixels: 8
   brushStrength: 1
   updateTrackPropertiesInRuntime: 1
+  tessellationTarget: {fileID: 0}
 --- !u!1 &739124882
 GameObject:
   m_ObjectHideFlags: 0
