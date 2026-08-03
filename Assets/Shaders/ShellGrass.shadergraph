@@ -640,20 +640,6 @@
             },
             "m_InputSlot": {
                 "m_Node": {
-                    "m_Id": "5ec32e752d324eb0911565ea6e98f6cd"
-                },
-                "m_SlotId": 15
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "4a1b8cc7961d4087a8be584f86bd710d"
-                },
-                "m_SlotId": 4
-            },
-            "m_InputSlot": {
-                "m_Node": {
                     "m_Id": "96ddb2cce03b4454a1c325e791c4a961"
                 },
                 "m_SlotId": 0
@@ -937,6 +923,20 @@
                     "m_Id": "e1f1aabfd72f4139863860782f41a28a"
                 },
                 "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "96ddb2cce03b4454a1c325e791c4a961"
+                },
+                "m_SlotId": 1
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "5ec32e752d324eb0911565ea6e98f6cd"
+                },
+                "m_SlotId": 15
             }
         },
         {
@@ -2063,7 +2063,7 @@
     "m_ShaderOutputName": "maxCutAmount",
     "m_StageCapability": 3,
     "m_CustomBinding": "",
-    "m_Value": 0.9599999785423279,
+    "m_Value": 1.0,
     "m_DefaultValue": 0.0,
     "m_Labels": [],
     "m_LiteralMode": false

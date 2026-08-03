@@ -3335,9 +3335,9 @@ MonoBehaviour:
   textureSize: 2048
   drawShader: {fileID: 4800000, guid: 1d2e4c4d1b89c9b44840879e2aa2fdd5, type: 3}
   showDrawMap: 0
-  brushRadiusPixels: 15.5
+  brushRadiusPixels: 51
   brushStrength: 1
-  brushFalloff: 0.1
+  brushFalloff: 0.25
   maximumHeightAboveSurface: 1
 --- !u!1 &739124882
 GameObject:

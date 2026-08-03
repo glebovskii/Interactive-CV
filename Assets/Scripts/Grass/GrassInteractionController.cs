@@ -1,4 +1,5 @@
 using Fusion;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,6 @@ public sealed class GrassInteractionController : MonoBehaviour
     private readonly List<CharacterGrassInteractor> characters = new();
     private readonly List<MeshRenderer> shellRenderers = new();
 
-    private PlayerSpawner playerSpawner;
     private MaterialPropertyBlock propertyBlock;
     private Material drawMaterial;
     private RenderTexture interactionMap;
@@ -31,8 +31,7 @@ public sealed class GrassInteractionController : MonoBehaviour
 
     private void Awake()
     {
-        playerSpawner = ServiceLocator.Get<PlayerSpawner>();
-        playerSpawner.OnPlayerSpawned += OnPlayerSpawned;
+        ServiceLocator.Register(this);
     }
 
     //TODO: REMOVE ONCE DESIDE ON VALUES
@@ -41,14 +40,6 @@ public sealed class GrassInteractionController : MonoBehaviour
         drawMaterial.SetFloat(BrushRadiusID, brushRadiusPixels);
         drawMaterial.SetFloat(BrushStrengthID, brushStrength);
         drawMaterial.SetFloat(BrushFalloffID, brushFalloff);
-    }
-
-    private void OnPlayerSpawned(NetworkObject player)
-    {
-        CharacterGrassInteractor interactor = player.GetComponent<CharacterGrassInteractor>();
-
-        characters.Add(interactor);
-        interactor.OnWalk += DrawAtWorldPosition;
     }
 
     public void SetLayers(GameObject[] shells)
@@ -156,8 +147,6 @@ public sealed class GrassInteractionController : MonoBehaviour
 
     private void OnDestroy()
     {
-        playerSpawner.OnPlayerSpawned -= OnPlayerSpawned;
-
         foreach (CharacterGrassInteractor character in characters)
         {
             if (character != null)
@@ -181,6 +170,18 @@ public sealed class GrassInteractionController : MonoBehaviour
             Destroy(interactionMap);
             interactionMap = null;
         }
+    }
+
+    public void Register(CharacterGrassInteractor characterGrassInteractor)
+    {
+        characters.Add(characterGrassInteractor);
+        characterGrassInteractor.OnWalk += DrawAtWorldPosition;
+    }
+
+    public void Unregister(CharacterGrassInteractor characterGrassInteractor)
+    {
+        characters.Remove(characterGrassInteractor);
+        characterGrassInteractor.OnWalk -= DrawAtWorldPosition;
     }
 
     private static readonly int InteractionMapID = Shader.PropertyToID("_InteractionMap");
