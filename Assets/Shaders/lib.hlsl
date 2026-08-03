@@ -7,40 +7,150 @@ float hash(uint n)
     return float(n & uint(0x7fffffffU)) / float(0x7fffffff);
 }
 
-void Vertex_float(in float3 normal, in float shellIndex, in float shellCount, in float atten, in float shellLength, in float curvature, in float3 shellDirection, in float displacementStrength, in float3 pos, out float3 displacement)
+float3 mod289(float3 x)
 {
+    return x - floor(x / 289.0) * 289.0;
+}
+
+float4 mod289(float4 x)
+{
+    return x - floor(x / 289.0) * 289.0;
+}
+
+float4 permute(float4 x)
+{
+    return mod289((x * 34.0 + 1.0) * x);
+}
+
+float4 taylorInvSqrt(float4 r)
+{
+    return 1.79284291400159 - r * 0.85373472095314;
+}
+
+float snoise(float3 v)
+{
+    const float2 C = float2(1.0 / 6.0, 1.0 / 3.0);
+
+    // First corner
+    float3 i = floor(v + dot(v, C.yyy));
+    float3 x0 = v - i + dot(i, C.xxx);
+
+    // Other corners
+    float3 g = step(x0.yzx, x0.xyz);
+    float3 l = 1.0 - g;
+    float3 i1 = min(g.xyz, l.zxy);
+    float3 i2 = max(g.xyz, l.zxy);
+
+    // x1 = x0 - i1  + 1.0 * C.xxx;
+    // x2 = x0 - i2  + 2.0 * C.xxx;
+    // x3 = x0 - 1.0 + 3.0 * C.xxx;
+    float3 x1 = x0 - i1 + C.xxx;
+    float3 x2 = x0 - i2 + C.yyy;
+    float3 x3 = x0 - 0.5;
+
+    // Permutations
+    i = mod289(i); // Avoid truncation effects in permutation
+    float4 p =
+      permute(permute(permute(i.z + float4(0.0, i1.z, i2.z, 1.0))
+                            + i.y + float4(0.0, i1.y, i2.y, 1.0))
+                            + i.x + float4(0.0, i1.x, i2.x, 1.0));
+
+    // Gradients: 7x7 points over a square, mapped onto an octahedron.
+    // The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)
+    float4 j = p - 49.0 * floor(p / 49.0); // mod(p,7*7)
+
+    float4 x_ = floor(j / 7.0);
+    float4 y_ = floor(j - 7.0 * x_); // mod(j,N)
+
+    float4 x = (x_ * 2.0 + 0.5) / 7.0 - 1.0;
+    float4 y = (y_ * 2.0 + 0.5) / 7.0 - 1.0;
+
+    float4 h = 1.0 - abs(x) - abs(y);
+
+    float4 b0 = float4(x.xy, y.xy);
+    float4 b1 = float4(x.zw, y.zw);
+
+    //float4 s0 = float4(lessThan(b0, 0.0)) * 2.0 - 1.0;
+    //float4 s1 = float4(lessThan(b1, 0.0)) * 2.0 - 1.0;
+    float4 s0 = floor(b0) * 2.0 + 1.0;
+    float4 s1 = floor(b1) * 2.0 + 1.0;
+    float4 sh = -step(h, 0.0);
+
+    float4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+    float4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+
+    float3 g0 = float3(a0.xy, h.x);
+    float3 g1 = float3(a0.zw, h.y);
+    float3 g2 = float3(a1.xy, h.z);
+    float3 g3 = float3(a1.zw, h.w);
+
+    // Normalise gradients
+    float4 norm = taylorInvSqrt(float4(dot(g0, g0), dot(g1, g1), dot(g2, g2), dot(g3, g3)));
+    g0 *= norm.x;
+    g1 *= norm.y;
+    g2 *= norm.z;
+    g3 *= norm.w;
+
+    // Mix final noise value
+    float4 m = max(0.6 - float4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+    m = m * m;
+    m = m * m;
+
+    float4 px = float4(dot(x0, g0), dot(x1, g1), dot(x2, g2), dot(x3, g3));
+    return 42.0 * dot(m, px);
+}
+
+void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten, float shellLength, float curvature, float3 shellDirection, float displacementStrength, float3 pos,
+    float time, float3 windDirection, float windStrength, float windSpeed, float windFrequency, float windHeightAttenuation, float gustStrength, float gustFrequency, float turbulenceStrength, in float3 id,
+    out float3 displacement)
+{
+    
+    float xPeriod = 0.05f; // Repetition of lines in x direction
+    float yPeriod = 0.1f; // Repitition of lines in y direction
+    float turbPower = 2.3f;
+    float turbSize = 2.0f;
+
+    float xyValue = id.x * xPeriod + id.y * yPeriod + turbPower * snoise(id * turbSize);
+    float sineValue = (sin((xyValue + time) * windFrequency) + 1.5f) * windStrength;
+
+
+    float rawShellHeight = saturate(shellIndex / max(shellCount, 1.0));
+    float shellHeight = pow(rawShellHeight, max(atten, 0.001));
+    float shellCurve = pow(shellHeight, max(curvature, 0.001));
+
     displacement = pos;
-				// This is the normalized height of the shell, so instead of like 0, 1, 2, 3, etc. it ranges from 0 -> 1 
-    float shellHeight = (float) shellIndex / (float) shellCount;
-
-				// Since the height is now normalized, this exponent will behave a bit differently when applied to a number between 0 and 1, instead of
-				// sending it off to infinity it instead biases the number closer to 0 or 1 depending on if the exponent is <1 or >1
-				// I recommend looking at this kind of math in desmos so you can properly visualize how the exponent is affecting these numbers
-    shellHeight = pow(shellHeight, atten);
     displacement += normal * shellLength * shellHeight;
+    //displacement += shellDirection * shellCurve * displacementStrength;
 
-				// This is the line of code that extrudes the shells along the base vertex normal
-				// Since the normal is a normalized vector (yes i know the terminology is confusing) then multiplying this changes
-				// The displacement direction to align with the normal, this is then multiplied with the shell length to control how far the
-				// shell extrudes and then it is lastly multiplied with the normalized height so that the shell falls into its proper place
-				// in the layer cake of meshes
-    float k = pow(shellHeight, curvature);
+    //float3 normalizedNormal = normalize(normal);
+    //float3 windDirectionOnSurface = windDirection - normalizedNormal * dot(windDirection, normalizedNormal);
+    //float windDirectionLengthSquared = dot(windDirectionOnSurface, windDirectionOnSurface);
+    //
+    //if (windDirectionLengthSquared < 0.000001)
+    //    return;
+    //
+    //windDirectionOnSurface *= rsqrt(windDirectionLengthSquared);
+    //
+    //float3 sideDirection = normalize(cross(normalizedNormal, windDirectionOnSurface));
+    //float mainPhase = dot(pos, windDirectionOnSurface) * windFrequency - time * windSpeed;
+    //float mainWave = 0.65 + sin(mainPhase) * 0.35;
+    //
+    //float gustPhase = mainPhase * gustFrequency - time * windSpeed * 0.37;
+    //float gust = max(1.0 + sin(gustPhase) * gustStrength, 0.0);
+    //
+    //float turbulencePhase = dot(pos, sideDirection) * windFrequency * 1.73 + time * windSpeed * 1.31;
+    //float turbulence = sin(turbulencePhase) * turbulenceStrength;
+    //
+    float windHeight = pow(rawShellHeight, max(windHeightAttenuation, 0.001));
+    //
+    //float3 windOffset = windDirectionOnSurface * mainWave * gust * windStrength;
+    //windOffset += sideDirection * turbulence * windStrength;
 
-				// Since we are preparing to send data over to the fragment shader, we finalize the normal by converting it to world space
-				// and it will be interpolated across triangles in the fragment shader, you kinda don't really need to worry about this since it just works (tm)
-				
-				// This is for the "physics" this is what controls the curvature/stiffness of the hair, the higher the exponent the more the displacement
-				// will only affect the top of the hair, this is something you can visualize in desmos pretty easily just like the shell height distance
-				// attenuation calculation above. This is actually kind of a really common operation in graphics and why we keep most values normalized to 0-1
-
-				// This displaces the shells after they have extruded according to the direction the cpu has told the shader we are moving, at rest this is going
-				// to displace the hair downwards and since it's anchored at the root due to the variable 'k' above, only the tips of the hair will fall downwards
-    displacement += shellDirection * k * displacementStrength;
-
+    displacement += windDirection * sineValue * windHeight; // windOffset * windHeight;
 }
 
 
-void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, in float characterPlace, in float maxCutAmount, out float4 color)
+void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, in float characterPlace, in float maxCutAmount, in float groundMask, out float4 color)
 {
 				// As explained in the video, this multiplies the uv coordinates to create more strands because it generates more seeds
     float2 newUV = uv * density;
@@ -65,7 +175,7 @@ void Fragment_float(in float2 uv, in float density, in float shellIndex, in floa
     float rand = lerp(noiseMin, noiseMax, hash(seed));
 
 				// This is the normalized shell height as described above in the vertex shader
-    float h = shellIndex / shellCount;
+    float h = (shellIndex / shellCount);
 
 				// This is the condition for discarding pixels, if the distance from the local center exceeds the thickness parameter we discard it,
 				// and we also modify the thickness and make it thinner as height increases based on the height of the blade occupying this space that way
@@ -75,6 +185,8 @@ void Fragment_float(in float2 uv, in float density, in float shellIndex, in floa
     float cutStrength = saturate(characterPlace) * maxCutAmount;
     float keepHeight = 1.0 - cutStrength;
     bool cutByInteraction = h > keepHeight && shellIndex > 0;
+	if(groundMask<=0.1f)
+        discard;
 				// This culls the pixel if it is outside the thickness of the strand, it also ensures that the base shell is fully opaque that way there aren't
 				// any real holes in the mesh, although there's certainly better ways to do that
     if (outsideThickness || cutByInteraction)

@@ -19,8 +19,17 @@ public class SimpleShell : MonoBehaviour
     private int noiseMinProp = Shader.PropertyToID("_NoiseMin");
     private int noiseMaxProp = Shader.PropertyToID("_NoiseMax");
     private int shellColorProp = Shader.PropertyToID("_ShellColor");
-    private int shellDirectionProp = Shader.PropertyToID("_ShellDirection");
+    private int baseColorProp = Shader.PropertyToID("_BaseColor");
     private int scaleProp = Shader.PropertyToID("_Scale");
+    private int windDirectionProp = Shader.PropertyToID("_WindDirection");
+    private int windStrengthProp = Shader.PropertyToID("_WindStrength");
+    private int windSpeedProp = Shader.PropertyToID("_WindSpeed");
+    private int windFrequencyProp = Shader.PropertyToID("_WindFrequency");
+    private int windHeightAttenuationProp = Shader.PropertyToID("_WindHeightAttenuation");
+    private int gustStrengthProp = Shader.PropertyToID("_GustStrength");
+    private int gustFrequencyProp = Shader.PropertyToID("_GustFrequency");
+    private int turbulenceStrengthProp = Shader.PropertyToID("_TurbulenceStrength");
+    private int maskProp = Shader.PropertyToID("_Mask");
 
     public bool updateStatics = true;
 
@@ -56,6 +65,7 @@ public class SimpleShell : MonoBehaviour
     public float displacementStrength = 0.1f;
 
     public Color shellColor;
+    public Color baseColor;
 
     [Range(0.0f, 5.0f)]
     public float occlusionAttenuation = 1.0f;
@@ -63,8 +73,21 @@ public class SimpleShell : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float occlusionBias = 0.0f;
 
+    [Header("Wind Settings")]
+    [SerializeField] private Vector3 windDirection = new Vector3(1, 0, 0);
+    [SerializeField] private float windStrength = 0.05f;
+    [SerializeField] private float windSpeed = 1.5f;
+    [SerializeField] private float windFrequency = 0.75f;
+    [SerializeField] private float windHeightAttenuation = 2f;
+    [SerializeField] private float gustStrength = 0.25f;
+    [SerializeField] private float gustFrequency = 0.4f;
+    [SerializeField] private float turbulenceStrength = 0.1f;
+
     [Space(10)]
     [SerializeField] private GrassInteractionController grassInteractionController;
+
+    [Space(10)]
+    [SerializeField] private Texture2D maskTexture;
 
     [SerializeField] private LayerMask grassLayer;
 
@@ -82,8 +105,8 @@ public class SimpleShell : MonoBehaviour
         for (int i = 0; i < shellCount; ++i)
         {
             shells[i] = new GameObject("Shell " + i.ToString());
-            shells[i].transform.rotation = Quaternion.Euler(90,0,0);
-            shells[i].transform.localScale *= 10;
+            //shells[i].transform.rotation = Quaternion.Euler(90, 0, 0);
+            //shells[i].transform.localScale *= 10;
             shells[i].layer = LayerMask.NameToLayer("Grass");
             shells[i].AddComponent<MeshFilter>();
             shells[i].AddComponent<MeshRenderer>();
@@ -108,6 +131,18 @@ public class SimpleShell : MonoBehaviour
             mat.SetFloat(noiseMinProp, noiseMin);
             mat.SetFloat(noiseMaxProp, noiseMax);
             mat.SetVector(shellColorProp, shellColor);
+            mat.SetVector(baseColorProp, baseColor);
+
+            mat.SetVector(windDirectionProp, windDirection);
+            mat.SetFloat(windStrengthProp, windStrength);
+            mat.SetFloat(windSpeedProp, windSpeed);
+            mat.SetFloat(windFrequencyProp, windFrequency);
+            mat.SetFloat(windHeightAttenuationProp, windHeightAttenuation);
+            mat.SetFloat(gustStrengthProp, gustStrength);
+            mat.SetFloat(gustFrequencyProp, gustFrequency);
+            mat.SetFloat(turbulenceStrengthProp, turbulenceStrength);
+
+            mat.SetTexture(maskProp, maskTexture);
         }
 
         grassInteractionController.SetLayers(shells);
@@ -115,36 +150,6 @@ public class SimpleShell : MonoBehaviour
 
     void Update()
     {
-        //float velocity = 1.0f;
-
-        //Vector3 direction = new Vector3(0, 0, 0);
-        //Vector3 oppositeDirection = new Vector3(0, 0, 0);
-
-        //// This determines the direction we are moving from wasd input. It's probably a better idea to use Unity's input system, since it handles
-        //// all possible input devices at once, but I did it the old fashioned way for simplicity.
-        //direction.x = Convert.ToInt32(Input.GetKey(KeyCode.D)) - Convert.ToInt32(Input.GetKey(KeyCode.A));
-        //direction.y = Convert.ToInt32(Input.GetKey(KeyCode.W)) - Convert.ToInt32(Input.GetKey(KeyCode.S));
-        //direction.z = Convert.ToInt32(Input.GetKey(KeyCode.Q)) - Convert.ToInt32(Input.GetKey(KeyCode.E));
-
-        //// This moves the ball according the input direction
-        //Vector3 currentPosition = this.transform.position;
-        //direction.Normalize();
-        //currentPosition += direction * velocity * Time.deltaTime;
-        //this.transform.position = currentPosition;
-
-        //// This changes the direction that the hair is going to point in, when we are not inputting any movements then we subtract the gravity vector
-        //// The gravity vector just being (0, -1, 0)
-        //displacementDirection -= direction * Time.deltaTime * 10.0f;
-        //if (direction == Vector3.zero)
-        //    displacementDirection.y -= 10.0f * Time.deltaTime;
-
-        //if (displacementDirection.magnitude > 1) displacementDirection.Normalize();
-
-        //// In order to avoid setting this variable on every single shell's material instance, we instead set this is as a global shader variable
-        //// That every shader will have access to, which sounds bad, because it kind of is, but just be aware of your global variable names and it's not a big deal.
-        //// Regardless, setting the variable one time instead of 256 times is just better.
-        //Shader.SetGlobalVector(shellDirectionProp, displacementDirection);
-
         if (updateStatics)
         {
             for (int i = 0; i < shellCount; ++i)
@@ -164,10 +169,17 @@ public class SimpleShell : MonoBehaviour
                 mat.SetFloat(noiseMinProp, noiseMin);
                 mat.SetFloat(noiseMaxProp, noiseMax);
                 mat.SetVector(shellColorProp, shellColor);
+                mat.SetVector(baseColorProp, baseColor);
                 mat.SetFloat(scaleProp, scale);
 
-
-                mat.SetVector(shellDirectionProp, displacementDirection);
+                mat.SetVector(windDirectionProp, windDirection);
+                mat.SetFloat(windStrengthProp, windStrength);
+                mat.SetFloat(windSpeedProp, windSpeed);
+                mat.SetFloat(windFrequencyProp, windFrequency);
+                mat.SetFloat(windHeightAttenuationProp, windHeightAttenuation);
+                mat.SetFloat(gustStrengthProp, gustStrength);
+                mat.SetFloat(gustFrequencyProp, gustFrequency);
+                mat.SetFloat(turbulenceStrengthProp, turbulenceStrength);
             }
         }
     }

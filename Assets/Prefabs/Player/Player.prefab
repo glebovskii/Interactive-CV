@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7212550310696207308}
   - component: {fileID: 8333996507032165700}
   - component: {fileID: 8244001945155035591}
+  - component: {fileID: 5335421626971615330}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -89,6 +90,7 @@ MonoBehaviour:
   - {fileID: 8508008017542183307}
   - {fileID: 4936536806661504634}
   - {fileID: 7212550310696207308}
+  - {fileID: 5335421626971615330}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &8508008017542183307
 MonoBehaviour:
@@ -253,6 +255,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterGrassInteractor
   minimumMoveDistance: 0.001
   teleportThreshold: 2
+--- !u!114 &5335421626971615330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383688313207201357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbff26addf0e4344cb084b5f7f807b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFXController
+  groundFX: {fileID: 2592515456849631409}
+  grassFX: {fileID: 2305285251181082908}
 --- !u!1 &3728992260341715850
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +660,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4140406644459286, guid: a9726ee302999a84ea27e4657abb703f, type: 3}
   m_PrefabInstance: {fileID: 2394700678747415835}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &2592515456849631409 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198677932445220266, guid: a9726ee302999a84ea27e4657abb703f, type: 3}
+  m_PrefabInstance: {fileID: 2394700678747415835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5029250776791376256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +730,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 369de38ab0b2f714fa33d6b4ae5d7537, type: 3}
+--- !u!198 &2305285251181082908 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6500233954981419164, guid: 369de38ab0b2f714fa33d6b4ae5d7537, type: 3}
+  m_PrefabInstance: {fileID: 5029250776791376256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5224711683237065991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 957748807920800903, guid: 369de38ab0b2f714fa33d6b4ae5d7537, type: 3}

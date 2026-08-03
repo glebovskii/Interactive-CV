@@ -120,20 +120,18 @@ public sealed class GrassInteractionController : MonoBehaviour
     {
         Vector3 localPosition = surfaceTransform.InverseTransformPoint(worldPosition);
 
-        float height = Mathf.Abs(localPosition.z - surfaceBounds.center.z) * Mathf.Abs(surfaceScale.z);
+        float height = Mathf.Abs(localPosition.y - surfaceBounds.center.y) * Mathf.Abs(surfaceScale.y);
 
         if (height > maximumHeightAboveSurface)
             return;
 
         if (localPosition.x < surfaceBounds.min.x || localPosition.x > surfaceBounds.max.x ||
-            localPosition.y < surfaceBounds.min.y || localPosition.y > surfaceBounds.max.y)
-        {
+            localPosition.z < surfaceBounds.min.z || localPosition.z > surfaceBounds.max.z)
             return;
-        }
 
         Vector2 uv = new(
-            Mathf.InverseLerp(surfaceBounds.min.x, surfaceBounds.max.x, localPosition.x),
-            Mathf.InverseLerp(surfaceBounds.min.y, surfaceBounds.max.y, localPosition.y));
+           1 - Mathf.InverseLerp(surfaceBounds.min.x, surfaceBounds.max.x, localPosition.x),
+           1 - Mathf.InverseLerp(surfaceBounds.min.z, surfaceBounds.max.z, localPosition.z));
 
         Blit(uv);
     }
