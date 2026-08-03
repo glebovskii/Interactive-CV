@@ -115,7 +115,7 @@ public class PlayerView : MonoBehaviour
         if (!IsLocalPlayer)
             return;
 
-        playerCameraController.CinemachineTargetGroup.AddMember(panel, 10, 1);
+        playerCameraController.CinemachineTargetGroup.AddMember(panel, 3, 1);
     }
 
     public void RemoveTarget(Transform panel)

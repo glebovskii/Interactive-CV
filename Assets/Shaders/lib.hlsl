@@ -175,7 +175,7 @@ void Fragment_float(in float2 uv, in float density, in float shellIndex, in floa
     float rand = lerp(noiseMin, noiseMax, hash(seed));
 
 				// This is the normalized shell height as described above in the vertex shader
-    float h = (shellIndex / shellCount);
+    float h = (shellIndex * groundMask / shellCount);
 
 				// This is the condition for discarding pixels, if the distance from the local center exceeds the thickness parameter we discard it,
 				// and we also modify the thickness and make it thinner as height increases based on the height of the blade occupying this space that way
@@ -185,7 +185,7 @@ void Fragment_float(in float2 uv, in float density, in float shellIndex, in floa
     float cutStrength = saturate(characterPlace) * maxCutAmount;
     float keepHeight = 1.0 - cutStrength;
     bool cutByInteraction = h > keepHeight && shellIndex > 0;
-	if(groundMask<=0.1f)
+	if(groundMask<=0.5f)
         discard;
 				// This culls the pixel if it is outside the thickness of the strand, it also ensures that the base shell is fully opaque that way there aren't
 				// any real holes in the mesh, although there's certainly better ways to do that

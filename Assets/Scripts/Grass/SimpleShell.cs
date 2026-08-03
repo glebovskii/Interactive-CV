@@ -88,6 +88,7 @@ public class SimpleShell : MonoBehaviour
 
     [Space(10)]
     [SerializeField] private Texture2D maskTexture;
+    [SerializeField] private Terrain terrain;
 
     [SerializeField] private LayerMask grassLayer;
 
@@ -98,6 +99,8 @@ public class SimpleShell : MonoBehaviour
 
     void OnEnable()
     {
+        maskTexture = terrain.terrainData.GetAlphamapTexture(0);
+
         shellMaterial = new Material(shellShader);
 
         shells = new GameObject[shellCount];

@@ -24,7 +24,7 @@ public sealed class PlayerSurfaceController : MonoBehaviour
     [SerializeField] private Texture2D groundMask;
 
     [Tooltip("The Quad whose UV space corresponds to the mask.")]
-    [SerializeField] private Transform maskSurface;
+    [SerializeField] private Terrain maskSurface;
 
     [SerializeField, Range(0f, 1f)] private float groundThreshold = 0.5f;
     [SerializeField] private bool flipU;
@@ -75,6 +75,7 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
     private void CacheMask()
     {
+        groundMask =maskSurface.terrainData.GetAlphamapTexture(0);
         maskWidth = groundMask.width;
         maskHeight = groundMask.height;
 
@@ -87,14 +88,15 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
     private void CacheSurface()
     {
-        Bounds bounds = maskSurface.GetComponent<MeshFilter>().sharedMesh.bounds;
+        //Bounds bounds = maskSurface.GetComponent<MeshFilter>().sharedMesh.bounds;
+        Bounds bounds = maskSurface.terrainData.bounds;//.sharedMesh.bounds;
 
         surfaceBoundsMin = new float2(bounds.min.x, bounds.min.z);
         surfaceBoundsSize = new float2(bounds.size.x, bounds.size.z);
 
-        Vector3 position = maskSurface.position;
-        Vector3 scale = maskSurface.lossyScale;
-        Quaternion rotation = Quaternion.Inverse(maskSurface.rotation);
+        Vector3 position = maskSurface.transform.position;
+        Vector3 scale = maskSurface.transform.lossyScale;
+        Quaternion rotation = Quaternion.Inverse(maskSurface.transform.rotation);
 
         surfacePosition = new float3(position.x, position.y, position.z);
         inverseSurfaceRotation = new quaternion(rotation.x, rotation.y, rotation.z, rotation.w);
@@ -288,7 +290,7 @@ public sealed class PlayerSurfaceController : MonoBehaviour
             byte red = MaskRed[y * MaskWidth + x];
 
             // Black = ground, white = grass.
-            Results[index] = red < GroundThreshold ? (byte)1 : (byte)0;
+            Results[index] = red > GroundThreshold ? (byte)1 : (byte)0;
         }
     }
 }
