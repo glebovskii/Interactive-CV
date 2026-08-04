@@ -8,19 +8,24 @@ public class Link : MonoBehaviour
 
     private bool isLinkValid = false;
 
+    private UISoundController soundController;
+
     private void Awake()
     {
         if(!checkLinkValidOnClick)
         {
             isLinkValid = IsValidWebLink(link);
         }
+
+        ServiceLocator.TryGet(out soundController);
     }
 
     public void OpenLink()
     {
         if (checkLinkValidOnClick)
         {
-            if (!IsValidWebLink(link))
+            isLinkValid = IsValidWebLink(link);
+            if (!isLinkValid)
             {
                 Debug.LogError(
                     $"Invalid link assigned to {nameof(PanelLinkButton)}: '{link}'",
@@ -31,7 +36,12 @@ public class Link : MonoBehaviour
         }
 
         if (isLinkValid)
+        {
+            ServiceLocator.TryGet(out soundController);
+
+            soundController?.PlayButtonClick();
             Application.OpenURL(link);
+        }
         else
             Debug.LogError($"Link {link} is not valid");
     }

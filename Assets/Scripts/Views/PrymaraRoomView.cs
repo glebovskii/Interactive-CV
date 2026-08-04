@@ -34,7 +34,7 @@ public class PrymaraRoomView : MonoBehaviour, IView
 
     }
 
-    public void Hide()
+    public void Hide(bool playSound = true)
     {
     }
 

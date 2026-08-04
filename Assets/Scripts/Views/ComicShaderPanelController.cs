@@ -69,6 +69,8 @@ namespace Prymara
         private VisualElement gridProceduralFields;
         private VisualElement gridTextureNote;
 
+        private UISoundController soundController;
+
         private void Awake()
         {
             if (panelRenderer == null)
@@ -79,6 +81,8 @@ namespace Prymara
                 Debug.LogError($"{nameof(ComicShaderPanelController)} requires a PanelRenderer.", this);
                 return;
             }
+
+            ServiceLocator.TryGet(out soundController);
 
             panelRenderer.RegisterUIReloadCallback(OnUIReload);
         }
@@ -150,13 +154,15 @@ namespace Prymara
             VisualElement root,
             string toggleName,
             string keyword,
-            string fieldsName)
+            string fieldsName,
+            bool playSound = true)
         {
             Toggle toggle = root.Q<Toggle>(toggleName);
             VisualElement fields = root.Q<VisualElement>(fieldsName);
 
             if (toggle == null)
                 return;
+
 
             bool initialValue = targetMaterial.IsKeywordEnabled(keyword);
             toggle.SetValueWithoutNotify(initialValue);
@@ -166,6 +172,7 @@ namespace Prymara
             {
                 SetKeyword(keyword, evt.newValue);
                 fields?.SetEnabled(evt.newValue);
+                soundController?.PlayToggle();
             };
 
             toggle.RegisterValueChangedCallback(callback);
@@ -190,6 +197,7 @@ namespace Prymara
                 {
                     SetKeyword(GridTextureKeyword, evt.newValue);
                     UpdateGridTextureMode(evt.newValue);
+                    soundController?.PlayToggle();
                 };
 
                 textureToggle.RegisterValueChangedCallback(textureCallback);
@@ -241,7 +249,11 @@ namespace Prymara
 
             slider.SetValueWithoutNotify(targetMaterial.GetFloat(propertyId));
 
-            EventCallback<ChangeEvent<float>> callback = evt => targetMaterial.SetFloat(propertyId, evt.newValue);
+            EventCallback<ChangeEvent<float>> callback = evt =>
+            {
+                targetMaterial.SetFloat(propertyId, evt.newValue);
+                soundController?.PlaySliderChange();
+            };
 
             slider.RegisterValueChangedCallback(callback);
             unbindActions.Add(() => slider.UnregisterValueChangedCallback(callback));
@@ -263,7 +275,10 @@ namespace Prymara
             slider.SetValueWithoutNotify(Mathf.RoundToInt(targetMaterial.GetFloat(propertyId)));
 
             EventCallback<ChangeEvent<int>> callback = evt =>
+            {
                 targetMaterial.SetFloat(propertyId, evt.newValue);
+                soundController?.PlaySliderChange();
+            };
 
             slider.RegisterValueChangedCallback(callback);
             unbindActions.Add(() => slider.UnregisterValueChangedCallback(callback));

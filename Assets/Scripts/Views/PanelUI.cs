@@ -46,10 +46,10 @@ public sealed class PanelUI : MonoBehaviour
         panelRevealAnimation.Show();
     }
 
-    public void Hide()
+    public void Hide(bool playSound = true)
     {
         cameraTransform = null;
-        panelRevealAnimation.Hide();
+        panelRevealAnimation.Hide(playSound);
         transform.rotation = baseRotation;
     }
 

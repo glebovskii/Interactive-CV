@@ -15,11 +15,14 @@ namespace Dissolver
 
         private PlayerDissolveController dissolveController;
 
+        private UISoundController soundController;
+
         private void Awake()
         {
             if (panelRenderer == null)
                 panelRenderer = GetComponent<PanelRenderer>();
 
+            ServiceLocator.TryGet(out soundController);
         }
 
         public void SetPlayer(PlayerDissolveController controller)
@@ -63,7 +66,11 @@ namespace Dissolver
 
             slider.SetValueWithoutNotify(dissolveController.Dissolve);
 
-            EventCallback<ChangeEvent<float>> callback = evt => dissolveController.Dissolve = evt.newValue;
+            EventCallback<ChangeEvent<float>> callback = evt =>
+            {
+                dissolveController.Dissolve = evt.newValue;
+                soundController?.PlaySliderChange();
+            };
 
             slider.RegisterValueChangedCallback(callback);
 
@@ -79,7 +86,11 @@ namespace Dissolver
 
             slider.SetValueWithoutNotify(dissolveController.EdgeWidth);
 
-            EventCallback<ChangeEvent<float>> callback = evt => dissolveController.EdgeWidth = evt.newValue;
+            EventCallback<ChangeEvent<float>> callback = evt =>
+            {
+                dissolveController.EdgeWidth = evt.newValue;
+                soundController?.PlaySliderChange();
+            };
 
             slider.RegisterValueChangedCallback(callback);
 
@@ -105,6 +116,8 @@ namespace Dissolver
 
                 if (selectedIndex >= 0)
                     dissolveController.Axis = selectedIndex;
+
+                soundController?.PlayToggle();
             };
 
             dropdown.RegisterValueChangedCallback(callback);
@@ -131,6 +144,8 @@ namespace Dissolver
 
                 if (selectedIndex >= 0)
                     dissolveController.Direction = selectedIndex;
+
+                soundController?.PlayToggle();
             };
 
             dropdown.RegisterValueChangedCallback(callback);

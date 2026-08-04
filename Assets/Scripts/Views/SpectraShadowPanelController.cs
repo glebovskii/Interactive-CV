@@ -24,6 +24,8 @@ namespace Chroma
 
         private Vector4 shadowOffset;
 
+        private UISoundController soundController;
+
         private void Awake()
         {
             if (panelRenderer == null)
@@ -38,6 +40,7 @@ namespace Chroma
                 return;
             }
 
+            ServiceLocator.TryGet(out soundController);
             panelRenderer.RegisterUIReloadCallback(OnUIReload);
         }
 
@@ -115,6 +118,7 @@ namespace Chroma
                 SetVectorComponent(ref shadowOffset, componentIndex, evt.newValue);
 
                 targetMaterial.SetVector(ShadowOffsetProperty, shadowOffset);
+                soundController?.PlaySliderChange();
             };
 
             slider.RegisterValueChangedCallback(callback);

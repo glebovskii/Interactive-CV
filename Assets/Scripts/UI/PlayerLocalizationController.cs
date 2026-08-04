@@ -14,10 +14,13 @@ public sealed class PlayerLocalizationController : MonoBehaviour
     private DropdownField localeField;
     private Coroutine initializationCoroutine;
 
+    private UISoundController soundController;
+
     private void OnEnable()
     {
         panelRenderer = GetComponent<PanelRenderer>();
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
+        ServiceLocator.TryGet(out soundController);
     }
 
     private void OnDisable()
@@ -52,8 +55,7 @@ public sealed class PlayerLocalizationController : MonoBehaviour
             return;
         }
 
-        initializationCoroutine =
-            StartCoroutine(InitializeLocaleDropdown(localeField));
+        initializationCoroutine = StartCoroutine(InitializeLocaleDropdown(localeField));
     }
 
     private IEnumerator InitializeLocaleDropdown(DropdownField field)
@@ -98,6 +100,10 @@ public sealed class PlayerLocalizationController : MonoBehaviour
         if (localeField == null)
             return;
 
+        if(soundController == null)
+            ServiceLocator.TryGet(out soundController);
+        soundController?.PlayToggle();
+
         int selectedIndex = localeField.index;
 
         if (selectedIndex < 0 ||
@@ -119,8 +125,7 @@ public sealed class PlayerLocalizationController : MonoBehaviour
         if (localeField == null)
             return;
 
-        localeField.UnregisterCallback<ChangeEvent<string>>(
-            OnLanguageChanged);
+        localeField.UnregisterCallback<ChangeEvent<string>>(OnLanguageChanged);
 
         localeField = null;
     }

@@ -10,6 +10,8 @@ public class CharacterPreviewPresenter : MonoBehaviour
     private Material material;
     private ColorPickerController colorPickerController;
 
+    private UISoundController soundController;
+
     public void Init()
     {
         material = mesh.sharedMaterial;
@@ -19,6 +21,7 @@ public class CharacterPreviewPresenter : MonoBehaviour
             colorPickerController.ColorChanged += OnColorChanged;
             colorPickerController.ColorPicked += OnColorSelected;
         }
+        ServiceLocator.TryGet<UISoundController>(out soundController);
     }
 
     private void OnColorSelected()
@@ -40,7 +43,7 @@ public class CharacterPreviewPresenter : MonoBehaviour
             Debug.LogError("NO MATERILA FOUND ON CHARATCER PREVIEW");
             return;
         }
-
+        soundController?.PlaySliderChange();
         material.color = color;
     }
 

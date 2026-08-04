@@ -1,4 +1,4 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/ShaderSettings.uss?fileID=7433441132597879392&amp;guid=40f5cee935b6a2f469d88696828a1281&amp;type=3#ShaderSettings"/>
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/DissolverSettings.uss?fileID=7433441132597879392&amp;guid=ada96979c897ee04ba047c258374ef36&amp;type=3#DissolverSettings"/>
@@ -7,33 +7,58 @@
             <ui:VisualElement class="shader-settings-heading-copy">
                 <ui:VisualElement class="shader-settings-title-row" style="justify-content: space-between; align-content: auto; align-items: center;">
                     <ui:Label text="Dissolver" class="game-title shader-settings-title"/>
-                    <ui:Button name="button-link" text="View project" tooltip="Open the project page" class="secondary-button shader-settings-project-button"/>
+                    <ui:Button name="button-link" text="View project" tooltip="Open the project page" class="secondary-button shader-settings-project-button">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="common.view_project"/>
+                            <l:LocalizedString property="tooltip" table="ui" entry="common.open_project_page"/>
+                        </Bindings>
+                    </ui:Button>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement class="shader-single-content">
             <ui:VisualElement class="shader-single-heading-row">
-                <ui:Label text="Dissolve Settings" class="shader-tab-title"/>
+                <ui:Label text="Dissolve Settings" class="shader-tab-title">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="dissolver.settings"/>
+                    </Bindings>
+                </ui:Label>
             </ui:VisualElement>
             <ui:VisualElement class="shader-fields dissolver-fields">
                 <ui:VisualElement class="shader-control-row">
-                    <ui:Label text="Edge Width" class="shader-control-label"/>
+                    <ui:Label text="Edge Width" class="shader-control-label">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="dissolver.edge_width"/>
+                        </Bindings>
+                    </ui:Label>
                     <ui:Slider name="slider-edge-width" low-value="0" high-value="1" value="0.05" show-input-field="true" class="shader-slider"/>
                 </ui:VisualElement>
                 <ui:VisualElement class="shader-control-row">
-                    <ui:Label text="Dissolve" class="shader-control-label"/>
+                    <ui:Label text="Dissolve" class="shader-control-label">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="dissolver.dissolve"/>
+                        </Bindings>
+                    </ui:Label>
                     <ui:Slider name="slider-dissolve" low-value="-10" high-value="10" value="0" show-input-field="true" class="shader-slider"/>
                 </ui:VisualElement>
                 <ui:VisualElement class="shader-control-row">
-                    <ui:Label text="Dissolve Direction" class="shader-control-label"/>
+                    <ui:Label text="Dissolve Direction" class="shader-control-label">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="dissolver.direction"/>
+                        </Bindings>
+                    </ui:Label>
                     <ui:DropdownField name="dropdown-dissolve-direction" class="shader-dropdown"/>
                 </ui:VisualElement>
                 <ui:VisualElement class="shader-control-row">
-                    <ui:Label text="Dissolve Start At" class="shader-control-label"/>
+                    <ui:Label text="Dissolve Start At" class="shader-control-label">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="dissolver.start_at"/>
+                        </Bindings>
+                    </ui:Label>
                     <ui:DropdownField name="dropdown-dissolve-start" class="shader-dropdown"/>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-         <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
     </ui:VisualElement>
 </ui:UXML>

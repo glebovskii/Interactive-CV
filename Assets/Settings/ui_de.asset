@@ -19,7 +19,476 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 17440157696
-    m_Localized: 
+    m_Localized: Starten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965548982272
+    m_Localized: "Erstellte und ver\xF6ffentlichte das Photon-Fusion-Multiplayer-Projekt
+      Art Guard."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925312
+    m_Localized: "Ver\xF6ffentlichte Shader- und Editor-Tool-Assets im Unity Asset
+      Store."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925313
+    m_Localized: "Freiberuflicher Asset-Entwickler f\xFCr technische und visuelle
+      Werkzeuge in Unity-Projekten."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925314
+    m_Localized: "Eigenst\xE4ndige Projekte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925315
+    m_Localized: Asset-Integration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925316
+    m_Localized: Automatisierung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925317
+    m_Localized: Editor-Tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925318
+    m_Localized: Aktiviert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925319
+    m_Localized: Gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925320
+    m_Localized: Mindesttiefe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119616
+    m_Localized: "Projektseite \xF6ffnen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119617
+    m_Localized: Optimierung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119618
+    m_Localized: Radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119619
+    m_Localized: Technischer Artist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119620
+    m_Localized: Dicke
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119621
+    m_Localized: Unity-Entwickler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119622
+    m_Localized: Projekt ansehen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119623
+    m_Localized: Projekte ansehen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119624
+    m_Localized: "Integrierte und optimierte 3D-Assets f\xFCr ein gro\xDFes Open-World-MMORPG
+      und bewahrte dabei die visuelle Qualit\xE4t auf allen Plattformen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119625
+    m_Localized: "Verbesserte Texturkomprimierung, Animationskonsistenz und VFX-Performance
+      \xFCber verschiedene Qualit\xE4tsstufen hinweg."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119626
+    m_Localized: "Entwickelte Unity-Editor-Tools zur Automatisierung der Produktionsabl\xE4ufe
+      f\xFCr Einheiten und Reittiere."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119627
+    m_Localized: "Sept. 2024 \u2013 Feb. 2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119628
+    m_Localized: "Offizielle Corepunk-Website \xF6ffnen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119629
+    m_Localized: Dissolve-Richtung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119630
+    m_Localized: Dissolve
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119631
+    m_Localized: Kantenbreite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119632
+    m_Localized: Dissolve-Einstellungen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119633
+    m_Localized: Dissolve-Startpunkt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119634
+    m_Localized: "Master \xB7 Informatik"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119635
+    m_Localized: "2021 \xB7 Ukraine"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119636
+    m_Localized: Ausbildung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119637
+    m_Localized: Englisch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119638
+    m_Localized: Mittelstufe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119639
+    m_Localized: Muttersprache
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119640
+    m_Localized: Sprachen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119641
+    m_Localized: Ukrainisch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119642
+    m_Localized: "Entwickelte und verfeinerte NPC-Verhalten und Gameplay-Systeme
+      f\xFCr einen Mobile-Survival-Titel."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119643
+    m_Localized: Arbeitete mit Game Design zusammen, um Features zu integrieren und
+      den unmittelbaren Spielfluss zu verbessern.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119644
+    m_Localized: "Behob Gameplay-Probleme und optimierte die Projektleistung auf
+      unterst\xFCtzten Mobilger\xE4ten."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119645
+    m_Localized: "Jan. 2022 \u2013 Dez. 2022"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119646
+    m_Localized: "RetroStyle Games \xB7 Mobile-Survival"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119647
+    m_Localized: Mobil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119648
+    m_Localized: "Last Pirate im App Store \xF6ffnen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119649
+    m_Localized: Integrierte und optimierte Drittanbieter-Assets mithilfe von LODs,
+      Culling, Billboards sowie Verbesserungen an Texturen, Terrain und VFX.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119650
+    m_Localized: "Entwickelte MVPs und Prototypen f\xFCr Puzzle-, Strategie-, Casino-
+      und Rennspielprojekte."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313920
+    m_Localized: "Implementierte Gameplay-Systeme, Armee-KI, UI und unterst\xFCtzende
+      Produktionsfunktionen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313921
+    m_Localized: "M\xE4rz 2023 \u2013 Aug. 2024"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313922
+    m_Localized: "Optor Group \xB7 Ver\xF6ffentlichte Mobile-Spiele und Prototypen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313923
+    m_Localized: Prototyping
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313924
+    m_Localized: "Entwicklerseite von Optor Group \xF6ffnen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313925
+    m_Localized: 4+ Jahre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313926
+    m_Localized: Kyjiw, Ukraine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313927
+    m_Localized: "Remote verf\xFCgbar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313928
+    m_Localized: "Unity-Entwickler \xB7 Technical Art \xB7 Optimierung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313929
+    m_Localized: Alpha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313930
+    m_Localized: Anisotropie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313931
+    m_Localized: Hintergrundraster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313932
+    m_Localized: Blauversatz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313933
+    m_Localized: Chromatische Aberration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313934
+    m_Localized: Kantenexponent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313935
+    m_Localized: Kantenempfindlichkeit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313936
+    m_Localized: "Kantenst\xE4rke"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313937
+    m_Localized: "Kanten-, Aberrations-, Raster-, Kuwahara- und \xD6lmalerei-Effekte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313938
+    m_Localized: Frame-Vergleich
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313939
+    m_Localized: "Gr\xFCnversatz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313940
+    m_Localized: Die Textur wird aus der _Grid-Eigenschaft des Materials gelesen.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313941
+    m_Localized: "Rastergr\xF6\xDFe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313942
+    m_Localized: Alpha invertieren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313943
+    m_Localized: "Kernelgr\xF6\xDFe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313944
+    m_Localized: Kuwahara-Filter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313945
+    m_Localized: Minimale Kantentiefe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313946
+    m_Localized: "\xD6lmalerei"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313947
+    m_Localized: Rotversatz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313948
+    m_Localized: Post-Processing-Steuerung zur Laufzeit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313949
+    m_Localized: Sektoranzahl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313950
+    m_Localized: "Sch\xE4rfe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313951
+    m_Localized: Weichheit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313952
+    m_Localized: Aberration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313953
+    m_Localized: Kantenkontur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313954
+    m_Localized: Raster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313955
+    m_Localized: "\xD6lmalerei"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313956
+    m_Localized: Schwellenwert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313957
+    m_Localized: Zugewiesene Rastertextur verwenden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313958
+    m_Localized: Varianzpotenz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313959
+    m_Localized: Nulldurchgangswinkel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313960
+    m_Localized: Engine & Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508224
+    m_Localized: "LOD \xB7 Batching \xB7 Culling"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508225
+    m_Localized: Technical Art
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508226
+    m_Localized: Textur- und VFX-Optimierung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508227
+    m_Localized: "F\xE4higkeiten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508228
+    m_Localized: Werkzeuge & Diagnose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508229
+    m_Localized: Unity-Editor-Tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508230
+    m_Localized: X-Versatz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508231
+    m_Localized: Y-Versatz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508232
+    m_Localized: Z-Versatz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508233
+    m_Localized: Chroma-Schatten-Einstellungen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508234
+    m_Localized: Schattenversatz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508235
+    m_Localized: "Unity-Entwickler mit \xFCber 4 Jahren Erfahrung in der plattform\xFCbergreifenden
+      Spieleentwicklung. Spezialisiert auf Asset-Integration, Rendering- und Speicheroptimierung,
+      Technical-Art-Workflows und Produktionswerkzeuge."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508236
+    m_Localized: "Die Erfahrung reicht von eigenverantwortlicher Feature-Entwicklung
+      und mobilen Prototypen bis zur Produktion von PC-Projekten in gro\xDFen Teams.
+      Ver\xF6ffentlichte Unity-Tools, Shader-Assets und das Multiplayer-Spiel Art
+      Guard."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508237
+    m_Localized: Berufliches Profil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508238
+    m_Localized: Dieses Projekt wurde entwickelt mit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784589266944
+    m_Localized: "\u2014 Unity-Entwickler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461248
+    m_Localized: "Mobile-Spiele \xB7 Puzzle, Strategie, Casino und Simulation"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461249
+    m_Localized: Entwickelte MVPs und Prototypen in den Genres Puzzle, Strategie,
+      Casino und Simulation.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461250
+    m_Localized: "Implementierte Gameplay-Systeme, KI f\xFCr gro\xDFe Armeen und
+      kompakte Spiele im Sudoku-Stil."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461251
+    m_Localized: Optimierte Drittanbieter-Assets mithilfe von LODs, Culling, Billboards
+      und Terrain-Segmentierung.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461252
+    m_Localized: "\xDCbernahm projekt\xFCbergreifend die Integration und Optimierung
+      von Assets, UI, Texturen und VFX."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4304494057992192
+    m_Localized: Spielername
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4304659858829312
+    m_Localized: Sprache
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4304987928899584
+    m_Localized: Spielerfarbe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4314362584215552
+    m_Localized: Zimmer Finden...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4314882006822912
+    m_Localized: "Verbindung zu einer verf\xFCgbaren Sitzung herstellen"
     m_Metadata:
       m_Items: []
   references:

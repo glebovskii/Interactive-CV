@@ -22,6 +22,473 @@ MonoBehaviour:
     m_Localized: Enter
     m_Metadata:
       m_Items: []
+  - m_Id: 4295965548982272
+    m_Localized: Created and published the Photon Fusion multiplayer project Art
+      Guard.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925312
+    m_Localized: Published shader and editor-tool assets on the Unity Asset Store.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925313
+    m_Localized: Freelance asset developer producing technical and visual tools for
+      Unity projects.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925314
+    m_Localized: Independent Work
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925315
+    m_Localized: Asset Integration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925316
+    m_Localized: Automation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925317
+    m_Localized: Editor Tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925318
+    m_Localized: Enabled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925319
+    m_Localized: Gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965590925320
+    m_Localized: Minimum Depth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119616
+    m_Localized: Open the project page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119617
+    m_Localized: Optimization
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119618
+    m_Localized: Radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119619
+    m_Localized: Technical Artist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119620
+    m_Localized: Thickness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119621
+    m_Localized: Unity Developer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119622
+    m_Localized: View project
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119623
+    m_Localized: View projects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119624
+    m_Localized: Integrated and optimized 3D assets for a large open-world MMORPG
+      while preserving visual quality across platforms.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119625
+    m_Localized: Improved texture compression, animation consistency and VFX performance
+      across quality levels.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119626
+    m_Localized: Developed Unity editor tools that automated unit and mount production
+      workflows.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119627
+    m_Localized: "Sep 2024 \u2013 Feb 2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119628
+    m_Localized: Open the official Corepunk website
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119629
+    m_Localized: Dissolve Direction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119630
+    m_Localized: Dissolve
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119631
+    m_Localized: Edge Width
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119632
+    m_Localized: Dissolve Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119633
+    m_Localized: Dissolve Start At
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119634
+    m_Localized: "Master's Degree \xB7 Computer Science"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119635
+    m_Localized: "2021 \xB7 Ukraine"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119636
+    m_Localized: Education
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119637
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119638
+    m_Localized: Intermediate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119639
+    m_Localized: Native
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119640
+    m_Localized: Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119641
+    m_Localized: Ukrainian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119642
+    m_Localized: Developed and refined NPC behavior and gameplay systems for a mobile
+      survival title.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119643
+    m_Localized: Worked with game design to integrate features and improve moment-to-moment
+      player flow.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119644
+    m_Localized: Fixed gameplay issues and optimized project performance across supported
+      mobile devices.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119645
+    m_Localized: "Jan 2022 \u2013 Dec 2022"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119646
+    m_Localized: "RetroStyle Games \xB7 Mobile survival"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119647
+    m_Localized: Mobile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119648
+    m_Localized: Open Last Pirate in the App Store
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119649
+    m_Localized: Integrated and optimized third-party assets using LODs, culling,
+      billboards, texture, terrain, and VFX improvements.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965595119650
+    m_Localized: Built MVPs and prototypes across puzzle, strategy, casino, and racing
+      projects.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313920
+    m_Localized: Implemented gameplay systems, army AI, UI, and supporting production
+      features.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313921
+    m_Localized: "Mar 2023 \u2013 Aug 2024"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313922
+    m_Localized: "Optor Group \xB7 Published mobile games and prototypes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313923
+    m_Localized: Prototyping
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313924
+    m_Localized: Open the Optor Group developer page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313925
+    m_Localized: 4+ years
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313926
+    m_Localized: Kyiv, Ukraine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313927
+    m_Localized: Remote-ready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313928
+    m_Localized: "Unity Developer \xB7 Technical Art \xB7 Optimization"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313929
+    m_Localized: Alpha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313930
+    m_Localized: Anisotropy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313931
+    m_Localized: Background Grid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313932
+    m_Localized: Blue Offset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313933
+    m_Localized: Chromatic Aberration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313934
+    m_Localized: Edge Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313935
+    m_Localized: Edge Sensitivity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313936
+    m_Localized: Edge Strength
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313937
+    m_Localized: Edge, aberration, grid, Kuwahara and oil-painting effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313938
+    m_Localized: Frame Comparison
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313939
+    m_Localized: Green Offset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313940
+    m_Localized: The texture is read from the material's _Grid property.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313941
+    m_Localized: Grid Size
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313942
+    m_Localized: Invert alpha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313943
+    m_Localized: Kernel Size
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313944
+    m_Localized: Kuwahara Filter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313945
+    m_Localized: Minimum Edge Depth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313946
+    m_Localized: Oil Painting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313947
+    m_Localized: Red Offset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313948
+    m_Localized: Runtime post-process controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313949
+    m_Localized: Sector Count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313950
+    m_Localized: Sharpness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313951
+    m_Localized: Softness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313952
+    m_Localized: Aberration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313953
+    m_Localized: Edge Outline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313954
+    m_Localized: Grid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313955
+    m_Localized: Oil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313956
+    m_Localized: Threshold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313957
+    m_Localized: Use assigned grid texture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313958
+    m_Localized: Variance Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313959
+    m_Localized: Zero Crossing Angle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965599313960
+    m_Localized: Engine & Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508224
+    m_Localized: "LOD \xB7 batching \xB7 culling"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508225
+    m_Localized: Technical Art
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508226
+    m_Localized: Texture and VFX optimization
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508227
+    m_Localized: Skills
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508228
+    m_Localized: Tools & Diagnostics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508229
+    m_Localized: Unity Editor tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508230
+    m_Localized: Offset X
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508231
+    m_Localized: Offset Y
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508232
+    m_Localized: Offset Z
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508233
+    m_Localized: Chroma Shadow Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508234
+    m_Localized: Shadow Offset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508235
+    m_Localized: Unity Developer with 4+ years of cross-platform game-development
+      experience. Specialized in asset integration, rendering and memory optimization,
+      technical-art workflows, and production tooling.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508236
+    m_Localized: Experience ranges from solo feature ownership and mobile prototypes
+      to large-team production on PC projects. Published Unity tools, shader assets,
+      and the multiplayer game Art Guard.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508237
+    m_Localized: Professional Summary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4295965603508238
+    m_Localized: This project was built with
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784589266944
+    m_Localized: "\u2014 Unity Developer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461248
+    m_Localized: "Mobile games \xB7 Puzzle, strategy, casino, and simulation"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461249
+    m_Localized: Built MVPs and prototypes across puzzle, strategy, casino, and simulation
+      genres.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461250
+    m_Localized: Implemented gameplay systems, large-scale army AI, and compact Sudoku-style
+      games.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461251
+    m_Localized: Optimized third-party assets using LODs, culling, billboards, and
+      terrain segmentation.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4297784593461252
+    m_Localized: Handled asset, UI, texture, and VFX integration and optimization
+      across projects.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4304494057992192
+    m_Localized: Player Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4304659858829312
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4304987928899584
+    m_Localized: Player Color
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4314362584215552
+    m_Localized: Finding Room...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4314882006822912
+    m_Localized: Connecting to an available session
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

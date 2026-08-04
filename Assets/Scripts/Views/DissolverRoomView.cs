@@ -32,7 +32,7 @@ public class DissolverRoomView : MonoBehaviour, IView
         controller.Hide();
     }
 
-    public void Hide()
+    public void Hide(bool playSound = true)
     {
     }
 

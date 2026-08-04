@@ -1,0 +1,17 @@
+Localization audit
+==================
+
+Localized bindings added: 122
+Localization table entries added/updated: 101 plus existing 'enter'
+
+Localized:
+- Section titles, roles, descriptive copy, dates, buttons, tooltips, tags, language levels and shader-control labels.
+
+Intentionally left unchanged:
+- Technology/package/tool names (for example Unity, Photon Fusion 2, Addressables, Shader Graph, HLSL, APV, UI Toolkit, Cinemachine, DOTween).
+- Shader asset names (Prymara Comic Shader, Spectra Shadow, Dissolver, Shell Grass Shader).
+- Project, company and personal names, email addresses, and technology-only skill lines.
+
+Note:
+- Dropdown option values are not present in the supplied UXML files, so they could not be added to the localization table.
+- New CSV rows have blank IDs; Unity assigns IDs when importing new entries.

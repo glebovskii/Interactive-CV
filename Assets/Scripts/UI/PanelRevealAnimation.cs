@@ -52,6 +52,8 @@ public sealed class PanelRevealAnimation : MonoBehaviour
 
     private bool isInitialized;
 
+    private UISoundController soundController;
+
     private void Awake()
     {
         if (panelRenderer == null)
@@ -65,6 +67,8 @@ public sealed class PanelRevealAnimation : MonoBehaviour
 
             return;
         }
+
+        ServiceLocator.TryGet(out soundController);
 
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
     }
@@ -106,7 +110,7 @@ public sealed class PanelRevealAnimation : MonoBehaviour
 
         isInitialized = true;
 
-        Hide();
+        Hide(false);
     }
 
     public void Show()
@@ -115,6 +119,8 @@ public sealed class PanelRevealAnimation : MonoBehaviour
             return;
 
         animationSequence?.Kill();
+
+        soundController?.PlayPanelOpen();
 
         panelRoot.style.display = DisplayStyle.Flex;
         panelRoot.style.opacity = 1f;
@@ -159,12 +165,15 @@ public sealed class PanelRevealAnimation : MonoBehaviour
         });
     }
 
-    public void Hide()
+    public void Hide(bool playSound = true)
     {
         if (!isInitialized)
             return;
 
         animationSequence?.Kill();
+
+        if (playSound)
+            soundController?.PlayPanelClose();
 
         SetScale(1f, 1f);
         SetStaticOpacity(0f);

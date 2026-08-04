@@ -9,7 +9,7 @@ public class BuildingView : MonoBehaviour, IView
 
     private void Awake()
     {
-        Hide();
+        Hide(false);
         playerTrigger.TriggerEnter += Show;
         playerTrigger.TriggerExit += Hide;
     }
@@ -32,9 +32,9 @@ public class BuildingView : MonoBehaviour, IView
         Hide();
     }
 
-    public void Hide()
+    public void Hide(bool playSound = true)
     {
-        panel.Hide();
+        panel.Hide(playSound);
     }
 
     public void Show()

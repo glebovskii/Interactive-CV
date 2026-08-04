@@ -1,0 +1,109 @@
+﻿Key,Id,English(en),German(de),Ukrainian(uk)
+enter,17440157696,Enter,Starten,Почати
+accomplishments.art_guard,,Created and published the Photon Fusion multiplayer project Art Guard.,Erstellte und veröffentlichte das Photon-Fusion-Multiplayer-Projekt Art Guard.,Створив і опублікував багатокористувацький проєкт Art Guard на Photon Fusion.
+accomplishments.asset_store,,Published shader and editor-tool assets on the Unity Asset Store.,Veröffentlichte Shader- und Editor-Tool-Assets im Unity Asset Store.,Опублікував шейдерні асети та інструменти редактора в Unity Asset Store.
+accomplishments.freelance,,Freelance asset developer producing technical and visual tools for Unity projects.,Freiberuflicher Asset-Entwickler für technische und visuelle Werkzeuge in Unity-Projekten.,"Фриланс-розробник асетів, що створює технічні та візуальні інструменти для проєктів Unity."
+accomplishments.title,,Independent Work,Eigenständige Projekte,Самостійні проєкти
+common.asset_integration,,Asset Integration,Asset-Integration,Інтеграція асетів
+common.automation,,Automation,Automatisierung,Автоматизація
+common.editor_tools,,Editor Tools,Editor-Tools,Інструменти редактора
+common.enabled,,Enabled,Aktiviert,Увімкнено
+common.gameplay,,Gameplay,Gameplay,Ігровий процес
+common.minimum_depth,,Minimum Depth,Mindesttiefe,Мінімальна глибина
+common.open_project_page,,Open the project page,Projektseite öffnen,Відкрити сторінку проєкту
+common.optimization,,Optimization,Optimierung,Оптимізація
+common.radius,,Radius,Radius,Радіус
+common.technical_artist,,Technical Artist,Technischer Artist,Технічний художник
+common.thickness,,Thickness,Dicke,Товщина
+common.unity_developer,,Unity Developer,Unity-Entwickler,Розробник Unity
+common.view_project,,View project,Projekt ansehen,Переглянути проєкт
+common.view_projects,,View projects,Projekte ansehen,Переглянути проєкти
+corepunk.bullet.assets,,Integrated and optimized 3D assets for a large open-world MMORPG while preserving visual quality across platforms.,Integrierte und optimierte 3D-Assets für ein großes Open-World-MMORPG und bewahrte dabei die visuelle Qualität auf allen Plattformen.,"Інтегрував і оптимізував 3D-асети для великої MMORPG з відкритим світом, зберігаючи візуальну якість на різних платформах."
+corepunk.bullet.performance,,"Improved texture compression, animation consistency and VFX performance across quality levels.","Verbesserte Texturkomprimierung, Animationskonsistenz und VFX-Performance über verschiedene Qualitätsstufen hinweg.","Покращив стиснення текстур, узгодженість анімацій і продуктивність VFX на різних рівнях якості."
+corepunk.bullet.tools,,Developed Unity editor tools that automated unit and mount production workflows.,Entwickelte Unity-Editor-Tools zur Automatisierung der Produktionsabläufe für Einheiten und Reittiere.,"Розробив інструменти редактора Unity, що автоматизували виробничі процеси для юнітів і їздових істот."
+corepunk.date,,Sep 2024 – Feb 2026,Sept. 2024 – Feb. 2026,вер. 2024 – лют. 2026
+corepunk.tooltip,,Open the official Corepunk website,Offizielle Corepunk-Website öffnen,Відкрити офіційний сайт Corepunk
+dissolver.direction,,Dissolve Direction,Dissolve-Richtung,Напрямок розчинення
+dissolver.dissolve,,Dissolve,Dissolve,Розчинення
+dissolver.edge_width,,Edge Width,Kantenbreite,Ширина краю
+dissolver.settings,,Dissolve Settings,Dissolve-Einstellungen,Налаштування розчинення
+dissolver.start_at,,Dissolve Start At,Dissolve-Startpunkt,Початок розчинення
+education.degree,,Master's Degree · Computer Science,Master · Informatik,Магістр · Комп’ютерні науки
+education.meta,,2021 · Ukraine,2021 · Ukraine,2021 · Україна
+education.title,,Education,Ausbildung,Освіта
+languages.english,,English,Englisch,Англійська
+languages.intermediate,,Intermediate,Mittelstufe,Середній рівень
+languages.native,,Native,Muttersprache,Рідна
+languages.title,,Languages,Sprachen,Мови
+languages.ukrainian,,Ukrainian,Ukrainisch,Українська
+lastpirate.bullet.ai,,Developed and refined NPC behavior and gameplay systems for a mobile survival title.,Entwickelte und verfeinerte NPC-Verhalten und Gameplay-Systeme für einen Mobile-Survival-Titel.,Розробляв і вдосконалював поведінку NPC та ігрові системи для мобільної гри на виживання.
+lastpirate.bullet.design,,Worked with game design to integrate features and improve moment-to-moment player flow.,"Arbeitete mit Game Design zusammen, um Features zu integrieren und den unmittelbaren Spielfluss zu verbessern.",Співпрацював із геймдизайном для інтеграції функцій і покращення щомоментного ігрового потоку.
+lastpirate.bullet.performance,,Fixed gameplay issues and optimized project performance across supported mobile devices.,Behob Gameplay-Probleme und optimierte die Projektleistung auf unterstützten Mobilgeräten.,Виправляв проблеми ігрового процесу та оптимізував продуктивність проєкту на підтримуваних мобільних пристроях.
+lastpirate.date,,Jan 2022 – Dec 2022,Jan. 2022 – Dez. 2022,січ. 2022 – груд. 2022
+lastpirate.meta,,RetroStyle Games · Mobile survival,RetroStyle Games · Mobile-Survival,RetroStyle Games · мобільна гра на виживання
+lastpirate.mobile,,Mobile,Mobil,Мобільні платформи
+lastpirate.tooltip,,Open Last Pirate in the App Store,Last Pirate im App Store öffnen,Відкрити Last Pirate в App Store
+optor.bullet.assets,,"Integrated and optimized third-party assets using LODs, culling, billboards, texture, terrain, and VFX improvements.","Integrierte und optimierte Drittanbieter-Assets mithilfe von LODs, Culling, Billboards sowie Verbesserungen an Texturen, Terrain und VFX.","Інтегрував і оптимізував сторонні асети за допомогою LOD, culling, billboards, а також покращень текстур, terrain і VFX."
+optor.bullet.prototypes,,"Built MVPs and prototypes across puzzle, strategy, casino, and racing projects.","Entwickelte MVPs und Prototypen für Puzzle-, Strategie-, Casino- und Rennspielprojekte.","Створював MVP і прототипи для головоломок, стратегій, казино та перегонів."
+optor.bullet.systems,,"Implemented gameplay systems, army AI, UI, and supporting production features.","Implementierte Gameplay-Systeme, Armee-KI, UI und unterstützende Produktionsfunktionen.","Реалізував ігрові системи, AI армій, UI та допоміжні виробничі функції."
+optor.date,,Mar 2023 – Aug 2024,März 2023 – Aug. 2024,бер. 2023 – серп. 2024
+optor.meta,,Optor Group · Published mobile games and prototypes,Optor Group · Veröffentlichte Mobile-Spiele und Prototypen,Optor Group · Опубліковані мобільні ігри та прототипи
+optor.prototyping,,Prototyping,Prototyping,Прототипування
+optor.tooltip,,Open the Optor Group developer page,Entwicklerseite von Optor Group öffnen,Відкрити сторінку розробника Optor Group
+profile.experience,,4+ years,4+ Jahre,4+ роки
+profile.location,,"Kyiv, Ukraine","Kyjiw, Ukraine","Київ, Україна"
+profile.remote,,Remote-ready,Remote verfügbar,Готовий до віддаленої роботи
+profile.tagline,,Unity Developer · Technical Art · Optimization,Unity-Entwickler · Technical Art · Optimierung,Розробник Unity · Технічний арт · Оптимізація
+prymara.alpha,,Alpha,Alpha,Альфа
+prymara.anisotropy,,Anisotropy,Anisotropie,Анізотропія
+prymara.background_grid,,Background Grid,Hintergrundraster,Фонова сітка
+prymara.blue_offset,,Blue Offset,Blauversatz,Зміщення синього
+prymara.chromatic_aberration,,Chromatic Aberration,Chromatische Aberration,Хроматична аберація
+prymara.edge_power,,Edge Power,Kantenexponent,Степінь контуру
+prymara.edge_sensitivity,,Edge Sensitivity,Kantenempfindlichkeit,Чутливість до країв
+prymara.edge_strength,,Edge Strength,Kantenstärke,Інтенсивність контуру
+prymara.effects,,"Edge, aberration, grid, Kuwahara and oil-painting effects","Kanten-, Aberrations-, Raster-, Kuwahara- und Ölmalerei-Effekte","Контури, аберація, сітка, Kuwahara та ефекти олійного живопису"
+prymara.frame_comparison,,Frame Comparison,Frame-Vergleich,Порівняння кадрів
+prymara.green_offset,,Green Offset,Grünversatz,Зміщення зеленого
+prymara.grid_note,,The texture is read from the material's _Grid property.,Die Textur wird aus der _Grid-Eigenschaft des Materials gelesen.,Текстура зчитується з властивості матеріалу _Grid.
+prymara.grid_size,,Grid Size,Rastergröße,Розмір сітки
+prymara.invert_alpha,,Invert alpha,Alpha invertieren,Інвертувати альфа-канал
+prymara.kernel_size,,Kernel Size,Kernelgröße,Розмір ядра
+prymara.kuwahara_filter,,Kuwahara Filter,Kuwahara-Filter,Фільтр Kuwahara
+prymara.minimum_edge_depth,,Minimum Edge Depth,Minimale Kantentiefe,Мінімальна глибина контуру
+prymara.oil_painting,,Oil Painting,Ölmalerei,Олійний живопис
+prymara.red_offset,,Red Offset,Rotversatz,Зміщення червоного
+prymara.runtime_controls,,Runtime post-process controls,Post-Processing-Steuerung zur Laufzeit,Керування постобробкою під час виконання
+prymara.sector_count,,Sector Count,Sektoranzahl,Кількість секторів
+prymara.sharpness,,Sharpness,Schärfe,Різкість
+prymara.softness,,Softness,Weichheit,М’якість
+prymara.tab_aberration,,Aberration,Aberration,Аберація
+prymara.tab_edge,,Edge Outline,Kantenkontur,Контур країв
+prymara.tab_grid,,Grid,Raster,Сітка
+prymara.tab_oil,,Oil,Ölmalerei,Олійний живопис
+prymara.threshold,,Threshold,Schwellenwert,Поріг
+prymara.use_grid_texture,,Use assigned grid texture,Zugewiesene Rastertextur verwenden,Використовувати призначену текстуру сітки
+prymara.variance_power,,Variance Power,Varianzpotenz,Степінь дисперсії
+prymara.zero_crossing_angle,,Zero Crossing Angle,Nulldurchgangswinkel,Кут переходу через нуль
+skills.engine_code,,Engine & Code,Engine & Code,Рушій і код
+skills.lod_batching_culling,,LOD · batching · culling,LOD · Batching · Culling,LOD · батчинг · відсікання
+skills.technical_art,,Technical Art,Technical Art,Технічний арт
+skills.texture_vfx_optimization,,Texture and VFX optimization,Textur- und VFX-Optimierung,Оптимізація текстур і VFX
+skills.title,,Skills,Fähigkeiten,Навички
+skills.tools_diagnostics,,Tools & Diagnostics,Werkzeuge & Diagnose,Інструменти й діагностика
+skills.unity_editor_tools,,Unity Editor tools,Unity-Editor-Tools,Інструменти редактора Unity
+spectra.offset_x,,Offset X,X-Versatz,Зміщення X
+spectra.offset_y,,Offset Y,Y-Versatz,Зміщення Y
+spectra.offset_z,,Offset Z,Z-Versatz,Зміщення Z
+spectra.settings,,Chroma Shadow Settings,Chroma-Schatten-Einstellungen,Налаштування кольорових тіней
+spectra.shadow_offset,,Shadow Offset,Schattenversatz,Зміщення тіні
+summary.paragraph_1,,"Unity Developer with 4+ years of cross-platform game-development experience. Specialized in asset integration, rendering and memory optimization, technical-art workflows, and production tooling.","Unity-Entwickler mit über 4 Jahren Erfahrung in der plattformübergreifenden Spieleentwicklung. Spezialisiert auf Asset-Integration, Rendering- und Speicheroptimierung, Technical-Art-Workflows und Produktionswerkzeuge.","Розробник Unity із понад 4 роками досвіду кросплатформної розробки ігор. Спеціалізуюся на інтеграції асетів, оптимізації рендерингу та пам’яті, процесах технічного арту й інструментах для виробництва."
+summary.paragraph_2,,"Experience ranges from solo feature ownership and mobile prototypes to large-team production on PC projects. Published Unity tools, shader assets, and the multiplayer game Art Guard.","Die Erfahrung reicht von eigenverantwortlicher Feature-Entwicklung und mobilen Prototypen bis zur Produktion von PC-Projekten in großen Teams. Veröffentlichte Unity-Tools, Shader-Assets und das Multiplayer-Spiel Art Guard.","Досвід охоплює самостійну розробку функцій і мобільних прототипів, а також виробництво PC-проєктів у великих командах. Опублікував інструменти Unity, шейдерні асети та багатокористувацьку гру Art Guard."
+summary.title,,Professional Summary,Berufliches Profil,Професійний профіль
+technologies.title,,This project was built with,Dieses Projekt wurde entwickelt mit,Цей проєкт створено з використанням
+job_optor.role,,— Unity Developer,— Unity-Entwickler,— Розробник Unity
+job_optor.meta,,"Mobile games · Puzzle, strategy, casino, and simulation","Mobile-Spiele · Puzzle, Strategie, Casino und Simulation","Мобільні ігри · Головоломки, стратегії, казино та симулятори"
+job_optor.bullet.prototypes,,"Built MVPs and prototypes across puzzle, strategy, casino, and simulation genres.","Entwickelte MVPs und Prototypen in den Genres Puzzle, Strategie, Casino und Simulation.","Створював MVP і прототипи в жанрах головоломок, стратегій, казино та симуляторів."
+job_optor.bullet.systems,,"Implemented gameplay systems, large-scale army AI, and compact Sudoku-style games.","Implementierte Gameplay-Systeme, KI für große Armeen und kompakte Spiele im Sudoku-Stil.","Реалізував ігрові системи, AI для великих армій і компактні ігри в стилі Sudoku."
+job_optor.bullet.optimization,,"Optimized third-party assets using LODs, culling, billboards, and terrain segmentation.","Optimierte Drittanbieter-Assets mithilfe von LODs, Culling, Billboards und Terrain-Segmentierung.","Оптимізував сторонні асети за допомогою LOD, culling, billboards і сегментації ландшафту."
+job_optor.bullet.integration,,"Handled asset, UI, texture, and VFX integration and optimization across projects.","Übernahm projektübergreifend die Integration und Optimierung von Assets, UI, Texturen und VFX.","Виконував інтеграцію й оптимізацію асетів, UI, текстур і VFX у різних проєктах."

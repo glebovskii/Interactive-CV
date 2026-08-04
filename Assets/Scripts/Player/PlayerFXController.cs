@@ -11,10 +11,17 @@ public enum SurfaceType
 
 public class PlayerFXController : NetworkBehaviour
 {
+    [Header("FX")]
     [SerializeField] private ParticleSystem groundFX;
     [SerializeField] private ParticleSystem grassFX;
 
+    [Header("SFX")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip groundSFX;
+    [SerializeField] private AudioClip grassSFX;
+
     private Dictionary<SurfaceType, ParticleSystem> surfaceFX;
+    private Dictionary<SurfaceType, AudioClip> surfaceSFX;
 
     [Networked, OnChangedRender("OnChangeSurface")] private bool _isOnGround { get; set; }
 
@@ -26,18 +33,32 @@ public class PlayerFXController : NetworkBehaviour
             { SurfaceType.Grass, grassFX }
         };
 
+        surfaceSFX = new Dictionary<SurfaceType, AudioClip>
+        {
+            { SurfaceType.Ground, groundSFX },
+            { SurfaceType.Grass, grassSFX }
+        };
+
         _isOnGround = true;
         OnChangeSurface();
     }
 
     public void SetIsOnGround(bool isOnGround)
     {
-        _isOnGround = isOnGround;
+        if (_isOnGround != isOnGround)
+            _isOnGround = isOnGround;
+    }
 
+    public void PlayFootstep()
+    {
+        audioSource.Play();
     }
 
     private void OnChangeSurface()
     {
+        audioSource.Stop();
+        audioSource.clip = _isOnGround ? surfaceSFX[SurfaceType.Ground] : surfaceSFX[SurfaceType.Grass];
+
         if (_isOnGround)
         {
             surfaceFX[SurfaceType.Ground].Play();

@@ -7,10 +7,14 @@ public class PlayerNameController : MonoBehaviour
     private PanelRenderer panelRenderer;
     private TextField textField;
 
+    private UISoundController soundController;
+
     private void OnEnable()
     {
         panelRenderer = GetComponent<PanelRenderer>();
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
+
+        ServiceLocator.TryGet(out soundController);
     }
 
     private void OnDisable()
@@ -34,5 +38,8 @@ public class PlayerNameController : MonoBehaviour
     private void OnInputFinished(ChangeEvent<string> evt)
     {
         PlayerInfoSave.SaveName(evt.newValue);
+        if (soundController == null)
+            ServiceLocator.TryGet(out soundController);
+        soundController?.PlayLinkLoad();
     }
 }

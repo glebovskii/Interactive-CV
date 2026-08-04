@@ -1,4 +1,4 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
     <ui:VisualElement name="panel-root" class="section-card game-card game-section-card job-optor-card">
         <ui:VisualElement name="header-picture" class="game-section-hero job-optor-hero"/>
@@ -7,38 +7,88 @@
                 <ui:VisualElement class="game-section-heading-copy">
                     <ui:VisualElement class="game-section-title-role-row">
                         <ui:Label text="Optor Group" class="game-title game-section-title"/>
-                        <ui:Label text="— Unity Developer" class="game-section-role"/>
+                        <ui:Label text="— Unity Developer" class="game-section-role">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="job_optor.role"/>
+                            </Bindings>
+                        </ui:Label>
                     </ui:VisualElement>
-                    <ui:Label text="Mobile games · Puzzle, strategy, casino, and simulation" class="game-meta game-section-meta"/>
+                    <ui:Label text="Mobile games · Puzzle, strategy, casino, and simulation" class="game-meta game-section-meta">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="job_optor.meta"/>
+                        </Bindings>
+                    </ui:Label>
                 </ui:VisualElement>
                 <ui:VisualElement class="game-section-heading-actions">
-                    <ui:Button name="button-link" text="View projects" tooltip="Open the Optor Group developer page" class="secondary-button game-section-link-button"/>
-                    <ui:Label text="Mar 2023 – Aug 2024" class="game-section-date"/>
+                    <ui:Button name="button-link" text="View projects" tooltip="Open the Optor Group developer page" class="secondary-button game-section-link-button">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="common.view_projects"/>
+                            <l:LocalizedString property="tooltip" table="ui" entry="optor.tooltip"/>
+                        </Bindings>
+                    </ui:Button>
+                    <ui:Label text="Mar 2023 – Aug 2024" class="game-section-date">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="optor.date"/>
+                        </Bindings>
+                    </ui:Label>
                 </ui:VisualElement>
             </ui:VisualElement>
+
             <ui:VisualElement class="bullet-list game-section-bullet-list">
                 <ui:VisualElement class="bullet-row game-section-bullet-row">
                     <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
-                    <ui:Label text="Built MVPs and prototypes across puzzle, strategy, casino, and simulation genres." class="bullet-text game-section-bullet-text"/>
+                    <ui:Label text="Built MVPs and prototypes across puzzle, strategy, casino, and simulation genres." class="bullet-text game-section-bullet-text">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="job_optor.bullet.prototypes"/>
+                        </Bindings>
+                    </ui:Label>
                 </ui:VisualElement>
+
                 <ui:VisualElement class="bullet-row game-section-bullet-row">
                     <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
-                    <ui:Label text="Implemented gameplay systems, large-scale army AI, and compact Sudoku-style games." class="bullet-text game-section-bullet-text"/>
+                    <ui:Label text="Implemented gameplay systems, large-scale army AI, and compact Sudoku-style games." class="bullet-text game-section-bullet-text">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="job_optor.bullet.systems"/>
+                        </Bindings>
+                    </ui:Label>
                 </ui:VisualElement>
+
                 <ui:VisualElement class="bullet-row game-section-bullet-row">
                     <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
-                    <ui:Label text="Optimized third-party assets using LODs, culling, billboards, and terrain segmentation." class="bullet-text game-section-bullet-text"/>
+                    <ui:Label text="Optimized third-party assets using LODs, culling, billboards, and terrain segmentation." class="bullet-text game-section-bullet-text">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="job_optor.bullet.optimization"/>
+                        </Bindings>
+                    </ui:Label>
                 </ui:VisualElement>
+
                 <ui:VisualElement class="bullet-row game-section-bullet-row">
                     <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
-                    <ui:Label text="Handled asset, UI, texture, and VFX integration and optimization across projects." class="bullet-text game-section-bullet-text"/>
+                    <ui:Label text="Handled asset, UI, texture, and VFX integration and optimization across projects." class="bullet-text game-section-bullet-text">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="job_optor.bullet.integration"/>
+                        </Bindings>
+                    </ui:Label>
                 </ui:VisualElement>
             </ui:VisualElement>
+
             <ui:VisualElement class="chip-row game-section-chip-row">
-                <ui:Label text="Prototyping" class="chip game-section-chip"/>
-                <ui:Label text="Gameplay" class="chip game-section-chip"/>
+                <ui:Label text="Prototyping" class="chip game-section-chip">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="optor.prototyping"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Gameplay" class="chip game-section-chip">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="common.gameplay"/>
+                    </Bindings>
+                </ui:Label>
                 <ui:Label text="AI" class="chip game-section-chip"/>
-                <ui:Label text="Optimization" class="chip game-section-chip"/>
+                <ui:Label text="Optimization" class="chip game-section-chip">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="common.optimization"/>
+                    </Bindings>
+                </ui:Label>
                 <ui:Label text="UI" class="chip game-section-chip"/>
             </ui:VisualElement>
         </ui:VisualElement>
