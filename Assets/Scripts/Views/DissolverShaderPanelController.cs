@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,29 +7,34 @@ namespace Dissolver
     [RequireComponent(typeof(PanelRenderer))]
     public sealed class DissolverShaderPanelController : MonoBehaviour
     {
-
         [SerializeField] private PanelRenderer panelRenderer;
 
-        private readonly List<Action> unbindActions = new();
+        private readonly UICallbackBinder uiCallbacks = new();
 
         private PlayerDissolveController dissolveController;
-
-        private UISoundController soundController;
+        private VisualElement currentRoot;
 
         private void Awake()
         {
             if (panelRenderer == null)
                 panelRenderer = GetComponent<PanelRenderer>();
 
-            ServiceLocator.TryGet(out soundController);
+            if (panelRenderer == null)
+            {
+                Debug.LogError($"{nameof(DissolverShaderPanelController)} requires a PanelRenderer.", this);
+                return;
+            }
+
+            panelRenderer.RegisterUIReloadCallback(OnUIReload);
         }
 
         public void SetPlayer(PlayerDissolveController controller)
         {
             dissolveController = controller;
-
             UnbindUI();
-            panelRenderer.RegisterUIReloadCallback(OnUIReload);
+
+            if (currentRoot != null)
+                BindUI(currentRoot);
         }
 
         private void OnDestroy()
@@ -44,16 +48,18 @@ namespace Dissolver
         private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
         {
             UnbindUI();
+            currentRoot = root;
+            BindUI(root);
+        }
 
+        private void BindUI(VisualElement root)
+        {
             if (dissolveController == null || !dissolveController.HasStateAuthority)
                 return;
 
             BindEdge(root, "slider-edge-width");
-
             BindDissolve(root, "slider-dissolve");
-
             BindAxis(root, "dropdown-dissolve-direction", PlayerDissolveController.AxisChoices, dissolveController.Axis);
-
             BindDirection(root, "dropdown-dissolve-start", PlayerDissolveController.StartDirectionChoices, dissolveController.Direction);
         }
 
@@ -65,16 +71,7 @@ namespace Dissolver
                 return;
 
             slider.SetValueWithoutNotify(dissolveController.Dissolve);
-
-            EventCallback<ChangeEvent<float>> callback = evt =>
-            {
-                dissolveController.Dissolve = evt.newValue;
-                soundController?.PlaySliderChange();
-            };
-
-            slider.RegisterValueChangedCallback(callback);
-
-            unbindActions.Add(() => slider.UnregisterValueChangedCallback(callback));
+            uiCallbacks.BindChange<float>(slider, value => dissolveController.Dissolve = value, sound => sound.PlaySliderChange());
         }
 
         private void BindEdge(VisualElement root, string controlName)
@@ -85,16 +82,7 @@ namespace Dissolver
                 return;
 
             slider.SetValueWithoutNotify(dissolveController.EdgeWidth);
-
-            EventCallback<ChangeEvent<float>> callback = evt =>
-            {
-                dissolveController.EdgeWidth = evt.newValue;
-                soundController?.PlaySliderChange();
-            };
-
-            slider.RegisterValueChangedCallback(callback);
-
-            unbindActions.Add(() => slider.UnregisterValueChangedCallback(callback));
+            uiCallbacks.BindChange<float>(slider, value => dissolveController.EdgeWidth = value, sound => sound.PlaySliderChange());
         }
 
         private void BindAxis(VisualElement root, string controlName, List<string> choices, int initialIndex)
@@ -105,24 +93,16 @@ namespace Dissolver
                 return;
 
             dropdown.choices = new List<string>(choices);
-
             initialIndex = Mathf.Clamp(initialIndex, 0, dropdown.choices.Count - 1);
-
             dropdown.SetValueWithoutNotify(dropdown.choices[initialIndex]);
 
-            EventCallback<ChangeEvent<string>> callback = evt =>
+            uiCallbacks.BindChange<string>(dropdown, value =>
             {
-                int selectedIndex = dropdown.choices.IndexOf(evt.newValue);
+                int selectedIndex = dropdown.choices.IndexOf(value);
 
                 if (selectedIndex >= 0)
                     dissolveController.Axis = selectedIndex;
-
-                soundController?.PlayToggle();
-            };
-
-            dropdown.RegisterValueChangedCallback(callback);
-
-            unbindActions.Add(() => dropdown.UnregisterValueChangedCallback(callback));
+            }, sound => sound.PlayToggle());
         }
 
         private void BindDirection(VisualElement root, string controlName, List<string> choices, int initialIndex)
@@ -133,34 +113,21 @@ namespace Dissolver
                 return;
 
             dropdown.choices = new List<string>(choices);
-
             initialIndex = Mathf.Clamp(initialIndex, 0, dropdown.choices.Count - 1);
-
             dropdown.SetValueWithoutNotify(dropdown.choices[initialIndex]);
 
-            EventCallback<ChangeEvent<string>> callback = evt =>
+            uiCallbacks.BindChange<string>(dropdown, value =>
             {
-                int selectedIndex = dropdown.choices.IndexOf(evt.newValue);
+                int selectedIndex = dropdown.choices.IndexOf(value);
 
                 if (selectedIndex >= 0)
                     dissolveController.Direction = selectedIndex;
-
-                soundController?.PlayToggle();
-            };
-
-            dropdown.RegisterValueChangedCallback(callback);
-
-            unbindActions.Add(() => dropdown.UnregisterValueChangedCallback(callback));
+            }, sound => sound.PlayToggle());
         }
 
         private void UnbindUI()
         {
-            for (int index = unbindActions.Count - 1; index >= 0; index--)
-            {
-                unbindActions[index]?.Invoke();
-            }
-
-            unbindActions.Clear();
+            uiCallbacks.Clear();
         }
 
         public void Hide()

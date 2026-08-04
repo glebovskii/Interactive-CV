@@ -1,15 +1,9 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Prymara
 {
-    /// <summary>
-    /// Runtime UI Toolkit controller for the Comic shader material.
-    /// The component binds the controls in Shader_Comic.uxml directly to the
-    /// shader properties and keywords used by ComicShaderGUI.
-    /// </summary>
     [RequireComponent(typeof(PanelRenderer))]
     public sealed class ComicShaderPanelController : MonoBehaviour
     {
@@ -64,12 +58,10 @@ namespace Prymara
         [SerializeField] private PanelRenderer panelRenderer;
         [SerializeField] private Material targetMaterial;
 
-        private readonly List<Action> unbindActions = new();
+        private readonly UICallbackBinder uiCallbacks = new();
 
         private VisualElement gridProceduralFields;
         private VisualElement gridTextureNote;
-
-        private UISoundController soundController;
 
         private void Awake()
         {
@@ -81,8 +73,6 @@ namespace Prymara
                 Debug.LogError($"{nameof(ComicShaderPanelController)} requires a PanelRenderer.", this);
                 return;
             }
-
-            ServiceLocator.TryGet(out soundController);
 
             panelRenderer.RegisterUIReloadCallback(OnUIReload);
         }
@@ -106,6 +96,7 @@ namespace Prymara
             }
 
             TabView tabView = root.Q<TabView>("shader-tab-view");
+
             if (tabView != null)
                 tabView.selectedTabIndex = 0;
 
@@ -150,12 +141,7 @@ namespace Prymara
             BindGridOptions(root);
         }
 
-        private void BindKeywordToggle(
-            VisualElement root,
-            string toggleName,
-            string keyword,
-            string fieldsName,
-            bool playSound = true)
+        private void BindKeywordToggle(VisualElement root, string toggleName, string keyword, string fieldsName, bool playSound = true)
         {
             Toggle toggle = root.Q<Toggle>(toggleName);
             VisualElement fields = root.Q<VisualElement>(fieldsName);
@@ -163,20 +149,17 @@ namespace Prymara
             if (toggle == null)
                 return;
 
-
             bool initialValue = targetMaterial.IsKeywordEnabled(keyword);
             toggle.SetValueWithoutNotify(initialValue);
             fields?.SetEnabled(initialValue);
 
-            EventCallback<ChangeEvent<bool>> callback = evt =>
-            {
-                SetKeyword(keyword, evt.newValue);
-                fields?.SetEnabled(evt.newValue);
-                soundController?.PlayToggle();
-            };
+            Action<UISoundController> soundAction = playSound ? sound => sound.PlayToggle() : null;
 
-            toggle.RegisterValueChangedCallback(callback);
-            unbindActions.Add(() => toggle.UnregisterValueChangedCallback(callback));
+            uiCallbacks.BindChange<bool>(toggle, value =>
+            {
+                SetKeyword(keyword, value);
+                fields?.SetEnabled(value);
+            }, soundAction);
         }
 
         private void BindGridOptions(VisualElement root)
@@ -193,15 +176,11 @@ namespace Prymara
                 textureToggle.SetValueWithoutNotify(useTexture);
                 UpdateGridTextureMode(useTexture);
 
-                EventCallback<ChangeEvent<bool>> textureCallback = evt =>
+                uiCallbacks.BindChange<bool>(textureToggle, value =>
                 {
-                    SetKeyword(GridTextureKeyword, evt.newValue);
-                    UpdateGridTextureMode(evt.newValue);
-                    soundController?.PlayToggle();
-                };
-
-                textureToggle.RegisterValueChangedCallback(textureCallback);
-                unbindActions.Add(() => textureToggle.UnregisterValueChangedCallback(textureCallback));
+                    SetKeyword(GridTextureKeyword, value);
+                    UpdateGridTextureMode(value);
+                }, sound => sound.PlayToggle());
             }
 
             if (invertAlphaToggle != null)
@@ -209,29 +188,19 @@ namespace Prymara
                 bool inverted = targetMaterial.IsKeywordEnabled(InvertAlphaKeyword);
                 invertAlphaToggle.SetValueWithoutNotify(inverted);
 
-                EventCallback<ChangeEvent<bool>> invertCallback = evt =>
-                    SetKeyword(InvertAlphaKeyword, evt.newValue);
-
-                invertAlphaToggle.RegisterValueChangedCallback(invertCallback);
-                unbindActions.Add(() => invertAlphaToggle.UnregisterValueChangedCallback(invertCallback));
+                uiCallbacks.BindChange<bool>(invertAlphaToggle,
+                    value => SetKeyword(InvertAlphaKeyword, value),
+                    sound => sound.PlayToggle());
             }
         }
 
         private void UpdateGridTextureMode(bool useTexture)
         {
             if (gridProceduralFields != null)
-            {
-                gridProceduralFields.style.display = useTexture
-                    ? DisplayStyle.None
-                    : DisplayStyle.Flex;
-            }
+                gridProceduralFields.style.display = useTexture ? DisplayStyle.None : DisplayStyle.Flex;
 
             if (gridTextureNote != null)
-            {
-                gridTextureNote.style.display = useTexture
-                    ? DisplayStyle.Flex
-                    : DisplayStyle.None;
-            }
+                gridTextureNote.style.display = useTexture ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
         private void BindFloat(VisualElement root, string sliderName, int propertyId)
@@ -248,15 +217,7 @@ namespace Prymara
             }
 
             slider.SetValueWithoutNotify(targetMaterial.GetFloat(propertyId));
-
-            EventCallback<ChangeEvent<float>> callback = evt =>
-            {
-                targetMaterial.SetFloat(propertyId, evt.newValue);
-                soundController?.PlaySliderChange();
-            };
-
-            slider.RegisterValueChangedCallback(callback);
-            unbindActions.Add(() => slider.UnregisterValueChangedCallback(callback));
+            uiCallbacks.BindChange<float>(slider, value => targetMaterial.SetFloat(propertyId, value), sound => sound.PlaySliderChange());
         }
 
         private void BindInt(VisualElement root, string sliderName, int propertyId)
@@ -273,18 +234,10 @@ namespace Prymara
             }
 
             slider.SetValueWithoutNotify(Mathf.RoundToInt(targetMaterial.GetFloat(propertyId)));
-
-            EventCallback<ChangeEvent<int>> callback = evt =>
-            {
-                targetMaterial.SetFloat(propertyId, evt.newValue);
-                soundController?.PlaySliderChange();
-            };
-
-            slider.RegisterValueChangedCallback(callback);
-            unbindActions.Add(() => slider.UnregisterValueChangedCallback(callback));
+            uiCallbacks.BindChange<int>(slider, value => targetMaterial.SetFloat(propertyId, value), sound => sound.PlaySliderChange());
         }
 
-        private void DisableMissingControl(VisualElement control, int propertyId)
+        private static void DisableMissingControl(VisualElement control, int propertyId)
         {
             control.SetEnabled(false);
             control.tooltip = $"The assigned material does not contain property ID {propertyId}.";
@@ -300,10 +253,7 @@ namespace Prymara
 
         private void UnbindUI()
         {
-            for (int index = unbindActions.Count - 1; index >= 0; index--)
-                unbindActions[index]?.Invoke();
-
-            unbindActions.Clear();
+            uiCallbacks.Clear();
             gridProceduralFields = null;
             gridTextureNote = null;
         }

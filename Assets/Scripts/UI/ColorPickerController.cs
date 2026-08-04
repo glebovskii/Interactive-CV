@@ -5,8 +5,9 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(PanelRenderer))]
 public sealed class ColorPickerController : MonoBehaviour
 {
-    private PanelRenderer panelRenderer;
+    private readonly UICallbackBinder uiCallbacks = new();
 
+    private PanelRenderer panelRenderer;
     private HsvColorWheel colorWheel;
     private VisualElement preview;
     private VisualElement wheelContainer;
@@ -35,7 +36,6 @@ public sealed class ColorPickerController : MonoBehaviour
         CleanupUI();
 
         wheelContainer = root.Q<VisualElement>("wheel-container");
-
         preview = root.Q<VisualElement>("color-preview");
 
         if (wheelContainer == null)
@@ -44,20 +44,23 @@ public sealed class ColorPickerController : MonoBehaviour
             return;
         }
 
-        colorWheel = new HsvColorWheel
-        {
-            value = Color.white
-        };
-
+        colorWheel = new HsvColorWheel();
+        colorWheel.SetValueWithoutNotify(Color.white);
         colorWheel.style.width = Length.Percent(100);
         colorWheel.style.height = Length.Percent(100);
 
         wheelContainer.Add(colorWheel);
 
-        colorWheel.RegisterValueChangedCallback(OnColorChanged);
+        uiCallbacks.BindChange<Color>(colorWheel, OnColorChanged, sound => sound.PlaySliderChange());
         colorWheel.OnColorPicked += OnColorPicked;
 
         UpdatePreview();
+    }
+
+    private void OnColorChanged(Color color)
+    {
+        UpdatePreview();
+        ColorChanged?.Invoke(color);
     }
 
     private void OnColorPicked()
@@ -65,27 +68,19 @@ public sealed class ColorPickerController : MonoBehaviour
         ColorPicked?.Invoke();
     }
 
-    private void OnColorChanged(ChangeEvent<Color> evt)
-    {
-        UpdatePreview();
-        ColorChanged?.Invoke(evt.newValue);
-    }
-
     private void UpdatePreview()
     {
-        if (colorWheel == null || preview == null)
-            return;
-
-        preview.style.backgroundColor = colorWheel.value;
+        if (colorWheel != null && preview != null)
+            preview.style.backgroundColor = colorWheel.value;
     }
 
     private void CleanupUI()
     {
+        uiCallbacks.Clear();
+
         if (colorWheel != null)
         {
-            colorWheel.UnregisterValueChangedCallback(OnColorChanged);
             colorWheel.OnColorPicked -= OnColorPicked;
-
             colorWheel.RemoveFromHierarchy();
             colorWheel.Dispose();
             colorWheel = null;

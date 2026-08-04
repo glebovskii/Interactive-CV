@@ -2,44 +2,39 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(PanelRenderer))]
-public class PlayerNameController : MonoBehaviour
+public sealed class PlayerNameController : MonoBehaviour
 {
-    private PanelRenderer panelRenderer;
-    private TextField textField;
+    private readonly UICallbackBinder uiCallbacks = new();
 
-    private UISoundController soundController;
+    private PanelRenderer panelRenderer;
+    private TextField playerNameField;
 
     private void OnEnable()
     {
         panelRenderer = GetComponent<PanelRenderer>();
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
-
-        ServiceLocator.TryGet(out soundController);
     }
 
     private void OnDisable()
     {
         panelRenderer.UnregisterUIReloadCallback(OnUIReload);
-
-        textField?.UnregisterCallback<ChangeEvent<string>>(OnInputFinished);
+        uiCallbacks.Clear();
+        playerNameField = null;
     }
-
-    private TextField playerNameField;
 
     private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
     {
-        playerNameField?.UnregisterCallback<ChangeEvent<string>>(OnInputFinished);
+        uiCallbacks.Clear();
 
         playerNameField = root.Q<TextField>("player-name");
-        playerNameField.textEdition.placeholder = PlayerInfoSave.GetName();
-        playerNameField.RegisterCallback<ChangeEvent<string>>(OnInputFinished);
-    }
 
-    private void OnInputFinished(ChangeEvent<string> evt)
-    {
-        PlayerInfoSave.SaveName(evt.newValue);
-        if (soundController == null)
-            ServiceLocator.TryGet(out soundController);
-        soundController?.PlayLinkLoad();
+        if (playerNameField == null)
+        {
+            Debug.LogError("TextField named 'player-name' was not found.");
+            return;
+        }
+
+        playerNameField.textEdition.placeholder = PlayerInfoSave.GetName();
+        uiCallbacks.BindChange<string>(playerNameField, PlayerInfoSave.SaveName, sound => sound.PlayLinkLoad());
     }
 }

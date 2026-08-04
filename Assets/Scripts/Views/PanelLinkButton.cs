@@ -1,22 +1,24 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PanelLinkButton : Link
+public sealed class PanelLinkButton : Link
 {
     private const string ButtonName = "button-link";
 
     [SerializeField] private PanelRenderer panelRenderer;
+
+    private readonly UICallbackBinder uiCallbacks = new();
 
     private Button linkButton;
 
     private void Awake()
     {
         if (panelRenderer == null)
-        {
-            Debug.LogError(
-                $"{nameof(PanelLinkButton)} requires a PanelRenderer.",
-                this);
+            panelRenderer = GetComponent<PanelRenderer>();
 
+        if (panelRenderer == null)
+        {
+            Debug.LogError($"{nameof(PanelLinkButton)} requires a PanelRenderer.", this);
             return;
         }
 
@@ -25,7 +27,7 @@ public class PanelLinkButton : Link
 
     private void OnDestroy()
     {
-        UnregisterButton();
+        uiCallbacks.Clear();
 
         if (panelRenderer != null)
             panelRenderer.UnregisterUIReloadCallback(OnUIReload);
@@ -33,29 +35,16 @@ public class PanelLinkButton : Link
 
     private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
     {
-        // Remove the callback from the previous visual tree.
-        UnregisterButton();
+        uiCallbacks.Clear();
 
-        linkButton = root.Q<Button>(name:ButtonName);
+        linkButton = root.Q<Button>(ButtonName);
 
         if (linkButton == null)
         {
-            Debug.LogError(
-                $"Button named '{ButtonName}' was not found.",
-                this);
-
+            Debug.LogError($"Button named '{ButtonName}' was not found.", this);
             return;
         }
 
-        linkButton.clicked += OpenLink;
-    }
-
-    private void UnregisterButton()
-    {
-        if (linkButton == null)
-            return;
-
-        linkButton.clicked -= OpenLink;
-        linkButton = null;
+        uiCallbacks.BindClick(linkButton, OpenLinkWithoutSound, sound => sound.PlayButtonClick());
     }
 }

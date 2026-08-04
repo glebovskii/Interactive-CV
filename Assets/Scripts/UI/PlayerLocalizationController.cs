@@ -9,24 +9,21 @@ using UnityEngine.UIElements;
 public sealed class PlayerLocalizationController : MonoBehaviour
 {
     private readonly List<Locale> availableLocales = new();
+    private readonly UICallbackBinder uiCallbacks = new();
 
     private PanelRenderer panelRenderer;
     private DropdownField localeField;
     private Coroutine initializationCoroutine;
 
-    private UISoundController soundController;
-
     private void OnEnable()
     {
         panelRenderer = GetComponent<PanelRenderer>();
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
-        ServiceLocator.TryGet(out soundController);
     }
 
     private void OnDisable()
     {
-        if (panelRenderer != null)
-            panelRenderer.UnregisterUIReloadCallback(OnUIReload);
+        panelRenderer.UnregisterUIReloadCallback(OnUIReload);
 
         if (initializationCoroutine != null)
         {
@@ -34,18 +31,15 @@ public sealed class PlayerLocalizationController : MonoBehaviour
             initializationCoroutine = null;
         }
 
-        UnregisterDropdown();
+        CleanupUI();
     }
 
-    private void OnUIReload(
-        PanelRenderer renderer,
-        VisualElement root,
-        int version)
+    private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
     {
         if (initializationCoroutine != null)
             StopCoroutine(initializationCoroutine);
 
-        UnregisterDropdown();
+        CleanupUI();
 
         localeField = root.Q<DropdownField>("DropdownField");
 
@@ -66,67 +60,42 @@ public sealed class PlayerLocalizationController : MonoBehaviour
             yield break;
 
         availableLocales.Clear();
-        availableLocales.AddRange(
-            LocalizationSettings.AvailableLocales.Locales);
+        availableLocales.AddRange(LocalizationSettings.AvailableLocales.Locales);
 
         var localeNames = new List<string>(availableLocales.Count);
 
         foreach (Locale locale in availableLocales)
-        {
             localeNames.Add(locale.LocaleName);
-        }
 
         field.choices = localeNames;
 
-        Locale selectedLocale = LocalizationSettings.SelectedLocale;
-        int selectedIndex = availableLocales.IndexOf(selectedLocale);
+        int selectedIndex = availableLocales.IndexOf(LocalizationSettings.SelectedLocale);
 
         if (selectedIndex >= 0)
-        {
             field.SetValueWithoutNotify(localeNames[selectedIndex]);
-        }
         else if (localeNames.Count > 0)
-        {
             field.SetValueWithoutNotify(localeNames[0]);
-        }
 
-        field.RegisterCallback<ChangeEvent<string>>(OnLanguageChanged);
-
+        uiCallbacks.BindChange<string>(field, OnLanguageChanged, sound => sound.PlayToggle());
         initializationCoroutine = null;
     }
 
-    private void OnLanguageChanged(ChangeEvent<string> evt)
+    private void OnLanguageChanged(string localeName)
     {
-        if (localeField == null)
-            return;
+        int selectedIndex = localeField.choices.IndexOf(localeName);
 
-        if(soundController == null)
-            ServiceLocator.TryGet(out soundController);
-        soundController?.PlayToggle();
-
-        int selectedIndex = localeField.index;
-
-        if (selectedIndex < 0 ||
-            selectedIndex >= availableLocales.Count)
+        if (selectedIndex < 0 || selectedIndex >= availableLocales.Count)
         {
-            Debug.LogError(
-                $"Invalid locale dropdown index: {selectedIndex}");
-
+            Debug.LogError($"Invalid locale dropdown index: {selectedIndex}");
             return;
         }
 
-        Locale selectedLocale = availableLocales[selectedIndex];
-
-        LocalizationSettings.SelectedLocale = selectedLocale;
+        LocalizationSettings.SelectedLocale = availableLocales[selectedIndex];
     }
 
-    private void UnregisterDropdown()
+    private void CleanupUI()
     {
-        if (localeField == null)
-            return;
-
-        localeField.UnregisterCallback<ChangeEvent<string>>(OnLanguageChanged);
-
+        uiCallbacks.Clear();
         localeField = null;
     }
 }

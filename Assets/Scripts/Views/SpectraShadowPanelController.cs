@@ -1,30 +1,20 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Chroma
 {
-    /// <summary>
-    /// Runtime UI binding for the Spectra Shadow material properties exposed by
-    /// ChromaShadowGUI.
-    /// </summary>
     [RequireComponent(typeof(PanelRenderer))]
     public sealed class SpectraShadowPanelController : MonoBehaviour
     {
         private static readonly int ShadowOffsetProperty = Shader.PropertyToID("_ShadowOffset");
 
         [SerializeField] private PanelRenderer panelRenderer;
-
         [SerializeField] private Material targetMaterial;
 
-        private readonly List<Action> unbindActions = new();
+        private readonly UICallbackBinder uiCallbacks = new();
 
         private VisualElement currentRoot;
-
         private Vector4 shadowOffset;
-
-        private UISoundController soundController;
 
         private void Awake()
         {
@@ -33,14 +23,10 @@ namespace Chroma
 
             if (panelRenderer == null)
             {
-                Debug.LogError(
-                    $"{nameof(SpectraShadowPanelController)} requires a PanelRenderer.",
-                    this);
-
+                Debug.LogError($"{nameof(SpectraShadowPanelController)} requires a PanelRenderer.", this);
                 return;
             }
 
-            ServiceLocator.TryGet(out soundController);
             panelRenderer.RegisterUIReloadCallback(OnUIReload);
         }
 
@@ -52,27 +38,18 @@ namespace Chroma
                 panelRenderer.UnregisterUIReloadCallback(OnUIReload);
         }
 
-        /// <summary>
-        /// Changes the material controlled by this document and immediately
-        /// refreshes the existing visual tree.
-        /// </summary>
         public void SetMaterial(Material material)
         {
             UnbindUI();
-
             targetMaterial = material;
 
             if (currentRoot != null)
                 BindUI(currentRoot);
         }
 
-        private void OnUIReload(
-            PanelRenderer renderer,
-            VisualElement root,
-            int version)
+        private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
         {
             UnbindUI();
-
             currentRoot = root;
 
             if (targetMaterial != null)
@@ -85,13 +62,10 @@ namespace Chroma
                 return;
 
             bool hasOffset = targetMaterial.HasProperty(ShadowOffsetProperty);
-
-            shadowOffset = hasOffset ? targetMaterial.GetVector(ShadowOffsetProperty) : Vector4.zero;;
+            shadowOffset = hasOffset ? targetMaterial.GetVector(ShadowOffsetProperty) : Vector4.zero;
 
             BindOffsetSlider(root, "slider-shadow-offset-x", 0, hasOffset);
-
             BindOffsetSlider(root, "slider-shadow-offset-y", 1, hasOffset);
-
             BindOffsetSlider(root, "slider-shadow-offset-z", 2, hasOffset);
         }
 
@@ -107,33 +81,21 @@ namespace Chroma
             if (!propertyExists)
             {
                 slider.tooltip = "The assigned material does not contain _ShadowOffset.";
-
                 return;
             }
 
             slider.SetValueWithoutNotify(GetVectorComponent(shadowOffset, componentIndex));
 
-            EventCallback<ChangeEvent<float>> callback = evt =>
+            uiCallbacks.BindChange<float>(slider, value =>
             {
-                SetVectorComponent(ref shadowOffset, componentIndex, evt.newValue);
-
+                SetVectorComponent(ref shadowOffset, componentIndex, value);
                 targetMaterial.SetVector(ShadowOffsetProperty, shadowOffset);
-                soundController?.PlaySliderChange();
-            };
-
-            slider.RegisterValueChangedCallback(callback);
-
-            unbindActions.Add(() => slider.UnregisterValueChangedCallback(callback));
+            }, sound => sound.PlaySliderChange());
         }
 
         private void UnbindUI()
         {
-            for (int index = unbindActions.Count - 1; index >= 0; index--)
-            {
-                unbindActions[index]?.Invoke();
-            }
-
-            unbindActions.Clear();
+            uiCallbacks.Clear();
         }
 
         private static float GetVectorComponent(Vector4 value, int componentIndex)
@@ -154,15 +116,12 @@ namespace Chroma
                 case 0:
                     value.x = componentValue;
                     break;
-
                 case 1:
                     value.y = componentValue;
                     break;
-
                 case 2:
                     value.z = componentValue;
                     break;
-
                 default:
                     value.w = componentValue;
                     break;

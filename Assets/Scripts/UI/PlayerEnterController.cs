@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(PanelRenderer))]
 public sealed class PlayerEnterController : MonoBehaviour
 {
+    private readonly UICallbackBinder uiCallbacks = new();
+
     private PanelRenderer panelRenderer;
     private VisualElement menuContent;
     private VisualElement findingRoomOverlay;
@@ -15,21 +17,15 @@ public sealed class PlayerEnterController : MonoBehaviour
     private bool isFindingRoom;
     private float spinnerAngle;
 
-    private UISoundController soundController;
-
     private void OnEnable()
     {
         panelRenderer = GetComponent<PanelRenderer>();
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
-
-        ServiceLocator.TryGet(out soundController);
     }
 
     private void OnDisable()
     {
-        if (panelRenderer != null)
-            panelRenderer.UnregisterUIReloadCallback(OnUIReload);
-
+        panelRenderer.UnregisterUIReloadCallback(OnUIReload);
         UnregisterUI();
     }
 
@@ -48,7 +44,7 @@ public sealed class PlayerEnterController : MonoBehaviour
             return;
         }
 
-        enterButton.RegisterCallback<ClickEvent>(OnEnterButtonClicked);
+        uiCallbacks.Bind<ClickEvent>(enterButton, OnEnterButtonClicked, sound => sound.PlayButtonClick());
 
         if (isFindingRoom)
             ShowFindingRoom();
@@ -60,10 +56,8 @@ public sealed class PlayerEnterController : MonoBehaviour
     {
         evt.StopPropagation();
 
-        if (isFindingRoom)
-            return;
-
-        Enter();
+        if (!isFindingRoom)
+            Enter();
     }
 
     private async void Enter()
@@ -74,8 +68,6 @@ public sealed class PlayerEnterController : MonoBehaviour
             return;
         }
 
-        ServiceLocator.TryGet(out soundController);
-        soundController?.PlayButtonClick();
         ShowFindingRoom();
 
         try
@@ -115,11 +107,11 @@ public sealed class PlayerEnterController : MonoBehaviour
     private void HideFindingRoom()
     {
         isFindingRoom = false;
+
         spinnerAnimation?.Pause();
         spinnerAnimation = null;
 
-        if (menuContent != null)
-            menuContent.SetEnabled(true);
+        menuContent?.SetEnabled(true);
 
         if (findingRoomOverlay != null)
             findingRoomOverlay.style.display = DisplayStyle.None;
@@ -127,11 +119,10 @@ public sealed class PlayerEnterController : MonoBehaviour
 
     private void UnregisterUI()
     {
+        uiCallbacks.Clear();
+
         spinnerAnimation?.Pause();
         spinnerAnimation = null;
-
-        if (enterButton != null)
-            enterButton.UnregisterCallback<ClickEvent>(OnEnterButtonClicked);
 
         menuContent = null;
         findingRoomOverlay = null;
