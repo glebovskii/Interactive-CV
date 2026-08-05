@@ -1,5 +1,7 @@
 using Fusion;
 using System;
+using Unity.Collections;
+using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -45,6 +47,12 @@ public sealed class PlayerMovement : NetworkBehaviour
 
     public event Action<bool> OnSpawn;
 
+    private QueryParameters raycastQuery;
+
+    private PlayerSpawner playerSpawner;
+
+    private NetworkTransform networkTransform;
+
     [Networked] public Vector3 Velocity { get; private set; }
     [Networked] public Color Color { get; private set; }
 
@@ -74,19 +82,33 @@ public sealed class PlayerMovement : NetworkBehaviour
         Velocity = Vector3.zero;
 
         combinedRaycastMask = walkableLayer.value | uiBlockLayer.value;
+        raycastQuery = new()
+        {
+            layerMask = combinedRaycastMask,
+            hitBackfaces = false,
+            hitTriggers = QueryTriggerInteraction.UseGlobal,
+            hitMultipleFaces = false,
+        };
 
+        networkTransform = GetComponent<NetworkTransform>();
         OnSpawn?.Invoke(isLocallyControlled);
+    }
+
+    public void Init(PlayerSpawner spawner)
+    {
+        playerSpawner = spawner;
     }
 
     public override void FixedUpdateNetwork()
     {
+        if (UpdateGravity())
+            return;
         if (!HasStateAuthority)
             return;
 
         if (!characterController.enabled)
             return;
 
-        UpdateGravity();
         HandleMovement();
     }
 
@@ -161,20 +183,45 @@ public sealed class PlayerMovement : NetworkBehaviour
 
         Ray ray = playerCamera.ScreenPointToRay(screenPosition);
 
-        if (!Physics.Raycast(ray, out var hit, maximumRayDistance, combinedRaycastMask))
+        var results = new NativeArray<RaycastHit>(2, Unity.Collections.Allocator.TempJob);
+
+        var commands = new NativeArray<RaycastCommand>(1, Unity.Collections.Allocator.TempJob);
+
+        Vector3 origin = ray.origin;
+        Vector3 direction = ray.direction;
+
+        commands[0] = new RaycastCommand(origin, direction, raycastQuery);
+
+        JobHandle handle = RaycastCommand.ScheduleBatch(commands, results, 1, 2, default(JobHandle));
+        handle.Complete();
+        foreach (var hit in results)
         {
-            return false;
+            if (hit.collider != null)
+            {
+                int hitLayerMask = 1 << hit.collider.gameObject.layer;
+                if ((uiBlockLayer.value & hitLayerMask) != 0)
+                {
+                    results.Dispose();
+                    commands.Dispose();
+                    return false;
+                }
+
+                pointerTarget = hit.point;
+                hasPointerTarget = true;
+
+                results.Dispose();
+                commands.Dispose();
+
+                return true;
+
+            }
         }
 
-        int hitLayerMask = 1 << hit.collider.gameObject.layer;
-        if ((uiBlockLayer.value & hitLayerMask) != 0)
-            return false;
-
-        pointerTarget = hit.point;
-        hasPointerTarget = true;
-
-        return true;
+        results.Dispose();
+        commands.Dispose();
+        return false;
     }
+
 
     private void MoveCharacter(Vector3 horizontalDirection)
     {
@@ -211,16 +258,46 @@ public sealed class PlayerMovement : NetworkBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, interpolation);
     }
 
-    private void UpdateGravity()
+    private bool UpdateGravity()
     {
         if (characterController.isGrounded && verticalVelocity < 0f)
         {
             verticalVelocity = groundedVerticalVelocity;
+            return false;
         }
-        else
+
+        verticalVelocity += Physics.gravity.y * Runner.DeltaTime;
+
+        if (verticalVelocity < -10f)
         {
-            verticalVelocity += Physics.gravity.y * Runner.DeltaTime;
+            TeleportPlayer();
+            return true;
         }
+
+        return false;
+    }
+
+    private void TeleportPlayer()
+    {
+        if (!Object.HasStateAuthority)
+            return;
+
+        if (playerSpawner == null)
+            ServiceLocator.TryGet(out playerSpawner);
+
+        if (playerSpawner == null)
+        {
+            Debug.LogError("PlayerSpawner was not found.");
+            return;
+        }
+
+        Vector3 spawnPosition = playerSpawner.FindClosestSpawnPoint(transform.position);
+
+        verticalVelocity = groundedVerticalVelocity;
+
+        characterController.enabled = false;
+        networkTransform.Teleport(spawnPosition, transform.rotation);
+        characterController.enabled = true;
     }
 
     public void StopMovement()

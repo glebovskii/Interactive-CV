@@ -1,11 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
     <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
     <ui:VisualElement name="panel-root" class="profile-section section-card section-card--hero">
-        <ui:VisualElement class="profile-monogram">
-            <ui:Label text="HZ" class="profile-monogram__text"/>
-        </ui:VisualElement>
         <ui:VisualElement class="profile-copy">
-            <ui:Label text="Hlib Zadachyn" class="profile-name" style="width: 191px; flex-direction: column; justify-content: flex-start; align-items: auto; align-self: auto; align-content: auto;"/>
+            <ui:Label text="Hlib Zadachyn" class="profile-name" style="width: 289px; flex-direction: column; justify-content: flex-start; align-items: auto; align-self: auto; align-content: auto;"/>
             <ui:Label text="Unity Developer · Technical Art · Optimization" class="profile-role">
                 <Bindings>
                     <l:LocalizedString property="text" table="ui" entry="profile.tagline"/>

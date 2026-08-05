@@ -39,6 +39,17 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
         }
 
         Runner.SetPlayerObject(player, playerObject);
+        playerObject.GetComponent<PlayerMovement>().Init(this);
         OnPlayerSpawned?.Invoke(playerObject);
+    }
+
+    public Vector3 FindClosestSpawnPoint(Vector3 position)
+    {
+        spawnPoints ??= FindAnyObjectByType<PlayerSpawnPoints>();
+        if (spawnPoints != null)
+        {
+            return spawnPoints.FindClosestSpawnPoint(position);
+        }
+        return Vector3.zero;
     }
 }

@@ -38,9 +38,9 @@
                         </Bindings>
                     </ui:Label>
                 </ui:VisualElement>
-                <ui:VisualElement class="bullet-row corepunk-bullet-row" style="flex-wrap: wrap;">
-                    <ui:VisualElement class="bullet-dot corepunk-bullet-dot" style="align-self: center;"/>
-                    <ui:Label text="Improved texture compression, animation consistency and VFX performance across quality levels." class="bullet-text corepunk-bullet-text" style="-unity-font-definition: url(&quot;project://database/Assets/Settings/NotoSans-Regular%20SDF.asset?fileID=11400000&amp;guid=47d2f41da54834440a2d0accc9b9c5ea&amp;type=2#NotoSans-Regular SDF&quot;); font-size: 25px;">
+                <ui:VisualElement name="" class="bullet-row corepunk-bullet-row" style="flex-wrap: wrap;">
+                    <ui:VisualElement class="bullet-dot corepunk-bullet-dot" style="align-self: center; justify-content: center;"/>
+                    <ui:Label text="Improved texture compression, animation consistency and VFX performance across quality levels." class="bullet-text corepunk-bullet-text" style="-unity-font-definition: url(&quot;project://database/Assets/Settings/NotoSans-Regular%20SDF.asset?fileID=11400000&amp;guid=47d2f41da54834440a2d0accc9b9c5ea&amp;type=2#NotoSans-Regular SDF&quot;); font-size: 25px; -unity-text-align: middle-left;">
                         <Bindings>
                             <l:LocalizedString property="text" table="ui" entry="corepunk.bullet.performance"/>
                         </Bindings>

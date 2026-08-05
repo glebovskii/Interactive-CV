@@ -21,7 +21,7 @@ MonoBehaviour:
       bounds:
         m_Center: {x: 0, y: 0, z: 0}
         m_Extent: {x: 54, y: 27, z: 54}
-  singleSceneMode: 1
+  singleSceneMode: 0
   dialogNoProbeVolumeInSetShown: 0
   settings:
     m_Version: 1
@@ -288,11 +288,11 @@ MonoBehaviour:
         hasOnlyBiggerBricks: 0
     - position: {x: 0, y: -1, z: -1}
       index: 17
-      probeCount: 832
+      probeCount: 1344
       minSubdiv: 0
       indexChunkCount: 5
       shChunkCount: 1
-      bricksCount: 13
+      bricksCount: 21
       indirectionEntryInfo:
       - positionInBricks: {x: 0, y: -9, z: -9}
         minSubdiv: 0
@@ -302,11 +302,11 @@ MonoBehaviour:
         hasOnlyBiggerBricks: 0
     - position: {x: 0, y: -1, z: 0}
       index: 32
-      probeCount: 1664
+      probeCount: 2176
       minSubdiv: 0
       indexChunkCount: 5
       shChunkCount: 1
-      bricksCount: 26
+      bricksCount: 34
       indirectionEntryInfo:
       - positionInBricks: {x: 0, y: -9, z: 0}
         minSubdiv: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
     m_Keys:
     - Default
     m_Values:
-    - sceneHash: 1531585461
+    - sceneHash: -1197159218
       cellDataAsset:
         m_AssetGUID: e9ef49693e233734687e0b3da8c63713
         m_StreamableAssetPath: APVStreamingAssets\9c2767b5a72f85d4f9ef9747d58540ba\e9ef49693e233734687e0b3da8c63713.bytes
@@ -723,73 +723,73 @@ MonoBehaviour:
       cellProbeOcclusionDataAsset:
         m_AssetGUID: 4b686ebd63cf9e44984d0cb11e519c22
         m_StreamableAssetPath: APVStreamingAssets\9c2767b5a72f85d4f9ef9747d58540ba\4b686ebd63cf9e44984d0cb11e519c22.bytes
-        m_ElementSize: 32768
+        m_ElementSize: 0
         m_StreamableCellDescs:
           m_Keys: 000000000f0000001e0000002d0000000500000014000000230000003200000001000000100000001f0000002e000000060000001500000024000000330000000200000011000000200000002f000000070000001600000025000000340000000300000012000000210000003000000008000000170000002600000035000000
           m_Values:
           - offset: 0
             elementCount: 1
-          - offset: 32768
+          - offset: 0
             elementCount: 1
-          - offset: 65536
+          - offset: 0
             elementCount: 1
-          - offset: 98304
+          - offset: 0
             elementCount: 1
-          - offset: 131072
+          - offset: 0
             elementCount: 1
-          - offset: 163840
+          - offset: 0
             elementCount: 1
-          - offset: 196608
+          - offset: 0
             elementCount: 1
-          - offset: 229376
+          - offset: 0
             elementCount: 1
-          - offset: 262144
+          - offset: 0
             elementCount: 1
-          - offset: 294912
+          - offset: 0
             elementCount: 1
-          - offset: 327680
+          - offset: 0
             elementCount: 1
-          - offset: 360448
+          - offset: 0
             elementCount: 1
-          - offset: 393216
+          - offset: 0
             elementCount: 1
-          - offset: 425984
+          - offset: 0
             elementCount: 1
-          - offset: 458752
+          - offset: 0
             elementCount: 1
-          - offset: 491520
+          - offset: 0
             elementCount: 1
-          - offset: 524288
+          - offset: 0
             elementCount: 1
-          - offset: 557056
+          - offset: 0
             elementCount: 1
-          - offset: 589824
+          - offset: 0
             elementCount: 1
-          - offset: 622592
+          - offset: 0
             elementCount: 1
-          - offset: 655360
+          - offset: 0
             elementCount: 1
-          - offset: 688128
+          - offset: 0
             elementCount: 1
-          - offset: 720896
+          - offset: 0
             elementCount: 1
-          - offset: 753664
+          - offset: 0
             elementCount: 1
-          - offset: 786432
+          - offset: 0
             elementCount: 1
-          - offset: 819200
+          - offset: 0
             elementCount: 1
-          - offset: 851968
+          - offset: 0
             elementCount: 1
-          - offset: 884736
+          - offset: 0
             elementCount: 1
-          - offset: 917504
+          - offset: 0
             elementCount: 1
-          - offset: 950272
+          - offset: 0
             elementCount: 1
-          - offset: 983040
+          - offset: 0
             elementCount: 1
-          - offset: 1015808
+          - offset: 0
             elementCount: 1
         m_Asset: {fileID: 4900000, guid: 4b686ebd63cf9e44984d0cb11e519c22, type: 3}
   cellBricksDataAsset:
@@ -834,34 +834,34 @@ MonoBehaviour:
       - offset: 10064
         elementCount: 1
       - offset: 10080
-        elementCount: 13
-      - offset: 10288
-        elementCount: 26
-      - offset: 10704
+        elementCount: 21
+      - offset: 10416
+        elementCount: 34
+      - offset: 10960
         elementCount: 11
-      - offset: 10880
+      - offset: 11136
         elementCount: 31
-      - offset: 11376
+      - offset: 11632
         elementCount: 102
-      - offset: 13008
+      - offset: 13264
         elementCount: 106
-      - offset: 14704
+      - offset: 14960
         elementCount: 68
-      - offset: 15792
+      - offset: 16048
         elementCount: 1
-      - offset: 15808
+      - offset: 16064
         elementCount: 1
-      - offset: 15824
+      - offset: 16080
         elementCount: 1
-      - offset: 15840
+      - offset: 16096
         elementCount: 1
-      - offset: 15856
+      - offset: 16112
         elementCount: 5
-      - offset: 15936
+      - offset: 16192
         elementCount: 13
-      - offset: 16144
+      - offset: 16400
         elementCount: 13
-      - offset: 16352
+      - offset: 16608
         elementCount: 8
     m_Asset: {fileID: 4900000, guid: 0b95e8f02401aa64a9748a8aebf23297, type: 3}
   cellSupportDataAsset:
@@ -944,7 +944,7 @@ MonoBehaviour:
     m_Extent: {x: 54, y: 27, z: 54}
   bakedSimplificationLevels: 2
   bakedMinDistanceBetweenProbes: 1
-  bakedProbeOcclusion: 1
+  bakedProbeOcclusion: 0
   bakedSkyOcclusionValue: 1
   bakedSkyShadingDirectionValue: 0
   bakedProbeOffset: {x: 0, y: 0, z: 0}
@@ -958,7 +958,7 @@ MonoBehaviour:
   L0ChunkSize: 65536
   L1ChunkSize: 32768
   L2TextureChunkSize: 32768
-  ProbeOcclusionChunkSize: 32768
+  ProbeOcclusionChunkSize: 0
   sharedValidityMaskChunkSize: 8192
   sharedSkyOcclusionL0L1ChunkSize: 65536
   sharedSkyShadingDirectionIndicesChunkSize: 0

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd3e0a73f5402e439776f1e3add9afe, type: 3}
+  m_Name: Education
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTiltSettings
+  localPosition: {x: -3.04, y: 3.65, z: 0}
+  localEulerAngles: {x: 39.999714, y: 28.968515, z: 0.0000022290349}
+  localScale: {x: 1.68, y: 1.68, z: 1.68}
+  maximumXTilt: -20
+  maximumYTilt: -16.2

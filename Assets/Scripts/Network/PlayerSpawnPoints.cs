@@ -23,4 +23,13 @@ public sealed class PlayerSpawnPoints : MonoBehaviour
         position = spawnPoint.position;
         rotation = spawnPoint.rotation;
     }
+
+    public Vector3 FindClosestSpawnPoint(Vector3 position)
+    {
+        if(spawnPoints == null || spawnPoints.Length == 0)
+        {
+            return Vector3.zero;
+        }
+        return spawnPoints[0].position;
+    }
 }

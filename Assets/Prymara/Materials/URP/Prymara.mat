@@ -127,7 +127,7 @@ Material:
     - _OffsetBlue: -0.046
     - _OffsetGreen: 0.0285
     - _OffsetRed: 0.0004
-    - _Oil_Radius: 15.5
+    - _Oil_Radius: 1.59
     - _Oil_minDepth: 0
     - _Oil_thickness: 0
     - _Q: 3.65
