@@ -26,7 +26,13 @@ public sealed class PlayerSurfaceController : MonoBehaviour
     [Tooltip("The Quad whose UV space corresponds to the mask.")]
     [SerializeField] private Terrain maskSurface;
 
-    [SerializeField, Range(0f, 1f)] private float groundThreshold = 0.5f;
+    [Header("Terrain Layers")]
+    [SerializeField, Min(0)] private int grassLayerIndex;
+    [SerializeField, Min(0)] private int groundLayerIndex = 1;
+    [SerializeField, Min(0)] private int metalLayerIndex = 2;
+
+    private NativeArray<byte> surfaceMap;
+
     [SerializeField] private bool flipU;
     [SerializeField] private bool flipV;
 
@@ -39,7 +45,6 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
     private PlayerSpawner playerSpawner;
     private TransformAccessArray playerTransforms;
-    private NativeArray<byte> maskRed;
     private NativeList<byte> sampledStates;
 
     private JobHandle jobHandle;
@@ -55,6 +60,8 @@ public sealed class PlayerSurfaceController : MonoBehaviour
     private float2 surfaceBoundsMin;
     private float2 surfaceBoundsSize;
 
+    private Texture2D controlMap;
+
     private void Awake()
     {
         CacheMask();
@@ -64,9 +71,6 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         sampledStates = new NativeList<byte>(16, Unity.Collections.Allocator.Persistent);
         sampledUVs = new NativeList<float2>(16, Unity.Collections.Allocator.Persistent);
 
-        playerTransforms = new TransformAccessArray(16);
-        sampledStates = new NativeList<byte>(16, Unity.Collections.Allocator.Persistent);
-
         playerSpawner = ServiceLocator.Get<PlayerSpawner>();
         playerSpawner.OnPlayerSpawned += OnPlayerSpawned;
 
@@ -75,15 +79,44 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
     private void CacheMask()
     {
-        groundMask =maskSurface.terrainData.GetAlphamapTexture(0);
-        maskWidth = groundMask.width;
-        maskHeight = groundMask.height;
+        TerrainData data = maskSurface.terrainData;
 
-        Color32[] pixels = groundMask.GetPixels32(0);
-        maskRed = new NativeArray<byte>(pixels.Length, Unity.Collections.Allocator.Persistent, NativeArrayOptions.UninitializedMemory);
+        maskWidth = data.alphamapWidth;
+        maskHeight = data.alphamapHeight;
+        controlMap = data.GetAlphamapTexture(0);
 
-        for (int i = 0; i < pixels.Length; i++)
-            maskRed[i] = pixels[i].r;
+        int layerCount = data.alphamapLayers;
+
+        if (grassLayerIndex >= layerCount || groundLayerIndex >= layerCount || metalLayerIndex >= layerCount)
+        {
+            Debug.LogError($"Invalid Terrain Layer index. Terrain contains {layerCount} layers.", this);
+            enabled = false;
+            return;
+        }
+
+        float[,,] alphamaps = data.GetAlphamaps(0, 0, maskWidth, maskHeight);
+        surfaceMap = new NativeArray<byte>(maskWidth * maskHeight, Unity.Collections.Allocator.Persistent, NativeArrayOptions.UninitializedMemory);
+
+        for (int y = 0; y < maskHeight; y++)
+        {
+            for (int x = 0; x < maskWidth; x++)
+            {
+                float grass = alphamaps[y, x, grassLayerIndex];
+                float ground = alphamaps[y, x, groundLayerIndex];
+                float metal = alphamaps[y, x, metalLayerIndex];
+
+                SurfaceType surface;
+
+                if (metal >= grass && metal >= ground)
+                    surface = SurfaceType.Metal;
+                else if (grass >= ground)
+                    surface = SurfaceType.Grass;
+                else
+                    surface = SurfaceType.Ground;
+
+                surfaceMap[y * maskWidth + x] = (byte)surface;
+            }
+        }
     }
 
     private void CacheSurface()
@@ -167,13 +200,12 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
         var job = new SampleSurfaceMaskJob
         {
-            MaskRed = maskRed,
+            SurfaceMap = surfaceMap,
             Results = sampledStates.AsArray(),
             UVResults = sampledUVs.AsArray(),
 
             MaskWidth = maskWidth,
             MaskHeight = maskHeight,
-            GroundThreshold = (byte)Mathf.RoundToInt(groundThreshold * 255f),
 
             SurfacePosition = surfacePosition,
             InverseSurfaceRotation = inverseSurfaceRotation,
@@ -224,7 +256,7 @@ public sealed class PlayerSurfaceController : MonoBehaviour
                 continue;
 
             previousStates[i] = states[i];
-            players[i].SetIsOnGround(states[i] != 0);
+            players[i].SetSurfaceType((SurfaceType)states[i]);
         }
     }
 
@@ -241,8 +273,8 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         if (sampledStates.IsCreated)
             sampledStates.Dispose();
 
-        if (maskRed.IsCreated)
-            maskRed.Dispose();
+        if (surfaceMap.IsCreated)
+            surfaceMap.Dispose();
 
         if (sampledUVs.IsCreated)
             sampledUVs.Dispose();
@@ -251,13 +283,12 @@ public sealed class PlayerSurfaceController : MonoBehaviour
     [BurstCompile]
     private struct SampleSurfaceMaskJob : IJobParallelForTransform
     {
-        [Unity.Collections.ReadOnly] public NativeArray<byte> MaskRed;
+        [Unity.Collections.ReadOnly] public NativeArray<byte> SurfaceMap;
         [WriteOnly] public NativeArray<byte> Results;
         [WriteOnly] public NativeArray<float2> UVResults;
 
         public int MaskWidth;
         public int MaskHeight;
-        public byte GroundThreshold;
 
         public float3 SurfacePosition;
         public quaternion InverseSurfaceRotation;
@@ -287,10 +318,8 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
             int x = math.min((int)(uv.x * MaskWidth), MaskWidth - 1);
             int y = math.min((int)(uv.y * MaskHeight), MaskHeight - 1);
-            byte red = MaskRed[y * MaskWidth + x];
 
-            // Black = ground, white = grass.
-            Results[index] = red > GroundThreshold ? (byte)1 : (byte)0;
+            Results[index] = SurfaceMap[y * MaskWidth + x];
         }
     }
 }

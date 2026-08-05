@@ -1,7 +1,10 @@
-using System;
-using System.Threading.Tasks;
 using Fusion;
+using System;
+using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 
 public enum NetworkSessionState
@@ -14,6 +17,8 @@ public enum NetworkSessionState
 
 public sealed class NetworkSessionService : MonoBehaviour
 {
+    private const string GameSceneAddress = "Assets/Scenes/CV.unity";
+
     [Header("Configuration")]
     [SerializeField]
     private NetworkSessionConfig config;
@@ -25,8 +30,7 @@ public sealed class NetworkSessionService : MonoBehaviour
 
     public NetworkRunner Runner { get; private set; }
 
-    public NetworkSessionState State { get; private set; } =
-        NetworkSessionState.Offline;
+    public NetworkSessionState State { get; private set; } = NetworkSessionState.Offline;
 
     public event Action<NetworkSessionState> StateChanged;
     public event Action<StartGameResult> ConnectionFailed;
@@ -86,16 +90,10 @@ public sealed class NetworkSessionService : MonoBehaviour
                     $"Scene '{activeScene.name}' is not in Build Settings.");
             }
 
-            SceneRef sceneRef = SceneRef.FromIndex(1);
-
+            SceneRef sceneRef = SceneRef.FromPath(GameSceneAddress);
             var sceneInfo = new NetworkSceneInfo();
+            sceneInfo.AddSceneRef(sceneRef, LoadSceneMode.Single);
 
-            sceneInfo.AddSceneRef(
-                sceneRef,
-                LoadSceneMode.Single);
-
-            // Shared Mode reads local input directly from the
-            // locally authoritative player object.
             newRunner.ProvideInput = false;
 
             StartGameResult result = await newRunner.StartGame(

@@ -2645,7 +2645,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://play.google.com/store/apps/developer?id=Optor+Group
-  checkLinkValidOnClick: 1
   panelRenderer: {fileID: 595208950}
 --- !u!4 &595208952
 Transform:
@@ -2752,9 +2751,11 @@ MonoBehaviour:
   markerSize: 8
   directionLength: 25
   directionWidth: 3
-  groundMask: {fileID: 0}
+  groundMask: {fileID: -5315243789035034270, guid: ee6faccc312d7fc4f9f1a4eb4a8a3b41, type: 2}
   maskSurface: {fileID: 914950665}
-  groundThreshold: 0.5
+  grassLayerIndex: 1
+  groundLayerIndex: 0
+  metalLayerIndex: 2
   flipU: 0
   flipV: 0
   checkInterval: 0.05
@@ -3228,7 +3229,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://assetstore.unity.com/publishers/105938
-  checkLinkValidOnClick: 0
 --- !u!114 &685371839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3658,7 +3658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://apps.apple.com/ua/app/last-pirate-survival-island/id1449724605
-  checkLinkValidOnClick: 1
   panelRenderer: {fileID: 739124884}
 --- !u!4 &739124886
 Transform:
@@ -4318,7 +4317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/prymara-post-procsss-375996
-  checkLinkValidOnClick: 1
   panelRenderer: {fileID: 898442552}
 --- !u!114 &898442551
 MonoBehaviour:
@@ -4441,7 +4439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://www.linkedin.com/in/hlib-zadachyn-23a0b9117
-  checkLinkValidOnClick: 0
 --- !u!114 &900479622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5086,7 +5083,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://drive.google.com/file/d/11f9qXg29zkJ181I5gof-Iw1IEaeAaYR-/view?usp=sharing
-  checkLinkValidOnClick: 0
 --- !u!114 &1145106351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5301,7 +5297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://assetstore.unity.com/packages/vfx/shaders/dissolver-304081
-  checkLinkValidOnClick: 1
   panelRenderer: {fileID: 1319712759}
 --- !u!114 &1319712758
 MonoBehaviour:
@@ -6020,7 +6015,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://assetstore.unity.com/packages/vfx/shaders/spectra-shadow-364564
-  checkLinkValidOnClick: 1
   panelRenderer: {fileID: 1396108781}
 --- !u!4 &1396108784
 Transform:
@@ -6214,7 +6208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://github.com/glebovskii/Interactive-CV
-  checkLinkValidOnClick: 0
 --- !u!114 &1459457542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6396,7 +6389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://corepunk.com/en-gb
-  checkLinkValidOnClick: 1
   panelRenderer: {fileID: 1488326343}
 --- !u!114 &1488326346
 MonoBehaviour:
@@ -6631,7 +6623,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://maidnmate.itch.io/art-guard
-  checkLinkValidOnClick: 0
 --- !u!114 &1588692333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6973,7 +6964,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: mailto:zadachings@gmail.com
-  checkLinkValidOnClick: 0
 --- !u!114 &1638413502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8419,7 +8409,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://github.com/Glebovvski
-  checkLinkValidOnClick: 0
 --- !u!114 &1923357287
 MonoBehaviour:
   m_ObjectHideFlags: 0

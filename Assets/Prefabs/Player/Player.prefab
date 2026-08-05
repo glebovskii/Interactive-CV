@@ -274,6 +274,7 @@ MonoBehaviour:
   audioSource: {fileID: 5621686937078193238}
   groundSFX: {fileID: 8300000, guid: 98551143fc4a6e34daa6dcd458784e5f, type: 3}
   grassSFX: {fileID: 8300000, guid: 8fa103fe9591d2748974cb5c3cece217, type: 3}
+  metalSFX: {fileID: 8300000, guid: 0a760a204ad038a4995aea01782d39bc, type: 3}
 --- !u!82 &5621686937078193238
 AudioSource:
   m_ObjectHideFlags: 0

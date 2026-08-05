@@ -24,37 +24,31 @@ public class UISoundController : MonoBehaviour
     public void PlayButtonClick()
     {
         source.PlayOneShot(buttonClick);
-        Debug.LogError("PlayButtonClick");
     }
 
     public void PlayPanelOpen()
     {
         source.PlayOneShot(panelOpen);
-        Debug.LogError("PlayPanelOpen");
     }
 
     public void PlayPanelClose()
     {
         source.PlayOneShot(panelClose);
-        Debug.LogError("PlayPanelClose");
     }
 
     public void PlayLinkLoad()
     {
         source.PlayOneShot(linkLoad);
-        Debug.LogError("PlayLinkLoad");
     }
 
     public void PlaySliderChange()
     {
         source.PlayOneShot(sliderChange);
-        Debug.LogError("PlaySliderChange");
     }
 
     public void PlayToggle()
     {
         source.PlayOneShot(toggle);
-        Debug.LogError("PlayToggle");
     }
 
 }

@@ -1,12 +1,13 @@
 using Fusion;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public enum SurfaceType
 {
-    None = 0,
     Grass,
     Ground,
+    Metal
 }
 
 public class PlayerFXController : NetworkBehaviour
@@ -19,11 +20,12 @@ public class PlayerFXController : NetworkBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip groundSFX;
     [SerializeField] private AudioClip grassSFX;
+    [SerializeField] private AudioClip metalSFX;
 
     private Dictionary<SurfaceType, ParticleSystem> surfaceFX;
     private Dictionary<SurfaceType, AudioClip> surfaceSFX;
 
-    [Networked, OnChangedRender("OnChangeSurface")] private bool _isOnGround { get; set; }
+    [Networked, OnChangedRender("OnChangeSurface")] private SurfaceType _surfaceType { get; set; }
 
     public override void Spawned()
     {
@@ -36,17 +38,18 @@ public class PlayerFXController : NetworkBehaviour
         surfaceSFX = new Dictionary<SurfaceType, AudioClip>
         {
             { SurfaceType.Ground, groundSFX },
-            { SurfaceType.Grass, grassSFX }
+            { SurfaceType.Grass, grassSFX },
+            { SurfaceType.Metal, metalSFX }
         };
 
-        _isOnGround = true;
+        _surfaceType = SurfaceType.Ground;
         OnChangeSurface();
     }
 
-    public void SetIsOnGround(bool isOnGround)
+    public void SetSurfaceType(SurfaceType surfaceType)
     {
-        if (_isOnGround != isOnGround)
-            _isOnGround = isOnGround;
+        if (_surfaceType != surfaceType)
+            _surfaceType = surfaceType;
     }
 
     public void PlayFootstep()
@@ -57,9 +60,20 @@ public class PlayerFXController : NetworkBehaviour
     private void OnChangeSurface()
     {
         audioSource.Stop();
-        audioSource.clip = _isOnGround ? surfaceSFX[SurfaceType.Ground] : surfaceSFX[SurfaceType.Grass];
+        switch(_surfaceType)
+        {
+            case SurfaceType.Ground:
+                audioSource.clip = surfaceSFX[SurfaceType.Ground]; 
+                break;
+            case SurfaceType.Grass:
+                audioSource.clip = surfaceSFX[SurfaceType.Grass];
+                break;
+            case SurfaceType.Metal:
+                audioSource.clip = surfaceSFX[SurfaceType.Metal];
+                break;
+        }
 
-        if (_isOnGround)
+        if (_surfaceType != SurfaceType.Grass)
         {
             surfaceFX[SurfaceType.Ground].Play();
             surfaceFX[SurfaceType.Grass].Stop();
