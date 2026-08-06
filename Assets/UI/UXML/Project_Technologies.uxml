@@ -1,0 +1,73 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement name="panel-root" class="section-card game-card game-section-card">
+        <ui:VisualElement class="game-copy game-section-copy" style="flex-wrap: nowrap;">
+            <ui:VisualElement class="game-section-heading-copy">
+                <ui:Label text="This project was built with" class="game-title game-section-title">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="technologies.title"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row; align-items: flex-start; width: 100%;">
+                <ui:VisualElement class="bullet-list game-section-bullet-list" style="width: 50%; margin-right: 16px;">
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Unity 6 / URP" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Photon Fusion 2" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Addressables" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="C# Job System / Burst" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Input System" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="UI Toolkit" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Cinemachine" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-list game-section-bullet-list" style="width: 50%;">
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Shell Grass Shader" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Shader Graph / HLSL" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Render Textures" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Adaptive Probe Volumes" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="Particle System" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="bullet-row game-section-bullet-row">
+                        <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                        <ui:Label text="DOTween" class="bullet-text game-section-bullet-text"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
+</ui:UXML>

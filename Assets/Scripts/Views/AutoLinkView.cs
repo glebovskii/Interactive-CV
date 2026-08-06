@@ -19,7 +19,7 @@ public class AutoLinkView : MonoBehaviour
 
     private void OnEnable()
     {
-        routine = LinkRoutine();
+        //routine = LinkRoutine();
 
         linkController.SetFill(0f);
 
@@ -34,32 +34,39 @@ public class AutoLinkView : MonoBehaviour
         if (!view.IsLocalPlayer)
             return;
 
-        routine = LinkRoutine();
-        StartCoroutine(routine);
+        LinkRoutine();
+        //routine = LinkRoutine();
+        //StartCoroutine(routine);
     }
 
-    private IEnumerator LinkRoutine()
+    //private IEnumerator LinkRoutine()
+    //{
+    //    soundController?.SetPitch(1);
+    //    float time = 0;
+    //    prevTimeSoundPlay = 0f;
+    //    linkController.SetFill(0);
+    //    while (time < totalTime)
+    //    {
+    //        if (time - prevTimeSoundPlay > timeBetweenSoundPlay)
+    //        {
+    //            soundController?.PlayLinkLoad();
+    //            prevTimeSoundPlay = time;
+    //        }
+    //        soundController?.SetPitch(1+time);
+    //        linkController.SetFill(time / totalTime);
+    //        time += Time.deltaTime;
+    //        yield return null;
+    //    }
+    //    soundController?.SetPitch(1);
+    //    yield return null;
+    //    linkController.SetFill(1);
+    //    link.OpenLink();
+    //}
+
+    private void LinkRoutine()
     {
-        soundController?.SetPitch(1);
-        float time = 0;
-        prevTimeSoundPlay = 0f;
-        linkController.SetFill(0);
-        while (time < totalTime)
-        {
-            if (time - prevTimeSoundPlay > timeBetweenSoundPlay)
-            {
-                soundController?.PlayLinkLoad();
-                prevTimeSoundPlay = time;
-            }
-            soundController?.SetPitch(1+time);
-            linkController.SetFill(time / totalTime);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        soundController?.SetPitch(1);
-        //yield return null;
-        linkController.SetFill(1);
         link.OpenLink();
+
     }
 
     private void TriggerExit(PlayerView view)

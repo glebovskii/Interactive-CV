@@ -2,6 +2,7 @@ using Fusion;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class PlayerDissolveController : NetworkBehaviour
@@ -10,6 +11,7 @@ public class PlayerDissolveController : NetworkBehaviour
     private static readonly int DissolveProp = Shader.PropertyToID("_Dissolve");
     private static readonly int AxisProp = Shader.PropertyToID("_AxisProp");
     private static readonly int StartDirectionProp = Shader.PropertyToID("_DirectionProp");
+    private static readonly int EmissionProp = Shader.PropertyToID("_Emission");
 
     private int baseColorId = Shader.PropertyToID("_BaseColor");
 
@@ -39,10 +41,12 @@ public class PlayerDissolveController : NetworkBehaviour
     private Material dissolveMat;
     [SerializeField] private Shader dissolveShader;
 
-    [Networked, OnChangedRender("OnDissolveChange")] public float Dissolve { get; set; }
-    [Networked, OnChangedRender("OnEdgeWidthChange")] public float EdgeWidth { get; set; }
+    [Networked, OnChangedRender("OnDissolveChange")] public float Dissolve { get; set; } = -0.09f;
+    [Networked, OnChangedRender("OnEdgeWidthChange")] public float EdgeWidth { get; set; } = 0.05f;
     [Networked, OnChangedRender("OnAxisChange")] public int Axis { get; set; }
     [Networked, OnChangedRender("OnDirectionChange")] public int Direction { get; set; }
+
+    [SerializeField, ColorUsage(false, true)] private Color dissolveColor;
 
     public void Init(SkinnedMeshRenderer renderer)
     {
@@ -53,6 +57,7 @@ public class PlayerDissolveController : NetworkBehaviour
     {
         dissolveMat = new Material(dissolveShader);
         dissolveMat.SetColor(baseColorId, GetComponent<PlayerView>().Renderer.material.color);
+        dissolveMat.SetColor(EmissionProp, dissolveColor);
         if (HasStateAuthority)
         {
             Dissolve = dissolveMat.GetFloat(DissolveProp);

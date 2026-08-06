@@ -1,0 +1,83 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement name="panel-root" class="section-card game-card game-section-card">
+        <ui:VisualElement class="game-hero game-section-hero game-section-hero--last-pirate"/>
+        <ui:VisualElement class="game-copy game-section-copy">
+            <ui:VisualElement class="section-heading-row game-section-heading-row">
+                <ui:VisualElement class="game-section-heading-copy">
+                    <ui:VisualElement class="game-section-title-role-row">
+                        <ui:Label text="Last Pirate" class="game-title game-section-title"/>
+                        <ui:Label text="Unity Developer" class="game-section-role">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="common.unity_developer"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                    <ui:Label text="RetroStyle Games · Mobile survival" class="game-meta game-section-meta">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="lastpirate.meta"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement class="game-section-heading-actions">
+                    <ui:Button name="button-link" text="View project" tooltip="Open Last Pirate in the App Store" class="secondary-button game-section-link-button">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="common.view_project"/>
+                            <l:LocalizedString property="tooltip" table="ui" entry="lastpirate.tooltip"/>
+                        </Bindings>
+                    </ui:Button>
+                    <ui:Label text="Jan 2022 – Dec 2022" class="game-section-date">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="lastpirate.date"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="bullet-list game-section-bullet-list">
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Developed and refined NPC behavior and gameplay systems for a mobile survival title." class="bullet-text game-section-bullet-text">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="lastpirate.bullet.ai"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Worked with game design to integrate features and improve moment-to-moment player flow." class="bullet-text game-section-bullet-text">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="lastpirate.bullet.design"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement class="bullet-row game-section-bullet-row">
+                    <ui:VisualElement class="bullet-dot game-section-bullet-dot"/>
+                    <ui:Label text="Fixed gameplay issues and optimized project performance across supported mobile devices." class="bullet-text game-section-bullet-text">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="lastpirate.bullet.performance"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="chip-row game-section-chip-row">
+                <ui:Label text="NPC AI" class="chip game-section-chip"/>
+                <ui:Label text="Gameplay" class="chip game-section-chip">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="common.gameplay"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Mobile" class="chip game-section-chip">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="lastpirate.mobile"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Optimization" class="chip game-section-chip">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="common.optimization"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
+    </ui:VisualElement>
+</ui:UXML>

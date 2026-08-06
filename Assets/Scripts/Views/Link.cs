@@ -6,8 +6,8 @@ public class Link : MonoBehaviour
 
     public void OpenLink()
     {
-        if (ServiceLocator.TryGet(out UISoundController soundController))
-            soundController.PlayButtonClick();
+        //if (ServiceLocator.TryGet(out UISoundController soundController))
+        //    soundController.PlayButtonClick();
 
         Application.OpenURL(link);
     }

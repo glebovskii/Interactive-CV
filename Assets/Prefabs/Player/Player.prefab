@@ -199,6 +199,8 @@ MonoBehaviour:
   renderer: {fileID: 2552364403198309420}
   playerTrigger: {fileID: 3385221223788103399}
   dissolveController: {fileID: 7212550310696207308}
+  memberWeight: 1
+  memberRadius: 1
 --- !u!114 &7212550310696207308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,10 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDissolveController
   dissolveShader: {fileID: -6465566751694194690, guid: a12058d26497cd24ca733c1288949574, type: 3}
-  _Dissolve: 0
-  _EdgeWidth: 0
+  _Dissolve: -0.095
+  _EdgeWidth: 0.05
   _Axis: 0
   _Direction: 0
+  dissolveColor: {r: 766.9961, g: 39.073322, b: 650.77826, a: 0}
 --- !u!54 &8333996507032165700
 Rigidbody:
   m_ObjectHideFlags: 0

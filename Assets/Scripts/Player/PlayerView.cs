@@ -20,6 +20,9 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private PlayerTrigger playerTrigger;
     [SerializeField] private PlayerDissolveController dissolveController;
 
+    [SerializeField] private float memberWeight = 1f;
+    [SerializeField] private float memberRadius = 1f;
+
     public PlayerDissolveController DissolveController => dissolveController;
 
 
@@ -86,7 +89,7 @@ public class PlayerView : MonoBehaviour
         playerCameraController = Instantiate<PlayerCameraController>(playerCameraControllerPrefab);
         playerCameraController.CinemachineCamera.Priority = IsLocalPlayer ? 1 : -100;
         if (IsLocalPlayer)
-            playerCameraController.CinemachineTargetGroup.AddMember(cameraTarget, 1, 1);
+            playerCameraController.CinemachineTargetGroup.AddMember(cameraTarget, memberWeight, memberRadius);
     }
 
     private void Update()

@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement name="panel-root" class="section-card">
+        <ui:Label text="Education" class="section-title">
+            <Bindings>
+                <l:LocalizedString property="text" table="ui" entry="education.title"/>
+            </Bindings>
+        </ui:Label>
+        <ui:Label text="Master's Degree · Computer Science" class="education-degree">
+            <Bindings>
+                <l:LocalizedString property="text" table="ui" entry="education.degree"/>
+            </Bindings>
+        </ui:Label>
+        <ui:Label text="National Technical University of Ukraine “Igor Sikorsky Kyiv Polytechnic Institute”" class="education-school"/>
+        <ui:Label text="2021 · Ukraine" class="meta-text">
+            <Bindings>
+                <l:LocalizedString property="text" table="ui" entry="education.meta"/>
+            </Bindings>
+        </ui:Label>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
+    </ui:VisualElement>
+</ui:UXML>

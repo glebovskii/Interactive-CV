@@ -1,0 +1,368 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <Style src="project://database/Assets/UI/USS/ShaderSettings.uss?fileID=7433441132597879392&amp;guid=40f5cee935b6a2f469d88696828a1281&amp;type=3#ShaderSettings"/>
+    <ui:VisualElement name="panel-root" class="section-card shader-settings-card">
+        <ui:VisualElement class="shader-settings-header" style="width: 100%;">
+            <ui:VisualElement class="shader-settings-heading-copy" style="flex-direction: row; white-space: normal; align-items: auto; justify-content: space-between; align-self: auto; align-content: auto;">
+                <ui:VisualElement class="shader-settings-title-row" style="align-items: center; flex-direction: row;">
+                    <ui:Label text="Prymara Comic Shader" class="game-title shader-settings-title"/>
+                    <ui:Label text="Runtime post-process controls" class="shader-settings-role">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="prymara.runtime_controls"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="Edge, aberration, grid, Kuwahara and oil-painting effects" class="game-meta shader-settings-meta">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="prymara.effects"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:Button name="button-link" text="View project" tooltip="Open the project page" class="secondary-button shader-settings-project-button" style="align-self: stretch; justify-content: center; align-items: auto; margin-left: 0; align-content: auto; flex-direction: column;">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="common.view_project"/>
+                        <l:LocalizedString property="tooltip" table="ui" entry="common.open_project_page"/>
+                    </Bindings>
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:TabView name="shader-tab-view" reorderable="false" view-data-key="prymara-shader-tab-view" class="shader-tab-view">
+            <ui:Tab name="tab-edge" label="Edge Outline" class="shader-tab">
+                <Bindings>
+                    <l:LocalizedString property="label" table="ui" entry="prymara.tab_edge"/>
+                </Bindings>
+                <ui:ScrollView name="panel-edge" class="shader-tab-scroll" style="display: flex;">
+                    <ui:VisualElement class="shader-tab-heading-row">
+                        <ui:Label text="Edge Outline" class="shader-tab-title">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="prymara.tab_edge"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Toggle name="toggle-edge" label="Enabled" class="shader-enable-toggle">
+                            <Bindings>
+                                <l:LocalizedString property="label" table="ui" entry="common.enabled"/>
+                            </Bindings>
+                        </ui:Toggle>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="edge-fields" class="shader-fields">
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Edge Strength" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.edge_strength"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-edge-strength" low-value="0" high-value="10" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Thickness" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="common.thickness"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-edge-thickness" low-value="0" high-value="5" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Threshold" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.threshold"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-edge-threshold" low-value="0" high-value="1" value="0.1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Edge Power" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.edge_power"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-edge-power" low-value="0.1" high-value="8" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Softness" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.softness"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-edge-softness" low-value="0" high-value="1" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Minimum Edge Depth" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.minimum_edge_depth"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-edge-min-depth" low-value="0" high-value="1000" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:Tab>
+            <ui:Tab name="tab-aberration" label="Aberration" class="shader-tab">
+                <Bindings>
+                    <l:LocalizedString property="label" table="ui" entry="prymara.tab_aberration"/>
+                </Bindings>
+                <ui:ScrollView name="panel-aberration" class="shader-tab-scroll" style="display: flex;">
+                    <ui:VisualElement class="shader-tab-heading-row">
+                        <ui:Label text="Chromatic Aberration" class="shader-tab-title">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="prymara.chromatic_aberration"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Toggle name="toggle-aberration" label="Enabled" class="shader-enable-toggle">
+                            <Bindings>
+                                <l:LocalizedString property="label" table="ui" entry="common.enabled"/>
+                            </Bindings>
+                        </ui:Toggle>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="aberration-fields" class="shader-fields">
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Red Offset" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.red_offset"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-aberration-red" low-value="-1" high-value="1" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Green Offset" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.green_offset"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-aberration-green" low-value="-1" high-value="1" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Blue Offset" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.blue_offset"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-aberration-blue" low-value="-1" high-value="1" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Frame Comparison" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.frame_comparison"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-aberration-frame-comparison" low-value="0" high-value="1" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Minimum Depth" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="common.minimum_depth"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-aberration-min-depth" low-value="0" high-value="1000" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:Tab>
+            <ui:Tab name="tab-grid" label="Grid" class="shader-tab">
+                <Bindings>
+                    <l:LocalizedString property="label" table="ui" entry="prymara.tab_grid"/>
+                </Bindings>
+                <ui:ScrollView name="panel-grid" class="shader-tab-scroll" style="display: flex;">
+                    <ui:VisualElement class="shader-tab-heading-row">
+                        <ui:Label text="Background Grid" class="shader-tab-title">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="prymara.background_grid"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Toggle name="toggle-grid" label="Enabled" class="shader-enable-toggle">
+                            <Bindings>
+                                <l:LocalizedString property="label" table="ui" entry="common.enabled"/>
+                            </Bindings>
+                        </ui:Toggle>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="grid-fields" class="shader-fields">
+                        <ui:VisualElement class="shader-inline-toggles">
+                            <ui:Toggle name="toggle-grid-texture" label="Use assigned grid texture" class="shader-option-toggle">
+                                <Bindings>
+                                    <l:LocalizedString property="label" table="ui" entry="prymara.use_grid_texture"/>
+                                </Bindings>
+                            </ui:Toggle>
+                            <ui:Toggle name="toggle-grid-invert-alpha" label="Invert alpha" class="shader-option-toggle">
+                                <Bindings>
+                                    <l:LocalizedString property="label" table="ui" entry="prymara.invert_alpha"/>
+                                </Bindings>
+                            </ui:Toggle>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Grid Size" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.grid_size"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-grid-size" low-value="1" high-value="500" value="100" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Minimum Depth" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="common.minimum_depth"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-grid-min-depth" low-value="0" high-value="1000" value="0" show-input-field="true" fill="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Alpha" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.alpha"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-grid-alpha" low-value="0" high-value="1" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="grid-procedural-fields">
+                            <ui:VisualElement class="shader-control-row">
+                                <ui:Label text="Softness" class="shader-control-label">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="prymara.softness"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:Slider name="slider-grid-softness" low-value="0" high-value="1" value="0" show-input-field="true" class="shader-slider"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement class="shader-control-row">
+                                <ui:Label text="Radius" class="shader-control-label">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="common.radius"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:Slider name="slider-grid-radius" low-value="0" high-value="10" value="1" show-input-field="true" class="shader-slider"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:Label name="grid-texture-note" text="The texture is read from the material's _Grid property." class="shader-note">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="prymara.grid_note"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:Tab>
+            <ui:Tab name="tab-kuwahara" label="Kuwahara" class="shader-tab">
+                <ui:ScrollView name="panel-kuwahara" class="shader-tab-scroll" style="display: flex;">
+                    <ui:VisualElement class="shader-tab-heading-row">
+                        <ui:Label text="Kuwahara Filter" class="shader-tab-title">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="prymara.kuwahara_filter"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Toggle name="toggle-kuwahara" label="Enabled" class="shader-enable-toggle">
+                            <Bindings>
+                                <l:LocalizedString property="label" table="ui" entry="common.enabled"/>
+                            </Bindings>
+                        </ui:Toggle>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="kuwahara-fields" class="shader-fields">
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Kernel Size" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.kernel_size"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:SliderInt name="slider-kuwahara-kernel" low-value="1" high-value="20" value="4" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Sector Count" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.sector_count"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:SliderInt name="slider-kuwahara-sector-count" low-value="1" high-value="16" value="8" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Sharpness" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.sharpness"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-kuwahara-hardness" low-value="0" high-value="20" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Variance Power" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.variance_power"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-kuwahara-q" low-value="0" high-value="500" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Anisotropy" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.anisotropy"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-kuwahara-alpha" low-value="0" high-value="1" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Zero Crossing Angle" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.zero_crossing_angle"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-kuwahara-zero-crossing" low-value="0" high-value="180" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Edge Sensitivity" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="prymara.edge_sensitivity"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-kuwahara-zeta" low-value="0" high-value="20" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Minimum Depth" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="common.minimum_depth"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-kuwahara-min-depth" low-value="0" high-value="1000" value="0" show-input-field="true" fill="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:Tab>
+            <ui:Tab name="tab-oil" label="Oil" class="shader-tab">
+                <Bindings>
+                    <l:LocalizedString property="label" table="ui" entry="prymara.tab_oil"/>
+                </Bindings>
+                <ui:ScrollView name="panel-oil" class="shader-tab-scroll" style="display: flex;">
+                    <ui:VisualElement class="shader-tab-heading-row">
+                        <ui:Label text="Oil Painting" class="shader-tab-title">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="prymara.oil_painting"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Toggle name="toggle-oil" label="Enabled" class="shader-enable-toggle">
+                            <Bindings>
+                                <l:LocalizedString property="label" table="ui" entry="common.enabled"/>
+                            </Bindings>
+                        </ui:Toggle>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="oil-fields" class="shader-fields">
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Radius" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="common.radius"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-oil-radius" low-value="0" high-value="20" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Thickness" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="common.thickness"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-oil-thickness" low-value="0" high-value="20" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Minimum Depth" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="common.minimum_depth"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-oil-min-depth" low-value="0" high-value="1000" value="0" show-input-field="true" fill="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:Tab>
+        </ui:TabView>
+    </ui:VisualElement>
+</ui:UXML>

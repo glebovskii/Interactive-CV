@@ -6,7 +6,6 @@ public sealed class PanelUI : MonoBehaviour
 {
     [SerializeField] private PanelRenderer panelRenderer;
     [SerializeField] private PanelRevealAnimation panelRevealAnimation;
-    [SerializeField] private PanelTiltSettings tiltSettings;
 
     [Header("Camera tilt")]
     [SerializeField, Range(-45f, 45f)] private float maximumXTilt = 6f;
@@ -22,27 +21,6 @@ public sealed class PanelUI : MonoBehaviour
 
     public float MaximumXTilt => maximumXTilt;
     public float MaximumYTilt => maximumYTilt;
-    public PanelTiltSettings TiltSettings => tiltSettings;
-
-    private void Awake()
-    {
-        //ApplyTiltSettings();
-    }
-
-    public void ApplyTiltSettings()
-    {
-        if (tiltSettings == null)
-            return;
-
-        transform.localPosition = tiltSettings.localPosition;
-        transform.localRotation = Quaternion.Euler(tiltSettings.localEulerAngles);
-        transform.localScale = tiltSettings.localScale;
-
-        maximumXTilt = tiltSettings.maximumXTilt;
-        maximumYTilt = tiltSettings.maximumYTilt;
-
-        CacheBaseTransform();
-    }
 
     public void Show(CinemachineCamera camera)
     {

@@ -1,0 +1,35 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
+        <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement name="panel-root" class="section-card">
+        <ui:Label text="Independent Work" class="section-title">
+            <Bindings>
+                <l:LocalizedString property="text" table="ui" entry="accomplishments.title"/>
+            </Bindings>
+        </ui:Label>
+        <ui:VisualElement class="bullet-row">
+            <ui:VisualElement class="bullet-dot" style="align-self: center;"/>
+            <ui:Label text="Freelance asset developer producing technical and visual tools for Unity projects." class="bullet-text">
+                <Bindings>
+                    <l:LocalizedString property="text" table="ui" entry="accomplishments.freelance"/>
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement class="bullet-row">
+            <ui:VisualElement class="bullet-dot" style="align-self: center;"/>
+            <ui:Label text="Published shader and editor-tool assets on the Unity Asset Store." class="bullet-text">
+                <Bindings>
+                    <l:LocalizedString property="text" table="ui" entry="accomplishments.asset_store"/>
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement class="bullet-row">
+            <ui:VisualElement class="bullet-dot" style="align-self: center;"/>
+            <ui:Label text="Created and published the Photon Fusion multiplayer project Art Guard." class="bullet-text">
+                <Bindings>
+                    <l:LocalizedString property="text" table="ui" entry="accomplishments.art_guard"/>
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
+    </ui:VisualElement>
+</ui:UXML>

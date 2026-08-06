@@ -1,0 +1,55 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement name="panel-root" class="section-card">
+        <ui:Label text="Skills" class="section-title">
+            <Bindings>
+                <l:LocalizedString property="text" table="ui" entry="skills.title"/>
+            </Bindings>
+        </ui:Label>
+        <ui:VisualElement class="skill-grid">
+            <ui:VisualElement class="skill-block">
+                <ui:Label text="Engine &amp; Code" class="subsection-title">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="skills.engine_code"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Unity · C# · Photon Fusion" class="skill-line"/>
+                <ui:Label text="Addressables · ECS / DOTS" class="skill-line"/>
+                <ui:Label text="UI Toolkit" class="skill-line"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="skill-block">
+                <ui:Label text="Technical Art" class="subsection-title">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="skills.technical_art"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Shader Graph · HLSL" class="skill-line"/>
+                <ui:Label text="LOD · batching · culling" class="skill-line">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="skills.lod_batching_culling"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Texture and VFX optimization" class="skill-line">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="skills.texture_vfx_optimization"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:VisualElement class="skill-block">
+                <ui:Label text="Tools &amp; Diagnostics" class="subsection-title">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="skills.tools_diagnostics"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Unity Editor tools" class="skill-line">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="skills.unity_editor_tools"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Profiler · Frame Debugger" class="skill-line"/>
+                <ui:Label text="Git · SVN" class="skill-line"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
+    </ui:VisualElement>
+</ui:UXML>
