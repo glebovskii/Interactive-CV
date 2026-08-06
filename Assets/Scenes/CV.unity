@@ -1024,10 +1024,10 @@ MonoBehaviour:
   panelRenderer: {fileID: 280977550}
   panelRevealAnimation: {fileID: 280977549}
   tiltSettings: {fileID: 11400000, guid: 930900de3f730434ba4aea82f0713363, type: 2}
-  maximumXTilt: -18.8
-  maximumYTilt: 46.5
+  maximumXTilt: 26.2
+  maximumYTilt: -43
   rotationSmoothness: 6
-  frontFacesNegativeZ: 0
+  frontFacesNegativeZ: 1
 --- !u!114 &280977549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2769,12 +2769,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627695245}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2467, y: -0, z: -9.717}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 37.5, y: 0.01, z: 37.5}
+  m_LocalScale: {x: 7.5, y: 1, z: 7.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 914950666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629501038
 GameObject:
@@ -2952,10 +2952,10 @@ MonoBehaviour:
   panelRenderer: {fileID: 660167757}
   panelRevealAnimation: {fileID: 660167756}
   tiltSettings: {fileID: 11400000, guid: 5ab34b0d0b812f34e81481e343c764e1, type: 2}
-  maximumXTilt: -26.4
+  maximumXTilt: 21.8
   maximumYTilt: -45.2
   rotationSmoothness: 6
-  frontFacesNegativeZ: 0
+  frontFacesNegativeZ: 1
 --- !u!114 &660167756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3482,12 +3482,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718189450}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.47, y: 0.01, z: 3.46}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 37.5, y: 0.01, z: 37.5}
   m_LocalScale: {x: 7.5, y: 7.5, z: 7.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 914950666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &718189455
 MonoBehaviour:
@@ -3506,26 +3506,23 @@ MonoBehaviour:
   updateStatics: 1
   scale: 1600
   shellCount: 117
-  shellLength: 0.098
+  shellLength: 0.11
   distanceAttenuation: 1
-  density: 1946
+  density: 2460
   noiseMin: 0
   noiseMax: 1
   thickness: 1.42
   curvature: 10
   displacementStrength: 1
-  shellColor: {r: 0.035635415, g: 0.3433962, b: 0.035635434, a: 0}
-  baseColor: {r: 0.83399993, g: 1, b: 0.19999999, a: 0}
+  shellColor: {r: 0.046349216, g: 0.23773581, b: 0.026464911, a: 0}
+  baseColor: {r: 0.9009348, g: 1, b: 0.19999999, a: 0}
   occlusionAttenuation: 1.29
   occlusionBias: 0
-  windDirection: {x: 0.41, y: 0, z: 0}
-  windStrength: 0.11
-  windSpeed: 0.41
-  windFrequency: 0.92
-  windHeightAttenuation: 0.53
-  gustStrength: -0.01
-  gustFrequency: 0.26
-  turbulenceStrength: 1.31
+  windDirection: {x: 0.05, y: 0, z: -0.25}
+  windStrength: 0.08
+  windFrequency: 2.9
+  windHeightAttenuation: 0.48
+  turbulenceStrength: 0.82
   grassInteractionController: {fileID: 718189456}
   maskTexture: {fileID: -5315243789035034270, guid: ee6faccc312d7fc4f9f1a4eb4a8a3b41, type: 2}
   terrain: {fileID: 914950665}
@@ -3550,7 +3547,7 @@ MonoBehaviour:
   showDrawMap: 0
   brushRadiusPixels: 18
   brushStrength: 1
-  brushFalloff: 0.8
+  brushFalloff: 0.38
   maximumHeightAboveSurface: 1
 --- !u!1 &739124882
 GameObject:
@@ -4695,7 +4692,9 @@ Transform:
   m_LocalPosition: {x: -46.5, y: 0, z: -34.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 627695247}
+  - {fileID: 718189454}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009674227
@@ -5521,10 +5520,10 @@ MonoBehaviour:
   panelRenderer: {fileID: 1381117702}
   panelRevealAnimation: {fileID: 1381117701}
   tiltSettings: {fileID: 11400000, guid: 70b8c652ec2f8ae49bbae583752aca96, type: 2}
-  maximumXTilt: -20
-  maximumYTilt: -45.2
+  maximumXTilt: 23.2
+  maximumYTilt: 52.3
   rotationSmoothness: 6
-  frontFacesNegativeZ: 0
+  frontFacesNegativeZ: 1
 --- !u!114 &1381117701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6092,10 +6091,10 @@ MonoBehaviour:
   panelRenderer: {fileID: 1438933831}
   panelRevealAnimation: {fileID: 1438933830}
   tiltSettings: {fileID: 11400000, guid: 0c32c027b95249640b39d76cc877b664, type: 2}
-  maximumXTilt: -26.4
-  maximumYTilt: -46.3
+  maximumXTilt: 17.4
+  maximumYTilt: -55
   rotationSmoothness: 6
-  frontFacesNegativeZ: 0
+  frontFacesNegativeZ: 1
 --- !u!114 &1438933830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7355,10 +7354,10 @@ MonoBehaviour:
   panelRenderer: {fileID: 1724062130}
   panelRevealAnimation: {fileID: 1724062129}
   tiltSettings: {fileID: 11400000, guid: ddd76fda0ce68ae4b803a6457f51e509, type: 2}
-  maximumXTilt: -15.1
-  maximumYTilt: -43.5
+  maximumXTilt: 27.3
+  maximumYTilt: 56.3
   rotationSmoothness: 6
-  frontFacesNegativeZ: 0
+  frontFacesNegativeZ: 1
 --- !u!114 &1724062129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8143,10 +8142,10 @@ MonoBehaviour:
   panelRenderer: {fileID: 1871293803}
   panelRevealAnimation: {fileID: 1871293805}
   tiltSettings: {fileID: 11400000, guid: 8ac92e07070f2114f8c2220795867e1b, type: 2}
-  maximumXTilt: -20.6
-  maximumYTilt: -44.6
+  maximumXTilt: 16.6
+  maximumYTilt: -45.8
   rotationSmoothness: 6
-  frontFacesNegativeZ: 0
+  frontFacesNegativeZ: 1
 --- !u!1 &1877655851
 GameObject:
   m_ObjectHideFlags: 0
@@ -24163,8 +24162,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 330585546}
   - {fileID: 410087041}
-  - {fileID: 718189454}
-  - {fileID: 627695247}
   - {fileID: 914950666}
   - {fileID: 420441338}
   - {fileID: 1023713199}

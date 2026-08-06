@@ -1,4 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/tools/portfolio_project/Assets/PortfolioUI/USS/DissolverSettings.uss?fileID=7433441132597879392&amp;guid=ada96979c897ee04ba047c258374ef36&amp;type=3#DissolverSettings"/>
     <ui:VisualElement name="menu-root" style="flex-grow: 1; position: relative;">
         <ui:VisualElement name="menu-content" style="flex-grow: 1; flex-direction: row; padding-left: 36px; padding-right: 36px; padding-top: 28px; padding-bottom: 28px; justify-content: flex-end; align-items: stretch; flex-wrap: nowrap; align-self: auto; align-content: auto;">
             <ui:VisualElement style="width: 55%; max-width: none; height: 100%; flex-direction: column; justify-content: space-between; flex-grow: 1;">

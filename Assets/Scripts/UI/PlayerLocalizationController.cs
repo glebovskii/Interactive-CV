@@ -69,6 +69,7 @@ public sealed class PlayerLocalizationController : MonoBehaviour
 
         field.choices = localeNames;
 
+        LocalizationSettings.SelectedLocale = availableLocales[PlayerInfoSave.GetLanguage()];
         int selectedIndex = availableLocales.IndexOf(LocalizationSettings.SelectedLocale);
 
         if (selectedIndex >= 0)
@@ -91,6 +92,7 @@ public sealed class PlayerLocalizationController : MonoBehaviour
         }
 
         LocalizationSettings.SelectedLocale = availableLocales[selectedIndex];
+        PlayerInfoSave.SaveLanguage(selectedIndex);
     }
 
     private void CleanupUI()

@@ -183,43 +183,19 @@ public sealed class PlayerMovement : NetworkBehaviour
 
         Ray ray = playerCamera.ScreenPointToRay(screenPosition);
 
-        var results = new NativeArray<RaycastHit>(2, Unity.Collections.Allocator.TempJob);
-
-        var commands = new NativeArray<RaycastCommand>(1, Unity.Collections.Allocator.TempJob);
-
-        Vector3 origin = ray.origin;
-        Vector3 direction = ray.direction;
-
-        commands[0] = new RaycastCommand(origin, direction, raycastQuery);
-
-        JobHandle handle = RaycastCommand.ScheduleBatch(commands, results, 1, 2, default(JobHandle));
-        handle.Complete();
-        foreach (var hit in results)
+        if (!Physics.Raycast(ray, out var hit, maximumRayDistance, combinedRaycastMask))
         {
-            if (hit.collider != null)
-            {
-                int hitLayerMask = 1 << hit.collider.gameObject.layer;
-                if ((uiBlockLayer.value & hitLayerMask) != 0)
-                {
-                    results.Dispose();
-                    commands.Dispose();
-                    return false;
-                }
-
-                pointerTarget = hit.point;
-                hasPointerTarget = true;
-
-                results.Dispose();
-                commands.Dispose();
-
-                return true;
-
-            }
+            return false;
         }
 
-        results.Dispose();
-        commands.Dispose();
-        return false;
+        int hitLayerMask = 1 << hit.collider.gameObject.layer;
+        if ((uiBlockLayer.value & hitLayerMask) != 0)
+            return false;
+
+        pointerTarget = hit.point;
+        hasPointerTarget = true;
+
+        return true;
     }
 
 

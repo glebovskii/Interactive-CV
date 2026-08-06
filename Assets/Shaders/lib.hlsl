@@ -101,18 +101,15 @@ float snoise(float3 v)
 }
 
 void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten, float shellLength, float curvature, float3 shellDirection, float displacementStrength, float3 pos,
-    float time, float3 windDirection, float windStrength, float windSpeed, float windFrequency, float windHeightAttenuation, float gustStrength, float gustFrequency, float turbulenceStrength, in float3 id,
-    out float3 displacement)
+    float time, float3 windDirection, float windStrength, float windFrequency, float windHeightAttenuation, float turbulenceStrength, in float3 id, out float3 displacement)
 {
     
     float xPeriod = 0.05f; // Repetition of lines in x direction
     float yPeriod = 0.1f; // Repitition of lines in y direction
-    float turbPower = 2.3f;
     float turbSize = 2.0f;
 
-    float xyValue = id.x * xPeriod + id.y * yPeriod + turbPower * snoise(id * turbSize);
+    float xyValue = id.x * xPeriod + id.y * yPeriod + turbulenceStrength * snoise(id * turbSize);
     float sineValue = (sin((xyValue + time) * windFrequency) + 1.5f) * windStrength;
-
 
     float rawShellHeight = saturate(shellIndex / max(shellCount, 1.0));
     float shellHeight = pow(rawShellHeight, max(atten, 0.001));
@@ -120,33 +117,10 @@ void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten
 
     displacement = pos;
     displacement += normal * shellLength * shellHeight;
-    //displacement += shellDirection * shellCurve * displacementStrength;
-
-    //float3 normalizedNormal = normalize(normal);
-    //float3 windDirectionOnSurface = windDirection - normalizedNormal * dot(windDirection, normalizedNormal);
-    //float windDirectionLengthSquared = dot(windDirectionOnSurface, windDirectionOnSurface);
-    //
-    //if (windDirectionLengthSquared < 0.000001)
-    //    return;
-    //
-    //windDirectionOnSurface *= rsqrt(windDirectionLengthSquared);
-    //
-    //float3 sideDirection = normalize(cross(normalizedNormal, windDirectionOnSurface));
-    //float mainPhase = dot(pos, windDirectionOnSurface) * windFrequency - time * windSpeed;
-    //float mainWave = 0.65 + sin(mainPhase) * 0.35;
-    //
-    //float gustPhase = mainPhase * gustFrequency - time * windSpeed * 0.37;
-    //float gust = max(1.0 + sin(gustPhase) * gustStrength, 0.0);
-    //
-    //float turbulencePhase = dot(pos, sideDirection) * windFrequency * 1.73 + time * windSpeed * 1.31;
-    //float turbulence = sin(turbulencePhase) * turbulenceStrength;
-    //
+    
     float windHeight = pow(rawShellHeight, max(windHeightAttenuation, 0.001));
-    //
-    //float3 windOffset = windDirectionOnSurface * mainWave * gust * windStrength;
-    //windOffset += sideDirection * turbulence * windStrength;
 
-    displacement += windDirection * sineValue * windHeight; // windOffset * windHeight;
+    displacement += windDirection * sineValue * windHeight;
 }
 
 

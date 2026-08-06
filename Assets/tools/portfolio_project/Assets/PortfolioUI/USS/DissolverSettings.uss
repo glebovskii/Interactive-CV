@@ -84,3 +84,41 @@
     border-top-color: rgba(59, 205, 190, 0.48);
     border-bottom-color: rgba(59, 205, 190, 0.48);
 }
+
+    /* Popup background */
+.unity-base-dropdown__container-outer {
+    background-color: rgb(15, 24, 38);
+    border-top-color: rgb(74, 93, 120);
+    border-right-color: rgb(74, 93, 120);
+    border-bottom-color: rgb(74, 93, 120);
+    border-left-color: rgb(74, 93, 120);
+}
+
+/* Normal choice */
+.unity-base-dropdown__item {
+    background-color: rgb(15, 24, 38);
+    min-height: 28px;
+}
+
+/* Choice text */
+.unity-base-dropdown__label {
+    color: rgb(225, 232, 242);
+}
+
+/* Mouse hover / keyboard selection */
+.unity-base-dropdown__item:hover {
+    background-color: rgb(27, 91, 138);
+}
+
+.unity-base-dropdown__item:hover .unity-base-dropdown__label {
+    color: white;
+}
+
+/* Currently selected value */
+.unity-base-dropdown__item:checked {
+    background-color: rgb(19, 64, 96);
+}
+
+.unity-base-dropdown__item:checked .unity-base-dropdown__label {
+    color: rgb(102, 204, 255);
+}

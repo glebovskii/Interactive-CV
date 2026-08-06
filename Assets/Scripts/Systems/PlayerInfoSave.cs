@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class PlayerInfoSave
@@ -6,6 +7,7 @@ public static class PlayerInfoSave
     private const string keyColor_r = "Color_r";
     private const string keyColor_g = "Color_g";
     private const string keyColor_b = "Color_b";
+    private const string keySelectedLanguage = "Language";
 
     public static void SaveName(string newName)
     {
@@ -31,5 +33,15 @@ public static class PlayerInfoSave
         float b = PlayerPrefs.GetFloat(keyColor_b, 1);
 
         return new Color(r, g, b, 1);
+    }
+
+    public static void SaveLanguage(int index)
+    {
+        PlayerPrefs.SetInt(keySelectedLanguage, index);
+    }
+
+    public static int GetLanguage()
+    {
+        return PlayerPrefs.GetInt(keySelectedLanguage, 0);
     }
 }

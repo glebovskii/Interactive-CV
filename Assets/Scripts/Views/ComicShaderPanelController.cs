@@ -212,6 +212,7 @@ namespace Prymara
 
             if (!targetMaterial.HasProperty(propertyId))
             {
+                Debug.LogError("DIDNT FIND PROPERTY: " + propertyId);
                 DisableMissingControl(slider, propertyId);
                 return;
             }

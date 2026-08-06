@@ -47,7 +47,7 @@
                             <l:LocalizedString property="text" table="ui" entry="dissolver.direction"/>
                         </Bindings>
                     </ui:Label>
-                    <ui:DropdownField name="dropdown-dissolve-direction" class="shader-dropdown"/>
+                    <ui:DropdownField name="dropdown-dissolve-direction" class="shader-dropdown" style="background-color: rgb(0, 0, 0); color: rgb(62, 175, 191); -unity-background-image-tint-color: rgba(26, 17, 17, 0);"/>
                 </ui:VisualElement>
                 <ui:VisualElement class="shader-control-row">
                     <ui:Label text="Dissolve Start At" class="shader-control-label">

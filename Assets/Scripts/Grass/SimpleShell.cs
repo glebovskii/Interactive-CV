@@ -23,11 +23,8 @@ public class SimpleShell : MonoBehaviour
     private int scaleProp = Shader.PropertyToID("_Scale");
     private int windDirectionProp = Shader.PropertyToID("_WindDirection");
     private int windStrengthProp = Shader.PropertyToID("_WindStrength");
-    private int windSpeedProp = Shader.PropertyToID("_WindSpeed");
     private int windFrequencyProp = Shader.PropertyToID("_WindFrequency");
     private int windHeightAttenuationProp = Shader.PropertyToID("_WindHeightAttenuation");
-    private int gustStrengthProp = Shader.PropertyToID("_GustStrength");
-    private int gustFrequencyProp = Shader.PropertyToID("_GustFrequency");
     private int turbulenceStrengthProp = Shader.PropertyToID("_TurbulenceStrength");
     private int maskProp = Shader.PropertyToID("_Mask");
 
@@ -76,11 +73,8 @@ public class SimpleShell : MonoBehaviour
     [Header("Wind Settings")]
     [SerializeField] private Vector3 windDirection = new Vector3(1, 0, 0);
     [SerializeField] private float windStrength = 0.05f;
-    [SerializeField] private float windSpeed = 1.5f;
     [SerializeField] private float windFrequency = 0.75f;
     [SerializeField] private float windHeightAttenuation = 2f;
-    [SerializeField] private float gustStrength = 0.25f;
-    [SerializeField] private float gustFrequency = 0.4f;
     [SerializeField] private float turbulenceStrength = 0.1f;
 
     [Space(10)]
@@ -138,11 +132,8 @@ public class SimpleShell : MonoBehaviour
 
             mat.SetVector(windDirectionProp, windDirection);
             mat.SetFloat(windStrengthProp, windStrength);
-            mat.SetFloat(windSpeedProp, windSpeed);
             mat.SetFloat(windFrequencyProp, windFrequency);
             mat.SetFloat(windHeightAttenuationProp, windHeightAttenuation);
-            mat.SetFloat(gustStrengthProp, gustStrength);
-            mat.SetFloat(gustFrequencyProp, gustFrequency);
             mat.SetFloat(turbulenceStrengthProp, turbulenceStrength);
 
             mat.SetTexture(maskProp, maskTexture);
@@ -177,11 +168,8 @@ public class SimpleShell : MonoBehaviour
 
                 mat.SetVector(windDirectionProp, windDirection);
                 mat.SetFloat(windStrengthProp, windStrength);
-                mat.SetFloat(windSpeedProp, windSpeed);
                 mat.SetFloat(windFrequencyProp, windFrequency);
                 mat.SetFloat(windHeightAttenuationProp, windHeightAttenuation);
-                mat.SetFloat(gustStrengthProp, gustStrength);
-                mat.SetFloat(gustFrequencyProp, gustFrequency);
                 mat.SetFloat(turbulenceStrengthProp, turbulenceStrength);
             }
         }

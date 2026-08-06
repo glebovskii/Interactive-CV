@@ -281,7 +281,7 @@
                                     <l:LocalizedString property="text" table="ui" entry="prymara.variance_power"/>
                                 </Bindings>
                             </ui:Label>
-                            <ui:Slider name="slider-kuwahara-q" low-value="0" high-value="20" value="1" show-input-field="true" class="shader-slider"/>
+                            <ui:Slider name="slider-kuwahara-q" low-value="0" high-value="500" value="1" show-input-field="true" class="shader-slider"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="shader-control-row">
                             <ui:Label text="Anisotropy" class="shader-control-label">
