@@ -803,6 +803,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1613604966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613604968}
+  - component: {fileID: 1613604967}
+  m_Layer: 0
+  m_Name: LocalizationBuildDebug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1613604967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613604966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6aaebef24c0384aadbea31b2b92e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizationBuildDebug
+  table: ui
+  testEntry: common.view_projects
+--- !u!4 &1613604968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613604966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.62999, y: -12.64059, z: 34.0063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1861845106
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,6 +882,7 @@ MonoBehaviour:
   colorPickerController: {fileID: 448717653}
   networkSessionService: {fileID: 2412205}
   uiSoundController: {fileID: 110374945}
+  debug: {fileID: 1613604967}
 --- !u!4 &1861845108
 Transform:
   m_ObjectHideFlags: 0
@@ -931,3 +978,4 @@ SceneRoots:
   - {fileID: 1861845108}
   - {fileID: 2412204}
   - {fileID: 110374946}
+  - {fileID: 1613604968}

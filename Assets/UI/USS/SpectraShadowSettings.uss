@@ -32,6 +32,10 @@
     border-bottom-right-radius: 12px;
 }
 
+.unity-text-element {
+    -unity-text-generator: standard;
+}
+
 .spectra-shadow-fields {
     flex-grow: 1;
 }

@@ -7,6 +7,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private NetworkSessionService networkSessionService;
     [SerializeField] private UISoundController uiSoundController;
 
+
     private void Awake()
     {
         ServiceLocator.Register(colorPickerController);

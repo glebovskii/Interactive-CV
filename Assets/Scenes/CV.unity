@@ -3953,7 +3953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prymara.ComicShaderPanelController
   panelRenderer: {fileID: 898442552}
-  targetMaterial: {fileID: 2100000, guid: 01da32b31a6106b4989da31575e3ee9f, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 45e0e44db0d425a4580fcef9581f34a9, type: 2}
 --- !u!114 &898442549
 MonoBehaviour:
   m_ObjectHideFlags: 0

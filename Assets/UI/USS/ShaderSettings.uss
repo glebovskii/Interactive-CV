@@ -10,9 +10,11 @@
     padding: 26px 30px 28px 30px;
     overflow: hidden;
     background-color: rgb(20, 30, 45);
-    -unity-font-definition: url("project://database/Assets/Fonts/NotoSans-Regular%20SDF.asset");
+    /* -unity-font-definition: url("project://database/Assets/Fonts/NotoSans-Regular%20SDF.asset"); */
 }
-
+.unity-text-element {
+    -unity-text-generator: standard;
+}
 .shader-settings-header {
     flex-direction: row;
     align-items: flex-start;

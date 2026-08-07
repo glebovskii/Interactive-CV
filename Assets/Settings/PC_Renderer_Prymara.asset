@@ -29,7 +29,7 @@ MonoBehaviour:
   - {fileID: 848399655997739872}
   m_RendererFeatureMap: 9cf701bc375ab62c60134ffbfd1ec60b
   xrSystemData: {fileID: 0}
-  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  postProcessData: {fileID: 0}
   m_AssetVersion: 3
   m_PrepassLayerMask:
     serializedVersion: 2
@@ -69,12 +69,12 @@ MonoBehaviour:
   m_Name: FullScreenPassRendererFeature
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.FullScreenPassRendererFeature
   m_Active: 1
-  injectionPoint: 600
+  injectionPoint: 550
   fetchColorBuffer: 1
-  requirements: 1
-  passMaterial: {fileID: 2100000, guid: 01da32b31a6106b4989da31575e3ee9f, type: 2}
+  requirements: 11
+  passMaterial: {fileID: 2100000, guid: 45e0e44db0d425a4580fcef9581f34a9, type: 2}
   passIndex: 0
-  bindDepthStencilAttachment: 1
+  bindDepthStencilAttachment: 0
   m_Version: 1
 --- !u!114 &3221861778854115228
 MonoBehaviour:
@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Prymara.URP::Prymara.HistoryFetcherFeature
   m_Active: 1
   settings:
-    material: {fileID: 2100000, guid: 01da32b31a6106b4989da31575e3ee9f, type: 2}
+    material: {fileID: 2100000, guid: 45e0e44db0d425a4580fcef9581f34a9, type: 2}

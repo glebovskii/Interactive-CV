@@ -93,7 +93,7 @@ Material:
     - _BUILTIN_QueueOffset: 0
     - _Density: 0
     - _EdgePower: 6.73
-    - _Edge_Strength: 7.74
+    - _Edge_Strength: 10
     - _FrameComparison: 1
     - _Fullscreen_AlphaBlendOperation: 0
     - _Fullscreen_BlendMode: 1

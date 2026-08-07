@@ -1,9 +1,12 @@
+using Prymara;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class PrymaraRoomView : MonoBehaviour, IView
 {
     [SerializeField] private PlayerTrigger playerTrigger;
+    [SerializeField] private ComicShaderPanelController panelController;
+
 
     private int defaultRendererIndex = 0;
     private UniversalAdditionalCameraData cameraData;

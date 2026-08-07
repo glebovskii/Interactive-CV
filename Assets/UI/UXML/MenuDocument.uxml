@@ -5,7 +5,7 @@
             <ui:VisualElement style="width: 55%; max-width: none; height: 100%; flex-direction: column; justify-content: space-between; flex-grow: 1;">
                 <ui:VisualElement style="background-color: rgba(18, 24, 38, 0.58); border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-left-radius: 18px; border-bottom-right-radius: 18px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgba(255, 255, 255, 0.14); border-right-color: rgba(255, 255, 255, 0.14); border-top-color: rgba(255, 255, 255, 0.14); border-bottom-color: rgba(255, 255, 255, 0.14); padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px; flex-grow: 1;">
                     <ui:VisualElement style="background-color: rgba(255, 255, 255, 0.06); border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding-left: 14px; padding-right: 14px; padding-top: 14px; padding-bottom: 14px; margin-bottom: 14px; height: 25%; flex-direction: row; flex-wrap: nowrap; flex-grow: 1;">
-                        <ui:Label text="Player Name" style="font-size: 33px; -unity-font-style: bold; color: rgba(255, 255, 255, 0.78); margin-bottom: 6px; -unity-text-align: middle-left;">
+                        <ui:Label text="Player Name" style="font-size: 33px; -unity-font-style: bold; color: rgba(255, 255, 255, 0.78); margin-bottom: 6px; -unity-text-align: middle-left; -unity-text-generator: standard;">
                             <Bindings>
                                 <UnityEngine.Localization.LocalizedString property="text" table="GUID:238899406e9c1ee4aa920157fdbc1779" entry="Id(4304494057992192)"/>
                             </Bindings>
@@ -33,7 +33,7 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:Button text="Enter" name="enter-button" style="height: 14%; margin-top: 16px; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; background-color: rgb(71, 129, 255); color: white; -unity-font-style: bold; font-size: 89px; flex-grow: 1;">
+                <ui:Button text="Enter" name="enter-button" style="height: 14%; margin-top: 16px; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; background-color: rgb(71, 129, 255); color: white; -unity-font-style: bold; font-size: 89px; flex-grow: 1; -unity-text-generator: standard;">
                     <Bindings>
                         <UnityEngine.Localization.LocalizedString property="text" table="GUID:238899406e9c1ee4aa920157fdbc1779" entry="Id(17440157696)"/>
                     </Bindings>

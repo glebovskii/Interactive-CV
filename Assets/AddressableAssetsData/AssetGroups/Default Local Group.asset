@@ -15,11 +15,21 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 4febca842e8af234580be1fc93a8ec5c
   m_SerializeEntries:
+  - m_GUID: 65bc7dbf4170f435aa868c779acfb082
+    m_Address: Assets/Settings/Mobile_Renderer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67a9bed7d135b1040a54b2c8896f4ec8
     m_Address: Assets/Scenes/CV.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - FusionScenes
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90e77fa0b2a08614cb7384c09d6f7660
+    m_Address: Assets/Settings/PC_Renderer_Prymara.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2c07de4c0e1398a41a284aecfcac28bb, type: 2}

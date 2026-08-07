@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
 namespace Prymara
@@ -147,16 +149,21 @@ namespace Prymara
             VisualElement fields = root.Q<VisualElement>(fieldsName);
 
             if (toggle == null)
-                return;
+                {
+                Debug.LogError($"Toggle '{toggleName}' not found in the UI.", this);
+                return; }
 
             bool initialValue = targetMaterial.IsKeywordEnabled(keyword);
             toggle.SetValueWithoutNotify(initialValue);
             fields?.SetEnabled(initialValue);
+            if(fields == null)
+                Debug.LogError($"Fields '{fieldsName}' not found in the UI.", this);
 
             Action<UISoundController> soundAction = playSound ? sound => sound.PlayToggle() : null;
 
             uiCallbacks.BindChange<bool>(toggle, value =>
             {
+                Debug.LogError($"Toggle '{toggleName}' changed to {value}. Setting keyword '{keyword}' accordingly.", this);
                 SetKeyword(keyword, value);
                 fields?.SetEnabled(value);
             }, soundAction);
@@ -230,6 +237,7 @@ namespace Prymara
 
             if (!targetMaterial.HasProperty(propertyId))
             {
+                Debug.LogError("DIDNT FIND PROPERTY: " + propertyId);
                 DisableMissingControl(slider, propertyId);
                 return;
             }
@@ -258,5 +266,14 @@ namespace Prymara
             gridProceduralFields = null;
             gridTextureNote = null;
         }
+
+        //public UniversalRendererData data;
+
+        //public void SetTargetMaterial(Material material)
+        //{
+        //    var feature = data.rendererFeatures.Last();
+        //    feature.
+        //    targetMaterial = material;
+        //}
     }
 }
