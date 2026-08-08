@@ -1,6 +1,9 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+using MouseButton = UnityEngine.InputSystem.LowLevel.MouseButton;
 
 public class AutoLinkView : MonoBehaviour
 {
@@ -58,9 +61,17 @@ public class AutoLinkView : MonoBehaviour
             yield return null;
         }
         soundController?.SetPitch(1);
-        yield return null;
         linkController.SetFill(1);
-        link.OpenLink();
+        //FakeClick();
+    }
+
+    private void FakeClick()
+    {
+        var mouse = Mouse.current;
+
+        InputSystem.QueueStateEvent(mouse, new MouseState().WithButton(MouseButton.Left, false));
+        InputSystem.QueueEvent(new InputEventPtr());//.QueueStateEvent(mouse, new MouseState().WithButton(MouseButton.Left, false));
+        //InputSystem.QueueStateEvent(mouse, new MouseState().WithButton(MouseButton.Right, false));
     }
 
     //private void LinkRoutine()

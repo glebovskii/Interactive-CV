@@ -15,15 +15,15 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.4852474, g: 0.79622644, b: 0.7853044, a: 1}
+  m_FogColor: {r: 0.16679956, g: 0.5169811, b: 0.43602473, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.016
+  m_FogDensity: 0.031
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.94
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.23844068, g: 0.5121604, b: 0.690566, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 7fe1aeb2ca1e2da45b1e55f41a684b42, type: 2}
@@ -704,10 +704,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
   panelRenderer: {fileID: 278989688}
+  link: {fileID: 0}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &278989688
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -1327,10 +1340,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
   panelRenderer: {fileID: 391730051}
+  link: {fileID: 0}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &391730051
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -1825,10 +1851,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
   panelRenderer: {fileID: 425784712}
+  link: {fileID: 1638413501}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: GUID:238899406e9c1ee4aa920157fdbc1779
+    m_TableEntryReference:
+      m_KeyId: 5880272616927232
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &425784712
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -2031,10 +2070,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
   panelRenderer: {fileID: 550841723}
+  link: {fileID: 1923357286}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: GUID:238899406e9c1ee4aa920157fdbc1779
+    m_TableEntryReference:
+      m_KeyId: 5880272616927232
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &550841723
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -2743,10 +2795,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
   panelRenderer: {fileID: 661422125}
+  link: {fileID: 1588692332}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: GUID:238899406e9c1ee4aa920157fdbc1779
+    m_TableEntryReference:
+      m_KeyId: 5880272616927232
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &661422125
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -2906,7 +2971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
   link: {fileID: 685371838}
-  totalTime: 2
+  totalTime: 0.7
   playerTrigger: {fileID: 685371840}
   linkController: {fileID: 1009674232}
   timeBetweenSoundPlay: 0.2
@@ -3714,10 +3779,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
   panelRenderer: {fileID: 869562746}
+  link: {fileID: 1459457541}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: GUID:238899406e9c1ee4aa920157fdbc1779
+    m_TableEntryReference:
+      m_KeyId: 5880272616927232
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &869562746
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -4123,7 +4201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
   link: {fileID: 900479621}
-  totalTime: 2
+  totalTime: 0.7
   playerTrigger: {fileID: 900479620}
   linkController: {fileID: 1997053115}
   timeBetweenSoundPlay: 0.2
@@ -4459,10 +4537,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
   panelRenderer: {fileID: 1009674231}
+  link: {fileID: 685371838}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: GUID:238899406e9c1ee4aa920157fdbc1779
+    m_TableEntryReference:
+      m_KeyId: 5880272616927232
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1023713197
 GameObject:
   m_ObjectHideFlags: 0
@@ -4563,10 +4654,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
   panelRenderer: {fileID: 1024535171}
+  link: {fileID: 0}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &1024535171
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -4769,7 +4873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
   link: {fileID: 1145106350}
-  totalTime: 2
+  totalTime: 0.7
   playerTrigger: {fileID: 1145106349}
   linkController: {fileID: 1799488325}
   timeBetweenSoundPlay: 0.2
@@ -5902,7 +6006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
   link: {fileID: 1459457541}
-  totalTime: 2
+  totalTime: 0.7
   playerTrigger: {fileID: 1459457540}
   linkController: {fileID: 869562745}
   timeBetweenSoundPlay: 0.2
@@ -6314,7 +6418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
   link: {fileID: 1588692332}
-  totalTime: 2
+  totalTime: 0.7
   playerTrigger: {fileID: 1588692331}
   linkController: {fileID: 661422124}
   timeBetweenSoundPlay: 0.2
@@ -6368,7 +6472,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1602737642}
   - component: {fileID: 1602737641}
-  - component: {fileID: 1602737643}
   m_Layer: 0
   m_Name: Adaptive Probe Volume
   m_TagString: Untagged
@@ -6390,8 +6493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.ProbeVolume
   version: 2
   globalVolume: 0
-  mode: 2
-  size: {x: 78.01, y: 9.495304, z: 78.01}
+  mode: 1
+  size: {x: 78.01, y: 8.4009, z: 78.01}
   overrideRendererFilters: 0
   minRendererVolumeSize: 0.1
   objectLayerMask:
@@ -6409,7 +6512,7 @@ MonoBehaviour:
     e10: 0
     e11: 1
     e12: 0
-    e13: -2.5503414
+    e13: -2.40045
     e20: 0
     e21: 0
     e22: 1
@@ -6418,7 +6521,7 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  cachedHashCode: 373863359
+  cachedHashCode: -1432483981
   fillEmptySpaces: 1
 --- !u!4 &1602737642
 Transform:
@@ -6429,45 +6532,12 @@ Transform:
   m_GameObject: {fileID: 1602737640}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 2.5503414, z: 3.209999}
+  m_LocalPosition: {x: -9, y: 2.40045, z: 3.209999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!215 &1602737643
-ReflectionProbe:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602737640}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Type: 0
-  m_Mode: 0
-  m_RefreshMode: 0
-  m_TimeSlicingMode: 0
-  m_Resolution: 128
-  m_UpdateFrequency: 0
-  m_BoxSize: {x: 72.14196, y: 10, z: 74.020386}
-  m_BoxOffset: {x: -1.4487724, y: 0, z: 1.4949722}
-  m_NearClip: 0.3
-  m_FarClip: 1000
-  m_ShadowDistance: 100
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IntensityMultiplier: 1
-  m_BlendDistance: 1
-  m_HDR: 1
-  m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
-  m_UseOcclusionCulling: 1
-  m_Importance: 1
-  m_CustomBakedTexture: {fileID: 0}
 --- !u!1 &1604532998
 GameObject:
   m_ObjectHideFlags: 0
@@ -6655,7 +6725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
   link: {fileID: 1638413501}
-  totalTime: 2
+  totalTime: 0.7
   playerTrigger: {fileID: 1638413500}
   linkController: {fileID: 425784711}
   timeBetweenSoundPlay: 0.2
@@ -7385,10 +7455,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
   panelRenderer: {fileID: 1799488326}
+  link: {fileID: 1145106350}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: GUID:238899406e9c1ee4aa920157fdbc1779
+    m_TableEntryReference:
+      m_KeyId: 5880272616927232
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &1799488326
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -7508,10 +7591,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
   panelRenderer: {fileID: 1805364120}
+  link: {fileID: 0}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &1805364120
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -8114,7 +8210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
   link: {fileID: 1923357286}
-  totalTime: 2
+  totalTime: 0.7
   playerTrigger: {fileID: 1923357285}
   linkController: {fileID: 550841722}
   timeBetweenSoundPlay: 0.2
@@ -8375,10 +8471,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
   panelRenderer: {fileID: 1980762390}
+  link: {fileID: 0}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1997053114
 GameObject:
   m_ObjectHideFlags: 0
@@ -8410,10 +8519,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
   panelRenderer: {fileID: 1997053116}
+  link: {fileID: 900479621}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: GUID:238899406e9c1ee4aa920157fdbc1779
+    m_TableEntryReference:
+      m_KeyId: 5880272616927232
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &1997053116
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -8597,10 +8719,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
   panelRenderer: {fileID: 2007872269}
+  link: {fileID: 0}
   buttonName: link
   fillName: fill
   idleDistance: 3
   halfCycleSeconds: 0.9
+  openLinkText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1931382934 &2007872269
 PanelRenderer:
   m_ObjectHideFlags: 0

@@ -491,6 +491,10 @@ MonoBehaviour:
     m_Localized: "Verbindung zu einer verf\xFCgbaren Sitzung herstellen"
     m_Metadata:
       m_Items: []
+  - m_Id: 5880272616927232
+    m_Localized: "Link \xF6ffnen"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

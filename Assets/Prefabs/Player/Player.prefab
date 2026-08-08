@@ -218,7 +218,7 @@ MonoBehaviour:
   _EdgeWidth: 0.05
   _Axis: 0
   _Direction: 0
-  dissolveColor: {r: 766.9961, g: 39.073322, b: 650.77826, a: 0}
+  dissolveColor: {r: 9.082411, g: 0.4626881, b: 7.7062135, a: 0}
 --- !u!54 &8333996507032165700
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 3
+  m_RayTracingMode: 0
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1

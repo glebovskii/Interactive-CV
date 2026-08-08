@@ -826,3 +826,51 @@ Button {
     background-image: url("project://database/Assets/Textures/tv_static.png");
     -unity-background-scale-mode: scale-and-crop;
 }
+
+    .trigger-open-link {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+
+    translate: -50% 14px;
+
+    min-width: 120px;
+    height: 34px;
+
+    padding-left: 18px;
+    padding-right: 18px;
+
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+
+    border-top-color: rgba(105, 220, 255, 0.8);
+    border-right-color: rgba(105, 220, 255, 0.8);
+    border-bottom-color: rgba(105, 220, 255, 0.8);
+    border-left-color: rgba(105, 220, 255, 0.8);
+
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    background-color: rgba(10, 24, 38, 0.92);
+
+    color: rgb(205, 240, 255);
+
+    font-size: 12px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+
+    display: none;
+}
+
+.trigger-open-link:hover {
+    background-color: rgba(30, 100, 145, 0.95);
+    color: white;
+}
+
+.trigger-open-link:active {
+    background-color: rgba(20, 70, 105, 1);
+}
