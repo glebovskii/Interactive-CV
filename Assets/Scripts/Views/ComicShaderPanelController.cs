@@ -1,7 +1,6 @@
 using System;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 namespace Prymara
@@ -55,10 +54,17 @@ namespace Prymara
         private const string InvertAlphaKeyword = "_INVERTALPHA";
         private const string OilKeyword = "_USE_OIL";
 
+        private GlobalKeyword useEdge;
+        private GlobalKeyword useAberration;
+        private GlobalKeyword useGrid;
+        private GlobalKeyword useGridTexture;
+        private GlobalKeyword useKuwahara;
+        private GlobalKeyword invertAlpha;
+        private GlobalKeyword useOil;
+
         #endregion
 
         [SerializeField] private PanelRenderer panelRenderer;
-        [SerializeField] private Material targetMaterial;
 
         private readonly UICallbackBinder uiCallbacks = new();
 
@@ -76,6 +82,15 @@ namespace Prymara
                 return;
             }
 
+            useEdge = GlobalKeyword.Create(EdgeKeyword);
+            //Shader.SetKeyword(useEdge, false);
+            useAberration = GlobalKeyword.Create(AberrationKeyword);
+            useGrid = GlobalKeyword.Create(GridKeyword);
+            useGridTexture = GlobalKeyword.Create(GridTextureKeyword);
+            useKuwahara = GlobalKeyword.Create(KuwaharaKeyword);
+            invertAlpha = GlobalKeyword.Create(InvertAlphaKeyword);
+            useOil = GlobalKeyword.Create(OilKeyword);
+
             panelRenderer.RegisterUIReloadCallback(OnUIReload);
         }
 
@@ -91,79 +106,76 @@ namespace Prymara
         {
             UnbindUI();
 
-            if (targetMaterial == null)
-            {
-                Debug.LogError("Comic shader material is not assigned.", this);
-                return;
-            }
-
             TabView tabView = root.Q<TabView>("shader-tab-view");
 
             if (tabView != null)
                 tabView.selectedTabIndex = 0;
 
-            BindKeywordToggle(root, "toggle-edge", EdgeKeyword, "edge-fields");
-            BindKeywordToggle(root, "toggle-aberration", AberrationKeyword, "aberration-fields");
-            BindKeywordToggle(root, "toggle-grid", GridKeyword, "grid-fields");
-            BindKeywordToggle(root, "toggle-kuwahara", KuwaharaKeyword, "kuwahara-fields");
-            BindKeywordToggle(root, "toggle-oil", OilKeyword, "oil-fields");
+            BindKeywordToggle(root, "toggle-edge", useEdge, "edge-fields", true);
+            BindKeywordToggle(root, "toggle-aberration", useAberration, "aberration-fields", true);
+            BindKeywordToggle(root, "toggle-grid", useGrid, "grid-fields", false);
+            BindKeywordToggle(root, "toggle-kuwahara", useKuwahara, "kuwahara-fields", true);
+            BindKeywordToggle(root, "toggle-oil", useOil, "oil-fields", false);
 
-            BindFloat(root, "slider-edge-strength", EdgeStrength);
-            BindFloat(root, "slider-edge-thickness", Thickness);
-            BindFloat(root, "slider-edge-threshold", Threshold);
-            BindFloat(root, "slider-edge-power", EdgePower);
-            BindFloat(root, "slider-edge-softness", Softness);
-            BindFloat(root, "slider-edge-min-depth", MinEdgeDepth);
+            BindFloat(root, "slider-edge-strength", EdgeStrength, 4.36f);
+            BindFloat(root, "slider-edge-thickness", Thickness, 0.04f);
+            BindFloat(root, "slider-edge-threshold", Threshold, 0.4f);
+            BindFloat(root, "slider-edge-power", EdgePower, 0.66f);
+            BindFloat(root, "slider-edge-softness", Softness, 0.3f);
+            BindFloat(root, "slider-edge-min-depth", MinEdgeDepth, 0f);
 
-            BindFloat(root, "slider-aberration-red", OffsetRed);
-            BindFloat(root, "slider-aberration-green", OffsetGreen);
-            BindFloat(root, "slider-aberration-blue", OffsetBlue);
-            BindFloat(root, "slider-aberration-frame-comparison", FrameComparison);
-            BindFloat(root, "slider-aberration-min-depth", AberrationMinDepth);
+            BindFloat(root, "slider-aberration-red", OffsetRed, 0.06f);
+            BindFloat(root, "slider-aberration-green", OffsetGreen, -0.04f);
+            BindFloat(root, "slider-aberration-blue", OffsetBlue, 0.03f);
+            BindFloat(root, "slider-aberration-frame-comparison", FrameComparison, 1f);
+            BindFloat(root, "slider-aberration-min-depth", AberrationMinDepth, 0f);
 
-            BindFloat(root, "slider-grid-size", GridSize);
-            BindFloat(root, "slider-grid-min-depth", GridMinDepth);
-            BindFloat(root, "slider-grid-alpha", GridAlpha);
+            BindFloat(root, "slider-grid-size", GridSize, 1f);
+            BindFloat(root, "slider-grid-min-depth", GridMinDepth, 0f);
+            BindFloat(root, "slider-grid-alpha", GridAlpha, 0.07f);
             BindFloat(root, "slider-grid-softness", GridSoftness);
             BindFloat(root, "slider-grid-radius", GridRadius);
 
-            BindInt(root, "slider-kuwahara-kernel", KernelSize);
-            BindInt(root, "slider-kuwahara-sector-count", SectorCount);
-            BindFloat(root, "slider-kuwahara-hardness", Hardness);
-            BindFloat(root, "slider-kuwahara-q", VariancePower);
-            BindFloat(root, "slider-kuwahara-alpha", KuwaharaAlpha);
-            BindFloat(root, "slider-kuwahara-zero-crossing", ZeroCrossing);
-            BindFloat(root, "slider-kuwahara-zeta", Zeta);
-            BindFloat(root, "slider-kuwahara-min-depth", KuwaharaMinDepth);
+            BindInt(root, "slider-kuwahara-kernel", KernelSize, 17f);
+            BindInt(root, "slider-kuwahara-sector-count", SectorCount, 3f);
+            BindFloat(root, "slider-kuwahara-hardness", Hardness, 4.22f);
+            BindFloat(root, "slider-kuwahara-q", VariancePower, 44f);
+            BindFloat(root, "slider-kuwahara-alpha", KuwaharaAlpha, 1f);
+            BindFloat(root, "slider-kuwahara-zero-crossing", ZeroCrossing, 5.8f);
+            BindFloat(root, "slider-kuwahara-zeta", Zeta, 0.3f);
+            BindFloat(root, "slider-kuwahara-min-depth", KuwaharaMinDepth, 0f);
 
-            BindFloat(root, "slider-oil-radius", OilRadius);
-            BindFloat(root, "slider-oil-thickness", OilThickness);
-            BindFloat(root, "slider-oil-min-depth", OilMinDepth);
+            BindFloat(root, "slider-oil-radius", OilRadius, 4f);
+            BindFloat(root, "slider-oil-thickness", OilThickness, 5);
+            BindFloat(root, "slider-oil-min-depth", OilMinDepth, 0);
 
             BindGridOptions(root);
         }
 
-        private void BindKeywordToggle(VisualElement root, string toggleName, string keyword, string fieldsName, bool playSound = true)
+        private void BindKeywordToggle(VisualElement root, string toggleName, GlobalKeyword keyword, string fieldsName, bool defaultValue = false, bool playSound = true)
         {
             Toggle toggle = root.Q<Toggle>(toggleName);
             VisualElement fields = root.Q<VisualElement>(fieldsName);
 
             if (toggle == null)
-                {
+            {
                 Debug.LogError($"Toggle '{toggleName}' not found in the UI.", this);
-                return; }
+                return;
+            }
 
-            bool initialValue = targetMaterial.IsKeywordEnabled(keyword);
+            Shader.SetKeyword(keyword, defaultValue);
+            bool initialValue = Shader.IsKeywordEnabled(keyword);
+
             toggle.SetValueWithoutNotify(initialValue);
             fields?.SetEnabled(initialValue);
-            if(fields == null)
+
+            if (fields == null)
                 Debug.LogError($"Fields '{fieldsName}' not found in the UI.", this);
 
             Action<UISoundController> soundAction = playSound ? sound => sound.PlayToggle() : null;
 
             uiCallbacks.BindChange<bool>(toggle, value =>
             {
-                Debug.LogError($"Toggle '{toggleName}' changed to {value}. Setting keyword '{keyword}' accordingly.", this);
                 SetKeyword(keyword, value);
                 fields?.SetEnabled(value);
             }, soundAction);
@@ -179,24 +191,26 @@ namespace Prymara
 
             if (textureToggle != null)
             {
-                bool useTexture = targetMaterial.IsKeywordEnabled(GridTextureKeyword);
+                bool useTexture = Shader.IsKeywordEnabled(useGridTexture);
+
                 textureToggle.SetValueWithoutNotify(useTexture);
                 UpdateGridTextureMode(useTexture);
 
                 uiCallbacks.BindChange<bool>(textureToggle, value =>
                 {
-                    SetKeyword(GridTextureKeyword, value);
+                    SetKeyword(useGridTexture, value);
                     UpdateGridTextureMode(value);
                 }, sound => sound.PlayToggle());
             }
 
             if (invertAlphaToggle != null)
             {
-                bool inverted = targetMaterial.IsKeywordEnabled(InvertAlphaKeyword);
+                bool inverted = Shader.IsKeywordEnabled(invertAlpha);
+
                 invertAlphaToggle.SetValueWithoutNotify(inverted);
 
                 uiCallbacks.BindChange<bool>(invertAlphaToggle,
-                    value => SetKeyword(InvertAlphaKeyword, value),
+                    value => SetKeyword(invertAlpha, value),
                     sound => sound.PlayToggle());
             }
         }
@@ -210,54 +224,36 @@ namespace Prymara
                 gridTextureNote.style.display = useTexture ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
-        private void BindFloat(VisualElement root, string sliderName, int propertyId)
+        private void BindFloat(VisualElement root, string sliderName, int propertyId, float defailtValue = 0)
         {
             Slider slider = root.Q<Slider>(sliderName);
 
             if (slider == null)
                 return;
-
-            if (!targetMaterial.HasProperty(propertyId))
-            {
-                Debug.LogError("DIDNT FIND PROPERTY: " + propertyId);
-                DisableMissingControl(slider, propertyId);
-                return;
-            }
-
-            slider.SetValueWithoutNotify(targetMaterial.GetFloat(propertyId));
-            uiCallbacks.BindChange<float>(slider, value => targetMaterial.SetFloat(propertyId, value), sound => sound.PlaySliderChange());
+            float currValue = Shader.GetGlobalFloat(propertyId);
+            currValue = currValue == 0 ? defailtValue : currValue;
+            Shader.SetGlobalFloat(propertyId, currValue);
+            slider.SetValueWithoutNotify(currValue);
+            uiCallbacks.BindChange<float>(slider, value => Shader.SetGlobalFloat(propertyId, value), sound => sound.PlaySliderChange());
         }
 
-        private void BindInt(VisualElement root, string sliderName, int propertyId)
+        private void BindInt(VisualElement root, string sliderName, int propertyId, float defaultValue = 0f)
         {
             SliderInt slider = root.Q<SliderInt>(sliderName);
 
             if (slider == null)
                 return;
+            float currValue = Shader.GetGlobalFloat(propertyId);
+            currValue = currValue == 0 ? defaultValue : currValue;
+            Shader.SetGlobalFloat(propertyId, currValue);
 
-            if (!targetMaterial.HasProperty(propertyId))
-            {
-                Debug.LogError("DIDNT FIND PROPERTY: " + propertyId);
-                DisableMissingControl(slider, propertyId);
-                return;
-            }
-
-            slider.SetValueWithoutNotify(Mathf.RoundToInt(targetMaterial.GetFloat(propertyId)));
-            uiCallbacks.BindChange<int>(slider, value => targetMaterial.SetFloat(propertyId, value), sound => sound.PlaySliderChange());
+            slider.SetValueWithoutNotify(Mathf.RoundToInt(Shader.GetGlobalFloat(propertyId)));
+            uiCallbacks.BindChange<int>(slider, value => Shader.SetGlobalFloat(propertyId, value), sound => sound.PlaySliderChange());
         }
 
-        private static void DisableMissingControl(VisualElement control, int propertyId)
+        private void SetKeyword(GlobalKeyword keyword, bool enabled)
         {
-            control.SetEnabled(false);
-            control.tooltip = $"The assigned material does not contain property ID {propertyId}.";
-        }
-
-        private void SetKeyword(string keyword, bool enabled)
-        {
-            if (enabled)
-                targetMaterial.EnableKeyword(keyword);
-            else
-                targetMaterial.DisableKeyword(keyword);
+            Shader.SetKeyword(keyword, enabled);
         }
 
         private void UnbindUI()
@@ -266,14 +262,5 @@ namespace Prymara
             gridProceduralFields = null;
             gridTextureNote = null;
         }
-
-        //public UniversalRendererData data;
-
-        //public void SetTargetMaterial(Material material)
-        //{
-        //    var feature = data.rendererFeatures.Last();
-        //    feature.
-        //    targetMaterial = material;
-        //}
     }
 }

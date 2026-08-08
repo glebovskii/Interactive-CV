@@ -11,10 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 3e3824ab7a81f4d4f8e03e38461cbbf0, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _USE_EDGE
-  - _USE_GRID_TEXTURE
-  - _USE_KUWAHARA
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -35,6 +32,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CameraOpaqueTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -52,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Grid:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2256b93a4cf19354d8d00c66a581f8f6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -116,7 +117,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GridSize: 0
+    - _GridSize: 0.54
     - _GridSoftness: 0
     - _Hardness: 10.16
     - _INVERTALPHA: 0
@@ -149,9 +150,9 @@ Material:
     - _Threshold: 0.14
     - _USE_ABERRATION: 0
     - _USE_EDGE: 0
-    - _USE_GRID: 1
-    - _USE_GRID_TEXTURE: 1
-    - _USE_KUWAHARA: 1
+    - _USE_GRID: 0
+    - _USE_GRID_TEXTURE: 0
+    - _USE_KUWAHARA: 0
     - _USE_OIL: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
@@ -166,9 +167,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FarEdgeColor: {r: 0.79622644, g: 0.10666431, b: 0.10666431, a: 1}
-    - _FarGridColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FarGridColor: {r: 0, g: 0.43793988, b: 1, a: 1}
     - _NearEdgeColor: {r: 0, g: 0, b: 0, a: 1}
-    - _NearGridColor: {r: 0, g: 0, b: 0, a: 1}
+    - _NearGridColor: {r: 0, g: 0.6569791, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _centreColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

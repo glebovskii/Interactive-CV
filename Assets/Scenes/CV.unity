@@ -879,7 +879,7 @@ PanelRenderer:
   m_ParentUI: {fileID: 0}
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 361.8
-  m_WorldSpaceHeight: 328.7
+  m_WorldSpaceHeight: 353.8
   m_PivotReferenceSize: 1
   m_Pivot: 0
   m_Position: 0
@@ -973,7 +973,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1006,8 +1006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
+  m_RequiresDepthTextureOption: 1
+  m_RequiresOpaqueTextureOption: 1
   m_CameraType: 0
   m_Cameras: []
   m_RendererIndex: -1
@@ -3953,7 +3953,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prymara.ComicShaderPanelController
   panelRenderer: {fileID: 898442552}
-  targetMaterial: {fileID: 2100000, guid: 45e0e44db0d425a4580fcef9581f34a9, type: 2}
 --- !u!114 &898442549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23791,6 +23790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomVIew
   playerTrigger: {fileID: 1777925021}
+  panelController: {fileID: 898442548}
 --- !u!114 &9038110363656713170
 MonoBehaviour:
   m_ObjectHideFlags: 0

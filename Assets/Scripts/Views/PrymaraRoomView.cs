@@ -16,6 +16,8 @@ public class PrymaraRoomView : MonoBehaviour, IView
         Hide();
         cameraData = Camera.main.GetUniversalAdditionalCameraData();
 
+        var urp = UniversalRenderPipeline.asset;
+
         playerTrigger.TriggerEnter += Show;
         playerTrigger.TriggerExit += Hide;
     }
@@ -26,6 +28,7 @@ public class PrymaraRoomView : MonoBehaviour, IView
             return;
 
         cameraData.SetRenderer(1);
+        cameraData.requiresColorOption = CameraOverrideOption.On;
     }
 
     private void Hide(PlayerView view)
