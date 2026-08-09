@@ -1,192 +1,178 @@
-using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SimpleShell : MonoBehaviour
 {
+    [Header("Setup")]
     public Mesh shellMesh;
-    public Shader shellShader;
 
-    private int shellCountProp = Shader.PropertyToID("_ShellCount");
-    private int shellIndexProp = Shader.PropertyToID("_ShellIndex");
-    private int shellLengthProp = Shader.PropertyToID("_ShellLength");
-    private int densityProp = Shader.PropertyToID("_Density");
-    private int thicknessProp = Shader.PropertyToID("_Thickness");
-    private int attenProp = Shader.PropertyToID("_Atten");
-    private int shellDistanceAttenuationProp = Shader.PropertyToID("_ShellDistanceAttenuation");
-    private int curvatureProp = Shader.PropertyToID("_Curvature");
-    private int displacementStrengthProp = Shader.PropertyToID("_DisplacementStrength");
-    private int occlusionBiasProp = Shader.PropertyToID("_OcclusionBias");
-    private int noiseMinProp = Shader.PropertyToID("_NoiseMin");
-    private int noiseMaxProp = Shader.PropertyToID("_NoiseMax");
-    private int shellColorProp = Shader.PropertyToID("_ShellColor");
-    private int baseColorProp = Shader.PropertyToID("_BaseColor");
-    private int scaleProp = Shader.PropertyToID("_Scale");
-    private int windDirectionProp = Shader.PropertyToID("_WindDirection");
-    private int windStrengthProp = Shader.PropertyToID("_WindStrength");
-    private int windFrequencyProp = Shader.PropertyToID("_WindFrequency");
-    private int windHeightAttenuationProp = Shader.PropertyToID("_WindHeightAttenuation");
-    private int turbulenceStrengthProp = Shader.PropertyToID("_TurbulenceStrength");
-    private int maskProp = Shader.PropertyToID("_Mask");
+    [SerializeField] private Material shellMaterial;
+    [SerializeField] private Terrain terrain;
+    [SerializeField] private LayerMask grassLayer;
+
+    private static readonly int ShellCountProp = Shader.PropertyToID("_ShellCount");
+    private static readonly int ShellLengthProp = Shader.PropertyToID("_ShellLength");
+    private static readonly int DensityProp = Shader.PropertyToID("_Density");
+    private static readonly int ThicknessProp = Shader.PropertyToID("_Thickness");
+    private static readonly int AttenProp = Shader.PropertyToID("_Atten");
+    private static readonly int ShellDistanceAttenuationProp = Shader.PropertyToID("_ShellDistanceAttenuation");
+    private static readonly int CurvatureProp = Shader.PropertyToID("_Curvature");
+    private static readonly int DisplacementStrengthProp = Shader.PropertyToID("_DisplacementStrength");
+    private static readonly int OcclusionBiasProp = Shader.PropertyToID("_OcclusionBias");
+    private static readonly int NoiseMinProp = Shader.PropertyToID("_NoiseMin");
+    private static readonly int NoiseMaxProp = Shader.PropertyToID("_NoiseMax");
+    private static readonly int ShellColorProp = Shader.PropertyToID("_ShellColor");
+    private static readonly int BaseColorProp = Shader.PropertyToID("_BaseColor");
+    private static readonly int ScaleProp = Shader.PropertyToID("_Scale");
+    private static readonly int WindDirectionProp = Shader.PropertyToID("_WindDirection");
+    private static readonly int WindStrengthProp = Shader.PropertyToID("_WindStrength");
+    private static readonly int WindFrequencyProp = Shader.PropertyToID("_WindFrequency");
+    private static readonly int WindHeightAttenuationProp = Shader.PropertyToID("_WindHeightAttenuation");
+    private static readonly int TurbulenceStrengthProp = Shader.PropertyToID("_TurbulenceStrength");
+    private static readonly int MaskProp = Shader.PropertyToID("_Mask");
 
     public bool updateStatics = true;
 
-    // These variables and what they do are explained on the shader code side of things
-    // You can see below (line 70) which shader uniforms match up with these variables
     public int scale = 1600;
 
     [Range(1, 256)]
     public int shellCount = 16;
 
-    [Range(0.0f, 1.0f)]
+    [Range(0f, 1f)]
     public float shellLength = 0.15f;
 
-    [Range(0.01f, 300.0f)]
-    public float distanceAttenuation = 1.0f;
+    [Range(0.01f, 300f)]
+    public float distanceAttenuation = 1f;
 
-    [Range(1.0f, 10000.0f)]
-    public float density = 100.0f;
+    [Range(1f, 10000f)]
+    public float density = 100f;
 
-    [Range(0.0f, 1.0f)]
-    public float noiseMin = 0.0f;
+    [Range(0f, 1f)]
+    public float noiseMin;
 
-    [Range(0.0f, 1.0f)]
-    public float noiseMax = 1.0f;
+    [Range(0f, 1f)]
+    public float noiseMax = 1f;
 
-    [Range(0.0f, 10.0f)]
-    public float thickness = 1.0f;
+    [Range(0f, 10f)]
+    public float thickness = 1f;
 
-    [Range(0f, 10.0f)]
-    public float curvature = 1.0f;
+    [Range(0f, 10f)]
+    public float curvature = 1f;
 
-    [Range(0.0f, 1f)]
+    [Range(0f, 1f)]
     public float displacementStrength = 0.1f;
 
     public Color shellColor;
     public Color baseColor;
 
-    [Range(0.0f, 5.0f)]
-    public float occlusionAttenuation = 1.0f;
+    [Range(0f, 5f)]
+    public float occlusionAttenuation = 1f;
 
-    [Range(0.0f, 1.0f)]
-    public float occlusionBias = 0.0f;
-
+    [Range(0f, 1f)]
+    public float occlusionBias;
+    [SerializeField] private GrassInteractionController grassInteractionController;
     [Header("Wind Settings")]
-    [SerializeField] private Vector3 windDirection = new Vector3(1, 0, 0);
+    [SerializeField] private Vector3 windDirection = new Vector3(1f, 0f, 0f);
     [SerializeField] private float windStrength = 0.05f;
     [SerializeField] private float windFrequency = 0.75f;
     [SerializeField] private float windHeightAttenuation = 2f;
     [SerializeField] private float turbulenceStrength = 0.1f;
 
-    [Space(10)]
-    [SerializeField] private GrassInteractionController grassInteractionController;
+    [SerializeField] private Vector3 displacementDirection;
 
-    [Space(10)]
-    [SerializeField] private Texture2D maskTexture;
-    [SerializeField] private Terrain terrain;
+    private Texture2D maskTexture;
+    private Material runtimeMaterial;
+    private Matrix4x4[] shellMatrices;
+    private RenderParams renderParams;
 
-    [SerializeField] private LayerMask grassLayer;
+    public Material RuntimeMaterial => runtimeMaterial;
 
-    private Material shellMaterial;
-    private GameObject[] shells;
-
-    [SerializeField] private Vector3 displacementDirection = new Vector3(0, 0, 0);
-
-    void OnEnable()
+    private void OnEnable()
     {
         maskTexture = terrain.terrainData.GetAlphamapTexture(0);
 
-        shellMaterial = new Material(shellShader);
+        runtimeMaterial = new Material(shellMaterial);
+        runtimeMaterial.enableInstancing = true;
 
-        shells = new GameObject[shellCount];
-
-        for (int i = 0; i < shellCount; ++i)
+        renderParams = new RenderParams(runtimeMaterial)
         {
-            shells[i] = new GameObject("Shell " + i.ToString());
-            //shells[i].transform.rotation = Quaternion.Euler(90, 0, 0);
-            //shells[i].transform.localScale *= 10;
-            shells[i].layer = LayerMask.NameToLayer("Grass");
-            shells[i].AddComponent<MeshFilter>();
-            shells[i].AddComponent<MeshRenderer>();
-            shells[i].GetComponent<MeshFilter>().mesh = shellMesh;
-            shells[i].GetComponent<MeshRenderer>().material = shellMaterial;
-            var mat = shells[i].GetComponent<MeshRenderer>().sharedMaterial;
-            shells[i].transform.SetParent(this.transform, false);
-            shells[i].GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            layer = LayerMask.NameToLayer("Grass"),
+            shadowCastingMode = ShadowCastingMode.Off,
+            receiveShadows = false,
+            reflectionProbeUsage = ReflectionProbeUsage.Off,
+            lightProbeUsage = LightProbeUsage.Off
+        };
 
-            // In order to tell the GPU what its uniform variable values should be, we use these "Set" functions which will set the
-            // values over on the GPU. 
-            mat.SetFloat(shellCountProp, (float)shellCount);
-            mat.SetFloat(shellIndexProp, (float)i);
-            mat.SetFloat(shellLengthProp, shellLength);
-            mat.SetFloat(densityProp, density);
-            mat.SetFloat(thicknessProp, thickness);
-            mat.SetFloat(attenProp, occlusionAttenuation);
-            mat.SetFloat(shellDistanceAttenuationProp, distanceAttenuation);
-            mat.SetFloat(curvatureProp, curvature);
-            mat.SetFloat(displacementStrengthProp, displacementStrength);
-            mat.SetFloat(occlusionBiasProp, occlusionBias);
-            mat.SetFloat(noiseMinProp, noiseMin);
-            mat.SetFloat(noiseMaxProp, noiseMax);
-            mat.SetVector(shellColorProp, shellColor);
-            mat.SetVector(baseColorProp, baseColor);
+        RebuildInstances();
+        ApplyProperties();
 
-            mat.SetVector(windDirectionProp, windDirection);
-            mat.SetFloat(windStrengthProp, windStrength);
-            mat.SetFloat(windFrequencyProp, windFrequency);
-            mat.SetFloat(windHeightAttenuationProp, windHeightAttenuation);
-            mat.SetFloat(turbulenceStrengthProp, turbulenceStrength);
-
-            mat.SetTexture(maskProp, maskTexture);
-        }
-
-        grassInteractionController.SetLayers(shells);
+        grassInteractionController.SetTarget(runtimeMaterial, transform, shellMesh);
     }
 
-    void Update()
+    private void Update()
     {
-        if (updateStatics)
-        {
-            for (int i = 0; i < shellCount; ++i)
-            {
-                var mat = shells[i].GetComponent<MeshRenderer>().material;
-                mat.SetFloat(shellCountProp, (float)shellCount);
-                mat.SetFloat(shellIndexProp, (float)i);
-                mat.SetFloat(shellLengthProp, shellLength);
-                mat.SetFloat(densityProp, density);
-                //mat.SetFloat(thicknessProp, EaseInSine(thickness));
-                mat.SetFloat(thicknessProp, (thickness));
-                mat.SetFloat(attenProp, occlusionAttenuation);
-                mat.SetFloat(shellDistanceAttenuationProp, distanceAttenuation);
-                mat.SetFloat(curvatureProp, curvature);
-                mat.SetFloat(displacementStrengthProp, displacementStrength);
-                mat.SetFloat(occlusionBiasProp, occlusionBias);
-                mat.SetFloat(noiseMinProp, noiseMin);
-                mat.SetFloat(noiseMaxProp, noiseMax);
-                mat.SetVector(shellColorProp, shellColor);
-                mat.SetVector(baseColorProp, baseColor);
-                mat.SetFloat(scaleProp, scale);
+        if (shellMatrices.Length != shellCount)
+            RebuildInstances();
 
-                mat.SetVector(windDirectionProp, windDirection);
-                mat.SetFloat(windStrengthProp, windStrength);
-                mat.SetFloat(windFrequencyProp, windFrequency);
-                mat.SetFloat(windHeightAttenuationProp, windHeightAttenuation);
-                mat.SetFloat(turbulenceStrengthProp, turbulenceStrength);
-            }
-        }
+        UpdateInstanceMatrices();
+
+        if (updateStatics)
+            ApplyProperties();
+
+        Graphics.RenderMeshInstanced( renderParams, shellMesh, 0, shellMatrices, shellCount);
+    }
+
+    private void RebuildInstances()
+    {
+        shellMatrices = new Matrix4x4[shellCount];
+        UpdateInstanceMatrices();
+    }
+
+    private void UpdateInstanceMatrices()
+    {
+        Matrix4x4 matrix = transform.localToWorldMatrix;
+
+        for (int i = 0; i < shellCount; i++)
+            shellMatrices[i] = matrix;
+    }
+
+    private void ApplyProperties()
+    {
+        runtimeMaterial.SetFloat(ShellCountProp, shellCount);
+        runtimeMaterial.SetFloat(ShellLengthProp, shellLength);
+        runtimeMaterial.SetFloat(DensityProp, density);
+        runtimeMaterial.SetFloat(ThicknessProp, EaseInSine(thickness));
+        runtimeMaterial.SetFloat(AttenProp, occlusionAttenuation);
+        runtimeMaterial.SetFloat(ShellDistanceAttenuationProp, distanceAttenuation);
+        runtimeMaterial.SetFloat(CurvatureProp, curvature);
+        runtimeMaterial.SetFloat(DisplacementStrengthProp, displacementStrength);
+        runtimeMaterial.SetFloat(OcclusionBiasProp, occlusionBias);
+        runtimeMaterial.SetFloat(NoiseMinProp, noiseMin);
+        runtimeMaterial.SetFloat(NoiseMaxProp, noiseMax);
+        runtimeMaterial.SetColor(ShellColorProp, shellColor);
+        runtimeMaterial.SetColor(BaseColorProp, baseColor);
+        runtimeMaterial.SetFloat(ScaleProp, scale);
+
+        runtimeMaterial.SetVector(WindDirectionProp, windDirection);
+        runtimeMaterial.SetFloat(WindStrengthProp, windStrength);
+        runtimeMaterial.SetFloat(WindFrequencyProp, windFrequency);
+        runtimeMaterial.SetFloat(WindHeightAttenuationProp, windHeightAttenuation);
+        runtimeMaterial.SetFloat(TurbulenceStrengthProp, turbulenceStrength);
+
+        runtimeMaterial.SetTexture(MaskProp, maskTexture);
     }
 
     private float EaseInSine(float x)
     {
-        return 1 - Mathf.Cos((x * Mathf.PI) / 2);
+        return 1f - Mathf.Cos((x * Mathf.PI) / 2f);
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        for (int i = 0; i < shells.Length; ++i)
-        {
-            Destroy(shells[i]);
-        }
+        if (runtimeMaterial != null)
+            Destroy(runtimeMaterial);
 
-        shells = null;
+        runtimeMaterial = null;
+        shellMatrices = null;
     }
 }

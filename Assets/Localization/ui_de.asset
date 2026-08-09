@@ -495,6 +495,138 @@ MonoBehaviour:
     m_Localized: "Link \xF6ffnen"
     m_Metadata:
       m_Items: []
+  - m_Id: 5880272621121536
+    m_Localized: "Zur\xFCcksetzen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272625315840
+    m_Localized: Rot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272629510144
+    m_Localized: "Gr\xFCn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272633704448
+    m_Localized: Blau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272637898752
+    m_Localized: Shell-Gras-Shader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272642093056
+    m_Localized: "Laufzeitsteuerung f\xFCr Gras"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272646287360
+    m_Localized: "Einstellungen f\xFCr H\xFCllenform, Farbe, Okklusion und Wind"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272650481664
+    m_Localized: "Gras-Einstellungen auf Standardwerte zur\xFCcksetzen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272654675968
+    m_Localized: "H\xFClle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272658870272
+    m_Localized: Aussehen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272663064576
+    m_Localized: Wind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272667258880
+    m_Localized: Einstellungen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272671453184
+    m_Localized: Aussehen & Okklusion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272675647488
+    m_Localized: Wind-Einstellungen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272679841792
+    m_Localized: Skalierung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272684036096
+    m_Localized: "Anzahl der H\xFCllen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272688230400
+    m_Localized: "H\xFCllenl\xE4nge"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272692424704
+    m_Localized: "Entfernungsd\xE4mpfung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272696619008
+    m_Localized: Dichte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272700813312
+    m_Localized: Rauschen Minimum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272705007616
+    m_Localized: Rauschen Maximum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272709201920
+    m_Localized: Dicke
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272713396224
+    m_Localized: "Kr\xFCmmung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272717590528
+    m_Localized: "Verschiebungsst\xE4rke"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272721784832
+    m_Localized: "H\xFCllenfarbe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272725979136
+    m_Localized: Grundfarbe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272730173440
+    m_Localized: "Okklusionsd\xE4mpfung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272734367744
+    m_Localized: Okklusions-Bias
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272738562048
+    m_Localized: Windrichtung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272742756352
+    m_Localized: "Windst\xE4rke"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272746950656
+    m_Localized: Windfrequenz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272751144960
+    m_Localized: "Wind-H\xF6hend\xE4mpfung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272755339264
+    m_Localized: "Turbulenzst\xE4rke"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

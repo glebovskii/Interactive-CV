@@ -5,7 +5,6 @@ using UnityEngine;
 public class GrassController : MonoBehaviour
 {
     private int densityProp = Shader.PropertyToID("_Density");
-    private int heightProp = Shader.PropertyToID("_Height");
     private int baseColorProp = Shader.PropertyToID("_BaseColor");
     private int highColorProp = Shader.PropertyToID("_HighColor");
     private int scaleProp = Shader.PropertyToID("_Scale");
@@ -55,8 +54,6 @@ public class GrassController : MonoBehaviour
             renderer.material = new Material(grassShader);
             renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             renderer.material.SetFloat(densityProp, EaseInSine(Mathf.Clamp01(baseDensity + (1 * i)/(float)layers)));
-            renderer.material.SetFloat(heightProp, (currentheight/height));
-            //renderer.transform.position = new Vector3(0, currentheight, 0);
             
             currentheight += distance;
 
@@ -69,7 +66,6 @@ public class GrassController : MonoBehaviour
     {
         foreach(var layer in grassLayers)
         {
-            //layer.SetFloat(densityProp, density);
             layer.SetColor(baseColorProp, baseColor);
             layer.SetColor(highColorProp, highColor);
             layer.SetFloat(scaleProp, scale);

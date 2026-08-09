@@ -1,0 +1,55 @@
+.grass-settings-card {
+    min-width: 760px;
+}
+
+.grass-reset-button {
+    min-width: 130px;
+}
+
+.grass-group-title {
+    margin: 4px 8px 10px 8px;
+    font-size: 17px;
+    -unity-font-style: bold;
+    color: rgba(219, 242, 240, 0.92);
+}
+
+.grass-color-card {
+    margin-bottom: 14px;
+    padding: 10px 8px 6px 8px;
+    background-color: rgba(59, 205, 190, 0.045);
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.grass-color-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 38px;
+    margin: 0 8px 8px 8px;
+}
+
+.grass-color-title {
+    font-size: 17px;
+    -unity-font-style: bold;
+    color: rgb(236, 247, 250);
+}
+
+.grass-color-preview {
+    width: 110px;
+    height: 28px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(193, 224, 228, 0.36);
+    border-right-color: rgba(193, 224, 228, 0.36);
+    border-top-color: rgba(193, 224, 228, 0.36);
+    border-bottom-color: rgba(193, 224, 228, 0.36);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}

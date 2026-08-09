@@ -493,6 +493,138 @@ MonoBehaviour:
     m_Localized: OPEN LINK
     m_Metadata:
       m_Items: []
+  - m_Id: 5880272621121536
+    m_Localized: Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272625315840
+    m_Localized: Red
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272629510144
+    m_Localized: Green
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272633704448
+    m_Localized: Blue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272637898752
+    m_Localized: Shell Grass Shader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272642093056
+    m_Localized: Runtime grass controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272646287360
+    m_Localized: Shell shape, color, occlusion and wind settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272650481664
+    m_Localized: Restore grass settings to defaults
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272654675968
+    m_Localized: Shell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272658870272
+    m_Localized: Appearance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272663064576
+    m_Localized: Wind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272667258880
+    m_Localized: Shell Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272671453184
+    m_Localized: Appearance & Occlusion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272675647488
+    m_Localized: Wind Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272679841792
+    m_Localized: Scale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272684036096
+    m_Localized: Shell Count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272688230400
+    m_Localized: Shell Length
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272692424704
+    m_Localized: Distance Attenuation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272696619008
+    m_Localized: Density
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272700813312
+    m_Localized: Noise Min
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272705007616
+    m_Localized: Noise Max
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272709201920
+    m_Localized: Thickness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272713396224
+    m_Localized: Curvature
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272717590528
+    m_Localized: Displacement Strength
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272721784832
+    m_Localized: Shell Color
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272725979136
+    m_Localized: Base Color
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272730173440
+    m_Localized: Occlusion Attenuation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272734367744
+    m_Localized: Occlusion Bias
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272738562048
+    m_Localized: Wind Direction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272742756352
+    m_Localized: Wind Strength
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272746950656
+    m_Localized: Wind Frequency
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272751144960
+    m_Localized: Wind Height Attenuation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5880272755339264
+    m_Localized: Turbulence Strength
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

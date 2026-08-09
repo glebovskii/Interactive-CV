@@ -1,0 +1,245 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <Style src="project://database/Assets/UI/USS/ShaderSettings.uss?fileID=7433441132597879392&amp;guid=40f5cee935b6a2f469d88696828a1281&amp;type=3#ShaderSettings"/>
+    <ui:VisualElement name="panel-root" class="section-card shader-settings-card" style="height: 821px; width: 841px;">
+        <ui:VisualElement class="shader-settings-header">
+            <ui:VisualElement class="shader-settings-heading-copy">
+                <ui:VisualElement class="shader-settings-title-row" style="flex-wrap: nowrap; justify-content: space-between;">
+                    <ui:Label text="Shell Grass Shader" class="game-title shader-settings-title">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="grass.title"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Button name="button-reset" text="Reset" tooltip="Restore grass settings to defaults" class="secondary-button shader-settings-project-button">
+                        <Bindings>
+                            <l:LocalizedString property="text" table="ui" entry="common.reset"/>
+                            <l:LocalizedString property="tooltip" table="ui" entry="grass.reset_tooltip"/>
+                        </Bindings>
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:TabView name="shader-tab-view" reorderable="false" view-data-key="shell-grass-tab-view" class="shader-tab-view">
+            <ui:Tab name="tab-shell" label="Shell" class="shader-tab">
+                <ui:ScrollView name="panel-shell" class="shader-tab-scroll">
+                    <ui:VisualElement class="shader-tab-heading-row">
+                        <ui:Label text="Shell Settings" class="shader-tab-title">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="grass.shell_settings"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="shader-fields">
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Scale" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.scale"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-scale" low-value="1" high-value="5000" value="2166" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Shell Length" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.shell_length"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-shell-length" low-value="0" high-value="0.15" value="0.061" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Distance Attenuation" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.distance_attenuation"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-distance-attenuation" low-value="0.1" high-value="5" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Density" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.density"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-density" low-value="1" high-value="10000" value="3066" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Thickness" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.thickness"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-thickness" low-value="0" high-value="10" value="10" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Displacement Strength" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.displacement_strength"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-displacement-strength" low-value="0" high-value="2" value="1" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:Tab>
+            <ui:Tab name="tab-appearance" label="Appearance" class="shader-tab">
+                <ui:ScrollView name="panel-appearance" class="shader-tab-scroll">
+                    <ui:VisualElement class="shader-tab-heading-row">
+                        <ui:Label text="Appearance &amp; Occlusion" class="shader-tab-title">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="grass.appearance_settings"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="shader-fields">
+                        <ui:VisualElement class="shader-fields">
+                            <ui:VisualElement class="shader-tab-heading-row">
+                                <ui:Label text="Shell Color" class="shader-tab-title">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="grass.shell_color"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:VisualElement name="shell-color-preview" picking-mode="Ignore" style="width: 110px; height: 28px; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement class="shader-control-row">
+                                <ui:Label text="Red" class="shader-control-label">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="common.red"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:Slider name="slider-shell-color-r" low-value="0" high-value="1" value="0.08235294" show-input-field="true" class="shader-slider"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement class="shader-control-row">
+                                <ui:Label text="Green" class="shader-control-label">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="common.green"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:Slider name="slider-shell-color-g" low-value="0" high-value="1" value="0.3882353" show-input-field="true" class="shader-slider"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement class="shader-control-row">
+                                <ui:Label text="Blue" class="shader-control-label">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="common.blue"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:Slider name="slider-shell-color-b" low-value="0" high-value="1" value="0.03921569" show-input-field="true" class="shader-slider"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-fields">
+                            <ui:VisualElement class="shader-tab-heading-row">
+                                <ui:Label text="Base Color" class="shader-tab-title">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="grass.base_color"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:VisualElement name="base-color-preview" picking-mode="Ignore" style="width: 110px; height: 28px; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement class="shader-control-row">
+                                <ui:Label text="Red" class="shader-control-label">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="common.red"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:Slider name="slider-base-color-r" low-value="0" high-value="1" value="0.9019608" show-input-field="true" class="shader-slider"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement class="shader-control-row">
+                                <ui:Label text="Green" class="shader-control-label">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="common.green"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:Slider name="slider-base-color-g" low-value="0" high-value="1" value="1" show-input-field="true" class="shader-slider"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement class="shader-control-row">
+                                <ui:Label text="Blue" class="shader-control-label">
+                                    <Bindings>
+                                        <l:LocalizedString property="text" table="ui" entry="common.blue"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:Slider name="slider-base-color-b" low-value="0" high-value="1" value="0.2" show-input-field="true" class="shader-slider"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Occlusion Attenuation" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.occlusion_attenuation"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-occlusion-attenuation" low-value="0" high-value="5" value="1.3" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Occlusion Bias" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.occlusion_bias"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-occlusion-bias" low-value="-1" high-value="1" value="0" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:Tab>
+            <ui:Tab name="tab-wind" label="Wind" class="shader-tab">
+                <ui:ScrollView name="panel-wind" class="shader-tab-scroll">
+                    <ui:VisualElement class="shader-tab-heading-row">
+                        <ui:Label text="Wind Settings" class="shader-tab-title">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="grass.wind_settings"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="shader-fields">
+                        <ui:Label text="Wind Direction" class="shader-tab-title">
+                            <Bindings>
+                                <l:LocalizedString property="text" table="ui" entry="grass.wind_direction"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="X" class="shader-control-label"/>
+                            <ui:Slider name="slider-wind-direction-x" low-value="-1" high-value="1" value="0.03" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Y" class="shader-control-label"/>
+                            <ui:Slider name="slider-wind-direction-y" low-value="-1" high-value="1" value="-0.02" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Z" class="shader-control-label"/>
+                            <ui:Slider name="slider-wind-direction-z" low-value="-1" high-value="1" value="-0.03" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Wind Strength" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.wind_strength"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-wind-strength" low-value="0" high-value="1" value="0.14" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Wind Frequency" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.wind_frequency"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-wind-frequency" low-value="0" high-value="10" value="2.92" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Wind Height Attenuation" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.wind_height_attenuation"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-wind-height-attenuation" low-value="0.1" high-value="5" value="2.09" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Turbulence Strength" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.turbulence_strength"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-turbulence-strength" low-value="0" high-value="1" value="0.16" show-input-field="true" class="shader-slider"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:Tab>
+        </ui:TabView>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,5 +1,3 @@
-using Fusion;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,9 +17,8 @@ public sealed class GrassInteractionController : MonoBehaviour
     [SerializeField, Min(0f)] private float maximumHeightAboveSurface = 1f;
 
     private readonly List<CharacterGrassInteractor> characters = new();
-    private readonly List<MeshRenderer> shellRenderers = new();
 
-    private MaterialPropertyBlock propertyBlock;
+    private Material grassMaterial;
     private Material drawMaterial;
     private RenderTexture interactionMap;
 
@@ -29,36 +26,32 @@ public sealed class GrassInteractionController : MonoBehaviour
     private Bounds surfaceBounds;
     private Vector3 surfaceScale;
 
+    private bool initialized;
+
+    private static readonly int InteractionMapID = Shader.PropertyToID("_InteractionMap");
+    private static readonly int CoordinateID = Shader.PropertyToID("_Coordinate");
+    private static readonly int BrushRadiusID = Shader.PropertyToID("_Size");
+    private static readonly int BrushStrengthID = Shader.PropertyToID("_BrushStrength");
+    private static readonly int BrushFalloffID = Shader.PropertyToID("_BrushFalloff");
+
     private void Awake()
     {
         ServiceLocator.Register(this);
     }
 
-    //TODO: REMOVE ONCE DESIDE ON VALUES
-    private void Update()
-    {
-        drawMaterial.SetFloat(BrushRadiusID, brushRadiusPixels);
-        drawMaterial.SetFloat(BrushStrengthID, brushStrength);
-        drawMaterial.SetFloat(BrushFalloffID, brushFalloff);
-    }
-
-    public void SetLayers(GameObject[] shells)
+    public void SetTarget(Material material, Transform targetTransform, Mesh mesh)
     {
         ReleaseResources();
 
-        shellRenderers.Clear();
-
-        foreach (GameObject shell in shells)
-            shellRenderers.Add(shell.GetComponent<MeshRenderer>());
-
-        surfaceTransform = shells[0].transform;
-        surfaceBounds = shells[0].GetComponent<MeshFilter>().sharedMesh.bounds;
+        grassMaterial = material;
+        surfaceTransform = targetTransform;
+        surfaceBounds = mesh.bounds;
         surfaceScale = surfaceTransform.lossyScale;
 
-        propertyBlock = new MaterialPropertyBlock();
-
         CreateInteractionMap();
-        AssignInteractionMap();
+        grassMaterial.SetTexture(InteractionMapID, interactionMap);
+
+        initialized = true;
     }
 
     private void CreateInteractionMap()
@@ -68,12 +61,7 @@ public sealed class GrassInteractionController : MonoBehaviour
             name = "Grass Interaction Draw Material"
         };
 
-        interactionMap = new RenderTexture(
-            textureSize,
-            textureSize,
-            0,
-            RenderTextureFormat.R8,
-            RenderTextureReadWrite.Linear)
+        interactionMap = new RenderTexture(textureSize, textureSize, 0, RenderTextureFormat.R8, RenderTextureReadWrite.Linear)
         {
             name = "Grass Interaction Map",
             filterMode = FilterMode.Bilinear,
@@ -85,10 +73,8 @@ public sealed class GrassInteractionController : MonoBehaviour
         interactionMap.Create();
 
         RenderTexture previous = RenderTexture.active;
-
         RenderTexture.active = interactionMap;
         GL.Clear(false, true, Color.black);
-
         RenderTexture.active = previous;
 
         drawMaterial.SetFloat(BrushRadiusID, brushRadiusPixels);
@@ -96,19 +82,11 @@ public sealed class GrassInteractionController : MonoBehaviour
         drawMaterial.SetFloat(BrushFalloffID, brushFalloff);
     }
 
-    private void AssignInteractionMap()
-    {
-        foreach (MeshRenderer renderer in shellRenderers)
-        {
-            propertyBlock.Clear();
-            renderer.GetPropertyBlock(propertyBlock);
-            propertyBlock.SetTexture(InteractionMapID, interactionMap);
-            renderer.SetPropertyBlock(propertyBlock);
-        }
-    }
-
     private void DrawAtWorldPosition(Vector3 worldPosition)
     {
+        if (!initialized)
+            return;
+
         Vector3 localPosition = surfaceTransform.InverseTransformPoint(worldPosition);
 
         float height = Mathf.Abs(localPosition.y - surfaceBounds.center.y) * Mathf.Abs(surfaceScale.y);
@@ -121,8 +99,8 @@ public sealed class GrassInteractionController : MonoBehaviour
             return;
 
         Vector2 uv = new(
-           1 - Mathf.InverseLerp(surfaceBounds.min.x, surfaceBounds.max.x, localPosition.x),
-           1 - Mathf.InverseLerp(surfaceBounds.min.z, surfaceBounds.max.z, localPosition.z));
+            1f - Mathf.InverseLerp(surfaceBounds.min.x, surfaceBounds.max.x, localPosition.x),
+            1f - Mathf.InverseLerp(surfaceBounds.min.z, surfaceBounds.max.z, localPosition.z));
 
         Blit(uv);
     }
@@ -139,9 +117,21 @@ public sealed class GrassInteractionController : MonoBehaviour
         RenderTexture.ReleaseTemporary(temporary);
     }
 
+    public void Register(CharacterGrassInteractor characterGrassInteractor)
+    {
+        characters.Add(characterGrassInteractor);
+        characterGrassInteractor.OnWalk += DrawAtWorldPosition;
+    }
+
+    public void Unregister(CharacterGrassInteractor characterGrassInteractor)
+    {
+        characters.Remove(characterGrassInteractor);
+        characterGrassInteractor.OnWalk -= DrawAtWorldPosition;
+    }
+
     private void OnGUI()
     {
-        if (showDrawMap)
+        if (showDrawMap && interactionMap != null)
             GUI.DrawTexture(new Rect(0f, 0f, 256f, 256f), interactionMap, ScaleMode.ScaleToFit, false);
     }
 
@@ -158,6 +148,8 @@ public sealed class GrassInteractionController : MonoBehaviour
 
     private void ReleaseResources()
     {
+        initialized = false;
+
         if (drawMaterial != null)
         {
             Destroy(drawMaterial);
@@ -170,23 +162,8 @@ public sealed class GrassInteractionController : MonoBehaviour
             Destroy(interactionMap);
             interactionMap = null;
         }
-    }
 
-    public void Register(CharacterGrassInteractor characterGrassInteractor)
-    {
-        characters.Add(characterGrassInteractor);
-        characterGrassInteractor.OnWalk += DrawAtWorldPosition;
+        grassMaterial = null;
+        surfaceTransform = null;
     }
-
-    public void Unregister(CharacterGrassInteractor characterGrassInteractor)
-    {
-        characters.Remove(characterGrassInteractor);
-        characterGrassInteractor.OnWalk -= DrawAtWorldPosition;
-    }
-
-    private static readonly int InteractionMapID = Shader.PropertyToID("_InteractionMap");
-    private static readonly int CoordinateID = Shader.PropertyToID("_Coordinate");
-    private static readonly int BrushRadiusID = Shader.PropertyToID("_Size");
-    private static readonly int BrushStrengthID = Shader.PropertyToID("_BrushStrength");
-    private static readonly int BrushFalloffID = Shader.PropertyToID("_BrushFalloff");
 }
