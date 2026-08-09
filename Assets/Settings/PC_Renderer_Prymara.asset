@@ -29,7 +29,7 @@ MonoBehaviour:
   - {fileID: 848399655997739872}
   m_RendererFeatureMap: 9cf701bc375ab62c60134ffbfd1ec60b
   xrSystemData: {fileID: 0}
-  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  postProcessData: {fileID: 0}
   m_AssetVersion: 3
   m_PrepassLayerMask:
     serializedVersion: 2
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Active: 1
   injectionPoint: 550
   fetchColorBuffer: 1
-  requirements: 5
+  requirements: 1
   passMaterial: {fileID: 2100000, guid: 45e0e44db0d425a4580fcef9581f34a9, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0

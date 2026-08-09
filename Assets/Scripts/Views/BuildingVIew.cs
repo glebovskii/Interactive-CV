@@ -4,7 +4,11 @@ public class BuildingView : MonoBehaviour, IView
 {
     [SerializeField] private PanelUI panel;
     [SerializeField] private PlayerTrigger playerTrigger;
-    
+
+    [SerializeField] private string analyticsName = "project_open";
+    [SerializeField] private string analyticsKey = "project";
+    [SerializeField] private string analyticsValue;
+
     public PanelUI Panel => panel;
 
     private void Awake()
@@ -18,6 +22,8 @@ public class BuildingView : MonoBehaviour, IView
     {
         if (!view.IsLocalPlayer)
             return;
+
+        AnalyticsService.LogEvent(analyticsName, analyticsKey, analyticsValue);
 
         view.AddTarget(Panel.transform);
         panel.Show(view.Camera);
@@ -39,7 +45,7 @@ public class BuildingView : MonoBehaviour, IView
 
     public void Show()
     {
-        
+
     }
 
     private void OnDestroy()

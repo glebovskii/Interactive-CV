@@ -1,9 +1,7 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
-using MouseButton = UnityEngine.InputSystem.LowLevel.MouseButton;
 
 public class AutoLinkView : MonoBehaviour
 {
@@ -19,6 +17,10 @@ public class AutoLinkView : MonoBehaviour
     private UISoundController soundController;
 
     private IEnumerator routine;
+
+    [SerializeField] private string analyticsName = "link_open";
+    [SerializeField] private string analyticsKey = "project";
+    [SerializeField] private string analyticsValue;
 
     private void OnEnable()
     {
@@ -36,8 +38,7 @@ public class AutoLinkView : MonoBehaviour
     {
         if (!view.IsLocalPlayer)
             return;
-
-        //LinkRoutine();
+        AnalyticsService.LogEvent(analyticsName, analyticsKey, analyticsValue);
         routine = LinkRoutine();
         StartCoroutine(routine);
     }
@@ -62,23 +63,7 @@ public class AutoLinkView : MonoBehaviour
         }
         soundController?.SetPitch(1);
         linkController.SetFill(1);
-        //FakeClick();
     }
-
-    private void FakeClick()
-    {
-        var mouse = Mouse.current;
-
-        InputSystem.QueueStateEvent(mouse, new MouseState().WithButton(MouseButton.Left, false));
-        InputSystem.QueueEvent(new InputEventPtr());//.QueueStateEvent(mouse, new MouseState().WithButton(MouseButton.Left, false));
-        //InputSystem.QueueStateEvent(mouse, new MouseState().WithButton(MouseButton.Right, false));
-    }
-
-    //private void LinkRoutine()
-    //{
-    //    link.OpenLink();
-
-    //}
 
     private void TriggerExit(PlayerView view)
     {
