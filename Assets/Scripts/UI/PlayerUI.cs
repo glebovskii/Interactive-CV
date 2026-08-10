@@ -8,15 +8,17 @@ public class PlayerUI : MonoBehaviour
     private PanelRenderer panelRenderer;
 
     private Transform camera;
+    private string playerName;
 
     private void OnEnable()
     {
         panelRenderer = GetComponent<PanelRenderer>();
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
     }
-    public void Init(CinemachineCamera cinemachineCamera, bool isLocalPlayer)
+    public void Init(CinemachineCamera cinemachineCamera, bool isLocalPlayer, string name)
     {
         camera = cinemachineCamera.transform;
+        playerName = name;
     }
 
     private void LateUpdate()
@@ -39,7 +41,7 @@ public class PlayerUI : MonoBehaviour
     private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
     {
         playerNameField = root.Q<Label>("player-name");
-        playerNameField.text = PlayerInfoSave.GetName();
+        playerNameField.text = playerName;
     }
 
     public void SetVisible(bool value)

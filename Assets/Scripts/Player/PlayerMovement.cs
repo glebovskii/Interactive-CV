@@ -51,7 +51,6 @@ public sealed class PlayerMovement : NetworkBehaviour
     private NetworkTransform networkTransform;
 
     [Networked] public Vector3 Velocity { get; private set; }
-    [Networked] public Color Color { get; private set; }
 
     private int combinedRaycastMask;
 
@@ -59,11 +58,7 @@ public sealed class PlayerMovement : NetworkBehaviour
     {
         bool isLocallyControlled = HasStateAuthority;
 
-        if (isLocallyControlled)
-        {
-            var name = PlayerInfoSave.GetName();
-            Color = PlayerInfoSave.GetColor();
-        }
+        
         inputReader = GetComponent<PlayerInputReader>();
 
         if (characterController == null)

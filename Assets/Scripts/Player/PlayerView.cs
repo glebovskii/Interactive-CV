@@ -1,7 +1,8 @@
+using Fusion;
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class PlayerView : MonoBehaviour
+public class PlayerView : NetworkBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private PlayerMovement playerMovement;
@@ -22,6 +23,8 @@ public class PlayerView : MonoBehaviour
 
     public PlayerDissolveController DissolveController => dissolveController;
 
+    [Networked] public Color Color { get; private set; }
+    [Networked] public string Name { get; private set; }
 
     private PlayerCameraController playerCameraController;
     private PlayerUI playerUI;
@@ -39,25 +42,26 @@ public class PlayerView : MonoBehaviour
     private void Awake()
     {
         IsLocalPlayer = false;
-        playerMovement.OnSpawn += Init;
     }
 
-    public void Init(bool isLocalPlayer)
+    public override void Spawned()
     {
-        this.IsLocalPlayer = isLocalPlayer;
-        renderer.material.color = playerMovement.Color;
+        this.IsLocalPlayer = HasStateAuthority;
+
         cachedMaterial = renderer.material;
 
-        if (isLocalPlayer)
+        if (IsLocalPlayer)
         {
+            Name = PlayerInfoSave.GetName();
+            Color = PlayerInfoSave.GetColor();
             playerTrigger.TriggerEnter += OnTriggerEnterPlayer;
             playerTrigger.TriggerExit += OnTriggerExitPlayer;
         }
 
+        renderer.material.color = Color;
         InitPlayerCameraController();
         InitPlayerUI();
-        playerUI.SetVisible(isLocalPlayer);
-
+        playerUI.SetVisible(IsLocalPlayer);
     }
 
     private void OnTriggerExitPlayer(PlayerView playerView)
@@ -76,7 +80,7 @@ public class PlayerView : MonoBehaviour
         {
             parent = playerUISpawnPosition,
         });
-        playerUI.Init(playerCameraController.CinemachineCamera, IsLocalPlayer);
+        playerUI.Init(playerCameraController.CinemachineCamera, IsLocalPlayer, Name);
 
     }
 
@@ -100,8 +104,6 @@ public class PlayerView : MonoBehaviour
 
     private void OnDestroy()
     {
-        playerMovement.OnSpawn -= Init;
-
         if (IsLocalPlayer)
         {
             playerTrigger.TriggerEnter -= OnTriggerEnterPlayer;
