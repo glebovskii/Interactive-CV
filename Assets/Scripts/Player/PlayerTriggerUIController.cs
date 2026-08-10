@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System;
 using UnityEngine;
 
 public class PlayerTriggerUIController : MonoBehaviour
@@ -26,7 +25,6 @@ public class PlayerTriggerUIController : MonoBehaviour
         emissionColor = GetBaseEmissionColor(triggerMat.GetColor(EmissionColorId));
 
         triggerMat.SetFloat(CutoffId, 1f);
-        //SetEmissionExposure(0);
     }
 
     private static Color GetBaseEmissionColor(Color hdrColor)
@@ -104,14 +102,11 @@ public class PlayerTriggerUIController : MonoBehaviour
 
         triggerMat.EnableKeyword("_EMISSION");
 
-        // Initial visible state.
         triggerMat.SetFloat(CutoffId, 0f);
         SetEmissionExposure(1f);
 
-        sequence = DOTween.Sequence()
-            .SetTarget(this);
+        sequence = DOTween.Sequence().SetTarget(this);
 
-        // Emission decreases throughout the entire tween.
         sequence.Insert(
             0f,
             DOTween.To(
@@ -121,7 +116,6 @@ public class PlayerTriggerUIController : MonoBehaviour
                     totalTime)
                 .SetEase(Ease.Linear));
 
-        // Alpha clipping starts halfway through.
         sequence.Insert(alphaDelay, triggerMat.DOFloat(1f, CutoffId, alphaDuration).SetEase(Ease.Linear));
 
         return sequence;

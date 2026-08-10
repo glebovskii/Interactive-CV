@@ -1,10 +1,7 @@
 using Fusion;
 using System;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 
 public enum NetworkSessionState
@@ -52,6 +49,8 @@ public sealed class NetworkSessionService : MonoBehaviour
             throw new InvalidOperationException(
                 $"Cannot join while session state is {State}.");
         }
+
+        AnalyticsService.JoinRoomClick(PlayerInfoSave.GetName());
 
         roomName = roomName?.Trim();
 
@@ -108,9 +107,8 @@ public sealed class NetworkSessionService : MonoBehaviour
 
             if (!result.Ok)
             {
-                Debug.LogError(
-                    $"Fusion connection failed: {result.ShutdownReason}");
-
+                Debug.LogError($"Fusion connection failed: {result.ShutdownReason}");
+                AnalyticsService.JoinRoomFail(result.ShutdownReason);
                 ConnectionFailed?.Invoke(result);
 
                 Destroy(newRunner.gameObject);
@@ -120,12 +118,10 @@ public sealed class NetworkSessionService : MonoBehaviour
             }
 
             Runner = newRunner;
+            AnalyticsService.JoinRoomSuccess(PlayerInfoSave.GetName());
 
 
             SetState(NetworkSessionState.Connected);
-
-            Debug.Log(
-                $"Joined Fusion room '{roomName}' in Shared Mode.");
 
             return result;
         }
@@ -137,6 +133,7 @@ public sealed class NetworkSessionService : MonoBehaviour
             }
 
             Runner = null;
+            AnalyticsService.JoinRoomFail(ShutdownReason.Error);
             SetState(NetworkSessionState.Offline);
 
             throw;
@@ -159,9 +156,7 @@ public sealed class NetworkSessionService : MonoBehaviour
 
         try
         {
-            // destroyGameObject=true also destroys this runner instance.
-            await runnerToShutdown.Shutdown(
-                destroyGameObject: true);
+            await runnerToShutdown.Shutdown(destroyGameObject: true);
         }
         finally
         {

@@ -73,8 +73,6 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
         playerSpawner = ServiceLocator.Get<PlayerSpawner>();
         playerSpawner.OnPlayerSpawned += OnPlayerSpawned;
-
-        
     }
 
     private void CacheMask()
@@ -121,8 +119,7 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
     private void CacheSurface()
     {
-        //Bounds bounds = maskSurface.GetComponent<MeshFilter>().sharedMesh.bounds;
-        Bounds bounds = maskSurface.terrainData.bounds;//.sharedMesh.bounds;
+        Bounds bounds = maskSurface.terrainData.bounds;
 
         surfaceBoundsMin = new float2(bounds.min.x, bounds.min.z);
         surfaceBoundsSize = new float2(bounds.size.x, bounds.size.z);
@@ -217,12 +214,7 @@ public sealed class PlayerSurfaceController : MonoBehaviour
             FlipV = flipV ? (byte)1 : (byte)0
         };
 
-        jobHandle = IJobParallelForTransformExtensions.ScheduleReadOnlyByRef(
-            ref job,
-            playerTransforms,
-            32,
-            default);
-
+        jobHandle = IJobParallelForTransformExtensions.ScheduleReadOnlyByRef(ref job, playerTransforms, 32, default);
         jobScheduled = true;
     }
 

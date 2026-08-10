@@ -22,14 +22,14 @@ public sealed class GrassShaderPanelController : MonoBehaviour
     private const float DefaultDisplacementStrength = 1f;
     private const float DefaultOcclusionAttenuation = 1.3f;
     private const float DefaultOcclusionBias = 0f;
-    private const float DefaultWindStrength = 0.14f;
+    private const float DefaultWindStrength = 0.01f;
     private const float DefaultWindFrequency = 2.92f;
     private const float DefaultWindHeightAttenuation = 2.09f;
     private const float DefaultTurbulenceStrength = 0.16f;
 
     private static readonly Color DefaultShellColor = new(107f / 255f, 149f / 255f, 9f / 255f, 1f);
     private static readonly Color DefaultBaseColor = new(45f / 255f, 184f/255f, 144f / 255f, 1f);
-    private static readonly Vector3 DefaultWindDirection = new(0.03f, -0.02f, -0.03f);
+    private static readonly Vector3 DefaultWindDirection = new(0.03f, 0f, 1f);
 
     [SerializeField] private PanelRenderer panelRenderer;
     [SerializeField] private MonoBehaviour simpleShell;

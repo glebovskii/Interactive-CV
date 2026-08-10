@@ -32,7 +32,7 @@ namespace Dissolver.Scripts
         protected string lastKeyword;
 
         
-        public Dictionary<Axis, string> axisOptions = new()
+        private Dictionary<Axis, string> axisOptions = new()
         {
             { Axis.X, "_AXIS_X" },
             { Axis.Y, "_AXIS_Y" },

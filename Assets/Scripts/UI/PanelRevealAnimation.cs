@@ -131,7 +131,6 @@ public sealed class PanelRevealAnimation : MonoBehaviour
         animationSequence = DOTween.Sequence()
             .SetUpdate(ignoreTimeScale);
 
-        // Small central line expands horizontally.
         animationSequence.Append(
             DOTween.To(
                     () => currentScaleX,
@@ -140,7 +139,6 @@ public sealed class PanelRevealAnimation : MonoBehaviour
                     lineWidthDuration)
                 .SetEase(Ease.OutQuad));
 
-        // The horizontal line opens into the complete panel.
         animationSequence.Append(
             DOTween.To(
                     () => currentScaleY,
@@ -149,7 +147,6 @@ public sealed class PanelRevealAnimation : MonoBehaviour
                     verticalExpandDuration)
                 .SetEase(Ease.OutCubic));
 
-        // Static disappears while the panel opens.
         animationSequence.Join(
             DOTween.To(
                     () => currentStaticOpacity,
@@ -181,7 +178,6 @@ public sealed class PanelRevealAnimation : MonoBehaviour
         animationSequence = DOTween.Sequence()
             .SetUpdate(ignoreTimeScale);
 
-        // Introduce a brief static flash while collapsing vertically.
         animationSequence.Append(
             DOTween.To(
                     () => currentScaleY,
@@ -198,7 +194,6 @@ public sealed class PanelRevealAnimation : MonoBehaviour
                     verticalCollapseDuration * 0.6f)
                 .SetEase(Ease.OutQuad));
 
-        // Collapse the remaining horizontal line.
         animationSequence.Append(
             DOTween.To(
                     () => currentScaleX,

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class GrassController : MonoBehaviour
@@ -28,7 +27,6 @@ public class GrassController : MonoBehaviour
     [SerializeField] private float baseDensity;
     [SerializeField] private float attenuation = 2f;
     [SerializeField] private float thickness = 0.2f;
-    [SerializeField] private float density = 0.2f;
 
     private float baseHeight = 0.001f;
 

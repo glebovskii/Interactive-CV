@@ -32,6 +32,7 @@ public sealed class PlayerEnterController : MonoBehaviour
     private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
     {
         UnregisterUI();
+        HideFindingRoom();
 
         menuContent = root.Q<VisualElement>("menu-content");
         findingRoomOverlay = root.Q<VisualElement>("finding-room-overlay");
@@ -73,14 +74,10 @@ public sealed class PlayerEnterController : MonoBehaviour
         try
         {
             await networkSessionService.JoinDefaultRoomAsync();
-            Debug.Log("JOIN ROOM CALLED");
         }
         catch (Exception exception)
         {
             Debug.LogException(exception);
-        }
-        finally
-        {
             HideFindingRoom();
         }
     }

@@ -77,7 +77,6 @@ public class SimpleShell : MonoBehaviour
     [SerializeField] private float windFrequency = 0.75f;
     [SerializeField] private float windHeightAttenuation = 2f;
     [SerializeField] private float turbulenceStrength = 0.1f;
-
     [SerializeField] private Vector3 displacementDirection;
 
     private Texture2D maskTexture;

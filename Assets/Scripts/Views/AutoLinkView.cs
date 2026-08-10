@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
 
 public class AutoLinkView : MonoBehaviour
 {
@@ -18,14 +16,10 @@ public class AutoLinkView : MonoBehaviour
 
     private IEnumerator routine;
 
-    [SerializeField] private string analyticsName = "link_open";
-    [SerializeField] private string analyticsKey = "project";
     [SerializeField] private string analyticsValue;
 
     private void OnEnable()
     {
-        //routine = LinkRoutine();
-
         linkController.SetFill(0f);
 
         playerTrigger.TriggerEnter += TriggerEnter;
@@ -38,7 +32,7 @@ public class AutoLinkView : MonoBehaviour
     {
         if (!view.IsLocalPlayer)
             return;
-        AnalyticsService.LogEvent(analyticsName, analyticsKey, analyticsValue);
+        AnalyticsService.LinkOpened(analyticsValue);
         routine = LinkRoutine();
         StartCoroutine(routine);
     }

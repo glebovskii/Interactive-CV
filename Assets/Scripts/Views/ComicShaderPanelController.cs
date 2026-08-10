@@ -83,7 +83,6 @@ namespace Prymara
             }
 
             useEdge = GlobalKeyword.Create(EdgeKeyword);
-            //Shader.SetKeyword(useEdge, false);
             useAberration = GlobalKeyword.Create(AberrationKeyword);
             useGrid = GlobalKeyword.Create(GridKeyword);
             useGridTexture = GlobalKeyword.Create(GridTextureKeyword);

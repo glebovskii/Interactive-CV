@@ -5,8 +5,6 @@ public class BuildingView : MonoBehaviour, IView
     [SerializeField] private PanelUI panel;
     [SerializeField] private PlayerTrigger playerTrigger;
 
-    [SerializeField] private string analyticsName = "project_open";
-    [SerializeField] private string analyticsKey = "project";
     [SerializeField] private string analyticsValue;
 
     public PanelUI Panel => panel;
@@ -23,7 +21,7 @@ public class BuildingView : MonoBehaviour, IView
         if (!view.IsLocalPlayer)
             return;
 
-        AnalyticsService.LogEvent(analyticsName, analyticsKey, analyticsValue);
+        AnalyticsService.ProjectOpened(analyticsValue);
 
         view.AddTarget(Panel.transform);
         panel.Show(view.Camera);

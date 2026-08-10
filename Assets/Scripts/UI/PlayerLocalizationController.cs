@@ -92,7 +92,7 @@ public sealed class PlayerLocalizationController : MonoBehaviour
         }
 
         LocalizationSettings.SelectedLocale = availableLocales[selectedIndex];
-        AnalyticsService.LogEvent("localization", "selected_locale", selectedIndex);
+        AnalyticsService.LocaleChanged(selectedIndex);
         PlayerInfoSave.SaveLanguage(selectedIndex);
     }
 

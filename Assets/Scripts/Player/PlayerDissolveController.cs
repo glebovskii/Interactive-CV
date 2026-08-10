@@ -1,9 +1,6 @@
 using Fusion;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 public class PlayerDissolveController : NetworkBehaviour
 {
@@ -47,11 +44,6 @@ public class PlayerDissolveController : NetworkBehaviour
     [Networked, OnChangedRender("OnDirectionChange")] public int Direction { get; set; }
 
     [SerializeField, ColorUsage(false, true)] private Color dissolveColor;
-
-    public void Init(SkinnedMeshRenderer renderer)
-    {
-        
-    }
 
     public override void Spawned()
     {

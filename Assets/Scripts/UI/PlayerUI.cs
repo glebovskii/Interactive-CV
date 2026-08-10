@@ -1,4 +1,3 @@
-using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,7 +8,6 @@ public class PlayerUI : MonoBehaviour
     private PanelRenderer panelRenderer;
 
     private Transform camera;
-    private bool isLocalPlayer;
 
     private void OnEnable()
     {

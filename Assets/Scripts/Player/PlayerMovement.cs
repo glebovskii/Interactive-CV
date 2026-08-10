@@ -1,9 +1,6 @@
 using Fusion;
 using System;
-using Unity.Collections;
-using Unity.Jobs;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(NetworkObject))]
 [RequireComponent(typeof(NetworkTransform))]

@@ -26,7 +26,7 @@ public sealed class PlayerSpawnPoints : MonoBehaviour
 
     public Vector3 FindClosestSpawnPoint(Vector3 position)
     {
-        if(spawnPoints == null || spawnPoints.Length == 0)
+        if (spawnPoints == null || spawnPoints.Length == 0)
         {
             return Vector3.zero;
         }

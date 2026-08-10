@@ -1448,8 +1448,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 1438933829}
   playerTrigger: {fileID: 399372385}
-  analyticsName: open
-  analyticsKey: info
   analyticsValue: languages
 --- !u!114 &399372385
 MonoBehaviour:
@@ -2511,8 +2509,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://play.google.com/store/apps/developer?id=Optor+Group
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: optor
   panelRenderer: {fileID: 595208950}
 --- !u!4 &595208952
@@ -3111,8 +3107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://assetstore.unity.com/publishers/105938
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: asset store
 --- !u!114 &685371839
 MonoBehaviour:
@@ -3131,8 +3125,6 @@ MonoBehaviour:
   playerTrigger: {fileID: 685371840}
   linkController: {fileID: 1009674232}
   timeBetweenSoundPlay: 0.2
-  analyticsName: link_open
-  analyticsKey: project
   analyticsValue: asset store
 --- !u!114 &685371840
 MonoBehaviour:
@@ -3392,7 +3384,7 @@ MonoBehaviour:
   grassLayer:
     serializedVersion: 2
     m_Bits: 264
-  updateStatics: 1
+  updateStatics: 0
   scale: 2166
   shellCount: 117
   shellLength: 0.061
@@ -3408,8 +3400,8 @@ MonoBehaviour:
   occlusionAttenuation: 1.3
   occlusionBias: 0.184
   grassInteractionController: {fileID: 718189456}
-  windDirection: {x: 0.03, y: -0.02, z: -0.03}
-  windStrength: 0.14
+  windDirection: {x: 0.03, y: 0, z: 1}
+  windStrength: 0.01
   windFrequency: 2.92
   windHeightAttenuation: 2.09
   turbulenceStrength: 0.16
@@ -3542,8 +3534,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://apps.apple.com/ua/app/last-pirate-survival-island/id1449724605
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: last pirate
   panelRenderer: {fileID: 739124884}
 --- !u!4 &739124886
@@ -3761,8 +3751,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingVIew
   panel: {fileID: 595208949}
   playerTrigger: {fileID: 715001830}
-  analyticsName: open
-  analyticsKey: project
   analyticsValue: optor
 --- !u!65 &795161493
 BoxCollider:
@@ -3945,8 +3933,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 411318145}
   playerTrigger: {fileID: 801879758}
-  analyticsName: open
-  analyticsKey: shader
   analyticsValue: grass
 --- !u!114 &801879758
 MonoBehaviour:
@@ -4319,8 +4305,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/prymara-post-procsss-375996
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: prymara
   panelRenderer: {fileID: 898442552}
 --- !u!114 &898442551
@@ -4444,8 +4428,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://www.linkedin.com/in/hlib-zadachyn-23a0b9117
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: linked in
 --- !u!114 &900479622
 MonoBehaviour:
@@ -4464,8 +4446,6 @@ MonoBehaviour:
   playerTrigger: {fileID: 900479620}
   linkController: {fileID: 1997053115}
   timeBetweenSoundPlay: 0.2
-  analyticsName: link_open
-  analyticsKey: project
   analyticsValue: linked in
 --- !u!136 &900479623
 CapsuleCollider:
@@ -5024,8 +5004,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 1381117700}
   playerTrigger: {fileID: 1070333131}
-  analyticsName: open
-  analyticsKey: info
   analyticsValue: education
 --- !u!114 &1070333131
 MonoBehaviour:
@@ -5246,8 +5224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://drive.google.com/file/d/11f9qXg29zkJ181I5gof-Iw1IEaeAaYR-/view?usp=sharing
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: cv
 --- !u!114 &1145106351
 MonoBehaviour:
@@ -5266,8 +5242,6 @@ MonoBehaviour:
   playerTrigger: {fileID: 1145106349}
   linkController: {fileID: 1799488325}
   timeBetweenSoundPlay: 0.2
-  analyticsName: link_open
-  analyticsKey: project
   analyticsValue: cv
 --- !u!136 &1145106352
 CapsuleCollider:
@@ -5342,8 +5316,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 1724062128}
   playerTrigger: {fileID: 1228663836}
-  analyticsName: open
-  analyticsKey: info
   analyticsValue: info
 --- !u!114 &1228663836
 MonoBehaviour:
@@ -5469,8 +5441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://assetstore.unity.com/packages/vfx/shaders/dissolver-304081
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: dissolver
   panelRenderer: {fileID: 1319712759}
 --- !u!114 &1319712758
@@ -6031,8 +6001,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingVIew
   panel: {fileID: 739124883}
   playerTrigger: {fileID: 2027749734}
-  analyticsName: open
-  analyticsKey: project
   analyticsValue: last_pirate
 --- !u!65 &1386298289
 BoxCollider:
@@ -6201,8 +6169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://assetstore.unity.com/packages/vfx/shaders/spectra-shadow-364564
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: spectra
   panelRenderer: {fileID: 1396108781}
 --- !u!4 &1396108784
@@ -6397,8 +6363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://github.com/glebovskii/Interactive-CV
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: this project git
 --- !u!114 &1459457542
 MonoBehaviour:
@@ -6417,8 +6381,6 @@ MonoBehaviour:
   playerTrigger: {fileID: 1459457540}
   linkController: {fileID: 869562745}
   timeBetweenSoundPlay: 0.2
-  analyticsName: link_open
-  analyticsKey: project
   analyticsValue: this project git
 --- !u!136 &1459457543
 CapsuleCollider:
@@ -6584,8 +6546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
   link: https://corepunk.com/en-gb
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: corepunk
   panelRenderer: {fileID: 1488326343}
 --- !u!114 &1488326346
@@ -6660,8 +6620,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 1396108779}
   playerTrigger: {fileID: 1332321823}
-  analyticsName: open
-  analyticsKey: shader
   analyticsValue: spectra
 --- !u!1 &1583598522
 GameObject:
@@ -6821,8 +6779,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://maidnmate.itch.io/art-guard
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: itch
 --- !u!114 &1588692333
 MonoBehaviour:
@@ -6841,8 +6797,6 @@ MonoBehaviour:
   playerTrigger: {fileID: 1588692331}
   linkController: {fileID: 661422124}
   timeBetweenSoundPlay: 0.2
-  analyticsName: link_open
-  analyticsKey: project
   analyticsValue: itch
 --- !u!136 &1588692334
 CapsuleCollider:
@@ -7134,8 +7088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: mailto:zadachings@gmail.com
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: email
 --- !u!114 &1638413502
 MonoBehaviour:
@@ -7154,8 +7106,6 @@ MonoBehaviour:
   playerTrigger: {fileID: 1638413500}
   linkController: {fileID: 425784711}
   timeBetweenSoundPlay: 0.2
-  analyticsName: link_open
-  analyticsKey: project
   analyticsValue: email
 --- !u!136 &1638413503
 CapsuleCollider:
@@ -7266,8 +7216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 1871293806}
   playerTrigger: {fileID: 1670193646}
-  analyticsName: open
-  analyticsKey: info
   analyticsValue: accomplishments
 --- !u!1 &1692921050
 GameObject:
@@ -7450,8 +7398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingVIew
   panel: {fileID: 1488326344}
   playerTrigger: {fileID: 359426621}
-  analyticsName: open
-  analyticsKey: project
   analyticsValue: corepunk
 --- !u!65 &1697267651
 BoxCollider:
@@ -7722,8 +7668,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 660167755}
   playerTrigger: {fileID: 1770505040}
-  analyticsName: open
-  analyticsKey: info
   analyticsValue: profile
 --- !u!114 &1770505040
 MonoBehaviour:
@@ -8634,8 +8578,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Link
   link: https://github.com/Glebovvski
-  analyticsName: link_click
-  analyticsKey: link
   analyticsValue: git
 --- !u!114 &1923357287
 MonoBehaviour:
@@ -8654,8 +8596,6 @@ MonoBehaviour:
   playerTrigger: {fileID: 1923357285}
   linkController: {fileID: 550841722}
   timeBetweenSoundPlay: 0.2
-  analyticsName: link_open
-  analyticsKey: project
   analyticsValue: git
 --- !u!136 &1923357288
 CapsuleCollider:
@@ -9116,8 +9056,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 1319712758}
   playerTrigger: {fileID: 1761270988}
-  analyticsName: open
-  analyticsKey: shader
   analyticsValue: dissolver
 --- !u!1 &2007872266
 GameObject:
@@ -9387,8 +9325,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 280977548}
   playerTrigger: {fileID: 2036768242}
-  analyticsName: open
-  analyticsKey: info
   analyticsValue: summary
 --- !u!114 &2036768242
 MonoBehaviour:
@@ -24502,8 +24438,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingView
   panel: {fileID: 898442551}
   playerTrigger: {fileID: 1777925021}
-  analyticsName: open
-  analyticsKey: shader
   analyticsValue: prymara
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

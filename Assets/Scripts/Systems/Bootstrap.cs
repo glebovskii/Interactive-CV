@@ -7,11 +7,6 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private NetworkSessionService networkSessionService;
     [SerializeField] private UISoundController uiSoundController;
 
-    private void Start()
-    {
-        AnalyticsService.LogEvent("unity_test");
-    }
-
     private void Awake()
     {
         ServiceLocator.Register(colorPickerController);

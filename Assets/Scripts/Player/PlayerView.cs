@@ -1,8 +1,5 @@
-using Fusion;
-using System;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerView : MonoBehaviour
 {
@@ -57,7 +54,6 @@ public class PlayerView : MonoBehaviour
             playerTrigger.TriggerExit += OnTriggerExitPlayer;
         }
 
-        dissolveController.Init(Renderer);
         InitPlayerCameraController();
         InitPlayerUI();
         playerUI.SetVisible(isLocalPlayer);
