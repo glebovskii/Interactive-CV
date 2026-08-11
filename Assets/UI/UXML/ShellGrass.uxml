@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
     <Style src="project://database/Assets/UI/USS/ShaderSettings.uss?fileID=7433441132597879392&amp;guid=40f5cee935b6a2f469d88696828a1281&amp;type=3#ShaderSettings"/>
-    <ui:VisualElement name="panel-root" class="section-card shader-settings-card blocks-player-input" style="height: auto; width: 667px; align-self: flex-start; align-content: stretch; align-items: flex-start; justify-content: center; flex-grow: 1;">
+    <ui:VisualElement name="panel-root" class="section-card shader-settings-card blocks-player-input" style="position: absolute; left: 2%; top: 2%; width: 35%; height: 96%; align-self: flex-start; align-content: stretch; align-items: stretch; justify-content: flex-start; flex-grow: 0;">
         <ui:VisualElement class="shader-settings-header">
             <ui:VisualElement class="shader-settings-heading-copy">
                 <ui:VisualElement class="shader-settings-title-row" style="flex-wrap: nowrap; justify-content: space-between;">
@@ -19,9 +19,9 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:TabView name="shader-tab-view" reorderable="false" view-data-key="shell-grass-tab-view" class="shader-tab-view" style="width: 100%; height: 100%;">
+        <ui:TabView name="shader-tab-view" reorderable="false" view-data-key="shell-grass-tab-view" class="shader-tab-view" style="width: 100%; flex-grow: 1; min-height: 0;">
             <ui:Tab name="tab-shell" label="Shell" class="shader-tab">
-                <ui:ScrollView name="panel-shell" class="shader-tab-scroll">
+                <ui:ScrollView name="panel-shell" class="shader-tab-scroll shader-tab-scroll--fill">
                     <ui:VisualElement class="shader-tab-heading-row">
                         <ui:Label text="Shell Settings" class="shader-tab-title">
                             <Bindings>
@@ -179,7 +179,7 @@
                 </ui:ScrollView>
             </ui:Tab>
             <ui:Tab name="tab-wind" label="Wind" class="shader-tab">
-                <ui:ScrollView name="panel-wind" class="shader-tab-scroll">
+                <ui:ScrollView name="panel-wind" class="shader-tab-scroll shader-tab-scroll--fill">
                     <ui:VisualElement class="shader-tab-heading-row">
                         <ui:Label text="Wind Settings" class="shader-tab-title">
                             <Bindings>

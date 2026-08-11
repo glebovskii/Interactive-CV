@@ -874,3 +874,318 @@ Button {
 .trigger-open-link:active {
     background-color: rgba(20, 70, 105, 1);
 }
+/* ========================================================================== */
+/* Responsive shader settings panel overrides                                 */
+/* Added for screen-space presentation. Existing styles above are preserved.  */
+/* ========================================================================== */
+
+/* The ShellGrass UXML owns the 35% screen width and 2% outer screen margin. */
+.section-card.shader-settings-card {
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 0;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+.shader-settings-card .shader-settings-header {
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.shader-settings-card .shader-settings-heading-copy {
+    width: 100%;
+    margin-right: 0;
+}
+
+.shader-settings-card .shader-settings-title-row {
+    width: 100%;
+    align-items: center;
+}
+
+.shader-settings-card .shader-settings-title {
+    flex-grow: 1;
+    min-width: 0;
+    margin-right: 3%;
+    font-size: 32px;
+}
+
+.shader-settings-card .shader-settings-project-button {
+    width: 24%;
+    min-width: 0;
+    height: 44px;
+    margin-left: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 16px;
+}
+
+.shader-settings-card .shader-tab-view {
+    width: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+}
+
+.shader-settings-card .shader-tab-view > .unity-tab-view__content-viewport,
+.shader-settings-card .shader-tab-view .unity-tab-view__header-container {
+    height: 44px;
+    min-height: 44px;
+    max-height: 44px;
+}
+
+.shader-settings-card .shader-tab-view > .unity-tab-view__content-viewport {
+    margin-bottom: 2%;
+}
+
+.shader-settings-card .shader-tab-view .unity-tab__header {
+    height: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    margin-left: 0;
+    margin-right: 1.5%;
+    padding-left: 4%;
+    padding-right: 4%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.shader-settings-card .shader-tab-view .unity-tab__header-label {
+    font-size: 17px;
+}
+
+.shader-settings-card .shader-tab-view > .unity-tab-view__content-container {
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.shader-settings-card .shader-tab-scroll {
+    flex-grow: 1;
+    min-height: 0;
+}
+
+.shader-settings-card .shader-tab-heading-row {
+    margin-bottom: 2.5%;
+}
+
+.shader-settings-card .shader-tab-title {
+    font-size: 23px;
+}
+
+.shader-settings-card .shader-fields {
+    width: 100%;
+    padding-right: 0;
+}
+
+/* Larger rows use the available height better while long tabs simply scroll. */
+.shader-settings-card .shader-control-row {
+    width: 100%;
+    min-height: 62px;
+    margin-bottom: 1.2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.shader-settings-card .shader-control-row:hover {
+    background-color: rgba(255, 255, 255, 0.045);
+}
+
+/* Percentage columns prevent the old 230px + 280px minimums from overflowing. */
+.shader-settings-card .shader-control-label {
+    width: 39%;
+    min-width: 0;
+    margin-right: 4%;
+    font-size: 18px;
+}
+
+.shader-settings-card .shader-slider {
+    width: 57%;
+    min-width: 0;
+    flex-grow: 1;
+}
+
+.shader-settings-card .shader-slider .unity-base-slider__input {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.shader-settings-card .shader-slider .unity-text-field {
+    width: 24%;
+    min-width: 0;
+    margin-left: 3%;
+}
+
+.shader-settings-card .shader-slider .unity-base-text-field__input,
+.shader-settings-card .shader-slider .unity-text-field__input {
+    font-size: 16px;
+    min-height: 34px;
+    -unity-text-align: middle-center;
+}
+
+.shader-settings-card .shader-enable-toggle {
+    font-size: 18px;
+}
+
+.shader-settings-card .shader-option-toggle {
+    width: 47%;
+    min-width: 0;
+    margin-right: 3%;
+    font-size: 17px;
+}
+
+.shader-settings-card .shader-inline-toggles {
+    width: 100%;
+    margin-bottom: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.shader-settings-card .shader-note {
+    margin-top: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 15px;
+}
+
+/* Short tabs use their available vertical space instead of bunching at the top. */
+.shader-settings-card .shader-tab-scroll--fill .unity-scroll-view__content-container {
+    min-height: 100%;
+}
+
+.shader-settings-card .shader-tab-scroll--fill .shader-fields {
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+/* ========================================================================== */
+/* Larger shader-panel typography                                             */
+/* Keeps the responsive layout above unchanged.                               */
+/* ========================================================================== */
+
+.shader-settings-card .shader-settings-title {
+    font-size: 36px;
+}
+
+.shader-settings-card .shader-settings-project-button {
+    font-size: 18px;
+}
+
+.shader-settings-card .shader-tab-view .unity-tab__header-label {
+    font-size: 19px;
+}
+
+.shader-settings-card .shader-tab-title {
+    font-size: 27px;
+}
+
+.shader-settings-card .shader-control-label {
+    font-size: 22px;
+}
+
+.shader-settings-card .shader-slider .unity-base-text-field__input,
+.shader-settings-card .shader-slider .unity-text-field__input {
+    font-size: 19px;
+}
+
+.shader-settings-card .shader-enable-toggle {
+    font-size: 20px;
+}
+
+.shader-settings-card .shader-option-toggle {
+    font-size: 19px;
+}
+
+.shader-settings-card .shader-note {
+    font-size: 17px;
+}
+
+/* ========================================================================== */
+/* Denser horizontal layout + larger typography                               */
+/* Appended override: keeps all existing rules intact.                        */
+/* ========================================================================== */
+
+/* Percentage padding on the panel is relative to the screen/container width,
+   so 4% was consuming too much of this intentionally narrow 35% panel. */
+.section-card.shader-settings-card {
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+}
+
+/* Keep a comfortable inset inside the tab card, but reclaim some width. */
+.shader-settings-card .shader-tab-view > .unity-tab-view__content-container {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.shader-settings-card .shader-control-row {
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+/* Use the reclaimed horizontal space for readability. */
+.shader-settings-card .shader-settings-title {
+    font-size: 40px;
+}
+
+.shader-settings-card .shader-settings-project-button {
+    font-size: 20px;
+}
+
+.shader-settings-card .shader-tab-view .unity-tab__header-label {
+    font-size: 21px;
+}
+
+.shader-settings-card .shader-tab-title {
+    font-size: 30px;
+}
+
+.shader-settings-card .shader-control-label {
+    width: 40%;
+    margin-right: 3%;
+    font-size: 25px;
+}
+
+.shader-settings-card .shader-slider {
+    width: 57%;
+}
+
+.shader-settings-card .shader-slider .unity-base-text-field__input,
+.shader-settings-card .shader-slider .unity-text-field__input {
+    font-size: 21px;
+}
+
+.shader-settings-card .shader-enable-toggle {
+    font-size: 22px;
+}
+
+.shader-settings-card .shader-option-toggle {
+    font-size: 21px;
+}
+
+.shader-settings-card .shader-note {
+    font-size: 19px;
+}
