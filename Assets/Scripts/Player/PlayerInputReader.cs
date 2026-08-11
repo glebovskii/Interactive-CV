@@ -25,52 +25,55 @@ public sealed class PlayerInputReader : MonoBehaviour
 
     private Vector2 pointerPressPosition;
     private Vector2 pointerPosition;
-
+    public bool IsPointerOverUI { get; private set; }
     private void Update()
     {
         if (!CanRead(clickAction))
             return;
 
         InputAction action = clickAction.action;
-
         Pointer pointer = action.activeControl?.device as Pointer ?? Pointer.current;
+
+        if (pointer == null)
+            return;
+
+        pointerPosition = pointer.position.ReadValue();
+        hasPointerPosition = true;
+
+        IsPointerOverUI = UIInputBlocker.IsPointerOverUI(pointerPosition);
+
+        if (IsPointerOverUI)
+        {
+            CancelPointerInput();
+            return;
+        }
 
         if (action.WasPressedThisFrame())
         {
             pointerHeld = true;
             pointerPressTime = Time.unscaledTime;
-
-            if (pointer != null)
-            {
-                pointerPosition = pointer.position.ReadValue();
-                pointerPressPosition = pointerPosition;
-                hasPointerPosition = true;
-            }
-        }
-
-        if (pointerHeld && pointer != null)
-        {
-            pointerPosition = pointer.position.ReadValue();
-            hasPointerPosition = true;
+            pointerPressPosition = pointerPosition;
         }
 
         if (action.WasReleasedThisFrame())
         {
-            if (pointer != null)
-            {
-                pointerPosition = pointer.position.ReadValue();
-                hasPointerPosition = true;
-            }
-
             float pressDuration = Time.unscaledTime - pointerPressTime;
-
             float pointerMovement = Vector2.Distance(pointerPressPosition, pointerPosition);
 
-            bufferedReleaseWasClick = pressDuration <= maximumClickDuration && pointerMovement <= maximumClickMovement;
+            bufferedReleaseWasClick =
+                pressDuration <= maximumClickDuration &&
+                pointerMovement <= maximumClickMovement;
 
             pointerHeld = false;
             pointerReleaseBuffered = true;
         }
+    }
+
+    private void CancelPointerInput()
+    {
+        pointerHeld = false;
+        pointerReleaseBuffered = false;
+        bufferedReleaseWasClick = false;
     }
 
     public void SetInputEnabled(bool value)
@@ -102,6 +105,9 @@ public sealed class PlayerInputReader : MonoBehaviour
         if (!inputEnabled || !hasPointerPosition)
             return false;
 
+        //if (EventSystem.current.IsPointerOverGameObject())
+        //    return false;
+
         return pointerHeld || pointerReleaseBuffered;
     }
 
@@ -127,6 +133,8 @@ public sealed class PlayerInputReader : MonoBehaviour
 
     private bool CanRead(InputActionReference actionReference)
     {
+        //if(EventSystem.current.IsPointerOverGameObject(-1))
+        //    return false;
         return inputEnabled &&
                actionReference != null &&
                actionReference.action != null &&

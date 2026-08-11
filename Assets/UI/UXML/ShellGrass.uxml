@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
     <Style src="project://database/Assets/UI/USS/ShaderSettings.uss?fileID=7433441132597879392&amp;guid=40f5cee935b6a2f469d88696828a1281&amp;type=3#ShaderSettings"/>
-    <ui:VisualElement name="panel-root" class="section-card shader-settings-card" style="height: 821px; width: 841px;">
+    <ui:VisualElement name="panel-root" class="section-card shader-settings-card blocks-player-input" style="height: auto; width: 667px; align-self: flex-start; align-content: stretch; align-items: flex-start; justify-content: center; flex-grow: 1;">
         <ui:VisualElement class="shader-settings-header">
             <ui:VisualElement class="shader-settings-heading-copy">
                 <ui:VisualElement class="shader-settings-title-row" style="flex-wrap: nowrap; justify-content: space-between;">
@@ -19,7 +19,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:TabView name="shader-tab-view" reorderable="false" view-data-key="shell-grass-tab-view" class="shader-tab-view">
+        <ui:TabView name="shader-tab-view" reorderable="false" view-data-key="shell-grass-tab-view" class="shader-tab-view" style="width: 100%; height: 100%;">
             <ui:Tab name="tab-shell" label="Shell" class="shader-tab">
                 <ui:ScrollView name="panel-shell" class="shader-tab-scroll">
                     <ui:VisualElement class="shader-tab-heading-row">
@@ -31,12 +31,12 @@
                     </ui:VisualElement>
                     <ui:VisualElement class="shader-fields">
                         <ui:VisualElement class="shader-control-row">
-                            <ui:Label text="Scale" class="shader-control-label">
+                            <ui:Label text="Scale" class="shader-control-label" style="-unity-text-generator: advanced; -unity-text-auto-size: none;">
                                 <Bindings>
                                     <l:LocalizedString property="text" table="ui" entry="grass.scale"/>
                                 </Bindings>
                             </ui:Label>
-                            <ui:Slider name="slider-scale" low-value="1" high-value="5000" value="2166" show-input-field="true" class="shader-slider"/>
+                            <ui:Slider name="slider-scale" low-value="1" high-value="5000" value="2166" show-input-field="true" picking-mode="Position" class="shader-slider"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="shader-control-row">
                             <ui:Label text="Shell Length" class="shader-control-label">
@@ -44,7 +44,7 @@
                                     <l:LocalizedString property="text" table="ui" entry="grass.shell_length"/>
                                 </Bindings>
                             </ui:Label>
-                            <ui:Slider name="slider-shell-length" low-value="0" high-value="0.15" value="0.061" show-input-field="true" class="shader-slider"/>
+                            <ui:Slider name="slider-shell-length" low-value="0" high-value="0.15" value="0.061" show-input-field="true" picking-mode="Position" class="shader-slider"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="shader-control-row">
                             <ui:Label text="Distance Attenuation" class="shader-control-label">
@@ -52,7 +52,7 @@
                                     <l:LocalizedString property="text" table="ui" entry="grass.distance_attenuation"/>
                                 </Bindings>
                             </ui:Label>
-                            <ui:Slider name="slider-distance-attenuation" low-value="0.1" high-value="5" value="1" show-input-field="true" class="shader-slider"/>
+                            <ui:Slider name="slider-distance-attenuation" low-value="0.1" high-value="5" value="1" show-input-field="true" picking-mode="Position" class="shader-slider"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="shader-control-row">
                             <ui:Label text="Density" class="shader-control-label">
@@ -60,7 +60,7 @@
                                     <l:LocalizedString property="text" table="ui" entry="grass.density"/>
                                 </Bindings>
                             </ui:Label>
-                            <ui:Slider name="slider-density" low-value="1" high-value="10000" value="3066" show-input-field="true" class="shader-slider"/>
+                            <ui:Slider name="slider-density" low-value="1" high-value="10000" value="3066" show-input-field="true" picking-mode="Position" class="shader-slider"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="shader-control-row">
                             <ui:Label text="Thickness" class="shader-control-label">
@@ -68,7 +68,7 @@
                                     <l:LocalizedString property="text" table="ui" entry="grass.thickness"/>
                                 </Bindings>
                             </ui:Label>
-                            <ui:Slider name="slider-thickness" low-value="0" high-value="10" value="10" show-input-field="true" class="shader-slider"/>
+                            <ui:Slider name="slider-thickness" low-value="0" high-value="10" value="10" show-input-field="true" picking-mode="Position" class="shader-slider"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="shader-control-row">
                             <ui:Label text="Displacement Strength" class="shader-control-label">
@@ -76,7 +76,7 @@
                                     <l:LocalizedString property="text" table="ui" entry="grass.displacement_strength"/>
                                 </Bindings>
                             </ui:Label>
-                            <ui:Slider name="slider-displacement-strength" low-value="0" high-value="2" value="1" show-input-field="true" class="shader-slider"/>
+                            <ui:Slider name="slider-displacement-strength" low-value="0" high-value="2" value="1" show-input-field="true" picking-mode="Position" class="shader-slider"/>
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:ScrollView>

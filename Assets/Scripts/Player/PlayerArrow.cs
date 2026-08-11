@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerArrow : MonoBehaviour
@@ -18,6 +19,6 @@ public class PlayerArrow : MonoBehaviour
 
     public void SetVisible(bool visible)
     {
-        gameObject.SetActive(visible);
+        gameObject.transform.DOScale(visible? 1f : 0f, 0.5f);
     }
 }

@@ -58,7 +58,7 @@ public sealed class PlayerMovement : NetworkBehaviour
     {
         bool isLocallyControlled = HasStateAuthority;
 
-        
+
         inputReader = GetComponent<PlayerInputReader>();
 
         if (characterController == null)
@@ -100,7 +100,6 @@ public sealed class PlayerMovement : NetworkBehaviour
 
         if (!characterController.enabled)
             return;
-
         HandleMovement();
     }
 
@@ -115,19 +114,21 @@ public sealed class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        if (inputReader.TryReadPointerPosition(out Vector2 pointerPosition))
+        if (inputReader.IsPointerOverUI)
         {
-            TryUpdatePointerTarget(pointerPosition);
+            hasPointerTarget = false;
+            MoveCharacter(Vector3.zero);
+            return;
         }
 
-        if (inputReader.TryConsumePointerRelease(out bool wasClick))
+        if (inputReader.TryReadPointerPosition(out Vector2 pointerPosition))
+            TryUpdatePointerTarget(pointerPosition);
+
+        if (inputReader.TryConsumePointerRelease(out bool wasClick) && !wasClick)
         {
-            if (!wasClick)
-            {
-                hasPointerTarget = false;
-                MoveCharacter(Vector3.zero);
-                return;
-            }
+            hasPointerTarget = false;
+            MoveCharacter(Vector3.zero);
+            return;
         }
 
         if (hasPointerTarget)
@@ -175,18 +176,11 @@ public sealed class PlayerMovement : NetworkBehaviour
 
         Ray ray = playerCamera.ScreenPointToRay(screenPosition);
 
-        if (!Physics.Raycast(ray, out var hit, maximumRayDistance, combinedRaycastMask))
-        {
-            return false;
-        }
-
-        int hitLayerMask = 1 << hit.collider.gameObject.layer;
-        if ((uiBlockLayer.value & hitLayerMask) != 0)
+        if (!Physics.Raycast(ray, out RaycastHit hit, maximumRayDistance, walkableLayer))
             return false;
 
         pointerTarget = hit.point;
         hasPointerTarget = true;
-
         return true;
     }
 

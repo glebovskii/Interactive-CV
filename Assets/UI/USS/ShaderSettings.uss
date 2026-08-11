@@ -4,9 +4,9 @@
  */
 .shader-settings-card {
     width: 92%;
-    max-width: 1080px;
-    height: 88%;
-    max-height: 820px;
+    /* max-width: 1080px; */
+    height: auto;
+    /* max-height: 820px; */
     padding: 26px 30px 28px 30px;
     overflow: hidden;
     background-color: rgb(20, 30, 45);
@@ -257,8 +257,8 @@
 }
 
 .shader-control-label {
-    width: 230px;
-    min-width: 230px;
+    width: 35%;
+    /* min-width: 4%; */
     margin-right: 18px;
     font-size: 16px;
     color: rgba(230, 239, 248, 0.94);
@@ -267,6 +267,8 @@
 .shader-slider {
     flex-grow: 1;
     min-width: 280px;
+    picking: position;
+    picking-mode: position;
 }
 
 .shader-inline-toggles {

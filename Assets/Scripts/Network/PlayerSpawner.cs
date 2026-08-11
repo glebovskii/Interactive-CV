@@ -1,5 +1,6 @@
 using Fusion;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
@@ -20,7 +21,37 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
         if (player != Runner.LocalPlayer)
             return;
 
-        spawnPoints ??= FindAnyObjectByType<PlayerSpawnPoints>();
+        StartCoroutine(SpawnRoutine(player));
+        //spawnPoints ??= FindAnyObjectByType<PlayerSpawnPoints>();
+
+        //Vector3 position = Vector3.up;
+        //Quaternion rotation = Quaternion.identity;
+
+        //if (spawnPoints != null)
+        //{
+        //    spawnPoints.GetSpawnPose(player, out position, out rotation);
+        //}
+
+        //NetworkObject playerObject = Runner.Spawn(playerPrefab, position, rotation, player);
+
+        //if (playerObject == null)
+        //{
+        //    Debug.LogError($"Failed to spawn player object for {player}.");
+        //    return;
+        //}
+
+        //Runner.SetPlayerObject(player, playerObject);
+        //playerObject.GetComponent<PlayerMovement>().Init(this);
+        //OnPlayerSpawned?.Invoke(playerObject);
+    }
+
+    private IEnumerator SpawnRoutine(PlayerRef player)
+    {
+        while (spawnPoints == null)
+        {
+            spawnPoints ??= FindAnyObjectByType<PlayerSpawnPoints>();
+            yield return null;
+        }
 
         Vector3 position = Vector3.up;
         Quaternion rotation = Quaternion.identity;
@@ -35,7 +66,7 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
         if (playerObject == null)
         {
             Debug.LogError($"Failed to spawn player object for {player}.");
-            return;
+            yield break;
         }
 
         Runner.SetPlayerObject(player, playerObject);
