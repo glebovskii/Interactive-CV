@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 0; background-color: rgb(3, 0, 0); white-space: nowrap; align-items: center; align-self: flex-end; width: 30%; height: 11%; flex-shrink: 0; color: rgb(90, 133, 140); -unity-font-style: bold; font-size: 29px; -unity-text-align: middle-center; align-content: center; flex-direction: row;">
+            <ui:Label text="0" name="current" style="flex-shrink: 1; flex-grow: 1; font-size: 44px; align-self: center; justify-content: space-around; align-items: center; flex-wrap: nowrap;"/>
+            <ui:Label text="/" style="flex-shrink: 1; flex-grow: 1; font-size: 44px; align-self: center; justify-content: space-around; align-items: center; flex-wrap: nowrap;"/>
+            <ui:Label text="" name="total" style="flex-shrink: 1; flex-grow: 1; font-size: 44px; align-self: center; justify-content: space-around; align-items: center; flex-wrap: nowrap;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

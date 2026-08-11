@@ -11,16 +11,16 @@ ScriptedImporter:
   svgType: 3
   texturedSpriteMeshType: 0
   svgPixelsPerUnit: 100
-  gradientResolution: 64
+  gradientResolution: 16
   alignment: 0
   customPivot: {x: 0, y: 0}
   generatePhysicsShape: 0
   viewportOptions: 0
   preserveViewport: 0
   advancedMode: 0
-  tessellationMode: 1
-  predefinedResolutionIndex: 1
-  targetResolution: 1080
+  tessellationMode: 0
+  predefinedResolutionIndex: 3
+  targetResolution: 480
   resolutionMultiplier: 1
   stepDistance: 10
   samplingStepDistance: 100

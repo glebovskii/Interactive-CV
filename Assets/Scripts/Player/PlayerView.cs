@@ -1,6 +1,9 @@
 using Fusion;
+using System;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerView : NetworkBehaviour
 {
@@ -21,6 +24,9 @@ public class PlayerView : NetworkBehaviour
     [SerializeField] private float memberWeight = 1f;
     [SerializeField] private float memberRadius = 1f;
 
+    [SerializeField] private PlayerHUD hud;
+    [SerializeField] private PlayerArrow playerArrow;
+
     public PlayerDissolveController DissolveController => dissolveController;
 
     [Networked] public Color Color { get; private set; }
@@ -38,6 +44,8 @@ public class PlayerView : NetworkBehaviour
     private int SpeedId = Animator.StringToHash("Speed");
 
     public CinemachineCamera Camera => playerCameraController.CinemachineCamera;
+
+    private PlayerPOIController poiController;
 
     private void Awake()
     {
@@ -135,5 +143,10 @@ public class PlayerView : NetworkBehaviour
     public void SetDissolveMaterial()
     {
         dissolveController.SetDissolveMaterial(Renderer);
+    }
+
+    public void SetPOI(List<PointOfInterest> pois)
+    {
+        poiController = new(pois, transform, hud, playerArrow);
     }
 }
