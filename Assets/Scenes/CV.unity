@@ -3160,6 +3160,7 @@ MonoBehaviour:
   directionWidth: 3
   groundMask: {fileID: -5315243789035034270, guid: ee6faccc312d7fc4f9f1a4eb4a8a3b41, type: 2}
   maskSurface: {fileID: 914950665}
+  playerOnMapMat: {fileID: 2100000, guid: 6f27c65cdc8e24a4880d08e62e462694, type: 2}
   grassLayerIndex: 1
   groundLayerIndex: 0
   metalLayerIndex: 2

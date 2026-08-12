@@ -62,6 +62,8 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
     private Texture2D controlMap;
 
+    private PlayerHUD playerHUD;
+
     private void Awake()
     {
         CacheMask();
@@ -145,6 +147,8 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         playerTransforms.Add(player.transform);
         sampledStates.Add(0);
         sampledUVs.Add(float2.zero);
+
+        playerHUD = player.gameObject.GetComponentInChildren<PlayerHUD>();
     }
 
     private void OnGUI()
@@ -243,12 +247,14 @@ public sealed class PlayerSurfaceController : MonoBehaviour
                 debugDirections[i] = direction.normalized;
 
             previousDebugUVs[i] = currentUV;
+            playerHUD.UpdateMap(currentUV);
 
             if (states[i] == previousStates[i])
                 continue;
 
             previousStates[i] = states[i];
             players[i].SetSurfaceType((SurfaceType)states[i]);
+            //playerOnMapMat.SetVector("_Offset", new Vector4(uvs[i].x, uvs[i].y));
         }
     }
 

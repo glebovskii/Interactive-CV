@@ -75,7 +75,6 @@ public class PlayerPOIController
             currentPOI = null;
         else
             currentPOI = points.FirstOrDefault(x => x.Value == false).Key;
-        playerHUD.UpdateCurrentPOI(visitedPOI);
     }
     private void HandleExitPOI(PointOfInterest poi, PlayerView view)
     {
