@@ -16,8 +16,8 @@ public sealed class TriggerLinkController : MonoBehaviour
 
     private VisualElement orb;
     private VisualElement fill;
-    private Button openButton;
     private Tween idleTween;
+    private Button openButton;
     private Tween buttonTween;
     private Vector3 basePosition;
     private float normalizedFill;

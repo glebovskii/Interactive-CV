@@ -32,13 +32,13 @@ public sealed class PanelUI : MonoBehaviour
 
         cameraTransform = camera.transform;
         CacheBaseTransform();
-        panelRevealAnimation.Show();
+        panelRevealAnimation?.Show();
     }
 
     public void Hide(bool playSound = true)
     {
         cameraTransform = null;
-        panelRevealAnimation.Hide(playSound);
+        panelRevealAnimation?.Hide(playSound);
         transform.localRotation = baseLocalRotation;
     }
 

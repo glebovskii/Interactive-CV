@@ -1,12 +1,12 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; align-items: flex-end; align-self: flex-end;">
-        <ui:VisualElement style="flex-grow: 1; flex-shrink: 0; align-self: center; width: auto; height: auto;">
+    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; align-items: flex-end; align-self: flex-end; align-content: stretch; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+        <ui:VisualElement style="flex-grow: 0; flex-shrink: 0; align-self: center; width: auto; height: auto; margin-top: 18px; margin-right: 18px; margin-bottom: 18px; margin-left: 18px;">
             <ui:Image source="project://database/Assets/New%20Terrain.asset?fileID=-5315243789035034270&amp;guid=ee6faccc312d7fc4f9f1a4eb4a8a3b41&amp;type=2#SplatAlpha 0" name="Minimap" style="-unity-material: url(&quot;project://database/Assets/Material/Minimap.mat?fileID=2100000&amp;guid=680304e3409e5a546b56ddda500d4b14&amp;type=2#Minimap&quot;) prop(&quot;_Saturation&quot; 0) prop(&quot;_Color&quot; rgb(0, 255, 253)) prop(&quot;_Radius&quot; 0.15); width: 250px; height: 250px; flex-shrink: 0; align-self: center; justify-content: center;">
                 <ui:Image source="project://database/Assets/Textures/grad.png?fileID=2800000&amp;guid=b37cb3e2e207f5c4889c8a17a090ec7e&amp;type=3#grad" name="Player" uv="0,0,1,1" tint-color="rgb(255, 199, 0)" scale-mode="StretchToFill" style="position: absolute; width: 20%; height: 20%; -unity-material: url(&quot;&quot;);"/>
             </ui:Image>
         </ui:VisualElement>
-        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1;">
-            <ui:VisualElement style="flex-grow: 0; background-color: rgb(3, 0, 0); white-space: nowrap; align-items: center; align-self: flex-end; width: 30%; height: 11%; flex-shrink: 0; color: rgb(90, 133, 140); -unity-font-style: bold; font-size: 29px; -unity-text-align: middle-center; align-content: center; flex-direction: row;">
+        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; align-self: center; width: 100%; height: auto; align-items: center; align-content: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-right: 12px;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgb(3, 0, 0); white-space: nowrap; align-items: center; align-self: flex-end; width: 100%; height: 100%; flex-shrink: 1; color: rgb(90, 133, 140); -unity-font-style: bold; font-size: 29px; -unity-text-align: middle-center; align-content: center; flex-direction: row;">
                 <ui:Label text="0" name="current" style="flex-shrink: 1; flex-grow: 1; font-size: 44px; align-self: center; justify-content: space-around; align-items: center; flex-wrap: nowrap;"/>
                 <ui:Label text="/" style="flex-shrink: 1; flex-grow: 1; font-size: 44px; align-self: center; justify-content: space-around; align-items: center; flex-wrap: nowrap;"/>
                 <ui:Label text="" name="total" style="flex-shrink: 1; flex-grow: 1; font-size: 44px; align-self: center; justify-content: space-around; align-items: center; flex-wrap: nowrap;"/>

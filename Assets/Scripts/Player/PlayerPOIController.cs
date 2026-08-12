@@ -63,14 +63,13 @@ public class PlayerPOIController
         if (points.ContainsKey(poi) && points[poi] == false)
         {
             points[poi] = true;
-            UpdateCurrentPOI();
+            visitedPOI = points.Where(x => x.Value).Count();
         }
 
     }
 
     private void UpdateCurrentPOI()
     {
-        visitedPOI = points.Where(x => x.Value).Count();
         if (visitedPOI >= totalPOI)
             currentPOI = null;
         else
@@ -80,7 +79,8 @@ public class PlayerPOIController
     {
         if (!view.IsLocalPlayer)
             return;
-
+        
+        UpdateCurrentPOI();
         arrow.SetVisible(visitedPOI < totalPOI);
     }
 

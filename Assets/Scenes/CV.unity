@@ -198,6 +198,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &49618669
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 795161491}
+    m_Modifications:
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0425218
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.32158232
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961950164000747169, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_ParentUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497746927829284759, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_Name
+      value: OpenProjectButton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+--- !u!4 &49618670 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+  m_PrefabInstance: {fileID: 49618669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &49618671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4778175949447899595, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+  m_PrefabInstance: {fileID: 49618669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
 --- !u!1 &66365664
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +288,7 @@ GameObject:
   - component: {fileID: 66365667}
   - component: {fileID: 66365666}
   m_Layer: 0
-  m_Name: poi (5)
+  m_Name: poi_lastPirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +303,7 @@ Transform:
   m_GameObject: {fileID: 66365664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 0, z: 13.43}
+  m_LocalPosition: {x: 0.45, y: 0, z: 12.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -276,7 +353,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.01
+  m_Radius: 5.78
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -703,7 +780,7 @@ GameObject:
   - component: {fileID: 186327507}
   - component: {fileID: 186327506}
   m_Layer: 0
-  m_Name: poi (3)
+  m_Name: poi_corepunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -718,7 +795,7 @@ Transform:
   m_GameObject: {fileID: 186327504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.06, y: 0, z: 13.43}
+  m_LocalPosition: {x: 12.66, y: 0, z: 12.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -768,7 +845,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.01
+  m_Radius: 5.76
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -1128,7 +1205,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -1167,6 +1244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!4 &299019728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+  m_PrefabInstance: {fileID: 6633031040955648648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1463,7 @@ GameObject:
   - component: {fileID: 334912272}
   - component: {fileID: 334912271}
   m_Layer: 0
-  m_Name: poi (9)
+  m_Name: poi_assetStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1780,7 +1862,7 @@ GameObject:
   - component: {fileID: 395656812}
   - component: {fileID: 395656811}
   m_Layer: 0
-  m_Name: poi (13)
+  m_Name: poi_accomplishments
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1860,7 +1942,7 @@ GameObject:
   - component: {fileID: 399372387}
   - component: {fileID: 399372386}
   - component: {fileID: 399372385}
-  - component: {fileID: 399372384}
+  - component: {fileID: 399372388}
   m_Layer: 0
   m_Name: Languages
   m_TagString: Untagged
@@ -1868,21 +1950,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &399372384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399372383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
-  panel: {fileID: 1438933829}
-  playerTrigger: {fileID: 399372385}
-  analyticsValue: languages
 --- !u!114 &399372385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1936,6 +2003,21 @@ Transform:
   - {fileID: 2090778672}
   m_Father: {fileID: 1917941965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &399372388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399372383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
+  panel: {fileID: 1438933829}
+  playerTrigger: {fileID: 399372385}
+  analyticsValue: Langguages
 --- !u!1 &399920588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,7 +2382,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: 05e1f962536b6014db1e810c5f827c79, type: 2}
@@ -2509,7 +2591,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -2647,7 +2729,7 @@ GameObject:
   - component: {fileID: 521334435}
   - component: {fileID: 521334434}
   m_Layer: 0
-  m_Name: poi (7)
+  m_Name: poi_cv
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2810,7 +2892,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -3014,7 +3096,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: 05e1f962536b6014db1e810c5f827c79, type: 2}
@@ -3090,6 +3172,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!1001 &599898746
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1386298287}
+    m_Modifications:
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.543
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4702018
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961950164000747169, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_ParentUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497746927829284759, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_Name
+      value: OpenProjectButton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+--- !u!4 &599898747 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+  m_PrefabInstance: {fileID: 599898746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &599898748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4778175949447899595, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+  m_PrefabInstance: {fileID: 599898746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
 --- !u!1 &625725005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,7 +3319,6 @@ MonoBehaviour:
   directionWidth: 3
   groundMask: {fileID: -5315243789035034270, guid: ee6faccc312d7fc4f9f1a4eb4a8a3b41, type: 2}
   maskSurface: {fileID: 914950665}
-  playerOnMapMat: {fileID: 2100000, guid: 6f27c65cdc8e24a4880d08e62e462694, type: 2}
   grassLayerIndex: 1
   groundLayerIndex: 0
   metalLayerIndex: 2
@@ -3430,7 +3588,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -3563,7 +3721,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -4066,7 +4224,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: 05e1f962536b6014db1e810c5f827c79, type: 2}
@@ -4155,7 +4313,7 @@ GameObject:
   - component: {fileID: 758009530}
   - component: {fileID: 758009529}
   m_Layer: 0
-  m_Name: poi (10)
+  m_Name: poi_thisProject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4271,7 +4429,7 @@ GameObject:
   - component: {fileID: 778078452}
   - component: {fileID: 778078451}
   m_Layer: 0
-  m_Name: poi (12)
+  m_Name: poi_summary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4452,6 +4610,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2116875217}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 49618670}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
       insertIndex: -1
@@ -4483,6 +4644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingVIew
   panel: {fileID: 595208949}
+  openProjectBtnPanel: {fileID: 49618671}
   playerTrigger: {fileID: 715001830}
   analyticsValue: optor
 --- !u!65 &795161493
@@ -4644,7 +4806,7 @@ GameObject:
   - component: {fileID: 801879760}
   - component: {fileID: 801879759}
   - component: {fileID: 801879758}
-  - component: {fileID: 801879757}
+  - component: {fileID: 801879761}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -4652,21 +4814,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &801879757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801879756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
-  panel: {fileID: 411318145}
-  playerTrigger: {fileID: 801879758}
-  analyticsValue: grass
 --- !u!114 &801879758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4720,6 +4867,21 @@ Transform:
   - {fileID: 2085242069}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &801879761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801879756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
+  panel: {fileID: 411318145}
+  playerTrigger: {fileID: 801879758}
+  analyticsValue: Grass
 --- !u!1 &832020427
 GameObject:
   m_ObjectHideFlags: 0
@@ -4917,7 +5079,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -5070,7 +5232,7 @@ GameObject:
   - component: {fileID: 876164747}
   - component: {fileID: 876164746}
   m_Layer: 0
-  m_Name: poi (17)
+  m_Name: poi_prymara
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5290,7 +5452,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: 05e1f962536b6014db1e810c5f827c79, type: 2}
@@ -5619,7 +5781,7 @@ GameObject:
   - component: {fileID: 972779141}
   - component: {fileID: 972779140}
   m_Layer: 0
-  m_Name: poi (8)
+  m_Name: poi_github
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5767,7 +5929,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -5941,7 +6103,7 @@ GameObject:
   - component: {fileID: 1070333133}
   - component: {fileID: 1070333132}
   - component: {fileID: 1070333131}
-  - component: {fileID: 1070333130}
+  - component: {fileID: 1070333134}
   m_Layer: 0
   m_Name: Education
   m_TagString: Untagged
@@ -5949,21 +6111,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1070333130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070333129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
-  panel: {fileID: 1381117700}
-  playerTrigger: {fileID: 1070333131}
-  analyticsValue: education
 --- !u!114 &1070333131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6017,6 +6164,21 @@ Transform:
   - {fileID: 1937008644}
   m_Father: {fileID: 1917941965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070333134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070333129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
+  panel: {fileID: 1381117700}
+  playerTrigger: {fileID: 1070333131}
+  analyticsValue: Education
 --- !u!1 &1075200003
 GameObject:
   m_ObjectHideFlags: 0
@@ -6030,7 +6192,7 @@ GameObject:
   - component: {fileID: 1075200006}
   - component: {fileID: 1075200005}
   m_Layer: 0
-  m_Name: poi (6)
+  m_Name: poi_linkedIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6420,7 +6582,7 @@ GameObject:
   - component: {fileID: 1228663838}
   - component: {fileID: 1228663837}
   - component: {fileID: 1228663836}
-  - component: {fileID: 1228663835}
+  - component: {fileID: 1228663839}
   m_Layer: 0
   m_Name: Info
   m_TagString: Untagged
@@ -6428,21 +6590,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1228663835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228663834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
-  panel: {fileID: 1724062128}
-  playerTrigger: {fileID: 1228663836}
-  analyticsValue: info
 --- !u!114 &1228663836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6496,6 +6643,21 @@ Transform:
   - {fileID: 1915969994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1228663839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228663834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
+  panel: {fileID: 1724062128}
+  playerTrigger: {fileID: 1228663836}
+  analyticsValue: Info
 --- !u!1 &1295076331
 GameObject:
   m_ObjectHideFlags: 0
@@ -6509,7 +6671,7 @@ GameObject:
   - component: {fileID: 1295076334}
   - component: {fileID: 1295076333}
   m_Layer: 0
-  m_Name: poi (15)
+  m_Name: poi_profile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6716,7 +6878,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: 05e1f962536b6014db1e810c5f827c79, type: 2}
@@ -6942,7 +7104,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -7203,6 +7365,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 739124886}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 599898747}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
       insertIndex: -1
@@ -7234,6 +7399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingVIew
   panel: {fileID: 739124883}
+  openProjectBtnPanel: {fileID: 599898748}
   playerTrigger: {fileID: 2027749734}
   analyticsValue: last_pirate
 --- !u!65 &1386298289
@@ -7270,7 +7436,7 @@ GameObject:
   - component: {fileID: 1390701640}
   - component: {fileID: 1390701639}
   m_Layer: 0
-  m_Name: poi (1)
+  m_Name: poi_mail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7447,7 +7613,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: 05e1f962536b6014db1e810c5f827c79, type: 2}
@@ -7620,7 +7786,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -7833,7 +7999,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: 05e1f962536b6014db1e810c5f827c79, type: 2}
@@ -7957,12 +8123,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1560860230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
   panel: {fileID: 1396108779}
   playerTrigger: {fileID: 1332321823}
-  analyticsValue: spectra
+  analyticsValue: Spectra
 --- !u!1 &1561048767
 GameObject:
   m_ObjectHideFlags: 0
@@ -8219,7 +8385,7 @@ GameObject:
   - component: {fileID: 1586292757}
   - component: {fileID: 1586292756}
   m_Layer: 0
-  m_Name: poi (16)
+  m_Name: poi_education
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8517,7 +8683,7 @@ GameObject:
   - component: {fileID: 1629050178}
   - component: {fileID: 1629050177}
   m_Layer: 0
-  m_Name: poi (4)
+  m_Name: poi_optor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8532,7 +8698,7 @@ Transform:
   m_GameObject: {fileID: 1629050175}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.71, y: 0, z: -13.36}
+  m_LocalPosition: {x: 6.38, y: 0, z: -13.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8582,7 +8748,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.01
+  m_Radius: 5.69
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -8771,12 +8937,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1670193645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
   panel: {fileID: 1871293806}
   playerTrigger: {fileID: 1670193646}
-  analyticsValue: accomplishments
+  analyticsValue: Accomplishments
 --- !u!1 &1677234543
 GameObject:
   m_ObjectHideFlags: 0
@@ -8790,7 +8956,7 @@ GameObject:
   - component: {fileID: 1677234546}
   - component: {fileID: 1677234545}
   m_Layer: 0
-  m_Name: poi (18)
+  m_Name: poi_dissolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9008,6 +9174,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8403445211663574148}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 299019728}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
       insertIndex: -1
@@ -9039,6 +9208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingVIew
   panel: {fileID: 1488326344}
+  openProjectBtnPanel: {fileID: 6633031040955648649}
   playerTrigger: {fileID: 359426621}
   analyticsValue: corepunk
 --- !u!65 &1697267651
@@ -9168,7 +9338,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -9220,7 +9390,7 @@ GameObject:
   - component: {fileID: 1746892337}
   - component: {fileID: 1746892336}
   m_Layer: 0
-  m_Name: poi (19)
+  m_Name: poi_spectra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9383,7 +9553,7 @@ GameObject:
   - component: {fileID: 1770505042}
   - component: {fileID: 1770505041}
   - component: {fileID: 1770505040}
-  - component: {fileID: 1770505039}
+  - component: {fileID: 1770505043}
   m_Layer: 0
   m_Name: Profile
   m_TagString: Untagged
@@ -9391,21 +9561,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1770505039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1770505038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
-  panel: {fileID: 660167755}
-  playerTrigger: {fileID: 1770505040}
-  analyticsValue: profile
 --- !u!114 &1770505040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9459,6 +9614,21 @@ Transform:
   - {fileID: 2041133988}
   m_Father: {fileID: 1917941965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1770505043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770505038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
+  panel: {fileID: 660167755}
+  playerTrigger: {fileID: 1770505040}
+  analyticsValue: Profile
 --- !u!1 &1774842053
 GameObject:
   m_ObjectHideFlags: 0
@@ -9472,7 +9642,7 @@ GameObject:
   - component: {fileID: 1774842056}
   - component: {fileID: 1774842055}
   m_Layer: 0
-  m_Name: poi (11)
+  m_Name: poi_itch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9637,7 +9807,7 @@ GameObject:
   - component: {fileID: 1793448142}
   - component: {fileID: 1793448141}
   m_Layer: 0
-  m_Name: poi (14)
+  m_Name: poi_languages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9800,7 +9970,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -10106,7 +10276,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -10677,7 +10847,7 @@ GameObject:
   - component: {fileID: 1975172246}
   - component: {fileID: 1975172245}
   m_Layer: 0
-  m_Name: poi
+  m_Name: poi_info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10961,7 +11131,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
@@ -11047,12 +11217,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2002677094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
   panel: {fileID: 1319712758}
   playerTrigger: {fileID: 1761270988}
-  analyticsValue: dissolver
+  analyticsValue: Dissolver
 --- !u!1 &2007872266
 GameObject:
   m_ObjectHideFlags: 0
@@ -11299,7 +11469,7 @@ GameObject:
   - component: {fileID: 2036768244}
   - component: {fileID: 2036768243}
   - component: {fileID: 2036768242}
-  - component: {fileID: 2036768241}
+  - component: {fileID: 2036768245}
   m_Layer: 0
   m_Name: Summary
   m_TagString: Untagged
@@ -11307,21 +11477,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2036768241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036768240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
-  panel: {fileID: 280977548}
-  playerTrigger: {fileID: 2036768242}
-  analyticsValue: summary
 --- !u!114 &2036768242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11375,6 +11530,21 @@ Transform:
   - {fileID: 448864208}
   m_Father: {fileID: 1917941965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2036768245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036768240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
+  panel: {fileID: 280977548}
+  playerTrigger: {fileID: 2036768242}
+  analyticsValue: summary
 --- !u!1 &2041133987
 GameObject:
   m_ObjectHideFlags: 0
@@ -11501,7 +11671,7 @@ GameObject:
   - component: {fileID: 2046787307}
   - component: {fileID: 2046787306}
   m_Layer: 0
-  m_Name: poi (2)
+  m_Name: poi_grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21679,6 +21849,74 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &6633031040955648648
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1697267649}
+    m_Modifications:
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.239
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.889
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.029
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497746927829284759, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: m_Name
+      value: OpenProjectButton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+--- !u!114 &6633031040955648649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4778175949447899595, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+  m_PrefabInstance: {fileID: 6633031040955648648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
 --- !u!1 &8401096465017697226
 GameObject:
   m_ObjectHideFlags: 0
@@ -26586,12 +26824,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8513494146914756970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingView
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
   panel: {fileID: 898442551}
   playerTrigger: {fileID: 1777925021}
-  analyticsValue: prymara
+  analyticsValue: Prymara
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
