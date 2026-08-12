@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
-    <ui:VisualElement name="panel-root" class="section-card game-card game-section-card job-optor-card">
+    <ui:VisualElement name="panel-root" class="section-card game-card game-section-card job-optor-card screen-space-panel screen-space-panel--left blocks-player-input screen-space-panel--full-height screen-space-game-panel">
         <ui:VisualElement name="header-picture" class="game-section-hero job-optor-hero"/>
         <ui:VisualElement class="game-copy game-section-copy">
             <ui:VisualElement class="section-heading-row game-section-heading-row">

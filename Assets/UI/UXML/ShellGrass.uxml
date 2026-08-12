@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
     <Style src="project://database/Assets/UI/USS/ShaderSettings.uss?fileID=7433441132597879392&amp;guid=40f5cee935b6a2f469d88696828a1281&amp;type=3#ShaderSettings"/>
-    <ui:VisualElement name="panel-root" class="section-card shader-settings-card blocks-player-input" style="position: absolute; left: 2%; top: 2%; width: 35%; height: 96%; align-self: flex-start; align-content: stretch; align-items: stretch; justify-content: flex-start; flex-grow: 0;">
+    <ui:VisualElement name="panel-root" class="section-card shader-settings-card blocks-player-input screen-space-panel screen-space-panel--left screen-space-panel--full-height screen-space-shader-panel">
         <ui:VisualElement class="shader-settings-header">
             <ui:VisualElement class="shader-settings-heading-copy">
                 <ui:VisualElement class="shader-settings-title-row" style="flex-wrap: nowrap; justify-content: space-between;">

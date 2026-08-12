@@ -122,3 +122,26 @@
 .unity-base-dropdown__item:checked .unity-base-dropdown__label {
     color: rgb(102, 204, 255);
 }
+
+/* Screen-space-only responsive overrides. */
+.screen-space-shader-panel.dissolver-settings-card {
+    height: 96%;
+    min-height: 0;
+    max-height: 96%;
+}
+
+.screen-space-shader-panel .dissolver-fields {
+    justify-content: space-around;
+}
+
+.screen-space-shader-panel .shader-dropdown {
+    width: 57%;
+    min-width: 0;
+    flex-grow: 1;
+    height: 42px;
+    font-size: 21px;
+}
+
+.screen-space-shader-panel .shader-dropdown > .unity-base-field__input {
+    min-height: 42px;
+}

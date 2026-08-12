@@ -81,3 +81,28 @@
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
 }
+
+
+/* Screen-space-only responsive overrides. */
+.screen-space-shader-panel.spectra-shadow-settings-card {
+    height: 96%;
+    min-height: 0;
+    max-height: 96%;
+}
+
+.screen-space-shader-panel .spectra-shadow-fields {
+    justify-content: space-around;
+}
+
+.screen-space-shader-panel .spectra-shadow-group-title {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    padding-left: 1%;
+    font-size: 23px;
+}
+
+.screen-space-shader-panel .spectra-shadow-color-header {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    padding-right: 1%;
+}

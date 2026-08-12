@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement name="panel-root" class="profile-section section-card section-card--hero screen-space-panel screen-space-panel--left blocks-player-input screen-space-panel--auto-height screen-space-info-panel">
+        <ui:VisualElement class="profile-copy">
+            <ui:Label text="Hlib Zadachyn" class="profile-name" style="width: 100%; flex-direction: column; justify-content: flex-start; align-items: auto; align-self: auto; align-content: auto;"/>
+            <ui:Label text="Unity Developer · Technical Art · Optimization" class="profile-role">
+                <Bindings>
+                    <l:LocalizedString property="text" table="ui" entry="profile.tagline"/>
+                </Bindings>
+            </ui:Label>
+            <ui:VisualElement class="chip-row">
+                <ui:Label text="4+ years" class="chip">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="profile.experience"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Unity / C#" class="chip"/>
+                <ui:Label text="Kyiv, Ukraine" class="chip">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="profile.location"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="Remote-ready" class="chip">
+                    <Bindings>
+                        <l:LocalizedString property="text" table="ui" entry="profile.remote"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:Label text="zadachings@gmail.com" class="profile-contact"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
+    </ui:VisualElement>
+</ui:UXML>

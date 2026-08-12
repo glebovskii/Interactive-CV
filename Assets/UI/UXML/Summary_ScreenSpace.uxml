@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
+    <ui:VisualElement name="panel-root" class="section-card screen-space-panel screen-space-panel--left blocks-player-input screen-space-panel--auto-height screen-space-info-panel">
+        <ui:Label text="Professional Summary" class="section-title" style="margin-bottom: -1px;">
+            <Bindings>
+                <l:LocalizedString property="text" table="ui" entry="summary.title"/>
+            </Bindings>
+        </ui:Label>
+        <ui:Label text="Unity Developer with 4+ years of cross-platform game-development experience. Specialized in asset integration, rendering and memory optimization, technical-art workflows, and production tooling." name="Label" class="body-text">
+            <Bindings>
+                <l:LocalizedString property="text" table="ui" entry="summary.paragraph_1"/>
+            </Bindings>
+        </ui:Label>
+        <ui:Label text="Experience ranges from solo feature ownership and mobile prototypes to large-team production on PC projects. Published Unity tools, shader assets, and the multiplayer game Art Guard." class="body-text body-text--secondary" style="margin-top: 0;">
+            <Bindings>
+                <l:LocalizedString property="text" table="ui" entry="summary.paragraph_2"/>
+            </Bindings>
+        </ui:Label>
+        <ui:VisualElement name="static-overlay" picking-mode="Ignore" class="panel-static-overlay" style="background-image: url(&quot;project://database/Assets/Textures/tv_static.png?fileID=2800000&amp;guid=d272556b8e0363e449415006910500c3&amp;type=3#tv_static&quot;);"/>
+    </ui:VisualElement>
+</ui:UXML>
