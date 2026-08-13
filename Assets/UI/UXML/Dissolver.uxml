@@ -2,12 +2,12 @@
     <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
     <Style src="project://database/Assets/UI/USS/ShaderSettings.uss?fileID=7433441132597879392&amp;guid=40f5cee935b6a2f469d88696828a1281&amp;type=3#ShaderSettings"/>
     <Style src="project://database/Assets/UI/USS/DissolverSettings.uss?fileID=7433441132597879392&amp;guid=ada96979c897ee04ba047c258374ef36&amp;type=3#DissolverSettings"/>
-    <ui:VisualElement name="panel-root" class="section-card shader-settings-card dissolver-settings-card screen-space-panel screen-space-panel--left blocks-player-input screen-space-panel--full-height screen-space-shader-panel">
+    <ui:VisualElement name="panel-root" class="section-card shader-settings-card dissolver-settings-card screen-space-panel blocks-player-input screen-space-panel--full-height screen-space-shader-panel screen-space-panel--right">
         <ui:VisualElement class="shader-settings-header" style="justify-content: flex-start; align-items: center;">
             <ui:VisualElement class="shader-settings-heading-copy">
                 <ui:VisualElement class="shader-settings-title-row" style="justify-content: space-between; align-content: auto; align-items: center;">
                     <ui:Label text="Dissolver" class="game-title shader-settings-title"/>
-                    <ui:Button name="button-link" text="View project" tooltip="Open the project page" class="secondary-button shader-settings-project-button">
+                    <ui:Button name="button-link" text="View project" tooltip="Open the project page" class="secondary-button shader-settings-project-button portfolio-pulse-button" style="white-space: normal; overflow: hidden; -unity-text-align: middle-center; flex-shrink: 0; justify-content: center;">
                         <Bindings>
                             <l:LocalizedString property="text" table="ui" entry="common.view_project"/>
                             <l:LocalizedString property="tooltip" table="ui" entry="common.open_project_page"/>

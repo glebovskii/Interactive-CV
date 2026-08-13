@@ -96,6 +96,7 @@ MonoBehaviour:
   - {fileID: 7212550310696207308}
   - {fileID: 8244001945155035591}
   - {fileID: 5335421626971615330}
+  - {fileID: 4541339684831323774}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &8508008017542183307
 MonoBehaviour:
@@ -153,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputReader
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   clickAction: {fileID: 7884282176571884813, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  uiAction: {fileID: 3001919216989983466, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   maximumClickDuration: 0.2
   maximumClickMovement: 10
 --- !u!114 &4936536806661504634

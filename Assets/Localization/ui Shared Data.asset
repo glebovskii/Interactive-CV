@@ -603,6 +603,42 @@ MonoBehaviour:
     m_Key: grass.turbulence_strength
     m_Metadata:
       m_Items: []
+  - m_Id: 7567863393267712
+    m_Key: open_project
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604244526116864
+    m_Key: intro.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604372116844544
+    m_Key: intro.subtitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604573586042880
+    m_Key: intro.paragraph_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604841019060224
+    m_Key: intro.paragraph_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604940742832128
+    m_Key: intro.paragraph_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7605041779421184
+    m_Key: intro.outro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7606851353161728
+    m_Key: intro.explore_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7606904411107328
+    m_Key: intro.controls_title
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

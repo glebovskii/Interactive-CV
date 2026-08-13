@@ -625,6 +625,50 @@ MonoBehaviour:
     m_Localized: Turbulence Strength
     m_Metadata:
       m_Items: []
+  - m_Id: 7567863393267712
+    m_Localized: Open Project
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604244526116864
+    m_Localized: Welcome to My Interactive CV
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604372116844544
+    m_Localized: Explore my experience instead of reading through it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604573586042880
+    m_Localized: "This multiplayer project is an interactive alternative to a traditional
+      r\xE9sum\xE9, built to showcase my experience through exploration rather than
+      a static list of skills and projects."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604841019060224
+    m_Localized: "As you explore the map, you\u2019ll find project showcases, work
+      experience, technical demonstrations, shader settings, external links, and
+      other Points of Interest. Use the minimap in the upper-right corner and the
+      directional arrow to find your next destination."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604940742832128
+    m_Localized: "Move with mouse/touch or keyboard\u2014whichever feels more comfortable.
+      Other players may be exploring alongside you, but all portfolio content can
+      be viewed independently."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7605041779421184
+    m_Localized: Explore in any order, interact with anything that catches your attention,
+      and enjoy.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7606851353161728
+    m_Localized: Explore the map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7606904411107328
+    m_Localized: Controls
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

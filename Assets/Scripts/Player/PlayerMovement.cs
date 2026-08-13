@@ -176,7 +176,11 @@ public sealed class PlayerMovement : NetworkBehaviour
 
         Ray ray = playerCamera.ScreenPointToRay(screenPosition);
 
-        if (!Physics.Raycast(ray, out RaycastHit hit, maximumRayDistance, walkableLayer))
+        if (!Physics.Raycast(ray, out var hit, maximumRayDistance, combinedRaycastMask))
+            return false;
+
+        int hitLayerMask = 1 << hit.collider.gameObject.layer;
+        if ((uiBlockLayer.value & hitLayerMask) != 0)
             return false;
 
         pointerTarget = hit.point;

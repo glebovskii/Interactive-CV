@@ -119,85 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &9474279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9474282}
-  - component: {fileID: 9474281}
-  - component: {fileID: 9474280}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &9474280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9474279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
---- !u!114 &9474281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9474279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &9474282
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9474279}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &49618669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -245,6 +166,18 @@ PrefabInstance:
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047713185594947040, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: maximumXTilt
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047713185594947040, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: maximumYTilt
+      value: 50.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047713185594947040, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: frontFacesNegativeZ
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4961950164000747169, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_ParentUI
@@ -845,7 +778,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.76
+  m_Radius: 6.66
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -988,8 +921,8 @@ GameObject:
   m_Component:
   - component: {fileID: 278989686}
   - component: {fileID: 278989688}
-  - component: {fileID: 278989687}
-  m_Layer: 5
+  - component: {fileID: 7000000000000000100}
+  m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1011,36 +944,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 399372387}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &278989687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278989685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
-  panelRenderer: {fileID: 278989688}
-  link: {fileID: 0}
-  buttonName: link
-  fillName: fill
-  idleDistance: 3
-  halfCycleSeconds: 0.9
-  openLinkText:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!1931382934 &278989688
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -1112,6 +1015,7 @@ GameObject:
   - component: {fileID: 280977548}
   - component: {fileID: 280977549}
   - component: {fileID: 280977552}
+  - component: {fileID: 280977553}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1130,13 +1034,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 280977550}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 280977549}
-  maximumXTilt: 26.2
-  maximumYTilt: 45.3
-  rotationSmoothness: 6
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 280977553}
 --- !u!114 &280977549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1244,6 +1144,126 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!114 &280977553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280977547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e1e1803eac4d82b9733855cfda866e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldSpacePanelTilt
+  maximumXTilt: 6
+  maximumYTilt: 18
+  rotationSmoothness: 6
+  frontFacesNegativeZ: 1
+--- !u!1 &296256806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296256807}
+  - component: {fileID: 296256809}
+  - component: {fileID: 296256808}
+  m_Layer: 0
+  m_Name: Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &296256807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296256806}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.06, z: -0.414}
+  m_LocalScale: {x: 3.55, y: 3.55, z: 3.55}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 904769995}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &296256808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296256806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!1931382934 &296256809
+PanelRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296256806}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  serializedVersion: 1
+  m_PanelSettings: {fileID: 11400000, guid: f290494ea9b8d3f4097c81bb0e885f62, type: 2}
+  sourceAsset: {fileID: 9197481963319205126, guid: 47eb1ecd6f0bba747ad209f32507389b, type: 3}
+  m_ParentUI: {fileID: 0}
+  m_WorldSpaceSizeMode: 0
+  m_WorldSpaceWidth: 361.8
+  m_WorldSpaceHeight: 267.2
+  m_PivotReferenceSize: 1
+  m_Pivot: 0
+  m_Position: 0
 --- !u!4 &299019728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
@@ -1728,6 +1748,60 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &390441664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390441666}
+  - component: {fileID: 390441665}
+  m_Layer: 0
+  m_Name: PanelInputConfiguration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &390441665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390441664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19106, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.PanelInputConfiguration
+  m_Settings:
+    m_ProcessWorldSpaceInput: 1
+    m_InteractionLayers:
+      serializedVersion: 2
+      m_Bits: 32
+    m_MaxInteractionDistance: Infinity
+    m_DefaultEventCameraIsMainCamera: 1
+    m_EventCameras: []
+    m_PanelInputRedirection: 1
+    m_AutoCreatePanelComponents: 1
+--- !u!4 &390441666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390441664}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &391730048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,8 +1812,8 @@ GameObject:
   m_Component:
   - component: {fileID: 391730049}
   - component: {fileID: 391730051}
-  - component: {fileID: 391730050}
-  m_Layer: 5
+  - component: {fileID: 7000000000000000101}
+  m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1761,36 +1835,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1070333133}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &391730050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391730048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
-  panelRenderer: {fileID: 391730051}
-  link: {fileID: 0}
-  buttonName: link
-  fillName: fill
-  idleDistance: 3
-  halfCycleSeconds: 0.9
-  openLinkText:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!1931382934 &391730051
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -2014,10 +2058,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
-  panel: {fileID: 1438933829}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 399372385}
+  panel: {fileID: 1438933829}
+  cameraTarget: {fileID: 1438933832}
   analyticsValue: Langguages
+  addToCameraTarget: 1
 --- !u!1 &399920588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,13 +2353,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 411318147}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 411318146}
-  maximumXTilt: -40
-  maximumYTilt: 45.3
-  rotationSmoothness: 6
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 0}
 --- !u!114 &411318146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2493,6 +2535,7 @@ GameObject:
   - component: {fileID: 425784710}
   - component: {fileID: 425784712}
   - component: {fileID: 425784711}
+  - component: {fileID: 7000000000000000102}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2526,8 +2569,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
-  panelRenderer: {fileID: 425784712}
+  m_EditorClassIdentifier: Assembly-CSharp::LinkPromptView
   link: {fileID: 1638413501}
   buttonName: link
   fillName: fill
@@ -2809,6 +2851,7 @@ GameObject:
   - component: {fileID: 550841724}
   - component: {fileID: 550841723}
   - component: {fileID: 550841722}
+  - component: {fileID: 7000000000000000103}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2827,8 +2870,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
-  panelRenderer: {fileID: 550841723}
+  m_EditorClassIdentifier: Assembly-CSharp::LinkPromptView
   link: {fileID: 1923357286}
   buttonName: link
   fillName: fill
@@ -2919,6 +2961,147 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1923357289}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &579896431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579896432}
+  - component: {fileID: 579896436}
+  - component: {fileID: 579896437}
+  - component: {fileID: 579896435}
+  - component: {fileID: 579896434}
+  m_Layer: 5
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579896432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579896431}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.12422201, y: 0.3990204, z: -0.054658998, w: 0.90684295}
+  m_LocalPosition: {x: 4.8, y: 4.44, z: -4.15}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 904769995}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579896434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579896431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!114 &579896435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579896431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c99a71ceff80e4caeee5625e1efc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelRevealAnimation
+  panelRenderer: {fileID: 579896436}
+  lineWidthDuration: 0.08
+  verticalExpandDuration: 0.22
+  verticalCollapseDuration: 0.16
+  lineCollapseDuration: 0.07
+  lineHeight: 0.015
+  initialLineWidth: 0.08
+  appearStaticOpacity: 0.65
+  disappearStaticOpacity: 0.35
+  ignoreTimeScale: 1
+--- !u!1931382934 &579896436
+PanelRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579896431}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_MaskInteraction: 0
+  serializedVersion: 1
+  m_PanelSettings: {fileID: 11400000, guid: 05e1f962536b6014db1e810c5f827c79, type: 2}
+  sourceAsset: {fileID: 9197481963319205126, guid: 13b69c61b61fb8848a71d56737fa0099, type: 3}
+  m_ParentUI: {fileID: 0}
+  m_WorldSpaceSizeMode: 0
+  m_WorldSpaceWidth: 685.8
+  m_WorldSpaceHeight: 484.4
+  m_PivotReferenceSize: 1
+  m_Pivot: 0
+  m_Position: 0
+--- !u!114 &579896437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579896431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
+  panelRevealAnimation: {fileID: 579896435}
+  worldSpaceTilt: {fileID: 0}
 --- !u!1 &585554108
 GameObject:
   m_ObjectHideFlags: 0
@@ -3025,6 +3208,8 @@ GameObject:
   - component: {fileID: 595208951}
   - component: {fileID: 595208953}
   - component: {fileID: 595208954}
+  - component: {fileID: 7000000000000000000}
+  - component: {fileID: 1021752738}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -3043,13 +3228,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 595208950}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 595208953}
-  maximumXTilt: 18.6
-  maximumYTilt: 35.5
-  rotationSmoothness: 1
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 0}
 --- !u!1931382934 &595208950
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -3120,9 +3301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  link: https://play.google.com/store/apps/developer?id=Optor+Group
-  analyticsValue: optor
-  panelRenderer: {fileID: 595208950}
 --- !u!4 &595208952
 Transform:
   m_ObjectHideFlags: 0
@@ -3182,31 +3360,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.543
+      value: -0.579
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4702018
+      value: 1.573
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.896
+      value: -1.006
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.98633474
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.051691625
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.15622011
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.0081871515
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3219,6 +3397,10 @@ PrefabInstance:
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047713185594947040, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: maximumXTilt
+      value: -34.4
       objectReference: {fileID: 0}
     - target: {fileID: 4961950164000747169, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_ParentUI
@@ -3495,6 +3677,7 @@ GameObject:
   - component: {fileID: 660167755}
   - component: {fileID: 660167756}
   - component: {fileID: 660167759}
+  - component: {fileID: 660167760}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -3513,13 +3696,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 660167757}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 660167756}
-  maximumXTilt: 21.8
-  maximumYTilt: -45.2
-  rotationSmoothness: 6
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 660167760}
 --- !u!114 &660167756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3627,6 +3806,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!114 &660167760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660167754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e1e1803eac4d82b9733855cfda866e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldSpacePanelTilt
+  maximumXTilt: 6
+  maximumYTilt: 18
+  rotationSmoothness: 6
+  frontFacesNegativeZ: 1
 --- !u!1 &661422123
 GameObject:
   m_ObjectHideFlags: 0
@@ -3638,6 +3833,7 @@ GameObject:
   - component: {fileID: 661422126}
   - component: {fileID: 661422125}
   - component: {fileID: 661422124}
+  - component: {fileID: 7000000000000000104}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -3656,8 +3852,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
-  panelRenderer: {fileID: 661422125}
+  m_EditorClassIdentifier: Assembly-CSharp::LinkPromptView
   link: {fileID: 1588692332}
   buttonName: link
   fillName: fill
@@ -3819,8 +4014,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Link
-  link: https://assetstore.unity.com/publishers/105938
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://assetstore.unity.com/publishers/105938
   analyticsValue: asset store
 --- !u!114 &685371839
 MonoBehaviour:
@@ -3833,11 +4028,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a653df3458cd20408b68a37380c1566, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
-  link: {fileID: 685371838}
-  totalTime: 0.7
+  m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 685371840}
-  linkController: {fileID: 1009674232}
+  totalTime: 0.7
+  linkPrompt: {fileID: 1009674232}
   timeBetweenSoundPlay: 0.2
   analyticsValue: asset store
 --- !u!114 &685371840
@@ -4153,6 +4347,8 @@ GameObject:
   - component: {fileID: 739124885}
   - component: {fileID: 739124887}
   - component: {fileID: 739124888}
+  - component: {fileID: 7000000000000000001}
+  - component: {fileID: 2144515633}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -4171,13 +4367,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 739124884}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 739124887}
-  maximumXTilt: 17.1
-  maximumYTilt: 50.8
-  rotationSmoothness: 1
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 0}
 --- !u!1931382934 &739124884
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -4248,9 +4440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  link: https://apps.apple.com/ua/app/last-pirate-survival-island/id1449724605
-  analyticsValue: last pirate
-  panelRenderer: {fileID: 739124884}
 --- !u!4 &739124886
 Transform:
   m_ObjectHideFlags: 0
@@ -4520,7 +4709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.48
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 31e234aca5c7ea046998f400aab55faf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4642,11 +4831,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingVIew
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectBuildingView
+  playerTrigger: {fileID: 715001830}
   panel: {fileID: 595208949}
   openProjectBtnPanel: {fileID: 49618671}
-  playerTrigger: {fileID: 715001830}
   analyticsValue: optor
+  useMediatorButton: 0
 --- !u!65 &795161493
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4858,7 +5048,7 @@ Transform:
   m_GameObject: {fileID: 801879756}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.66, y: 0, z: -20.51}
+  m_LocalPosition: {x: 9.44, y: 0, z: 24.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4878,113 +5068,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
-  panel: {fileID: 411318145}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 801879758}
+  panel: {fileID: 411318145}
+  cameraTarget: {fileID: 411318148}
   analyticsValue: Grass
---- !u!1 &832020427
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 832020431}
-  - component: {fileID: 832020430}
-  - component: {fileID: 832020429}
-  - component: {fileID: 832020428}
-  m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &832020428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832020427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &832020429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832020427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &832020430
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832020427}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_UseReflectionProbes: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &832020431
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832020427}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2063642053}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  addToCameraTarget: 1
 --- !u!1 &869562744
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,6 +5085,7 @@ GameObject:
   - component: {fileID: 869562747}
   - component: {fileID: 869562746}
   - component: {fileID: 869562745}
+  - component: {fileID: 7000000000000000105}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -5014,8 +5104,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
-  panelRenderer: {fileID: 869562746}
+  m_EditorClassIdentifier: Assembly-CSharp::LinkPromptView
   link: {fileID: 1459457541}
   buttonName: link
   fillName: fill
@@ -5228,9 +5317,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 876164745}
-  - component: {fileID: 876164748}
   - component: {fileID: 876164747}
   - component: {fileID: 876164746}
+  - component: {fileID: 876164748}
   m_Layer: 0
   m_Name: poi_prymara
   m_TagString: Untagged
@@ -5278,8 +5367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9467363220cdf04ead3bcd07aed5979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
---- !u!136 &876164748
-CapsuleCollider:
+--- !u!65 &876164748
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5296,11 +5385,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 6.78
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Size: {x: 13.06, y: 17.928032, z: 13.06}
+  m_Center: {x: 0, y: 8.464018, z: 0}
 --- !u!1 &898442546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5316,6 +5403,8 @@ GameObject:
   - component: {fileID: 898442549}
   - component: {fileID: 898442548}
   - component: {fileID: 898442553}
+  - component: {fileID: 7000000000000000002}
+  - component: {fileID: 1644193988}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -5385,9 +5474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  link: https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/prymara-post-procsss-375996
-  analyticsValue: prymara
-  panelRenderer: {fileID: 898442552}
 --- !u!114 &898442551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5399,13 +5485,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 898442552}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 898442549}
-  maximumXTilt: 27.6
-  maximumYTilt: -43.4
-  rotationSmoothness: 1
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 0}
 --- !u!1931382934 &898442552
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -5519,8 +5601,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Link
-  link: https://www.linkedin.com/in/hlib-zadachyn-23a0b9117
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://www.linkedin.com/in/hlib-zadachyn-23a0b9117
   analyticsValue: linked in
 --- !u!114 &900479622
 MonoBehaviour:
@@ -5533,11 +5615,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a653df3458cd20408b68a37380c1566, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
-  link: {fileID: 900479621}
-  totalTime: 0.7
+  m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 900479620}
-  linkController: {fileID: 1997053115}
+  totalTime: 0.7
+  linkPrompt: {fileID: 1997053115}
   timeBetweenSoundPlay: 0.2
   analyticsValue: linked in
 --- !u!136 &900479623
@@ -5579,6 +5660,95 @@ Transform:
   - {fileID: 1997053117}
   - {fileID: 94666604}
   m_Father: {fileID: 1692921051}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &904769991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 904769995}
+  - component: {fileID: 904769994}
+  - component: {fileID: 904769993}
+  - component: {fileID: 904769992}
+  m_Layer: 0
+  m_Name: Intro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &904769992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904769991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
+  playerTrigger: {fileID: 904769993}
+  panel: {fileID: 579896437}
+  cameraTarget: {fileID: 0}
+  analyticsValue: Info
+  addToCameraTarget: 0
+--- !u!114 &904769993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904769991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9467363220cdf04ead3bcd07aed5979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
+--- !u!136 &904769994
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904769991}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.79
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!4 &904769995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904769991}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.7, y: 0, z: 4.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 579896432}
+  - {fileID: 296256807}
+  - {fileID: 2041091606}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &911057028
 GameObject:
@@ -5861,6 +6031,7 @@ GameObject:
   - component: {fileID: 1009674228}
   - component: {fileID: 1009674231}
   - component: {fileID: 1009674232}
+  - component: {fileID: 7000000000000000106}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -5952,8 +6123,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
-  panelRenderer: {fileID: 1009674231}
+  m_EditorClassIdentifier: Assembly-CSharp::LinkPromptView
   link: {fileID: 685371838}
   buttonName: link
   fillName: fill
@@ -5971,6 +6141,20 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &1021752738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595208948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9712104cf90bbb84faf428b84f70a8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortfolioButtonPulse
+  panelRenderer: {fileID: 595208950}
+  pulseIntervalMs: 650
 --- !u!1 &1024535168
 GameObject:
   m_ObjectHideFlags: 0
@@ -5981,8 +6165,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1024535169}
   - component: {fileID: 1024535171}
-  - component: {fileID: 1024535170}
-  m_Layer: 5
+  - component: {fileID: 7000000000000000107}
+  m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6004,36 +6188,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1228663838}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1024535170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024535168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
-  panelRenderer: {fileID: 1024535171}
-  link: {fileID: 0}
-  buttonName: link
-  fillName: fill
-  idleDistance: 3
-  halfCycleSeconds: 0.9
-  openLinkText:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!1931382934 &1024535171
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -6175,10 +6329,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
-  panel: {fileID: 1381117700}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1070333131}
+  panel: {fileID: 1381117700}
+  cameraTarget: {fileID: 1381117703}
   analyticsValue: Education
+  addToCameraTarget: 1
 --- !u!1 &1075200003
 GameObject:
   m_ObjectHideFlags: 0
@@ -6271,7 +6427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1122056429}
   - component: {fileID: 1122056431}
-  - component: {fileID: 1122056430}
+  - component: {fileID: 7000000000000000108}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -6294,36 +6450,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 801879760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1122056430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1122056428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
-  panelRenderer: {fileID: 1122056431}
-  link: {fileID: 0}
-  buttonName: link
-  fillName: fill
-  idleDistance: 3
-  halfCycleSeconds: 0.9
-  openLinkText:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!1931382934 &1122056431
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -6425,8 +6551,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Link
-  link: https://drive.google.com/file/d/11f9qXg29zkJ181I5gof-Iw1IEaeAaYR-/view?usp=sharing
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://drive.google.com/file/d/11f9qXg29zkJ181I5gof-Iw1IEaeAaYR-/view?usp=sharing
   analyticsValue: cv
 --- !u!114 &1145106351
 MonoBehaviour:
@@ -6439,11 +6565,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a653df3458cd20408b68a37380c1566, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
-  link: {fileID: 1145106350}
-  totalTime: 0.7
+  m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1145106349}
-  linkController: {fileID: 1799488325}
+  totalTime: 0.7
+  linkPrompt: {fileID: 1799488325}
   timeBetweenSoundPlay: 0.2
   analyticsValue: cv
 --- !u!136 &1145106352
@@ -6516,6 +6641,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2012366557}
   - {fileID: 1975172244}
   - {fileID: 1390701638}
   - {fileID: 2046787305}
@@ -6551,26 +6677,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::POIController
   pois:
-  - {fileID: 1975172245}
-  - {fileID: 1390701639}
-  - {fileID: 2046787306}
+  - {fileID: 2012366558}
   - {fileID: 186327506}
-  - {fileID: 66365666}
   - {fileID: 1629050177}
+  - {fileID: 66365666}
   - {fileID: 1075200005}
-  - {fileID: 521334434}
   - {fileID: 972779140}
   - {fileID: 334912271}
+  - {fileID: 521334434}
   - {fileID: 758009529}
   - {fileID: 1774842055}
+  - {fileID: 1677234545}
+  - {fileID: 876164746}
+  - {fileID: 1586292756}
+  - {fileID: 1295076333}
+  - {fileID: 1975172245}
   - {fileID: 778078451}
   - {fileID: 395656811}
   - {fileID: 1793448141}
-  - {fileID: 1295076333}
-  - {fileID: 1586292756}
-  - {fileID: 876164746}
-  - {fileID: 1677234545}
   - {fileID: 1746892336}
+  - {fileID: 2046787306}
+  - {fileID: 1390701639}
 --- !u!1 &1228663834
 GameObject:
   m_ObjectHideFlags: 0
@@ -6634,7 +6761,7 @@ Transform:
   m_GameObject: {fileID: 1228663834}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.2, y: 0, z: 4.29}
+  m_LocalPosition: {x: -39.47, y: 0, z: 27.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6654,10 +6781,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
-  panel: {fileID: 1724062128}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1228663836}
+  panel: {fileID: 1724062128}
+  cameraTarget: {fileID: 1724062131}
   analyticsValue: Info
+  addToCameraTarget: 1
 --- !u!1 &1295076331
 GameObject:
   m_ObjectHideFlags: 0
@@ -6755,6 +6884,8 @@ GameObject:
   - component: {fileID: 1319712756}
   - component: {fileID: 1319712760}
   - component: {fileID: 1319712761}
+  - component: {fileID: 7000000000000000003}
+  - component: {fileID: 7000000000000000006}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -6811,9 +6942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  link: https://assetstore.unity.com/packages/vfx/shaders/dissolver-304081
-  analyticsValue: dissolver
-  panelRenderer: {fileID: 1319712759}
 --- !u!114 &1319712758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6825,13 +6953,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 1319712759}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 1319712756}
-  maximumXTilt: 14.8
-  maximumYTilt: 36.4
-  rotationSmoothness: 1
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 0}
 --- !u!1931382934 &1319712759
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -6965,8 +7089,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1884072, y: 2.0717187, z: 2.4016378}
-  m_Center: {x: 0, y: 0.53585917, z: 0}
+  m_Size: {x: 0.9999998, y: 14.710418, z: 0.9999998}
+  m_Center: {x: -2.4021435e-10, y: 6.855231, z: -4.664929e-12}
 --- !u!114 &1332321825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6991,9 +7115,9 @@ Transform:
   m_GameObject: {fileID: 1332321822}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0.099, y: -0.037, z: 0.0803}
+  m_LocalScale: {x: 1.8127725, y: 0.1128, z: 1.853182}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1840424695}
   m_Father: {fileID: 1560860232}
@@ -7011,6 +7135,7 @@ GameObject:
   - component: {fileID: 1381117700}
   - component: {fileID: 1381117701}
   - component: {fileID: 1381117704}
+  - component: {fileID: 1381117705}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -7029,13 +7154,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 1381117702}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 1381117701}
-  maximumXTilt: 23.2
-  maximumYTilt: 52.3
-  rotationSmoothness: 6
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 1381117705}
 --- !u!114 &1381117701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7143,6 +7264,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!114 &1381117705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381117699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e1e1803eac4d82b9733855cfda866e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldSpacePanelTilt
+  maximumXTilt: 27.6
+  maximumYTilt: 45.2
+  rotationSmoothness: 6
+  frontFacesNegativeZ: 1
 --- !u!1 &1383577905
 GameObject:
   m_ObjectHideFlags: 0
@@ -7397,11 +7534,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingVIew
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectBuildingView
+  playerTrigger: {fileID: 2027749734}
   panel: {fileID: 739124883}
   openProjectBtnPanel: {fileID: 599898748}
-  playerTrigger: {fileID: 2027749734}
   analyticsValue: last_pirate
+  useMediatorButton: 0
 --- !u!65 &1386298289
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7451,7 +7589,7 @@ Transform:
   m_GameObject: {fileID: 1390701637}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.18, y: 0, z: -7.17}
+  m_LocalPosition: {x: 19.09, y: 0, z: 27.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7520,6 +7658,8 @@ GameObject:
   - component: {fileID: 1396108780}
   - component: {fileID: 1396108782}
   - component: {fileID: 1396108785}
+  - component: {fileID: 7000000000000000004}
+  - component: {fileID: 7000000000000000007}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -7538,13 +7678,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 1396108781}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 1396108780}
-  maximumXTilt: -25.2
-  maximumYTilt: 25
-  rotationSmoothness: 1
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 0}
 --- !u!114 &1396108780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7651,9 +7787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  link: https://assetstore.unity.com/packages/vfx/shaders/spectra-shadow-364564
-  analyticsValue: spectra
-  panelRenderer: {fileID: 1396108781}
 --- !u!4 &1396108784
 Transform:
   m_ObjectHideFlags: 0
@@ -7693,6 +7826,7 @@ GameObject:
   - component: {fileID: 1438933831}
   - component: {fileID: 1438933829}
   - component: {fileID: 1438933830}
+  - component: {fileID: 1438933833}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -7711,13 +7845,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 1438933831}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 1438933830}
-  maximumXTilt: 17.4
-  maximumYTilt: -55
-  rotationSmoothness: 6
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 1438933833}
 --- !u!114 &1438933830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7806,13 +7936,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438933828}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20996372, y: 0.38275248, z: -0.089773774, w: 0.8951852}
-  m_LocalPosition: {x: -2.91, y: 3.15, z: 0}
+  m_LocalRotation: {x: 0.16480562, y: 0.35907263, z: -0.06457778, w: 0.916371}
+  m_LocalPosition: {x: -2.9, y: 3.15, z: 4.2}
   m_LocalScale: {x: 2.27, y: 2.27, z: 2.27}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 399372387}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438933833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438933828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e1e1803eac4d82b9733855cfda866e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldSpacePanelTilt
+  maximumXTilt: 22.6
+  maximumYTilt: 44.5
+  rotationSmoothness: 6
+  frontFacesNegativeZ: 1
 --- !u!1 &1459457539
 GameObject:
   m_ObjectHideFlags: 0
@@ -7856,8 +8002,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Link
-  link: https://github.com/glebovskii/Interactive-CV
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://github.com/glebovskii/Interactive-CV
   analyticsValue: this project git
 --- !u!114 &1459457542
 MonoBehaviour:
@@ -7870,11 +8016,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a653df3458cd20408b68a37380c1566, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
-  link: {fileID: 1459457541}
-  totalTime: 0.7
+  m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1459457540}
-  linkController: {fileID: 869562745}
+  totalTime: 0.7
+  linkPrompt: {fileID: 869562745}
   timeBetweenSoundPlay: 0.2
   analyticsValue: this project git
 --- !u!136 &1459457543
@@ -7931,6 +8076,8 @@ GameObject:
   - component: {fileID: 1488326345}
   - component: {fileID: 1488326346}
   - component: {fileID: 1488326347}
+  - component: {fileID: 7000000000000000005}
+  - component: {fileID: 7000000000000000008}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -8022,13 +8169,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 1488326343}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 1488326346}
-  maximumXTilt: 25.3
-  maximumYTilt: 33.7
-  rotationSmoothness: 1
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 0}
 --- !u!114 &1488326345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8041,9 +8184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a7d782706d374fba5045fb637acb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelLinkButton
-  link: https://corepunk.com/en-gb
-  analyticsValue: corepunk
-  panelRenderer: {fileID: 1488326343}
 --- !u!114 &1488326346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8104,7 +8244,7 @@ Transform:
   m_GameObject: {fileID: 1560860230}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0036253247, y: 0.7024987, z: -0.003385217, w: 0.7116678}
-  m_LocalPosition: {x: 24.19, y: 0.09, z: 30.9}
+  m_LocalPosition: {x: 14.54, y: 0.09, z: 30.78}
   m_LocalScale: {x: 3.4699998, y: 3.47, z: 3.4699998}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8125,10 +8265,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
-  panel: {fileID: 1396108779}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1332321823}
+  panel: {fileID: 1396108779}
+  cameraTarget: {fileID: 1396108784}
   analyticsValue: Spectra
+  addToCameraTarget: 0
 --- !u!1 &1561048767
 GameObject:
   m_ObjectHideFlags: 0
@@ -8200,60 +8342,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9, y: 2.40045, z: 3.209999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1570215025
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1570215027}
-  - component: {fileID: 1570215026}
-  m_Layer: 0
-  m_Name: PanelInputConfig
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1570215026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570215025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19106, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.PanelInputConfiguration
-  m_Settings:
-    m_ProcessWorldSpaceInput: 1
-    m_InteractionLayers:
-      serializedVersion: 2
-      m_Bits: 32
-    m_MaxInteractionDistance: Infinity
-    m_DefaultEventCameraIsMainCamera: 1
-    m_EventCameras: []
-    m_PanelInputRedirection: 1
-    m_AutoCreatePanelComponents: 1
---- !u!4 &1570215027
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570215025}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.50449, y: -0, z: 36.7953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8497,8 +8585,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Link
-  link: https://maidnmate.itch.io/art-guard
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://maidnmate.itch.io/art-guard
   analyticsValue: itch
 --- !u!114 &1588692333
 MonoBehaviour:
@@ -8511,11 +8599,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a653df3458cd20408b68a37380c1566, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
-  link: {fileID: 1588692332}
-  totalTime: 0.7
+  m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1588692331}
-  linkController: {fileID: 661422124}
+  totalTime: 0.7
+  linkPrompt: {fileID: 661422124}
   timeBetweenSoundPlay: 0.2
   analyticsValue: itch
 --- !u!136 &1588692334
@@ -8698,7 +8785,7 @@ Transform:
   m_GameObject: {fileID: 1629050175}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.38, y: 0, z: -13.36}
+  m_LocalPosition: {x: 11.04, y: 0, z: -11.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8781,7 +8868,7 @@ Transform:
   m_GameObject: {fileID: 1638413498}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.08, y: 0, z: 9.68}
+  m_LocalPosition: {x: 22.2, y: 0, z: 44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8812,8 +8899,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Link
-  link: mailto:zadachings@gmail.com
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: mailto:zadachings@gmail.com
   analyticsValue: email
 --- !u!114 &1638413502
 MonoBehaviour:
@@ -8826,11 +8913,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a653df3458cd20408b68a37380c1566, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
-  link: {fileID: 1638413501}
-  totalTime: 0.7
+  m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1638413500}
-  linkController: {fileID: 425784711}
+  totalTime: 0.7
+  linkPrompt: {fileID: 425784711}
   timeBetweenSoundPlay: 0.2
   analyticsValue: email
 --- !u!136 &1638413503
@@ -8856,6 +8942,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &1644193988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898442546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9712104cf90bbb84faf428b84f70a8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortfolioButtonPulse
+  panelRenderer: {fileID: 898442552}
+  pulseIntervalMs: 650
 --- !u!1 &1670193645
 GameObject:
   m_ObjectHideFlags: 0
@@ -8939,10 +9039,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
-  panel: {fileID: 1871293806}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1670193646}
+  panel: {fileID: 1871293806}
+  cameraTarget: {fileID: 1871293804}
   analyticsValue: Accomplishments
+  addToCameraTarget: 1
 --- !u!1 &1677234543
 GameObject:
   m_ObjectHideFlags: 0
@@ -8952,9 +9054,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1677234544}
-  - component: {fileID: 1677234547}
   - component: {fileID: 1677234546}
   - component: {fileID: 1677234545}
+  - component: {fileID: 1677234547}
   m_Layer: 0
   m_Name: poi_dissolver
   m_TagString: Untagged
@@ -8971,7 +9073,7 @@ Transform:
   m_GameObject: {fileID: 1677234543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.3, y: 0, z: -17.56}
+  m_LocalPosition: {x: -28.3, y: 0, z: -17.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9002,8 +9104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9467363220cdf04ead3bcd07aed5979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
---- !u!136 &1677234547
-CapsuleCollider:
+--- !u!65 &1677234547
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9020,11 +9122,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.22
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Size: {x: 6.08, y: 12.193331, z: 6.08}
+  m_Center: {x: 0, y: 5.596665, z: 0}
 --- !u!1 &1692921050
 GameObject:
   m_ObjectHideFlags: 0
@@ -9054,13 +9154,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 900479624}
+  - {fileID: 1145106353}
+  - {fileID: 1459457544}
+  - {fileID: 1588692335}
   - {fileID: 685371837}
   - {fileID: 1923357289}
-  - {fileID: 1588692335}
-  - {fileID: 1145106353}
   - {fileID: 1638413499}
-  - {fileID: 1459457544}
-  - {fileID: 900479624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1697267645
@@ -9206,11 +9306,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa341e92148d1624ea27aa244bca874e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingVIew
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectBuildingView
+  playerTrigger: {fileID: 359426621}
   panel: {fileID: 1488326344}
   openProjectBtnPanel: {fileID: 6633031040955648649}
-  playerTrigger: {fileID: 359426621}
   analyticsValue: corepunk
+  useMediatorButton: 0
 --- !u!65 &1697267651
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9245,6 +9346,7 @@ GameObject:
   - component: {fileID: 1724062128}
   - component: {fileID: 1724062129}
   - component: {fileID: 1724062132}
+  - component: {fileID: 1724062133}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -9263,13 +9365,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 1724062130}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 1724062129}
-  maximumXTilt: 27.3
-  maximumYTilt: 56.3
-  rotationSmoothness: 6
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 1724062133}
 --- !u!114 &1724062129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9358,8 +9456,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724062127}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12422201, y: 0.3990204, z: -0.054658998, w: 0.90684295}
-  m_LocalPosition: {x: 4.8, y: 4.44, z: -4.15}
+  m_LocalRotation: {x: 0.14865564, y: 0.35058826, z: -0.05646898, w: 0.9229305}
+  m_LocalPosition: {x: -5.17, y: 4.44, z: 4.7}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9377,6 +9475,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!114 &1724062133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724062127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e1e1803eac4d82b9733855cfda866e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldSpacePanelTilt
+  maximumXTilt: 18.3
+  maximumYTilt: -41.6
+  rotationSmoothness: 6
+  frontFacesNegativeZ: 1
 --- !u!1 &1746892334
 GameObject:
   m_ObjectHideFlags: 0
@@ -9386,9 +9500,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1746892335}
-  - component: {fileID: 1746892338}
   - component: {fileID: 1746892337}
   - component: {fileID: 1746892336}
+  - component: {fileID: 1746892338}
   m_Layer: 0
   m_Name: poi_spectra
   m_TagString: Untagged
@@ -9405,7 +9519,7 @@ Transform:
   m_GameObject: {fileID: 1746892334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.37, y: 0, z: 28.83}
+  m_LocalPosition: {x: -3.26, y: 0, z: 28.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9436,8 +9550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9467363220cdf04ead3bcd07aed5979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
---- !u!136 &1746892338
-CapsuleCollider:
+--- !u!65 &1746892338
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9454,11 +9568,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.22
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Size: {x: 6.4, y: 14.710418, z: 6.4}
+  m_Center: {x: -2.4021435e-10, y: 6.855231, z: -4.664929e-12}
 --- !u!1 &1761270984
 GameObject:
   m_ObjectHideFlags: 0
@@ -9487,9 +9599,9 @@ Transform:
   m_GameObject: {fileID: 1761270984}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.185, y: 0, z: -0.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.8127725, y: 0.1128, z: 1.853182}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 124925325}
   m_Father: {fileID: 2002677095}
@@ -9513,8 +9625,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1884072, y: 2.0717187, z: 2.4016378}
-  m_Center: {x: 0.25423995, y: 0.53585917, z: 0.4325331}
+  m_Size: {x: 0.9999998, y: 12.193331, z: 1}
+  m_Center: {x: 0, y: 5.596665, z: 0}
 --- !u!114 &1761270987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9625,10 +9737,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
-  panel: {fileID: 660167755}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1770505040}
+  panel: {fileID: 660167755}
+  cameraTarget: {fileID: 660167758}
   analyticsValue: Profile
+  addToCameraTarget: 1
 --- !u!1 &1774842053
 GameObject:
   m_ObjectHideFlags: 0
@@ -9761,8 +9875,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.6404395, y: 2.0717187, z: 4.739446}
-  m_Center: {x: 0.14840272, y: 0, z: 0.068886615}
+  m_Size: {x: 1, y: 17.928032, z: 1}
+  m_Center: {x: 0, y: 8.464018, z: 0}
 --- !u!114 &1777925023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9788,7 +9902,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.84, y: 0.1128, z: 3.87}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 911057030}
@@ -9887,6 +10001,7 @@ GameObject:
   - component: {fileID: 1799488327}
   - component: {fileID: 1799488326}
   - component: {fileID: 1799488325}
+  - component: {fileID: 7000000000000000109}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -9905,8 +10020,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
-  panelRenderer: {fileID: 1799488326}
+  m_EditorClassIdentifier: Assembly-CSharp::LinkPromptView
   link: {fileID: 1145106350}
   buttonName: link
   fillName: fill
@@ -10007,8 +10121,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1805364118}
   - component: {fileID: 1805364120}
-  - component: {fileID: 1805364119}
-  m_Layer: 5
+  - component: {fileID: 7000000000000000110}
+  m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10030,36 +10144,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1770505042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1805364119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805364117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
-  panelRenderer: {fileID: 1805364120}
-  link: {fileID: 0}
-  buttonName: link
-  fillName: fill
-  idleDistance: 3
-  halfCycleSeconds: 0.9
-  openLinkText:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!1931382934 &1805364120
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -10223,6 +10307,7 @@ GameObject:
   - component: {fileID: 1871293806}
   - component: {fileID: 1871293805}
   - component: {fileID: 1871293807}
+  - component: {fileID: 1871293808}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -10336,13 +10421,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 1871293803}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panelRevealAnimation: {fileID: 1871293805}
-  maximumXTilt: 16.6
-  maximumYTilt: -45.8
-  rotationSmoothness: 6
-  frontFacesNegativeZ: 1
+  worldSpaceTilt: {fileID: 1871293808}
 --- !u!114 &1871293807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10355,6 +10436,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!114 &1871293808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871293801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e1e1803eac4d82b9733855cfda866e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldSpacePanelTilt
+  maximumXTilt: 22.2
+  maximumYTilt: -37.3
+  rotationSmoothness: 6
+  frontFacesNegativeZ: 1
 --- !u!1 &1877655851
 GameObject:
   m_ObjectHideFlags: 0
@@ -10660,8 +10757,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Link
-  link: https://github.com/Glebovvski
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://github.com/Glebovvski
   analyticsValue: git
 --- !u!114 &1923357287
 MonoBehaviour:
@@ -10674,11 +10771,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a653df3458cd20408b68a37380c1566, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoLinkView
-  link: {fileID: 1923357286}
-  totalTime: 0.7
+  m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1923357285}
-  linkController: {fileID: 550841722}
+  totalTime: 0.7
+  linkPrompt: {fileID: 550841722}
   timeBetweenSoundPlay: 0.2
   analyticsValue: git
 --- !u!136 &1923357288
@@ -10862,7 +10958,7 @@ Transform:
   m_GameObject: {fileID: 1975172243}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.33, y: 0, z: 4.46}
+  m_LocalPosition: {x: -39.26, y: 0, z: 27.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10926,8 +11022,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1980762389}
   - component: {fileID: 1980762390}
-  - component: {fileID: 1980762391}
-  m_Layer: 5
+  - component: {fileID: 7000000000000000111}
+  m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11007,36 +11103,6 @@ PanelRenderer:
   m_PivotReferenceSize: 1
   m_Pivot: 0
   m_Position: 0
---- !u!114 &1980762391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980762388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
-  panelRenderer: {fileID: 1980762390}
-  link: {fileID: 0}
-  buttonName: link
-  fillName: fill
-  idleDistance: 3
-  halfCycleSeconds: 0.9
-  openLinkText:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!1 &1997053114
 GameObject:
   m_ObjectHideFlags: 0
@@ -11048,6 +11114,7 @@ GameObject:
   - component: {fileID: 1997053117}
   - component: {fileID: 1997053116}
   - component: {fileID: 1997053115}
+  - component: {fileID: 7000000000000000112}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -11066,8 +11133,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkOrbController
-  panelRenderer: {fileID: 1997053116}
+  m_EditorClassIdentifier: Assembly-CSharp::LinkPromptView
   link: {fileID: 900479621}
   buttonName: link
   fillName: fill
@@ -11168,7 +11234,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2002677095}
   - component: {fileID: 2002677096}
-  - component: {fileID: 2002677097}
   m_Layer: 0
   m_Name: Dissolver
   m_TagString: Untagged
@@ -11205,24 +11270,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ae4cde8b42cbc9428057b21dd8c07b2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DissolverRoomView
+  m_EditorClassIdentifier: Assembly-CSharp::DissolverView
   playerTrigger: {fileID: 1761270988}
-  controller: {fileID: 1319712760}
---- !u!114 &2002677097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002677094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
   panel: {fileID: 1319712758}
-  playerTrigger: {fileID: 1761270988}
+  cameraTarget: {fileID: 1319712755}
   analyticsValue: Dissolver
+  addToCameraTarget: 0
+  controller: {fileID: 1319712760}
 --- !u!1 &2007872266
 GameObject:
   m_ObjectHideFlags: 0
@@ -11233,8 +11287,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2007872267}
   - component: {fileID: 2007872269}
-  - component: {fileID: 2007872268}
-  m_Layer: 5
+  - component: {fileID: 7000000000000000113}
+  m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11256,36 +11310,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2036768244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2007872268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007872266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3fe2a2c35a5f948979c64ffecb1aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerLinkController
-  panelRenderer: {fileID: 2007872269}
-  link: {fileID: 0}
-  buttonName: link
-  fillName: fill
-  idleDistance: 3
-  halfCycleSeconds: 0.9
-  openLinkText:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!1931382934 &2007872269
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -11344,6 +11368,88 @@ PanelRenderer:
   m_PivotReferenceSize: 1
   m_Pivot: 0
   m_Position: 0
+--- !u!1 &2012366556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012366557}
+  - component: {fileID: 2012366560}
+  - component: {fileID: 2012366559}
+  - component: {fileID: 2012366558}
+  m_Layer: 0
+  m_Name: poi_intro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2012366557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012366556}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.82, y: 0, z: 4.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1197041655}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2012366558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012366556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c7d00661c30964084a0023f1053a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointOfInterest
+  trigger: {fileID: 2012366559}
+--- !u!114 &2012366559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012366556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9467363220cdf04ead3bcd07aed5979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
+--- !u!136 &2012366560
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012366556}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.79
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2016121147
 GameObject:
   m_ObjectHideFlags: 0
@@ -11541,10 +11647,125 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
-  panel: {fileID: 280977548}
+  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 2036768242}
+  panel: {fileID: 280977548}
+  cameraTarget: {fileID: 280977551}
   analyticsValue: summary
+  addToCameraTarget: 1
+--- !u!1 &2041091605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2041091606}
+  - component: {fileID: 2041091609}
+  - component: {fileID: 2041091608}
+  - component: {fileID: 2041091607}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 1
+  m_IsActive: 1
+--- !u!4 &2041091606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041091605}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 0.3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 904769995}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &2041091607
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041091605}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &2041091608
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041091605}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2041091609
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041091605}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 1
+  m_MotionVectors: 2
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 1
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 955a79289b2612d4faac5a3aed3bb5ba, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 2
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2041133987
 GameObject:
   m_ObjectHideFlags: 0
@@ -11686,7 +11907,7 @@ Transform:
   m_GameObject: {fileID: 2046787304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.85, y: 0, z: -20.7}
+  m_LocalPosition: {x: 9.61, y: 0, z: 24.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11740,81 +11961,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!1 &2063642052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2063642053}
-  - component: {fileID: 2063642055}
-  - component: {fileID: 2063642054}
-  m_Layer: 5
-  m_Name: f
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2063642053
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063642052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 832020431}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2063642054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063642052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 2100000, guid: 680304e3409e5a546b56ddda500d4b14, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2063642055
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063642052}
-  m_CullTransparentMesh: 1
 --- !u!1 &2085242068
 GameObject:
   m_ObjectHideFlags: 0
@@ -17001,6 +17147,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122433240}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2144515633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739124882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9712104cf90bbb84faf428b84f70a8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortfolioButtonPulse
+  panelRenderer: {fileID: 739124884}
+  pulseIntervalMs: 650
 --- !u!198 &2691595656540944057
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -21859,31 +22019,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.239
+      value: -0.475
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.889
+      value: 1.498
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.029
+      value: -0.767
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8956979
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.20314816
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.38574845
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.08748945
       objectReference: {fileID: 0}
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21896,6 +22056,18 @@ PrefabInstance:
     - target: {fileID: 3965855737428367844, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047713185594947040, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: maximumXTilt
+      value: 26.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047713185594947040, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: maximumYTilt
+      value: 46.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047713185594947040, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
+      propertyPath: frontFacesNegativeZ
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6497746927829284759, guid: d20e4a5c11f6ac8448acb4c180e04f57, type: 3}
       propertyPath: m_Name
@@ -21917,6 +22089,314 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelUI
+--- !u!114 &7000000000000000000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595208948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://play.google.com/store/apps/developer?id=Optor+Group
+  analyticsValue: optor
+--- !u!114 &7000000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739124882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://apps.apple.com/ua/app/last-pirate-survival-island/id1449724605
+  analyticsValue: last pirate
+--- !u!114 &7000000000000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898442546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/prymara-post-procsss-375996
+  analyticsValue: prymara
+--- !u!114 &7000000000000000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319712754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://assetstore.unity.com/packages/vfx/shaders/dissolver-304081
+  analyticsValue: dissolver
+--- !u!114 &7000000000000000004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396108778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://assetstore.unity.com/packages/vfx/shaders/spectra-shadow-364564
+  analyticsValue: spectra
+--- !u!114 &7000000000000000005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488326341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78647e6374a6f0b4facad897161c5728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExternalLink
+  url: https://corepunk.com/en-gb
+  analyticsValue: corepunk
+--- !u!114 &7000000000000000006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319712754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9712104cf90bbb84faf428b84f70a8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortfolioButtonPulse
+  panelRenderer: {fileID: 1319712759}
+  pulseIntervalMs: 650
+--- !u!114 &7000000000000000007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396108778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9712104cf90bbb84faf428b84f70a8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortfolioButtonPulse
+  panelRenderer: {fileID: 1396108781}
+  pulseIntervalMs: 650
+--- !u!114 &7000000000000000008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488326341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9712104cf90bbb84faf428b84f70a8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortfolioButtonPulse
+  panelRenderer: {fileID: 1488326343}
+  pulseIntervalMs: 650
+--- !u!114 &7000000000000000100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278989685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391730048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425784709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550841721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661422123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869562744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009674227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024535168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122056428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799488324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805364117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980762388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997053114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007872266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682531a3a004614a429fccf7b2204af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
+  targetCamera: {fileID: 330585545}
 --- !u!1 &8401096465017697226
 GameObject:
   m_ObjectHideFlags: 0
@@ -21960,7 +22440,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9038110363656713168}
   - component: {fileID: 9038110363656713169}
-  - component: {fileID: 9038110363656713170}
   m_Layer: 0
   m_Name: Prymara
   m_TagString: Untagged
@@ -26812,24 +27291,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d61b35e637964547920b8526f703901, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RoomVIew
+  m_EditorClassIdentifier: Assembly-CSharp::PrymaraView
   playerTrigger: {fileID: 1777925021}
-  panelController: {fileID: 898442548}
---- !u!114 &9038110363656713170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8513494146914756970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleView
   panel: {fileID: 898442551}
-  playerTrigger: {fileID: 1777925021}
+  cameraTarget: {fileID: 898442547}
   analyticsValue: Prymara
+  addToCameraTarget: 1
+  defaultRendererIndex: 0
+  prymaraRendererIndex: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -26839,6 +27308,7 @@ SceneRoots:
   - {fileID: 914950666}
   - {fileID: 420441338}
   - {fileID: 1228663838}
+  - {fileID: 904769995}
   - {fileID: 1692921051}
   - {fileID: 625725006}
   - {fileID: 770914276}
@@ -26848,6 +27318,4 @@ SceneRoots:
   - {fileID: 217439727}
   - {fileID: 1561048769}
   - {fileID: 1197041655}
-  - {fileID: 1570215027}
-  - {fileID: 832020431}
-  - {fileID: 9474282}
+  - {fileID: 390441666}

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4961950164000747169}
   - component: {fileID: 963905680722268333}
   - component: {fileID: -4778175949447899595}
+  - component: {fileID: 4047713185594947040}
+  - component: {fileID: 1774308408916453139}
   m_Layer: 5
   m_Name: OpenProjectButton
   m_TagString: Untagged
@@ -108,7 +110,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:238899406e9c1ee4aa920157fdbc1779
     m_TableEntryReference:
-      m_KeyId: 5880272616927232
+      m_KeyId: 7567863393267712
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -128,9 +130,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4d0a56b7261f74ea29eb953590ff0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelUI
-  panelRenderer: {fileID: 4961950164000747169}
-  panelRevealAnimation: {fileID: 0}
-  maximumXTilt: 23.2
-  maximumYTilt: 52.3
+  panelRevealAnimation: {fileID: 1774308408916453139}
+  worldSpaceTilt: {fileID: 4047713185594947040}
+--- !u!114 &4047713185594947040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6497746927829284759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e1e1803eac4d82b9733855cfda866e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldSpacePanelTilt
+  maximumXTilt: 6
+  maximumYTilt: 18
   rotationSmoothness: 6
-  frontFacesNegativeZ: 1
+  frontFacesNegativeZ: 0
+--- !u!114 &1774308408916453139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6497746927829284759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c99a71ceff80e4caeee5625e1efc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelRevealAnimation
+  panelRenderer: {fileID: 0}
+  lineWidthDuration: 0.08
+  verticalExpandDuration: 0.22
+  verticalCollapseDuration: 0.16
+  lineCollapseDuration: 0.07
+  lineHeight: 0.015
+  initialLineWidth: 0.08
+  appearStaticOpacity: 0.65
+  disappearStaticOpacity: 0.35
+  ignoreTimeScale: 1

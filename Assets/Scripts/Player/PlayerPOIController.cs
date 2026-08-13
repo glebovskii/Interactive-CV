@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Unity.Properties;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class PlayerPOIController
+public class PlayerPOIController : INotifyBindablePropertyChanged
 {
     private int totalPOI;
     private int visitedPOI;
@@ -12,8 +15,11 @@ public class PlayerPOIController
     private Transform player;
 
     public PointOfInterest CurrentPOI => currentPOI;
+
     [CreateProperty] public int TotalPOI => totalPOI;
     [CreateProperty] public int VisitedPOI => visitedPOI;
+
+    public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
 
     private Dictionary<PointOfInterest, bool> points;
 
@@ -25,19 +31,21 @@ public class PlayerPOIController
         visitedPOI = 0;
         currentPOI = pois[0];
         totalPOI = pois.Count;
+
         this.player = player;
         playerHUD = hud;
+
         points = new Dictionary<PointOfInterest, bool>();
+
         foreach (PointOfInterest poi in pois)
         {
             points.Add(poi, false);
             poi.OnEnterPOI += HandleEnterPOI;
             poi.OnExitPOI += HandleExitPOI;
         }
-        Debug.LogError("UPDATE PLAYER HUD VALUES");
+
         playerHUD.Init(this);
-        //playerHUD.UpdateCurrentPOI(visitedPOI);
-        //playerHUD.UpdateTotalPOI(totalPOI);
+
         this.arrow = arrow;
         this.arrow.Init(this);
     }
@@ -45,10 +53,7 @@ public class PlayerPOIController
     public Quaternion GetArrowRotation()
     {
         if (currentPOI == null)
-        {
-            //SetArrowInvisible
             return Quaternion.identity;
-        }
 
         var direction = currentPOI.transform.position - player.position;
         return Quaternion.LookRotation(direction.normalized, Vector3.up);
@@ -60,12 +65,14 @@ public class PlayerPOIController
             return;
 
         arrow.SetVisible(false);
-        if (points.ContainsKey(poi) && points[poi] == false)
+
+        if (points.TryGetValue(poi, out bool visited) && !visited)
         {
             points[poi] = true;
-            visitedPOI = points.Where(x => x.Value).Count();
-        }
+            visitedPOI = points.Count(x => x.Value);
 
+            Notify(nameof(VisitedPOI));
+        }
     }
 
     private void UpdateCurrentPOI()
@@ -73,16 +80,20 @@ public class PlayerPOIController
         if (visitedPOI >= totalPOI)
             currentPOI = null;
         else
-            currentPOI = points.FirstOrDefault(x => x.Value == false).Key;
+            currentPOI = points.FirstOrDefault(x => !x.Value).Key;
     }
+
     private void HandleExitPOI(PointOfInterest poi, PlayerView view)
     {
         if (!view.IsLocalPlayer)
             return;
-        
+
         UpdateCurrentPOI();
         arrow.SetVisible(visitedPOI < totalPOI);
     }
 
-
+    private void Notify([CallerMemberName] string property = "")
+    {
+        propertyChanged?.Invoke(this, new BindablePropertyChangedEventArgs(property));
+    }
 }

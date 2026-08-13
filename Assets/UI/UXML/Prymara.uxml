@@ -17,7 +17,7 @@
                         </Bindings>
                     </ui:Label>
                 </ui:VisualElement>
-                <ui:Button name="button-link" text="View project" tooltip="Open the project page" class="secondary-button shader-settings-project-button" style="align-self: stretch; justify-content: center; align-items: auto; margin-left: 0; align-content: auto; flex-direction: column;">
+                <ui:Button name="button-link" text="View project" tooltip="Open the project page" class="secondary-button shader-settings-project-button portfolio-pulse-button game-section-link-button" style="align-self: stretch; justify-content: center; align-items: center; margin-left: 0; align-content: center; flex-direction: column; white-space: normal; overflow: hidden; -unity-text-align: middle-center; flex-shrink: 0; justify-content: center;">
                     <Bindings>
                         <l:LocalizedString property="text" table="ui" entry="common.view_project"/>
                         <l:LocalizedString property="tooltip" table="ui" entry="common.open_project_page"/>
@@ -228,7 +228,7 @@
                                 <ui:Slider name="slider-grid-radius" low-value="0" high-value="10" value="1" show-input-field="true" class="shader-slider"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label name="grid-texture-note" text="The texture is read from the material's _Grid property." class="shader-note">
+                        <ui:Label name="grid-texture-note" text="The texture is read from the material&apos;s _Grid property." class="shader-note">
                             <Bindings>
                                 <l:LocalizedString property="text" table="ui" entry="prymara.grid_note"/>
                             </Bindings>

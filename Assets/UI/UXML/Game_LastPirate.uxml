@@ -3,9 +3,9 @@
     <ui:VisualElement name="panel-root" class="section-card game-card game-section-card screen-space-panel screen-space-panel--left blocks-player-input screen-space-panel--full-height screen-space-game-panel">
         <ui:VisualElement class="game-hero game-section-hero game-section-hero--last-pirate"/>
         <ui:VisualElement class="game-copy game-section-copy">
-            <ui:VisualElement class="section-heading-row game-section-heading-row">
-                <ui:VisualElement class="game-section-heading-copy">
-                    <ui:VisualElement class="game-section-title-role-row">
+            <ui:VisualElement class="section-heading-row game-section-heading-row" style="justify-content: flex-start; align-self: auto; align-content: auto;">
+                <ui:VisualElement class="game-section-heading-copy" style="white-space: normal; align-self: flex-start; align-items: auto;">
+                    <ui:VisualElement class="game-section-title-role-row" style="align-items: center; flex-direction: row;">
                         <ui:Label text="Last Pirate" class="game-title game-section-title"/>
                         <ui:Label text="Unity Developer" class="game-section-role">
                             <Bindings>
@@ -13,14 +13,14 @@
                             </Bindings>
                         </ui:Label>
                     </ui:VisualElement>
-                    <ui:Label text="RetroStyle Games · Mobile survival" class="game-meta game-section-meta">
+                    <ui:Label text="RetroStyle Games · Mobile survival" class="game-meta game-section-meta" style="align-items: flex-start; justify-content: center; align-self: auto; align-content: auto;">
                         <Bindings>
                             <l:LocalizedString property="text" table="ui" entry="lastpirate.meta"/>
                         </Bindings>
                     </ui:Label>
                 </ui:VisualElement>
                 <ui:VisualElement class="game-section-heading-actions">
-                    <ui:Button name="button-link" text="View project" tooltip="Open Last Pirate in the App Store" class="secondary-button game-section-link-button">
+                    <ui:Button name="button-link" text="View project" tooltip="Open Last Pirate in the App Store" class="secondary-button game-section-link-button portfolio-pulse-button" style="white-space: normal; -unity-text-align: middle-center;">
                         <Bindings>
                             <l:LocalizedString property="text" table="ui" entry="common.view_project"/>
                             <l:LocalizedString property="tooltip" table="ui" entry="lastpirate.tooltip"/>

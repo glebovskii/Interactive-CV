@@ -1,43 +1,25 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public sealed class PanelLinkButton : Link
+[RequireComponent(typeof(ExternalLink))]
+public sealed class PanelLinkButton : PanelRendererBehaviour
 {
     private const string ButtonName = "button-link";
 
-    [SerializeField] private PanelRenderer panelRenderer;
-
     private readonly UICallbackBinder uiCallbacks = new();
+    private ExternalLink link;
 
-    private Button linkButton;
-
-    private void Awake()
+    protected override void Awake()
     {
-        if (panelRenderer == null)
-            panelRenderer = GetComponent<PanelRenderer>();
-
-        if (panelRenderer == null)
-        {
-            Debug.LogError($"{nameof(PanelLinkButton)} requires a PanelRenderer.", this);
-            return;
-        }
-
-        panelRenderer.RegisterUIReloadCallback(OnUIReload);
+        link = GetComponent<ExternalLink>();
+        base.Awake();
     }
 
-    private void OnDestroy()
+    protected override void OnUIReload(VisualElement root)
     {
         uiCallbacks.Clear();
 
-        if (panelRenderer != null)
-            panelRenderer.UnregisterUIReloadCallback(OnUIReload);
-    }
-
-    private void OnUIReload(PanelRenderer renderer, VisualElement root, int version)
-    {
-        uiCallbacks.Clear();
-
-        linkButton = root.Q<Button>(ButtonName);
+        Button linkButton = root.Q<Button>(ButtonName);
 
         if (linkButton == null)
         {
@@ -45,6 +27,12 @@ public sealed class PanelLinkButton : Link
             return;
         }
 
-        uiCallbacks.BindClick(linkButton, OpenLinkWithoutSound, sound => sound.PlayButtonClick());
+        uiCallbacks.BindClick(linkButton, () => link.Open(false), sound => sound.PlayButtonClick());
+    }
+
+    protected override void OnDestroy()
+    {
+        uiCallbacks.Clear();
+        base.OnDestroy();
     }
 }

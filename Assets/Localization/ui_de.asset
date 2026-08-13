@@ -627,6 +627,50 @@ MonoBehaviour:
     m_Localized: "Turbulenzst\xE4rke"
     m_Metadata:
       m_Items: []
+  - m_Id: 7567863393267712
+    m_Localized: Offenes Projekt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604244526116864
+    m_Localized: Willkommen in meinem interaktiven Lebenslauf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604372116844544
+    m_Localized: "Entdecke meine Erfahrung, anstatt nur dar\xFCber zu lesen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604573586042880
+    m_Localized: "Dieses Multiplayer-Projekt ist eine interaktive Alternative zu
+      einem klassischen Lebenslauf. Statt einer statischen Liste von F\xE4higkeiten
+      und Projekten kannst du meine Erfahrung durch Erkunden kennenlernen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604841019060224
+    m_Localized: "Beim Erkunden der Karte findest du Projektvorstellungen, Berufserfahrung,
+      technische Demonstrationen, Shader-Einstellungen, externe Links und weitere
+      Points of Interest. Die Minikarte oben rechts und der Richtungspfeil helfen
+      dir, dein n\xE4chstes Ziel zu finden."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7604940742832128
+    m_Localized: "Bewege dich mit Maus/Touch oder Tastatur \u2013 je nachdem, was
+      dir angenehmer ist. Andere Spieler k\xF6nnen die Karte gleichzeitig mit dir
+      erkunden, aber alle Portfolio-Inhalte lassen sich unabh\xE4ngig ansehen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7605041779421184
+    m_Localized: "Erkunde alles in beliebiger Reihenfolge, interagiere mit allem,
+      was deine Aufmerksamkeit weckt, und viel Spa\xDF dabei."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7606851353161728
+    m_Localized: Erkunde die Karte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7606904411107328
+    m_Localized: Steuerung
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
