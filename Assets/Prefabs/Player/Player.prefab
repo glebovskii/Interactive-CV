@@ -96,7 +96,6 @@ MonoBehaviour:
   - {fileID: 7212550310696207308}
   - {fileID: 8244001945155035591}
   - {fileID: 5335421626971615330}
-  - {fileID: 4541339684831323774}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &8508008017542183307
 MonoBehaviour:

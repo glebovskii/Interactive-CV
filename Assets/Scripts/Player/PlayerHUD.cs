@@ -1,12 +1,10 @@
 using DG.Tweening;
-using Fusion;
-using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(PanelRenderer))]
-public class PlayerHUD : NetworkBehaviour
+public class PlayerHUD : MonoBehaviour
 {
     private const string currentPOILabelName = "current";
     private const string totalPOILabelName = "total";
@@ -23,17 +21,11 @@ public class PlayerHUD : NetworkBehaviour
 
     private void OnEnable()
     {
-        if (!HasStateAuthority)
-        {
-            gameObject.SetActive(false);
-            return;
-        }
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
     }
 
     private void OnUIReload(PanelRenderer panelRenderer, VisualElement rootElement)
     {
-        
         totalPOILabel = rootElement.Q<Label>(totalPOILabelName);
         currentPOILabel = rootElement.Q<Label>(currentPOILabelName);
         playerIcon = rootElement.Q<Image>(playerMapIconName);
@@ -55,10 +47,6 @@ public class PlayerHUD : NetworkBehaviour
 
     public void Init(PlayerPOIController controller)
     {
-        if (!HasStateAuthority)
-        {
-            return;
-        }
         playerPOIController = controller;
         playerPOIController.propertyChanged += OnPOIPropertyChanged;
     }
@@ -90,10 +78,6 @@ public class PlayerHUD : NetworkBehaviour
 
     public void UpdateMap(float2 uv)
     {
-        if (!HasStateAuthority)
-        {
-            return;
-        }
         float x = uv.x;
         float y = 1f - uv.y;
 

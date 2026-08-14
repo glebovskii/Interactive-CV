@@ -22,7 +22,7 @@ public class PanelTriggerView : PlayerTriggerBehaviour
 
         if (!string.IsNullOrEmpty(analyticsValue))
             AnalyticsService.ProjectOpened(analyticsValue);
-        
+
         if (addToCameraTarget)
             view.AddTarget(CameraTarget);
         panel.Show(view.Camera);
@@ -32,7 +32,8 @@ public class PanelTriggerView : PlayerTriggerBehaviour
     protected override void OnLocalPlayerExit(PlayerView view)
     {
         BeforePanelHide(view);
-        view.RemoveTarget(CameraTarget);
+        if (addToCameraTarget)
+            view.RemoveTarget(CameraTarget);
         panel.Hide();
         AfterPanelHide(view);
     }

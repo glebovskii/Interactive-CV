@@ -4287,7 +4287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrassControllerCorrect
   shellMesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
-  shellMaterial: {fileID: 2100000, guid: 414015301562b804289cca9bfa1516da, type: 2}
+  shellMaterial: {fileID: 2100000, guid: da11485cb2342ed4e82c258c5129082f, type: 2}
   terrain: {fileID: 914950665}
   grassLayer:
     serializedVersion: 2

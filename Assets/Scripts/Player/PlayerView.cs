@@ -1,9 +1,7 @@
 using Fusion;
-using System;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerView : NetworkBehaviour
 {
@@ -57,7 +55,8 @@ public class PlayerView : NetworkBehaviour
         this.IsLocalPlayer = HasStateAuthority;
 
         cachedMaterial = renderer.material;
-
+        hud.gameObject.SetActive(IsLocalPlayer);
+        playerArrow.gameObject.SetActive(IsLocalPlayer);
         if (IsLocalPlayer)
         {
             Name = PlayerInfoSave.GetName();
@@ -147,6 +146,7 @@ public class PlayerView : NetworkBehaviour
 
     public void SetPOI(List<PointOfInterest> pois)
     {
-        poiController = new(pois, transform, hud, playerArrow);
+        if (HasStateAuthority)
+            poiController = new(pois, transform, hud, playerArrow);
     }
 }

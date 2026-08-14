@@ -132,8 +132,10 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DefaultSaturation: {r: 0.2126729, g: 0.7151522, b: 0.072175, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _PlayerColor: {r: 1, g: 0, b: 0, a: 1}
+    - _Saturation_1: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

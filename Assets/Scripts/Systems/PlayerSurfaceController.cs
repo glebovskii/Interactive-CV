@@ -147,8 +147,8 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         playerTransforms.Add(player.transform);
         sampledStates.Add(0);
         sampledUVs.Add(float2.zero);
-
-        playerHUD = player.gameObject.GetComponentInChildren<PlayerHUD>();
+        if (player.HasStateAuthority)
+            playerHUD = player.gameObject.GetComponentInChildren<PlayerHUD>();
     }
 
     private void OnGUI()
@@ -254,7 +254,6 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
             previousStates[i] = states[i];
             players[i].SetSurfaceType((SurfaceType)states[i]);
-            //playerOnMapMat.SetVector("_Offset", new Vector4(uvs[i].x, uvs[i].y));
         }
     }
 
