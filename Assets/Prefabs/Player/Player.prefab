@@ -597,7 +597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262047478250357803}
   - component: {fileID: 2552364403198309420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_StickMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}

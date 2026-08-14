@@ -26,11 +26,11 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _AXIS_X
-  - _BUILTIN_ALPHATEST_ON
-  - _BUILTIN_AlphaClip
   - _DIRECTION_FORWARD
   - _NOISE_GRADIENT
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _BUILTIN_ALPHATEST_ON
+  - _BUILTIN_AlphaClip
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0

@@ -217,9 +217,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 66365665}
-  - component: {fileID: 66365668}
   - component: {fileID: 66365667}
   - component: {fileID: 66365666}
+  - component: {fileID: 66365668}
   m_Layer: 0
   m_Name: poi_lastPirate
   m_TagString: Untagged
@@ -235,10 +235,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66365664}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0, z: 12.36}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.22805119, y: 0, z: 11.807819}
+  m_LocalScale: {x: 3.47, y: 3.47, z: 3.47}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1197041655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,8 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9467363220cdf04ead3bcd07aed5979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
---- !u!136 &66365668
-CapsuleCollider:
+--- !u!135 &66365668
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -285,11 +285,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.78
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Radius: 1.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &94666603
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,9 +707,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 186327505}
-  - component: {fileID: 186327508}
   - component: {fileID: 186327507}
   - component: {fileID: 186327506}
+  - component: {fileID: 186327508}
   m_Layer: 0
   m_Name: poi_corepunk
   m_TagString: Untagged
@@ -727,9 +725,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186327504}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.66, y: 0, z: 12.06}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.708051, y: 0, z: 11.46782}
+  m_LocalScale: {x: 3.47, y: 3.47, z: 3.47}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1197041655}
@@ -759,8 +757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9467363220cdf04ead3bcd07aed5979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
---- !u!136 &186327508
-CapsuleCollider:
+--- !u!135 &186327508
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -777,11 +775,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 6.66
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Radius: 1.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &217439725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,7 +1279,6 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
-  - component: {fileID: 330585550}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1388,7 +1383,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1457,19 +1452,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!114 &330585550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c727e4c005e5114fb3348a38c4cebbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UIElements.WorldDocumentRaycaster
-  m_EventCamera: {fileID: 330585545}
 --- !u!1 &334912269
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,13 +4870,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800211634}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12640682, y: -0.8285632, z: 0.52670926, w: -0.1417098}
-  m_LocalPosition: {x: -0.3259997, y: 1.8260002, z: 0.80500007}
+  m_LocalRotation: {x: 0.18039536, y: -0.83471334, z: 0.51741695, w: -0.054689042}
+  m_LocalPosition: {x: -0.645, y: 1.1640301, z: 1.283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1560860232}
-  m_LocalEulerAnglesHint: {x: 56.824, y: -222.259, z: -40.966}
+  m_LocalEulerAnglesHint: {x: 57.571, y: -211.223, z: -41.846}
 --- !u!114 &800211636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4908,7 +4890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
   m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
+  m_AdditionalLightsShadowResolutionTier: 0
   m_CustomShadowLayers: 0
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
@@ -4931,7 +4913,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800211634}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 13
   m_Type: 0
   m_Color: {r: 0.7433963, g: 0.69430405, b: 0.69430405, a: 1}
@@ -4972,7 +4954,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 576
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -6650,8 +6632,8 @@ Transform:
   - {fileID: 1390701638}
   - {fileID: 2046787305}
   - {fileID: 186327505}
-  - {fileID: 66365665}
   - {fileID: 1629050176}
+  - {fileID: 66365665}
   - {fileID: 1075200004}
   - {fileID: 521334433}
   - {fileID: 972779139}
@@ -7782,7 +7764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chroma.SpectraShadowPanelController
   panelRenderer: {fileID: 1396108781}
-  targetMaterial: {fileID: 2100000, guid: d0a4f5d3df7c1884b876d5789104ab3b, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 47657f230c2a42143b7d6af333ee1d72, type: 2}
 --- !u!114 &1396108783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8271,14 +8253,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1560860230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85ce1c5d4a4d7345a045e103fb8ca7e, type: 3}
+  m_Script: {fileID: 11500000, guid: cb43931fd94d8864194f0d18baf2608e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
+  m_EditorClassIdentifier: Assembly-CSharp::SpectraPanelTriggerView
   playerTrigger: {fileID: 1332321823}
   panel: {fileID: 1396108779}
   cameraTarget: {fileID: 1396108784}
   analyticsValue: Spectra
   addToCameraTarget: 0
+  light: {fileID: 800211637}
 --- !u!1 &1561048767
 GameObject:
   m_ObjectHideFlags: 0
@@ -8774,9 +8757,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629050176}
-  - component: {fileID: 1629050179}
   - component: {fileID: 1629050178}
   - component: {fileID: 1629050177}
+  - component: {fileID: 1629050179}
   m_Layer: 0
   m_Name: poi_optor
   m_TagString: Untagged
@@ -8792,9 +8775,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629050175}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.04, y: 0, z: -11.76}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.20805, y: 0, z: -12.652178}
+  m_LocalScale: {x: 3.47, y: 3.47, z: 3.47}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1197041655}
@@ -8824,8 +8807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9467363220cdf04ead3bcd07aed5979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
---- !u!136 &1629050179
-CapsuleCollider:
+--- !u!135 &1629050179
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8842,11 +8825,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.69
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Radius: 1.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1638413498
 GameObject:
   m_ObjectHideFlags: 0
@@ -17059,7 +17040,7 @@ GameObject:
   - component: {fileID: 2122433244}
   - component: {fileID: 2122433243}
   - component: {fileID: 2122433242}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
