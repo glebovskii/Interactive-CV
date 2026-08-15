@@ -6,16 +6,8 @@
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/ImageBasedLighting.hlsl"
 #include "MyRealtimeLights.hlsl"
 
-#if USE_FORWARD_PLUS
-#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl"
-#endif
-
 // If lightmap is not defined than we evaluate GI (ambient + probes) from SH
 
-// Renamed -> LIGHTMAP_SHADOW_MIXING
-#if !defined(_MIXED_LIGHTING_SUBTRACTIVE) && defined(LIGHTMAP_SHADOW_MIXING) && !defined(SHADOWS_SHADOWMASK)
-    #define _MIXED_LIGHTING_SUBTRACTIVE
-#endif
 
 // Samples SH L0, L1 and L2 terms
 half3 SampleSH(half3 normalWS)
@@ -38,12 +30,8 @@ half3 SampleSH(half3 normalWS)
 // per pixel. See SampleSHPixel
 half3 SampleSHVertex(half3 normalWS)
 {
-#if defined(EVALUATE_SH_VERTEX)
     return SampleSH(normalWS);
-#elif defined(EVALUATE_SH_MIXED)
-    // no max since this is only L2 contribution
-    return SHEvalLinearL2(normalWS, unity_SHBr, unity_SHBg, unity_SHBb, unity_SHC);
-#endif
+
 
     // Fully per-pixel. Nothing to compute.
     return half3(0.0, 0.0, 0.0);
@@ -53,40 +41,17 @@ half3 SampleSHVertex(half3 normalWS)
 // mixed or fully in pixel. See SampleSHVertex
 half3 SampleSHPixel(half3 L2Term, half3 normalWS)
 {
-#if defined(EVALUATE_SH_VERTEX)
-    return L2Term;
-#elif defined(EVALUATE_SH_MIXED)
-    half3 res = L2Term + SHEvalLinearL0L1(normalWS, unity_SHAr, unity_SHAg, unity_SHAb);
-#ifdef UNITY_COLORSPACE_GAMMA
-    res = LinearToSRGB(res);
-#endif
-    return max(half3(0, 0, 0), res);
-#endif
+
 
     // Default: Evaluate SH fully per-pixel
     return SampleSH(normalWS);
 }
 
-#if defined(UNITY_DOTS_INSTANCING_ENABLED)
-#define LIGHTMAP_NAME unity_Lightmaps
-#define LIGHTMAP_INDIRECTION_NAME unity_LightmapsInd
-#define LIGHTMAP_SAMPLER_NAME samplerunity_Lightmaps
-#define LIGHTMAP_SAMPLE_EXTRA_ARGS staticLightmapUV, unity_LightmapIndex.x
-#else
-#define LIGHTMAP_NAME unity_Lightmap
-#define LIGHTMAP_INDIRECTION_NAME unity_LightmapInd
-#define LIGHTMAP_SAMPLER_NAME samplerunity_Lightmap
-#define LIGHTMAP_SAMPLE_EXTRA_ARGS staticLightmapUV
-#endif
 
 // Sample baked and/or realtime lightmap. Non-Direction and Directional if available.
 half3 SampleLightmap(float2 staticLightmapUV, float2 dynamicLightmapUV, half3 normalWS)
 {
-#ifdef UNITY_LIGHTMAP_FULL_HDR
-    bool encodedLightmap = false;
-#else
     bool encodedLightmap = true;
-#endif
 
     half4 decodeInstructions = half4(LIGHTMAP_HDR_MULTIPLIER, LIGHTMAP_HDR_EXPONENT, 0.0h, 0.0h);
 
@@ -96,23 +61,6 @@ half3 SampleLightmap(float2 staticLightmapUV, float2 dynamicLightmapUV, half3 no
     half4 transformCoords = half4(1, 1, 0, 0);
 
     float3 diffuseLighting = 0;
-
-#if defined(LIGHTMAP_ON) && defined(DIRLIGHTMAP_COMBINED)
-    diffuseLighting = SampleDirectionalLightmap(TEXTURE2D_LIGHTMAP_ARGS(LIGHTMAP_NAME, LIGHTMAP_SAMPLER_NAME),
-        TEXTURE2D_LIGHTMAP_ARGS(LIGHTMAP_INDIRECTION_NAME, LIGHTMAP_SAMPLER_NAME),
-        LIGHTMAP_SAMPLE_EXTRA_ARGS, transformCoords, normalWS, encodedLightmap, decodeInstructions);
-#elif defined(LIGHTMAP_ON)
-    diffuseLighting = SampleSingleLightmap(TEXTURE2D_LIGHTMAP_ARGS(LIGHTMAP_NAME, LIGHTMAP_SAMPLER_NAME), LIGHTMAP_SAMPLE_EXTRA_ARGS, transformCoords, encodedLightmap, decodeInstructions);
-#endif
-
-#if defined(DYNAMICLIGHTMAP_ON) && defined(DIRLIGHTMAP_COMBINED)
-    diffuseLighting += SampleDirectionalLightmap(TEXTURE2D_ARGS(unity_DynamicLightmap, samplerunity_DynamicLightmap),
-        TEXTURE2D_ARGS(unity_DynamicDirectionality, samplerunity_DynamicLightmap),
-        dynamicLightmapUV, transformCoords, normalWS, false, decodeInstructions);
-#elif defined(DYNAMICLIGHTMAP_ON)
-    diffuseLighting += SampleSingleLightmap(TEXTURE2D_ARGS(unity_DynamicLightmap, samplerunity_DynamicLightmap),
-        dynamicLightmapUV, transformCoords, false, decodeInstructions);
-#endif
 
     return diffuseLighting;
 }
@@ -128,35 +76,12 @@ half3 SampleLightmap(float2 staticLightmapUV, half3 normalWS)
 // We either sample GI from baked lightmap or from probes.
 // If lightmap: sampleData.xy = lightmapUV
 // If probe: sampleData.xyz = L2 SH terms
-#if defined(LIGHTMAP_ON) && defined(DYNAMICLIGHTMAP_ON)
-#define SAMPLE_GI(staticLmName, dynamicLmName, shName, normalWSName) SampleLightmap(staticLmName, dynamicLmName, normalWSName)
-#elif defined(DYNAMICLIGHTMAP_ON)
-#define SAMPLE_GI(staticLmName, dynamicLmName, shName, normalWSName) SampleLightmap(0, dynamicLmName, normalWSName)
-#elif defined(LIGHTMAP_ON)
-#define SAMPLE_GI(staticLmName, shName, normalWSName) SampleLightmap(staticLmName, 0, normalWSName)
-#else
+
 #define SAMPLE_GI(staticLmName, shName, normalWSName) SampleSHPixel(shName, normalWSName)
-#endif
 
 half3 BoxProjectedCubemapDirection(half3 reflectionWS, float3 positionWS, float4 cubemapPositionWS, float4 boxMin, float4 boxMax)
 {
-    // Is this probe using box projection?
-    if (cubemapPositionWS.w > 0.0f)
-    {
-        float3 boxMinMax = (reflectionWS > 0.0f) ? boxMax.xyz : boxMin.xyz;
-        half3 rbMinMax = half3(boxMinMax - positionWS) / reflectionWS;
-
-        half fa = half(min(min(rbMinMax.x, rbMinMax.y), rbMinMax.z));
-
-        half3 worldPos = half3(positionWS - cubemapPositionWS.xyz);
-
-        half3 result = worldPos + reflectionWS * fa;
-        return result;
-    }
-    else
-    {
         return reflectionWS;
-    }
 }
 
 float CalculateProbeWeight(float3 positionWS, float4 probeBoxMin, float4 probeBoxMax)
@@ -176,38 +101,7 @@ half3 CalculateIrradianceFromReflectionProbes(half3 reflectVector, float3 positi
 {
     half3 irradiance = half3(0.0h, 0.0h, 0.0h);
     half mip = PerceptualRoughnessToMipmapLevel(perceptualRoughness);
-#if USE_FORWARD_PLUS
-    float totalWeight = 0.0f;
-    uint probeIndex;
-    ClusterIterator it = ClusterInit(normalizedScreenSpaceUV, positionWS, 1);
-    [loop] while (ClusterNext(it, probeIndex) && totalWeight < 0.99f)
-    {
-        probeIndex -= URP_FP_PROBES_BEGIN;
 
-        float weight = CalculateProbeWeight(positionWS, urp_ReflProbes_BoxMin[probeIndex], urp_ReflProbes_BoxMax[probeIndex]);
-        weight = min(weight, 1.0f - totalWeight);
-
-        half3 sampleVector = reflectVector;
-#ifdef _REFLECTION_PROBE_BOX_PROJECTION
-        sampleVector = BoxProjectedCubemapDirection(reflectVector, positionWS, urp_ReflProbes_ProbePosition[probeIndex], urp_ReflProbes_BoxMin[probeIndex], urp_ReflProbes_BoxMax[probeIndex]);
-#endif // _REFLECTION_PROBE_BOX_PROJECTION
-
-        uint maxMip = (uint)abs(urp_ReflProbes_ProbePosition[probeIndex].w) - 1;
-        half probeMip = min(mip, maxMip);
-        float2 uv = saturate(PackNormalOctQuadEncode(sampleVector) * 0.5 + 0.5);
-
-        float mip0 = floor(probeMip);
-        float mip1 = mip0 + 1;
-        float mipBlend = probeMip - mip0;
-        float4 scaleOffset0 = urp_ReflProbes_MipScaleOffset[probeIndex * 7 + (uint)mip0];
-        float4 scaleOffset1 = urp_ReflProbes_MipScaleOffset[probeIndex * 7 + (uint)mip1];
-
-        half3 irradiance0 = half4(SAMPLE_TEXTURE2D_LOD(urp_ReflProbes_Atlas, samplerurp_ReflProbes_Atlas, uv * scaleOffset0.xy + scaleOffset0.zw, 0.0)).rgb;
-        half3 irradiance1 = half4(SAMPLE_TEXTURE2D_LOD(urp_ReflProbes_Atlas, samplerurp_ReflProbes_Atlas, uv * scaleOffset1.xy + scaleOffset1.zw, 0.0)).rgb;
-        irradiance += weight * lerp(irradiance0, irradiance1, mipBlend);
-        totalWeight += weight;
-    }
-#else
     half probe0Volume = CalculateProbeVolumeSqrMagnitude(unity_SpecCube0_BoxMin, unity_SpecCube0_BoxMax);
     half probe1Volume = CalculateProbeVolumeSqrMagnitude(unity_SpecCube1_BoxMin, unity_SpecCube1_BoxMax);
 
@@ -237,9 +131,7 @@ half3 CalculateIrradianceFromReflectionProbes(half3 reflectVector, float3 positi
     if (weightProbe0 > 0.01f)
     {
         half3 reflectVector0 = reflectVector;
-#ifdef _REFLECTION_PROBE_BOX_PROJECTION
-        reflectVector0 = BoxProjectedCubemapDirection(reflectVector, positionWS, unity_SpecCube0_ProbePosition, unity_SpecCube0_BoxMin, unity_SpecCube0_BoxMax);
-#endif // _REFLECTION_PROBE_BOX_PROJECTION
+
 
         half4 encodedIrradiance = half4(SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0, samplerunity_SpecCube0, reflectVector0, mip));
 
@@ -250,14 +142,11 @@ half3 CalculateIrradianceFromReflectionProbes(half3 reflectVector, float3 positi
     if (weightProbe1 > 0.01f)
     {
         half3 reflectVector1 = reflectVector;
-#ifdef _REFLECTION_PROBE_BOX_PROJECTION
-        reflectVector1 = BoxProjectedCubemapDirection(reflectVector, positionWS, unity_SpecCube1_ProbePosition, unity_SpecCube1_BoxMin, unity_SpecCube1_BoxMax);
-#endif // _REFLECTION_PROBE_BOX_PROJECTION
+
         half4 encodedIrradiance = half4(SAMPLE_TEXTURECUBE_LOD(unity_SpecCube1, samplerunity_SpecCube1, reflectVector1, mip));
 
         irradiance += weightProbe1 * DecodeHDREnvironment(encodedIrradiance, unity_SpecCube1_HDR);
     }
-#endif
 
     // Use any remaining weight to blend to environment reflection cube map
     if (totalWeight < 0.99f)
@@ -270,56 +159,31 @@ half3 CalculateIrradianceFromReflectionProbes(half3 reflectVector, float3 positi
     return irradiance;
 }
 
-#if !USE_FORWARD_PLUS
 half3 CalculateIrradianceFromReflectionProbes(half3 reflectVector, float3 positionWS, half perceptualRoughness)
 {
     return CalculateIrradianceFromReflectionProbes(reflectVector, positionWS, perceptualRoughness, float2(0.0f, 0.0f));
 }
-#endif
 
 half3 GlossyEnvironmentReflection(half3 reflectVector, float3 positionWS, half perceptualRoughness, half occlusion, float2 normalizedScreenSpaceUV)
 {
-#if !defined(_ENVIRONMENTREFLECTIONS_OFF)
     half3 irradiance;
 
-#if defined(_REFLECTION_PROBE_BLENDING) || USE_FORWARD_PLUS
-    irradiance = CalculateIrradianceFromReflectionProbes(reflectVector, positionWS, perceptualRoughness, normalizedScreenSpaceUV);
-#else
-#ifdef _REFLECTION_PROBE_BOX_PROJECTION
-    reflectVector = BoxProjectedCubemapDirection(reflectVector, positionWS, unity_SpecCube0_ProbePosition, unity_SpecCube0_BoxMin, unity_SpecCube0_BoxMax);
-#endif // _REFLECTION_PROBE_BOX_PROJECTION
     half mip = PerceptualRoughnessToMipmapLevel(perceptualRoughness);
     half4 encodedIrradiance = half4(SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0, samplerunity_SpecCube0, reflectVector, mip));
 
     irradiance = DecodeHDREnvironment(encodedIrradiance, unity_SpecCube0_HDR);
-#endif // _REFLECTION_PROBE_BLENDING
     return irradiance * occlusion;
-#else
-    return _GlossyEnvironmentColor.rgb * occlusion;
-#endif // _ENVIRONMENTREFLECTIONS_OFF
+
 }
 
-#if !USE_FORWARD_PLUS
 half3 GlossyEnvironmentReflection(half3 reflectVector, float3 positionWS, half perceptualRoughness, half occlusion)
 {
     return GlossyEnvironmentReflection(reflectVector, positionWS, perceptualRoughness, occlusion, float2(0.0f, 0.0f));
 }
-#endif
 
 half3 GlossyEnvironmentReflection(half3 reflectVector, half perceptualRoughness, half occlusion)
 {
-#if !defined(_ENVIRONMENTREFLECTIONS_OFF)
-    half3 irradiance;
-    half mip = PerceptualRoughnessToMipmapLevel(perceptualRoughness);
-    half4 encodedIrradiance = half4(SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0, samplerunity_SpecCube0, reflectVector, mip));
-
-    irradiance = DecodeHDREnvironment(encodedIrradiance, unity_SpecCube0_HDR);
-
-    return irradiance * occlusion;
-#else
-
     return _GlossyEnvironmentColor.rgb * occlusion;
-#endif // _ENVIRONMENTREFLECTIONS_OFF
 }
 
 half3 SubtractDirectMainLightFromLightmap(Light mainLight, half3 normalWS, half3 bakedGI)
@@ -368,29 +232,15 @@ half3 GlobalIllumination(BRDFData brdfData, BRDFData brdfDataClearCoat, float cl
         color = half3(1,1,1); // "Base white" for AO debug lighting mode
     }
 
-#if defined(_CLEARCOAT) || defined(_CLEARCOATMAP)
-    half3 coatIndirectSpecular = GlossyEnvironmentReflection(reflectVector, positionWS, brdfDataClearCoat.perceptualRoughness, 1.0h, normalizedScreenSpaceUV);
-    // TODO: "grazing term" causes problems on full roughness
-    half3 coatColor = EnvironmentBRDFClearCoat(brdfDataClearCoat, clearCoatMask, coatIndirectSpecular, fresnelTerm);
-
-    // Blend with base layer using khronos glTF recommended way using NoV
-    // Smooth surface & "ambiguous" lighting
-    // NOTE: fresnelTerm (above) is pow4 instead of pow5, but should be ok as blend weight.
-    half coatFresnel = kDielectricSpec.x + kDielectricSpec.a * fresnelTerm;
-    return (color * (1.0 - coatFresnel * clearCoatMask) + coatColor) * occlusion;
-#else
     return color * occlusion;
-#endif
 }
 
-#if !USE_FORWARD_PLUS
 half3 GlobalIllumination(BRDFData brdfData, BRDFData brdfDataClearCoat, float clearCoatMask,
     half3 bakedGI, half occlusion, float3 positionWS,
     half3 normalWS, half3 viewDirectionWS)
 {
     return GlobalIllumination(brdfData, brdfDataClearCoat, clearCoatMask, bakedGI, occlusion, positionWS, normalWS, viewDirectionWS, float2(0.0f, 0.0f));
 }
-#endif
 
 // Backwards compatiblity
 half3 GlobalIllumination(BRDFData brdfData, half3 bakedGI, half occlusion, float3 positionWS, half3 normalWS, half3 viewDirectionWS)
@@ -412,19 +262,7 @@ half3 GlobalIllumination(BRDFData brdfData, BRDFData brdfDataClearCoat, float cl
 
     half3 color = EnvironmentBRDF(brdfData, indirectDiffuse, indirectSpecular, fresnelTerm);
 
-#if defined(_CLEARCOAT) || defined(_CLEARCOATMAP)
-    half3 coatIndirectSpecular = GlossyEnvironmentReflection(reflectVector, brdfDataClearCoat.perceptualRoughness, half(1.0));
-    // TODO: "grazing term" causes problems on full roughness
-    half3 coatColor = EnvironmentBRDFClearCoat(brdfDataClearCoat, clearCoatMask, coatIndirectSpecular, fresnelTerm);
-
-    // Blend with base layer using khronos glTF recommended way using NoV
-    // Smooth surface & "ambiguous" lighting
-    // NOTE: fresnelTerm (above) is pow4 instead of pow5, but should be ok as blend weight.
-    half coatFresnel = kDielectricSpec.x + kDielectricSpec.a * fresnelTerm;
-    return (color * (1.0 - coatFresnel * clearCoatMask) + coatColor) * occlusion;
-#else
     return color * occlusion;
-#endif
 }
 
 
@@ -436,9 +274,7 @@ half3 GlobalIllumination(BRDFData brdfData, half3 bakedGI, half occlusion, half3
 
 void MixRealtimeAndBakedGI(inout Light light, half3 normalWS, inout half3 bakedGI)
 {
-#if defined(LIGHTMAP_ON) && defined(_MIXED_LIGHTING_SUBTRACTIVE)
-    bakedGI = SubtractDirectMainLightFromLightmap(light, normalWS, bakedGI);
-#endif
+
 }
 
 // Backwards compatibility

@@ -6,7 +6,6 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
 #include "MyShadows.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/LightCookie/LightCookie.hlsl"
-#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Clustering.hlsl"
 
 // Abstraction over Light shading data.
 struct Light
@@ -32,15 +31,7 @@ struct Light
 #define FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
 #endif
 
-#if USE_FORWARD_PLUS
-    #define LIGHT_LOOP_BEGIN(lightCount) { \
-    uint lightIndex; \
-    ClusterIterator _urp_internal_clusterIterator = ClusterInit(inputData.normalizedScreenSpaceUV, inputData.positionWS, 0); \
-    [loop] while (ClusterNext(_urp_internal_clusterIterator, lightIndex)) { \
-        lightIndex += URP_FP_DIRECTIONAL_LIGHTS_COUNT; \
-        FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
-    #define LIGHT_LOOP_END } }
-#elif !_USE_WEBGL1_LIGHTS
+#if !_USE_WEBGL1_LIGHTS
     #define LIGHT_LOOP_BEGIN(lightCount) \
     for (uint lightIndex = 0u; lightIndex < lightCount; ++lightIndex) {
 
@@ -98,15 +89,7 @@ Light GetMainLight()
 {
     Light light;
     light.direction = half3(_MainLightPosition.xyz);
-#if USE_FORWARD_PLUS
-#if defined(LIGHTMAP_ON) && defined(LIGHTMAP_SHADOW_MIXING)
-    light.distanceAttenuation = _MainLightColor.a;
-#else
     light.distanceAttenuation = 1.0;
-#endif
-#else
-    light.distanceAttenuation = unity_LightData.z; // unity_LightData.z is 1 when not culled by the culling mask, otherwise 0.
-#endif
     light.shadowAttenuation = 1.0;
     light.color =_MainLightColor.rgb;
 
@@ -130,10 +113,7 @@ Light GetMainLight(float4 shadowCoord, float3 positionWS, half4 shadowMask, floa
     float4 shadowColor = MainLightShadow(shadowCoord, positionWS, shadowMask, _MainLightOcclusionProbes, offset, color);
     light.shadowAttenuation = shadowColor.a;
     light.color*=shadowColor.rgb*light.shadowAttenuation;
-    #if defined(_LIGHT_COOKIES)
-        real3 cookieColor = SampleMainLightCookie(positionWS);
-        light.color *= cookieColor;
-    #endif
+    
 
     return light;
 }
@@ -142,12 +122,6 @@ Light GetMainLight(InputData InputData, half4 shadowMask, AmbientOcclusionFactor
 {
     Light light = GetMainLight(InputData.shadowCoord, InputData.positionWS, shadowMask, offset, color);
 
-    #if defined(_SCREEN_SPACE_OCCLUSION) && !defined(_SURFACE_TYPE_TRANSPARENT)
-    if (IsLightingFeatureEnabled(DEBUGLIGHTINGFEATUREFLAGS_AMBIENT_OCCLUSION))
-    {
-        light.color *= aoFactor.directAmbientOcclusion;
-    }
-    #endif
 
     return light;
 }
@@ -155,20 +129,12 @@ Light GetMainLight(InputData InputData, half4 shadowMask, AmbientOcclusionFactor
 // Fills a light struct given a perObjectLightIndex
 Light GetAdditionalPerObjectLight(int perObjectLightIndex, float3 positionWS)
 {
-    // Abstraction over Light input constants
-#if USE_STRUCTURED_BUFFER_FOR_LIGHT_DATA
-    float4 lightPositionWS = _AdditionalLightsBuffer[perObjectLightIndex].position;
-    half3 color = _AdditionalLightsBuffer[perObjectLightIndex].color.rgb;
-    half4 distanceAndSpotAttenuation = _AdditionalLightsBuffer[perObjectLightIndex].attenuation;
-    half4 spotDirection = _AdditionalLightsBuffer[perObjectLightIndex].spotDirection;
-    uint lightLayerMask = _AdditionalLightsBuffer[perObjectLightIndex].layerMask;
-#else
+  
     float4 lightPositionWS = _AdditionalLightsPosition[perObjectLightIndex];
     half3 color = _AdditionalLightsColor[perObjectLightIndex].rgb;
     half4 distanceAndSpotAttenuation = _AdditionalLightsAttenuation[perObjectLightIndex];
     half4 spotDirection = _AdditionalLightsSpotDir[perObjectLightIndex];
     uint lightLayerMask = asuint(_AdditionalLightsLayerMasks[perObjectLightIndex]);
-#endif
 
     // Directional lights store direction in lightPosition.xyz and have .w set to 0.0.
     // This way the following code will work for both directional and punctual lights.
@@ -191,11 +157,7 @@ Light GetAdditionalPerObjectLight(int perObjectLightIndex, float3 positionWS)
 
 uint GetPerObjectLightIndexOffset()
 {
-#if USE_STRUCTURED_BUFFER_FOR_LIGHT_DATA
-    return uint(unity_LightData.x);
-#else
     return 0;
-#endif
 }
 
 // Returns a per-object index given a loop index.
@@ -209,19 +171,8 @@ int GetPerObjectLightIndex(uint index)
 // Currently all non-mobile platforms take this path :(                                     /
 // There are limitation in mobile GPUs to use SSBO (performance / no vertex shader support) /
 /////////////////////////////////////////////////////////////////////////////////////////////
-#if USE_STRUCTURED_BUFFER_FOR_LIGHT_DATA
-    uint offset = uint(unity_LightData.x);
-    return _AdditionalLightsIndices[offset + index];
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-// UBO path                                                                                 /
-//                                                                                          /
-// We store 8 light indices in half4 unity_LightIndices[2];                                 /
-// Due to memory alignment unity doesn't support int[] or float[]                           /
-// Even trying to reinterpret cast the unity_LightIndices to float[] won't work             /
-// it will cast to float4[] and create extra register pressure. :(                          /
-/////////////////////////////////////////////////////////////////////////////////////////////
-#elif !defined(SHADER_API_GLES)
+#if !defined(SHADER_API_GLES)
     // since index is uint shader compiler will implement
     // div & mod as bitfield ops (shift and mask).
 
@@ -251,35 +202,19 @@ int GetPerObjectLightIndex(uint index)
 // index to a perObjectLightIndex
 Light GetAdditionalLight(uint i, float3 positionWS)
 {
-#if USE_FORWARD_PLUS
-    int lightIndex = i;
-#else
     int lightIndex = GetPerObjectLightIndex(i);
-#endif
     return GetAdditionalPerObjectLight(lightIndex, positionWS);
 }
 
 Light GetAdditionalLight(uint i, float3 positionWS, half4 shadowMask, float3 offset, float3 color)
 {
-#if USE_FORWARD_PLUS
-    int lightIndex = i;
-#else
     int lightIndex = GetPerObjectLightIndex(i);
-#endif
     Light light = GetAdditionalPerObjectLight(lightIndex, positionWS);
 
-#if USE_STRUCTURED_BUFFER_FOR_LIGHT_DATA
-    half4 occlusionProbeChannels = _AdditionalLightsBuffer[lightIndex].occlusionProbeChannels;
-#else
     half4 occlusionProbeChannels = _AdditionalLightsOcclusionProbes[lightIndex];
-#endif
     half4 shadow = AdditionalLightShadow(lightIndex, positionWS, light.direction, shadowMask, occlusionProbeChannels, offset, color);
     light.shadowAttenuation = shadow.a;
     light.color *=shadow.rgb*shadow.a;
-#if defined(_LIGHT_COOKIES)
-    real3 cookieColor = SampleAdditionalLightCookie(lightIndex, positionWS);
-    light.color *= cookieColor;
-#endif
 
     return light;
 }
@@ -287,39 +222,22 @@ Light GetAdditionalLight(uint i, float3 positionWS, half4 shadowMask, float3 off
 Light GetAdditionalLight(uint i, InputData InputData, half4 shadowMask, AmbientOcclusionFactor aoFactor, float3 offset, float3 color)
 {
     Light light = GetAdditionalLight(i, InputData.positionWS, shadowMask, offset, color);
-    #if defined(_SCREEN_SPACE_OCCLUSION) && !defined(_SURFACE_TYPE_TRANSPARENT)
-    if (IsLightingFeatureEnabled(DEBUGLIGHTINGFEATUREFLAGS_AMBIENT_OCCLUSION))
-    {
-        light.color *= aoFactor.directAmbientOcclusion;
-    }
-    #endif
+    
 
     return light;
 }
 
 int GetAdditionalLightsCount()
 {
-#if USE_FORWARD_PLUS
-    // Counting the number of lights in clustered requires traversing the bit list, and is not needed up front.
-    return 0;
-#else
     // TODO: we need to expose in SRP api an ability for the pipeline cap the amount of lights
     // in the culling. This way we could do the loop branch with an uniform
     // This would be helpful to support baking exceeding lights in SH as well
     return int(min(_AdditionalLightsCount.x, unity_LightData.y));
-#endif
 }
 
 half4 CalculateShadowMask(InputData InputData)
 {
-    // To ensure backward compatibility we have to avoid using shadowMask input, as it is not present in older shaders
-    #if defined(SHADOWS_SHADOWMASK) && defined(LIGHTMAP_ON)
-    half4 shadowMask = InputData.shadowMask;
-    #elif !defined (LIGHTMAP_ON)
-    half4 shadowMask = unity_ProbesOcclusion;
-    #else
     half4 shadowMask = half4(1, 1, 1, 1);
-    #endif
 
     return shadowMask;
 }
