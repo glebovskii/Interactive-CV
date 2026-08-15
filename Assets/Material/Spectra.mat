@@ -11,11 +11,11 @@ Material:
   m_Shader: {fileID: 4800000, guid: e5ce86458f9d01a4aafea186db86dc98, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - _ENVIRONMENTREFLECTIONS_OFF
   - _NORMALMAP
   - _SPECULARHIGHLIGHTS_OFF
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -122,7 +122,7 @@ Material:
     - _Color: {r: 0.735849, g: 0.62136954, b: 0.50398713, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShadowColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowOffset: {r: 0.0531, g: -0.1, b: -0.0485, a: 0}
+    - _ShadowOffset: {r: -0.0016, g: -0.0685, b: 0.0879, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

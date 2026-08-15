@@ -918,6 +918,7 @@ GameObject:
   - component: {fileID: 278989686}
   - component: {fileID: 278989688}
   - component: {fileID: 7000000000000000100}
+  - component: {fileID: 2087761446}
   m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
@@ -1795,6 +1796,7 @@ GameObject:
   - component: {fileID: 391730049}
   - component: {fileID: 391730051}
   - component: {fileID: 7000000000000000101}
+  - component: {fileID: 1224423827}
   m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
@@ -2518,6 +2520,7 @@ GameObject:
   - component: {fileID: 425784712}
   - component: {fileID: 425784711}
   - component: {fileID: 7000000000000000102}
+  - component: {fileID: 455504226}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2740,6 +2743,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &455504226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425784709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 1638413500}
+  panelRenderer: {fileID: 425784712}
 --- !u!1 &521334432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,6 +2851,7 @@ GameObject:
   - component: {fileID: 550841723}
   - component: {fileID: 550841722}
   - component: {fileID: 7000000000000000103}
+  - component: {fileID: 552761725}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2943,6 +2961,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1923357289}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &552761725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550841721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 1923357285}
+  panelRenderer: {fileID: 550841723}
 --- !u!1 &579896431
 GameObject:
   m_ObjectHideFlags: 0
@@ -3332,6 +3364,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!114 &596287579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122056428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 801879758}
+  panelRenderer: {fileID: 1122056431}
 --- !u!1001 &599898746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3816,6 +3862,7 @@ GameObject:
   - component: {fileID: 661422125}
   - component: {fileID: 661422124}
   - component: {fileID: 7000000000000000104}
+  - component: {fileID: 1222408149}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -4111,6 +4158,20 @@ Transform:
   - {fileID: 629501040}
   m_Father: {fileID: 795161491}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &715202806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024535168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 1228663836}
+  panelRenderer: {fileID: 1024535171}
 --- !u!1 &716932911
 GameObject:
   m_ObjectHideFlags: 0
@@ -4917,7 +4978,7 @@ Light:
   serializedVersion: 13
   m_Type: 0
   m_Color: {r: 0.7433963, g: 0.69430405, b: 0.69430405, a: 1}
-  m_Intensity: 1293.9
+  m_Intensity: 477
   m_Range: 17.441067
   m_SpotAngle: 80.6229
   m_InnerSpotAngle: 63.434788
@@ -5072,6 +5133,7 @@ GameObject:
   - component: {fileID: 869562746}
   - component: {fileID: 869562745}
   - component: {fileID: 7000000000000000105}
+  - component: {fileID: 1624875725}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -6018,6 +6080,7 @@ GameObject:
   - component: {fileID: 1009674231}
   - component: {fileID: 1009674232}
   - component: {fileID: 7000000000000000106}
+  - component: {fileID: 1823825447}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -6152,6 +6215,7 @@ GameObject:
   - component: {fileID: 1024535169}
   - component: {fileID: 1024535171}
   - component: {fileID: 7000000000000000107}
+  - component: {fileID: 715202806}
   m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
@@ -6414,6 +6478,7 @@ GameObject:
   - component: {fileID: 1122056429}
   - component: {fileID: 1122056431}
   - component: {fileID: 7000000000000000108}
+  - component: {fileID: 596287579}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -6684,6 +6749,34 @@ MonoBehaviour:
   - {fileID: 1746892336}
   - {fileID: 2046787306}
   - {fileID: 1390701639}
+--- !u!114 &1222408149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661422123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 1588692331}
+  panelRenderer: {fileID: 661422125}
+--- !u!114 &1224423827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391730048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 1070333131}
+  panelRenderer: {fileID: 391730051}
 --- !u!1 &1228663834
 GameObject:
   m_ObjectHideFlags: 0
@@ -6988,7 +7081,7 @@ PanelRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   serializedVersion: 1
   m_PanelSettings: {fileID: 11400000, guid: 05e1f962536b6014db1e810c5f827c79, type: 2}
@@ -7804,6 +7897,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9368ae9fb5b354eb168fe9d429fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputBlocker
+--- !u!114 &1397950010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799488324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 1145106349}
+  panelRenderer: {fileID: 1799488326}
 --- !u!1 &1438933828
 GameObject:
   m_ObjectHideFlags: 0
@@ -8262,6 +8369,9 @@ MonoBehaviour:
   analyticsValue: Spectra
   addToCameraTarget: 0
   light: {fileID: 800211637}
+  room: {fileID: 2122433243}
+  basicMaterial: {fileID: 2100000, guid: aeab084039e273f4b8685d47cc056e5d, type: 2}
+  spectraMaterial: {fileID: 2100000, guid: 47657f230c2a42143b7d6af333ee1d72, type: 2}
 --- !u!1 &1561048767
 GameObject:
   m_ObjectHideFlags: 0
@@ -8748,6 +8858,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604532998}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1624875725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869562744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 1459457540}
+  panelRenderer: {fileID: 869562746}
 --- !u!1 &1629050175
 GameObject:
   m_ObjectHideFlags: 0
@@ -9995,6 +10119,7 @@ GameObject:
   - component: {fileID: 1799488326}
   - component: {fileID: 1799488325}
   - component: {fileID: 7000000000000000109}
+  - component: {fileID: 1397950010}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -10115,6 +10240,7 @@ GameObject:
   - component: {fileID: 1805364118}
   - component: {fileID: 1805364120}
   - component: {fileID: 7000000000000000110}
+  - component: {fileID: 7000000000000000115}
   m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
@@ -10195,6 +10321,20 @@ PanelRenderer:
   m_PivotReferenceSize: 1
   m_Pivot: 0
   m_Position: 0
+--- !u!114 &1823825447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009674227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 685371840}
+  panelRenderer: {fileID: 1009674231}
 --- !u!1 &1840424693
 GameObject:
   m_ObjectHideFlags: 0
@@ -11016,6 +11156,7 @@ GameObject:
   - component: {fileID: 1980762389}
   - component: {fileID: 1980762390}
   - component: {fileID: 7000000000000000111}
+  - component: {fileID: 7000000000000000114}
   m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
@@ -11108,6 +11249,7 @@ GameObject:
   - component: {fileID: 1997053116}
   - component: {fileID: 1997053115}
   - component: {fileID: 7000000000000000112}
+  - component: {fileID: 7000000000000000117}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -11281,6 +11423,7 @@ GameObject:
   - component: {fileID: 2007872267}
   - component: {fileID: 2007872269}
   - component: {fileID: 7000000000000000113}
+  - component: {fileID: 7000000000000000116}
   m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
@@ -12067,6 +12210,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2087761446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278989685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 399372385}
+  panelRenderer: {fileID: 278989688}
 --- !u!1 &2090778671
 GameObject:
   m_ObjectHideFlags: 0
@@ -17108,7 +17265,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 47657f230c2a42143b7d6af333ee1d72, type: 2}
+  - {fileID: 2100000, guid: aeab084039e273f4b8685d47cc056e5d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22390,6 +22547,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraBillboard
   targetCamera: {fileID: 330585545}
+--- !u!114 &7000000000000000114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980762388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 1670193646}
+  panelRenderer: {fileID: 1980762390}
+--- !u!114 &7000000000000000115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805364117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 1770505040}
+  panelRenderer: {fileID: 1805364120}
+--- !u!114 &7000000000000000116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007872266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 2036768242}
+  panelRenderer: {fileID: 2007872269}
+--- !u!114 &7000000000000000117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997053114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f12ac4fbbac4040bb53c3eb342745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconRevealeBehaviour
+  playerTrigger: {fileID: 900479620}
+  panelRenderer: {fileID: 1997053116}
 --- !u!1 &8401096465017697226
 GameObject:
   m_ObjectHideFlags: 0

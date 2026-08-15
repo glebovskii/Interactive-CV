@@ -72,7 +72,7 @@ MonoBehaviour:
   injectionPoint: 550
   fetchColorBuffer: 1
   requirements: 1
-  passMaterial: {fileID: 2100000, guid: 45e0e44db0d425a4580fcef9581f34a9, type: 2}
+  passMaterial: {fileID: 2100000, guid: c73cb90539cd73e459dc9c790a5fe9e8, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0
   m_Version: 1
@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Prymara.URP::Prymara.HistoryFetcherFeature
   m_Active: 1
   settings:
-    material: {fileID: 2100000, guid: 45e0e44db0d425a4580fcef9581f34a9, type: 2}
+    material: {fileID: 2100000, guid: c73cb90539cd73e459dc9c790a5fe9e8, type: 2}

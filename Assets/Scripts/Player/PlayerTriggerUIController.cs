@@ -82,7 +82,7 @@ public class PlayerTriggerUIController : MonoBehaviour
         sequence.Insert(0f, DOTween.To(
                     () => triggerMat.GetFloat(CutoffId),
                     value => triggerMat.SetFloat(CutoffId, value),
-                    0f,
+                    0.112f,
                     totalTime)
                 .SetEase(Ease.Linear));
 
@@ -102,7 +102,7 @@ public class PlayerTriggerUIController : MonoBehaviour
 
         triggerMat.EnableKeyword("_EMISSION");
 
-        triggerMat.SetFloat(CutoffId, 0f);
+        triggerMat.SetFloat(CutoffId, 0.12f);
         SetEmissionExposure(1f);
 
         sequence = DOTween.Sequence().SetTarget(this);
