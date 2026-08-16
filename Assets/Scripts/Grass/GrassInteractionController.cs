@@ -82,6 +82,7 @@ public sealed class GrassInteractionController : MonoBehaviour
         drawMaterial.SetFloat(BrushFalloffID, brushFalloff);
     }
 
+
     private void DrawAtWorldPosition(Vector3 worldPosition)
     {
         if (!initialized)

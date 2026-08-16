@@ -1,4 +1,5 @@
 using Fusion;
+using System;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -28,6 +29,9 @@ public class PlayerView : NetworkBehaviour
     public PlayerDissolveController DissolveController => dissolveController;
 
     [Networked] public Color Color { get; private set; }
+
+    
+
     [Networked] public string Name { get; private set; }
 
     private PlayerCameraController playerCameraController;
@@ -40,6 +44,8 @@ public class PlayerView : NetworkBehaviour
 
 
     private int SpeedId = Animator.StringToHash("Speed");
+    private readonly int colorId = Shader.PropertyToID("_BaseColor");
+
 
     public CinemachineCamera Camera => playerCameraController.CinemachineCamera;
 
@@ -65,7 +71,8 @@ public class PlayerView : NetworkBehaviour
             playerTrigger.TriggerExit += OnTriggerExitPlayer;
         }
 
-        renderer.material.color = Color;
+        cachedMaterial.SetColor(colorId, Color);
+        //cachedMaterial.color = Color;
         InitPlayerCameraController();
         InitPlayerUI();
         playerUI.SetVisible(IsLocalPlayer);

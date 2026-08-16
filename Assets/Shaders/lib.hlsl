@@ -100,10 +100,51 @@ float snoise(float3 v)
     return 42.0 * dot(m, px);
 }
 
-void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten, float shellLength, float curvature, float3 shellDirection, float displacementStrength, float3 pos,
-    float time, float3 windDirection, float windStrength, float windFrequency, float windHeightAttenuation, float turbulenceStrength, in float3 id, out float3 displacement)
+bool IsOutsideFrustum(float4 clipPos, float margin)
 {
+    if (clipPos.w <= 0.0)
+        return true;
+
+    float2 ndc = clipPos.xy / clipPos.w;
+
+    return abs(ndc.x) > 1.0 + margin ||
+           abs(ndc.y) > 1.0 + margin;
+}
+
+bool IsOutOfBounds(float3 p, float3 lower, float3 higher)
+{
+    return p.x < lower.x || p.x > higher.x || p.y < lower.y || p.y > higher.y || p.z < lower.z || p.z >
+        higher.z;
+}
+
+bool IsPointOutOfFrustum(half4 positionCS, float _Tolerance)
+{
+    half3 culling = positionCS.xyz;
+    half w = positionCS.w;
+    // UNITY_RAW_FAR_CLIP_VALUE is either 0 or 1, depending on graphics API
+    // Most use 0, however OpenGL uses 1
+    half3 lowerBounds = half3(-w - _Tolerance, -w - _Tolerance, -w * _ProjectionParams.w - _Tolerance);
+    half3 higherBounds = half3(w + _Tolerance, w + _Tolerance, w + _Tolerance);
+    return IsOutOfBounds(culling, lowerBounds, higherBounds);
+}
+
+
+void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten, float shellLength, float curvature, float3 shellDirection, float displacementStrength, float3 pos,
+    float time, float3 windDirection, float windStrength, float windFrequency, float windHeightAttenuation, float turbulenceStrength, in float3 id, in float4 hClip, inout bool isOutside, in float margin, bool isFar, out float3 displacement)
+{
+    isOutside = IsPointOutOfFrustum(hClip, margin);
+    if (isOutside)
+        return;
+    float rawShellHeight = saturate(shellIndex / max(shellCount, 1.0)); //* (1 - isOutside);
+    float shellHeight = pow(rawShellHeight, max(atten, 0.001));
+    float shellCurve = pow(shellHeight, max(curvature, 0.001));
+
+    displacement = pos;
+    displacement += normal * shellLength * shellHeight;
     
+    if(isFar)
+        return;
+
     float xPeriod = 0.05f; // Repetition of lines in x direction
     float yPeriod = 0.1f; // Repitition of lines in y direction
     float turbSize = 2.0f;
@@ -111,21 +152,16 @@ void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten
     float xyValue = id.x * xPeriod + id.y * yPeriod + turbulenceStrength * snoise(id * turbSize);
     float sineValue = (sin((xyValue + time) * windFrequency) + 1.5f) * windStrength;
 
-    float rawShellHeight = saturate(shellIndex / max(shellCount, 1.0));
-    float shellHeight = pow(rawShellHeight, max(atten, 0.001));
-    float shellCurve = pow(shellHeight, max(curvature, 0.001));
-
-    displacement = pos;
-    displacement += normal * shellLength * shellHeight;
-    
     float windHeight = pow(rawShellHeight, max(windHeightAttenuation, 0.001));
 
     displacement += windDirection * sineValue * windHeight;
 }
 
 
-void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, in float characterPlace, in float maxCutAmount, in float groundMask, out float4 color)
+void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, in float characterPlace, in float maxCutAmount, in float groundMask, in bool isOutside, out float4 color)
 {
+    if(isOutside)
+        discard;
 				// As explained in the video, this multiplies the uv coordinates to create more strands because it generates more seeds
     float2 newUV = uv * density;
 

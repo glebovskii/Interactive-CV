@@ -48,7 +48,7 @@ public class PlayerDissolveController : NetworkBehaviour
     public override void Spawned()
     {
         dissolveMat = new Material(dissolveShader);
-        dissolveMat.SetColor(baseColorId, GetComponent<PlayerView>().Renderer.material.color);
+        dissolveMat.SetColor(baseColorId, GetComponent<PlayerView>().Renderer.material.GetColor(baseColorId));
         dissolveMat.SetColor(EmissionProp, dissolveColor);
         if (HasStateAuthority)
         {

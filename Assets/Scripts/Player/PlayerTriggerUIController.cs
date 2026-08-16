@@ -72,7 +72,7 @@ public class PlayerTriggerUIController : MonoBehaviour
         float emissionDelay = totalTime * 0.5f;
         float emissionDuration = totalTime - emissionDelay;
 
-        triggerMat.EnableKeyword("_EMISSION");
+        //triggerMat.EnableKeyword("_EMISSION");
 
         triggerMat.SetFloat(CutoffId, 1f);
         SetEmissionExposure(-10f);
@@ -100,7 +100,7 @@ public class PlayerTriggerUIController : MonoBehaviour
         float alphaDelay = totalTime * 0.5f;
         float alphaDuration = totalTime - alphaDelay;
 
-        triggerMat.EnableKeyword("_EMISSION");
+        //triggerMat.EnableKeyword("_EMISSION");
 
         triggerMat.SetFloat(CutoffId, 0.12f);
         SetEmissionExposure(1f);

@@ -61,6 +61,7 @@ Material:
     - _Distance: 1.94
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _FrustumMargin: 1.51
     - _Height: 0
     - _NoiseMax: 1
     - _NoiseMin: 0
@@ -83,6 +84,7 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
+    - _isOutsideOfFrustum: 0
     m_Colors:
     - _BaseColor: {r: 0.9009348, g: 1, b: 0.19999996, a: 1}
     - _HighColor: {r: 0, g: 1, b: 0.082730114, a: 1}

@@ -30,10 +30,14 @@ public class SimpleShell : MonoBehaviour
     private static readonly int WindHeightAttenuationProp = Shader.PropertyToID("_WindHeightAttenuation");
     private static readonly int TurbulenceStrengthProp = Shader.PropertyToID("_TurbulenceStrength");
     private static readonly int MaskProp = Shader.PropertyToID("_Mask");
+    private static readonly int marginProp = Shader.PropertyToID("_FrustumMargin");
+    private static readonly int cameraDistanceThresholdProp = Shader.PropertyToID("_CameraDistanceThreshold");
 
     public bool updateStatics = true;
 
     public int scale = 1600;
+    public float margin = 1;
+    public float cameraDistanceThreshold = 1;
 
     [Range(1, 256)]
     public int shellCount = 16;
@@ -151,6 +155,9 @@ public class SimpleShell : MonoBehaviour
         runtimeMaterial.SetColor(ShellColorProp, shellColor);
         runtimeMaterial.SetColor(BaseColorProp, baseColor);
         runtimeMaterial.SetFloat(ScaleProp, scale);
+
+        runtimeMaterial.SetFloat(marginProp, margin);
+        runtimeMaterial.SetFloat(cameraDistanceThresholdProp, cameraDistanceThreshold);
 
         runtimeMaterial.SetVector(WindDirectionProp, windDirection);
         runtimeMaterial.SetFloat(WindStrengthProp, windStrength);

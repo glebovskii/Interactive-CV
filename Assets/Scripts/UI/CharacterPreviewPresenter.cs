@@ -6,6 +6,7 @@ public sealed class CharacterPreviewPresenter : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private readonly int triggerId = Animator.StringToHash("ColorChange");
+    private readonly int colorId = Shader.PropertyToID("_BaseColor");
 
     private Material material;
     private ColorPickerController colorPickerController;
@@ -13,7 +14,7 @@ public sealed class CharacterPreviewPresenter : MonoBehaviour
     public void Init()
     {
         material = mesh.sharedMaterial;
-        material.color = PlayerInfoSave.GetColor();
+        material.SetColor(colorId, PlayerInfoSave.GetColor());
 
         if (ServiceLocator.TryGet(out colorPickerController))
         {
@@ -33,7 +34,7 @@ public sealed class CharacterPreviewPresenter : MonoBehaviour
         }
 
         animator.SetTrigger(triggerId);
-        PlayerInfoSave.SaveColor(material.color);
+        PlayerInfoSave.SaveColor(material.GetColor(colorId));
     }
 
     private void OnColorChanged(Color color)
@@ -44,7 +45,8 @@ public sealed class CharacterPreviewPresenter : MonoBehaviour
             return;
         }
 
-        material.color = color;
+        //material.color = color;
+        material.SetColor(colorId, color);
     }
 
     private void OnDestroy()

@@ -16,11 +16,11 @@ GameObject:
   - component: {fileID: 7826994490954851516}
   - component: {fileID: 4936536806661504634}
   - component: {fileID: 7511645092575362281}
-  - component: {fileID: 7212550310696207308}
   - component: {fileID: 8333996507032165700}
   - component: {fileID: 8244001945155035591}
   - component: {fileID: 5335421626971615330}
   - component: {fileID: 5621686937078193238}
+  - component: {fileID: 2365839873146056567}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -93,9 +93,9 @@ MonoBehaviour:
   - {fileID: 8508008017542183307}
   - {fileID: 4936536806661504634}
   - {fileID: 7511645092575362281}
-  - {fileID: 7212550310696207308}
   - {fileID: 8244001945155035591}
   - {fileID: 5335421626971615330}
+  - {fileID: 2365839873146056567}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &8508008017542183307
 MonoBehaviour:
@@ -200,31 +200,13 @@ MonoBehaviour:
   cameraTarget: {fileID: 3786555910457558082}
   renderer: {fileID: 2552364403198309420}
   playerTrigger: {fileID: 3385221223788103399}
-  dissolveController: {fileID: 7212550310696207308}
+  dissolveController: {fileID: 2365839873146056567}
   memberWeight: 1
   memberRadius: 1
   hud: {fileID: 4541339684831323774}
   playerArrow: {fileID: 2979041120619860758}
   _Color: {r: 0, g: 0, b: 0, a: 0}
   _Name: 
---- !u!114 &7212550310696207308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383688313207201357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f16f2e3636ea1b3489934c2885bf6539, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDissolveController
-  dissolveShader: {fileID: -6465566751694194690, guid: a12058d26497cd24ca733c1288949574, type: 3}
-  _Dissolve: -0.095
-  _EdgeWidth: 0.05
-  _Axis: 0
-  _Direction: 0
-  dissolveColor: {r: 9.082411, g: 0.4626881, b: 7.7062135, a: 0}
 --- !u!54 &8333996507032165700
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -381,6 +363,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2365839873146056567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383688313207201357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16f2e3636ea1b3489934c2885bf6539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDissolveController
+  dissolveShader: {fileID: -6465566751694194690, guid: a12058d26497cd24ca733c1288949574, type: 3}
+  _Dissolve: -0.09
+  _EdgeWidth: 0.05
+  _Axis: 0
+  _Direction: 0
+  dissolveColor: {r: 137.187, g: 0, b: 96.31743, a: 0}
 --- !u!1 &3728992260341715850
 GameObject:
   m_ObjectHideFlags: 0
