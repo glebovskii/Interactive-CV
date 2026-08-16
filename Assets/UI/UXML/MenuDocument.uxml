@@ -4,21 +4,21 @@
         <ui:VisualElement name="menu-content" style="flex-grow: 1; flex-direction: row; padding-left: 36px; padding-right: 36px; padding-top: 28px; padding-bottom: 28px; justify-content: flex-end; align-items: stretch; flex-wrap: nowrap; align-self: auto; align-content: auto;">
             <ui:VisualElement style="width: 55%; max-width: none; height: 100%; flex-direction: column; justify-content: space-between; flex-grow: 1;">
                 <ui:VisualElement style="background-color: rgba(18, 24, 38, 0.58); border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-left-radius: 18px; border-bottom-right-radius: 18px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgba(255, 255, 255, 0.14); border-right-color: rgba(255, 255, 255, 0.14); border-top-color: rgba(255, 255, 255, 0.14); border-bottom-color: rgba(255, 255, 255, 0.14); padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px; flex-grow: 1;">
-                    <ui:VisualElement style="background-color: rgba(255, 255, 255, 0.06); border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding-left: 14px; padding-right: 14px; padding-top: 14px; padding-bottom: 14px; margin-bottom: 14px; height: 25%; flex-direction: row; flex-wrap: nowrap; flex-grow: 1;">
+                    <ui:VisualElement name="VisualElement" style="background-color: rgba(255, 255, 255, 0.06); border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px; margin-bottom: 1px; height: 35%; flex-direction: row; flex-wrap: nowrap; flex-grow: 1;">
                         <ui:Label text="Player Name" style="font-size: 33px; -unity-font-style: bold; color: rgba(255, 255, 255, 0.78); margin-bottom: 6px; -unity-text-align: middle-left; -unity-text-generator: standard;">
                             <Bindings>
                                 <UnityEngine.Localization.LocalizedString property="text" table="GUID:238899406e9c1ee4aa920157fdbc1779" entry="Id(4304494057992192)"/>
                             </Bindings>
                         </ui:Label>
-                        <ui:TextField label="" placeholder-text="Enter your name" enabled="true" hide-placeholder-on-focus="false" readonly="false" is-delayed="true" hide-mobile-input="false" multiline="false" name="player-name" style="margin-bottom: 0; flex-grow: 1; font-size: 34px;"/>
+                        <ui:TextField label="" placeholder-text="Enter your name" enabled="true" hide-placeholder-on-focus="false" readonly="false" is-delayed="true" hide-mobile-input="false" multiline="false" name="player-name" style="margin-bottom: 0; flex-grow: 1; font-size: 34px; height: 100%;"/>
                     </ui:VisualElement>
-                    <ui:VisualElement style="background-color: rgba(255, 255, 255, 0.06); border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding-left: 14px; padding-right: 14px; padding-top: 14px; padding-bottom: 14px; margin-bottom: 14px; height: 25%; flex-direction: row; flex-grow: 1;">
+                    <ui:VisualElement style="background-color: rgba(255, 255, 255, 0.06); border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 14px; height: 35%; flex-direction: row; flex-grow: 1;">
                         <ui:Label text="Language" style="font-size: 34px; -unity-font-style: bold; color: rgba(255, 255, 255, 0.78); margin-bottom: 6px; -unity-text-align: middle-left;">
                             <Bindings>
                                 <UnityEngine.Localization.LocalizedString property="text" table="GUID:238899406e9c1ee4aa920157fdbc1779" entry="Id(4304659858829312)"/>
                             </Bindings>
                         </ui:Label>
-                        <ui:DropdownField label="" name="DropdownField" style="flex-grow: 1; font-size: 48px;"/>
+                        <ui:DropdownField label="" name="DropdownField" style="flex-grow: 1; font-size: 48px; height: 100%;"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="color-picker" style="flex-grow: 1; background-color: rgba(255, 255, 255, 0.06); border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding-left: 14px; padding-right: 14px; padding-top: 14px; padding-bottom: 14px; min-height: 50%;">
                         <ui:VisualElement name="" style="flex-grow: 1; flex-direction: row; height: 35%; align-self: flex-start; justify-content: flex-start; align-items: flex-start;">
@@ -39,7 +39,7 @@
                     </Bindings>
                 </ui:Button>
             </ui:VisualElement>
-            <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; min-width: 240px; width: 45%;"/>
+            <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; min-width: 240px; width: 45%; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px;"/>
         </ui:VisualElement>
         <ui:VisualElement name="finding-room-overlay" focusable="true" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: none; justify-content: center; align-items: center; background-color: rgba(5, 8, 15, 0.78);">
             <ui:VisualElement style="width: 430px; min-height: 250px; justify-content: center; align-items: center; background-color: rgba(18, 24, 38, 0.96); border-top-left-radius: 24px; border-top-right-radius: 24px; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-top-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); padding-left: 32px; padding-right: 32px; padding-top: 30px; padding-bottom: 30px;">

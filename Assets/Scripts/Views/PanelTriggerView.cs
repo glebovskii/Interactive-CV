@@ -27,6 +27,9 @@ public class PanelTriggerView : PlayerTriggerBehaviour
             view.AddTarget(CameraTarget);
         panel.Show(view.Camera);
         AfterPanelShow(view);
+
+        if (disablePlayerHUDOnEnter)
+            view.SetHUDEnabled(false);
     }
 
     protected override void OnLocalPlayerExit(PlayerView view)
@@ -36,6 +39,7 @@ public class PanelTriggerView : PlayerTriggerBehaviour
             view.RemoveTarget(CameraTarget);
         panel.Hide();
         AfterPanelHide(view);
+        view.SetHUDEnabled(true);
     }
 
     protected virtual void BeforePanelShow(PlayerView view) { }

@@ -2041,6 +2041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 399372385}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 1438933829}
   cameraTarget: {fileID: 1438933832}
   analyticsValue: Langguages
@@ -3504,7 +3505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &627695246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3512,7 +3513,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627695245}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20f3def172cccf547a93175048d73eb9, type: 3}
   m_Name: 
@@ -4004,6 +4005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 685371840}
+  disablePlayerHUDOnEnter: 0
   totalTime: 0.7
   linkPrompt: {fileID: 1009674232}
   timeBetweenSoundPlay: 0.2
@@ -4246,7 +4248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &718189454
 Transform:
   m_ObjectHideFlags: 0
@@ -4269,7 +4271,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718189450}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03525fff6b75523488647c822660cea3, type: 3}
   m_Name: 
@@ -4283,7 +4285,7 @@ MonoBehaviour:
   updateStatics: 0
   scale: 2166
   margin: 20
-  cameraDistanceThreshold: 15
+  cameraDistanceThreshold: 25
   shellCount: 117
   shellLength: 0.061
   distanceAttenuation: 1
@@ -4311,7 +4313,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718189450}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 941c430340892fb418950bac1024e1e9, type: 3}
   m_Name: 
@@ -4835,6 +4837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectBuildingView
   playerTrigger: {fileID: 715001830}
+  disablePlayerHUDOnEnter: 1
   panel: {fileID: 595208949}
   openProjectBtnPanel: {fileID: 49618671}
   analyticsValue: optor
@@ -5072,6 +5075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 801879758}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 411318145}
   cameraTarget: {fileID: 411318148}
   analyticsValue: Grass
@@ -5619,6 +5623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 900479620}
+  disablePlayerHUDOnEnter: 0
   totalTime: 0.7
   linkPrompt: {fileID: 1997053115}
   timeBetweenSoundPlay: 0.2
@@ -5695,6 +5700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 904769993}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 579896437}
   cameraTarget: {fileID: 0}
   analyticsValue: Info
@@ -5896,7 +5902,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 0
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 200
   m_SplatMapDistance: 20
@@ -6335,6 +6341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1070333131}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 1381117700}
   cameraTarget: {fileID: 1381117703}
   analyticsValue: Education
@@ -6572,6 +6579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1145106349}
+  disablePlayerHUDOnEnter: 0
   totalTime: 0.7
   linkPrompt: {fileID: 1799488325}
   timeBetweenSoundPlay: 0.2
@@ -6816,6 +6824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1228663836}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 1724062128}
   cameraTarget: {fileID: 1724062131}
   analyticsValue: Info
@@ -7580,6 +7589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectBuildingView
   playerTrigger: {fileID: 2027749734}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 739124883}
   openProjectBtnPanel: {fileID: 599898748}
   analyticsValue: last_pirate
@@ -8076,6 +8086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1459457540}
+  disablePlayerHUDOnEnter: 0
   totalTime: 0.7
   linkPrompt: {fileID: 869562745}
   timeBetweenSoundPlay: 0.2
@@ -8325,6 +8336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1332321823}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 1396108779}
   cameraTarget: {fileID: 0}
   analyticsValue: Spectra
@@ -8582,6 +8594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1588692331}
+  disablePlayerHUDOnEnter: 0
   totalTime: 0.7
   linkPrompt: {fileID: 661422124}
   timeBetweenSoundPlay: 0.2
@@ -8908,6 +8921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1638413500}
+  disablePlayerHUDOnEnter: 0
   totalTime: 0.7
   linkPrompt: {fileID: 425784711}
   timeBetweenSoundPlay: 0.2
@@ -9034,6 +9048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1670193646}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 1871293806}
   cameraTarget: {fileID: 1871293804}
   analyticsValue: Accomplishments
@@ -9313,6 +9328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectBuildingView
   playerTrigger: {fileID: 359426621}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 1488326344}
   openProjectBtnPanel: {fileID: 6633031040955648649}
   analyticsValue: corepunk
@@ -9744,6 +9760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 1770505040}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 660167755}
   cameraTarget: {fileID: 660167758}
   analyticsValue: Profile
@@ -10792,6 +10809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldLinkInteraction
   playerTrigger: {fileID: 1923357285}
+  disablePlayerHUDOnEnter: 0
   totalTime: 0.7
   linkPrompt: {fileID: 550841722}
   timeBetweenSoundPlay: 0.2
@@ -11402,6 +11420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DissolverView
   playerTrigger: {fileID: 1761270988}
+  disablePlayerHUDOnEnter: 1
   panel: {fileID: 1319712758}
   cameraTarget: {fileID: 1319712755}
   analyticsValue: Dissolver
@@ -11780,6 +11799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelTriggerView
   playerTrigger: {fileID: 2036768242}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 280977548}
   cameraTarget: {fileID: 280977551}
   analyticsValue: summary
@@ -27490,6 +27510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrymaraView
   playerTrigger: {fileID: 1777925021}
+  disablePlayerHUDOnEnter: 0
   panel: {fileID: 898442551}
   cameraTarget: {fileID: 898442547}
   analyticsValue: Prymara

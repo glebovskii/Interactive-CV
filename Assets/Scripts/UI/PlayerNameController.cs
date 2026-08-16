@@ -35,6 +35,7 @@ public sealed class PlayerNameController : MonoBehaviour
         }
 
         playerNameField.textEdition.placeholder = PlayerInfoSave.GetName();
+        playerNameField.hideMobileInput = true;
         uiCallbacks.BindChange<string>(playerNameField, PlayerInfoSave.SaveName, sound => sound.PlayLinkLoad());
         AnalyticsService.NameChanged(PlayerInfoSave.GetName());
     }

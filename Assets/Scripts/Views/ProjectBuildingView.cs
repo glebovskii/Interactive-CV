@@ -56,12 +56,16 @@ public sealed class ProjectBuildingView : PlayerTriggerBehaviour
         }
         else
             OpenProject();
+
+        if(disablePlayerHUDOnEnter)
+            view.SetHUDEnabled(false);
     }
 
     protected override void OnLocalPlayerExit(PlayerView view)
     {
         HideAll();
         currentView = null;
+        view.SetHUDEnabled(true);
     }
 
     private void OpenProject()

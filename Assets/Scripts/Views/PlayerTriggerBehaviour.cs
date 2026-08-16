@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class PlayerTriggerBehaviour : MonoBehaviour
 {
     [SerializeField] private PlayerTrigger playerTrigger;
+    [SerializeField] protected bool disablePlayerHUDOnEnter = false;
 
     protected PlayerTrigger PlayerTrigger => playerTrigger;
 

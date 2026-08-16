@@ -156,4 +156,9 @@ public class PlayerView : NetworkBehaviour
         if (HasStateAuthority)
             poiController = new(pois, transform, hud, playerArrow);
     }
+
+    public void SetHUDEnabled(bool isVisible)
+    {
+        hud.gameObject.SetActive(isVisible);
+    }
 }

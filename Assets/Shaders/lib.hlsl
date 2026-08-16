@@ -130,18 +130,18 @@ bool IsPointOutOfFrustum(half4 positionCS, float _Tolerance)
 
 
 void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten, float shellLength, float curvature, float3 shellDirection, float displacementStrength, float3 pos,
-    float time, float3 windDirection, float windStrength, float windFrequency, float windHeightAttenuation, float turbulenceStrength, in float3 id, in float4 hClip, inout bool isOutside, in float margin, bool isFar, out float3 displacement)
+    float time, float3 windDirection, float windStrength, float windFrequency, float windHeightAttenuation, float turbulenceStrength, in float3 id, in float4 hClip, inout bool isOutside, in float margin, in bool isFar, out float3 displacement)
 {
     isOutside = IsPointOutOfFrustum(hClip, margin);
+    displacement = pos;
     if (isOutside)
         return;
+    
     float rawShellHeight = saturate(shellIndex / max(shellCount, 1.0)); //* (1 - isOutside);
     float shellHeight = pow(rawShellHeight, max(atten, 0.001));
     float shellCurve = pow(shellHeight, max(curvature, 0.001));
-
-    displacement = pos;
     displacement += normal * shellLength * shellHeight;
-    
+
     if(isFar)
         return;
 
@@ -158,10 +158,14 @@ void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten
 }
 
 
-void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, in float characterPlace, in float maxCutAmount, in float groundMask, in bool isOutside, out float4 color)
+void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, in float characterPlace, in float maxCutAmount, in float groundMask, in bool isOutside, in bool isFar, out float4 color)
 {
     if(isOutside)
         discard;
+    
+    if(isFar)
+        density = 1;
+    //density *= !isFar;
 				// As explained in the video, this multiplies the uv coordinates to create more strands because it generates more seeds
     float2 newUV = uv * density;
 
