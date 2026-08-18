@@ -37,7 +37,7 @@ public class PlayerFXController : NetworkBehaviour
 
     public void PlayFootstep()
     {
-        audioSource.Play();
+        //audioSource.Play();
     }
 
     private void OnChangeSurface()

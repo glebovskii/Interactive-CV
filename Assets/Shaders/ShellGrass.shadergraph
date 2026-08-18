@@ -1489,6 +1489,20 @@
             },
             "m_InputSlot": {
                 "m_Node": {
+                    "m_Id": "5ec32e752d324eb0911565ea6e98f6cd"
+                },
+                "m_SlotId": 18
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "e1f1aabfd72f4139863860782f41a28a"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
                     "m_Id": "844090465f584701bbadc0e3e2d44d24"
                 },
                 "m_SlotId": 1
@@ -5194,6 +5208,24 @@
 }
 
 {
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "5ebac7eddb55493cacc2a248ad51564d",
+    "m_Id": 18,
+    "m_DisplayName": "noiseRand",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_HideConnector": false,
+    "m_ShaderOutputName": "noiseRand",
+    "m_StageCapability": 3,
+    "m_CustomBinding": "",
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": [],
+    "m_LiteralMode": false
+}
+
+{
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.CustomFunctionNode",
     "m_ObjectId": "5ec32e752d324eb0911565ea6e98f6cd",
@@ -5262,6 +5294,9 @@
         },
         {
             "m_Id": "364c322f0fee42c69e7cd552e1fcd1e2"
+        },
+        {
+            "m_Id": "5ebac7eddb55493cacc2a248ad51564d"
         },
         {
             "m_Id": "2481cdaaf17c4f3eaa21d4cb8d38394d"

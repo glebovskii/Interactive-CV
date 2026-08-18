@@ -52,6 +52,8 @@ public sealed class PlayerMovement : NetworkBehaviour
 
     [Networked] public Vector3 Velocity { get; private set; }
 
+    public float SqrMagnitude => characterController.velocity.normalized.sqrMagnitude;
+
     private int combinedRaycastMask;
 
     public override void Spawned()

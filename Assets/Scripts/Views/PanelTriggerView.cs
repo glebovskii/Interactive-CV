@@ -25,7 +25,7 @@ public class PanelTriggerView : PlayerTriggerBehaviour
 
         if (addToCameraTarget)
             view.AddTarget(CameraTarget);
-        panel.Show(view.Camera);
+        panel.Show(view?.Camera);
         AfterPanelShow(view);
 
         if (disablePlayerHUDOnEnter)

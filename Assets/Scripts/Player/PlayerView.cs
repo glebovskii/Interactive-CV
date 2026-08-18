@@ -1,5 +1,4 @@
 using Fusion;
-using System;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -7,6 +6,7 @@ using UnityEngine;
 public class PlayerView : NetworkBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private NetworkMecanimAnimator mecanimAnimator;
     [SerializeField] private PlayerMovement playerMovement;
 
     [SerializeField] private PlayerCameraController playerCameraControllerPrefab;
@@ -30,7 +30,7 @@ public class PlayerView : NetworkBehaviour
 
     [Networked] public Color Color { get; private set; }
 
-    
+
 
     [Networked] public string Name { get; private set; }
 
@@ -74,8 +74,8 @@ public class PlayerView : NetworkBehaviour
         cachedMaterial.SetColor(colorId, Color);
         //cachedMaterial.color = Color;
         InitPlayerCameraController();
-        InitPlayerUI();
-        playerUI.SetVisible(IsLocalPlayer);
+        //InitPlayerUI();
+        //playerUI.SetVisible(IsLocalPlayer);
     }
 
     private void OnTriggerExitPlayer(PlayerView playerView)
@@ -106,14 +106,20 @@ public class PlayerView : NetworkBehaviour
             playerCameraController.CinemachineTargetGroup.AddMember(cameraTarget, memberWeight, memberRadius);
     }
 
-    private void Update()
+    public override void FixedUpdateNetwork()
     {
-        HandleAnimator();
+        if (IsLocalPlayer)
+            animator.SetFloat(SpeedId, playerMovement.SqrMagnitude, 0.1f, Runner.DeltaTime);
     }
+
+    //public override void Render()
+    //{
+    //    HandleAnimator();
+    //}
 
     private void HandleAnimator()
     {
-        animator.SetFloat(SpeedId, playerMovement.Velocity.sqrMagnitude);
+        animator.SetFloat(SpeedId, playerMovement.SqrMagnitude);
     }
 
     private void OnDestroy()
@@ -130,7 +136,7 @@ public class PlayerView : NetworkBehaviour
         if (!IsLocalPlayer)
             return;
 
-        playerCameraController.CinemachineTargetGroup.AddMember(panel, 3, 1);
+        playerCameraController?.CinemachineTargetGroup?.AddMember(panel, 3, 1);
     }
 
     public void RemoveTarget(Transform panel)

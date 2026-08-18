@@ -28,14 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215545040825367325}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3247917, y: 0.3945481, z: -0.15145284, w: 0.84611124}
-  m_LocalPosition: {x: 11.223334, y: 31.21442, z: 9.417321}
+  m_LocalRotation: {x: 0.23456976, y: 0.40821788, z: -0.10938167, w: 0.8754261}
+  m_LocalPosition: {x: 3247.3752, y: 5130.718, z: 2724.914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 57156185014571202}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 42, y: 50, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 50, z: 0}
 --- !u!114 &5484643458990302499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 35
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -96,7 +96,7 @@ MonoBehaviour:
   Composition:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
-      Enabled: 1
+      Enabled: 0
       Size: {x: 0.8, y: 0.7}
     HardLimits:
       Enabled: 0
@@ -124,11 +124,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineGroupFraming
   FramingMode: 2
   FramingSize: 0.195
-  CenterOffset: {x: 0, y: 0}
+  CenterOffset: {x: 0, y: 0.3}
   Damping: 5
   SizeAdjustment: 2
   LateralAdjustment: 0
-  FovRange: {x: 60, y: 60}
+  FovRange: {x: 35, y: 35}
   DollyRange: {x: -100, y: 100}
   OrthoSizeRange: {x: 1, y: 1000}
 --- !u!114 &-4976653718708573107
@@ -171,7 +171,7 @@ Transform:
   m_GameObject: {fileID: 6469278246495110752}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000004529953, y: 1.0000174, z: 10.000054}
+  m_LocalPosition: {x: -0.00014209747, y: 1.0003335, z: 10.000206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

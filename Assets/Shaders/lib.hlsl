@@ -100,15 +100,26 @@ float snoise(float3 v)
     return 42.0 * dot(m, px);
 }
 
-bool IsOutsideFrustum(float4 clipPos, float margin)
+float hash21(float2 p)
 {
-    if (clipPos.w <= 0.0)
-        return true;
+    float3 p3 = frac(float3(p.x, p.y, p.x) * 0.1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return frac((p3.x + p3.y) * p3.z);
+}
 
-    float2 ndc = clipPos.xy / clipPos.w;
+float cheapNoise(float2 p)
+{
+    float2 i = floor(p);
+    float2 f = frac(p);
 
-    return abs(ndc.x) > 1.0 + margin ||
-           abs(ndc.y) > 1.0 + margin;
+    f = f * f * (3.0 - 2.0 * f);
+
+    float a = hash21(i);
+    float b = hash21(i + float2(1, 0));
+    float c = hash21(i + float2(0, 1));
+    float d = hash21(i + float2(1, 1));
+
+    return lerp(lerp(a, b, f.x), lerp(c, d, f.x), f.y) * 2.0 - 1.0;
 }
 
 bool IsOutOfBounds(float3 p, float3 lower, float3 higher)
@@ -134,12 +145,12 @@ void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten
 {
     isOutside = IsPointOutOfFrustum(hClip, margin);
     displacement = pos;
-    if (isOutside)
-        return;
+    //if (isOutside)
+    //    return;
     
-    float rawShellHeight = saturate(shellIndex / max(shellCount, 1.0)); //* (1 - isOutside);
+    float rawShellHeight = saturate(shellIndex / shellCount);
     float shellHeight = pow(rawShellHeight, max(atten, 0.001));
-    float shellCurve = pow(shellHeight, max(curvature, 0.001));
+    //float shellCurve = pow(shellHeight, max(curvature, 0.001));
     displacement += normal * shellLength * shellHeight;
 
     if(isFar)
@@ -149,20 +160,22 @@ void Vertex_float(float3 normal, float shellIndex, float shellCount, float atten
     float yPeriod = 0.1f; // Repitition of lines in y direction
     float turbSize = 2.0f;
 
+    //float xyValue = id.x * xPeriod + id.y * yPeriod + turbulenceStrength * cheapNoise(id.xz * turbSize); // * snoise(id * turbSize);
     float xyValue = id.x * xPeriod + id.y * yPeriod + turbulenceStrength * snoise(id * turbSize);
     float sineValue = (sin((xyValue + time) * windFrequency) + 1.5f) * windStrength;
 
-    float windHeight = pow(rawShellHeight, max(windHeightAttenuation, 0.001));
+    float windHeight =  pow(rawShellHeight, max(windHeightAttenuation, 0.001));
 
     displacement += windDirection * sineValue * windHeight;
 }
 
 
-void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, in float characterPlace, in float maxCutAmount, in float groundMask, in bool isOutside, in bool isFar, out float4 color)
+void Fragment_float(in float2 uv, in float density, in float shellIndex, in float shellCount, in float noiseMin, in float noiseMax, in float thickness, in float3 lightPos, in float attenuation, in float occlusionBias, in float3 shellColor, in float3 normal, in float characterPlace, in float maxCutAmount, in float groundMask, in bool isOutside, in bool isFar, in float noiseRand, out float4 color)
 {
     if(isOutside)
         discard;
-    
+    if (groundMask <= 0.5f)
+        discard;
     if(isFar)
         density = 1;
     //density *= !isFar;
@@ -186,6 +199,7 @@ void Fragment_float(in float2 uv, in float density, in float shellIndex, in floa
 				// as an interpolator argument between the minimum noise value and the maximum noise value, which controls how short the hair can be
 				// and how long the hair can be. We could just use the hash output itself, but this gives a little bit more control over the appearance
 				// and length of the hair instead of giving all the power to the rng
+    
     float rand = lerp(noiseMin, noiseMax, hash(seed));
 
 				// This is the normalized shell height as described above in the vertex shader
@@ -195,12 +209,11 @@ void Fragment_float(in float2 uv, in float density, in float shellIndex, in floa
 				// and we also modify the thickness and make it thinner as height increases based on the height of the blade occupying this space that way
 				// there aren't like weird hard cutoff tapers, you can try deleting the rand or replacing it with like 1 or something to see how this changes
 				// the appearance of the grass or hair
-    int outsideThickness = (localDistanceFromCenter) > (thickness * (rand - h));// || characterPlace > thickness * h;
+    int outsideThickness = (localDistanceFromCenter) > (thickness * (rand - h)); // || characterPlace > thickness * h;
     float cutStrength = saturate(characterPlace) * maxCutAmount;
     float keepHeight = 1.0 - cutStrength;
     bool cutByInteraction = h > keepHeight && shellIndex > 0;
-	if(groundMask<=0.5f)
-        discard;
+    
 				// This culls the pixel if it is outside the thickness of the strand, it also ensures that the base shell is fully opaque that way there aren't
 				// any real holes in the mesh, although there's certainly better ways to do that
     if (outsideThickness || cutByInteraction)

@@ -51,7 +51,7 @@ public sealed class ProjectBuildingView : PlayerTriggerBehaviour
                 return;
 
             currentView.AddTarget(openProjectButton.transform);
-            openProjectBtnPanel.Show(currentView.Camera);
+            openProjectBtnPanel.Show(currentView?.Camera);
             openProjectButton.Show();
         }
         else
