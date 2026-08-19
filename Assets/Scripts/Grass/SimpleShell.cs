@@ -37,7 +37,8 @@ public class SimpleShell : MonoBehaviour
 
     public int scale = 1600;
     public float margin = 1;
-    public float cameraDistanceThreshold = 1;
+    [Range(0f, 100f)]
+    public float cameraDistanceThreshold = 20f;
 
     [Range(1, 256)]
     public int shellCount = 16;
@@ -122,7 +123,7 @@ public class SimpleShell : MonoBehaviour
         if (updateStatics)
             ApplyProperties();
 
-        Graphics.RenderMeshInstanced( renderParams, shellMesh, 0, shellMatrices, shellCount);
+        Graphics.RenderMeshInstanced(renderParams, shellMesh, 0, shellMatrices, shellCount);
     }
 
     private void RebuildInstances()

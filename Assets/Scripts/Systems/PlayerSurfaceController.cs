@@ -6,6 +6,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Jobs;
+using Allocator = Unity.Collections.Allocator;
 
 public sealed class PlayerSurfaceController : MonoBehaviour
 {
@@ -16,14 +17,10 @@ public sealed class PlayerSurfaceController : MonoBehaviour
     [SerializeField] private float directionLength = 25f;
     [SerializeField] private float directionWidth = 3f;
 
-    private NativeList<float2> sampledUVs;
-    private readonly List<Vector2> previousDebugUVs = new();
-    private readonly List<Vector2> debugDirections = new();
-
     [Tooltip("Black means road/ground. White means grass.")]
     [SerializeField] private Texture2D groundMask;
 
-    [Tooltip("The Quad whose UV space corresponds to the mask.")]
+    [Tooltip("The Terrain whose UV space corresponds to the mask.")]
     [SerializeField] private Terrain maskSurface;
 
     [Header("Terrain Layers")]
@@ -31,21 +28,33 @@ public sealed class PlayerSurfaceController : MonoBehaviour
     [SerializeField, Min(0)] private int groundLayerIndex = 1;
     [SerializeField, Min(0)] private int metalLayerIndex = 2;
 
-    private NativeArray<byte> surfaceMap;
-
     [SerializeField] private bool flipU;
     [SerializeField] private bool flipV;
 
     [Header("Checking")]
-    [Tooltip("0 checks every frame. 0.05-0.1 is normally enough for particles.")]
+    [Tooltip("0 checks every frame. 0.05-0.1 is normally enough for particles and grass interaction.")]
     [SerializeField, Min(0f)] private float checkInterval = 0.05f;
+
+    [Header("Grass Interaction")]
+    [SerializeField, Min(0f)] private float minimumGrassMoveDistance = 0.01f;
+    [SerializeField, Min(0.1f)] private float grassTeleportThreshold = 2f;
 
     private readonly List<PlayerFXController> players = new();
     private readonly List<byte> previousStates = new();
+    private readonly List<Vector2> previousDebugUVs = new();
+    private readonly List<Vector2> debugDirections = new();
+
+    private NativeArray<byte> surfaceMap;
+    private NativeList<byte> sampledStates;
+    private NativeList<float2> sampledUVs;
+    private NativeList<float3> previousPositions;
+    private NativeList<byte> grassDrawResults;
+    private TransformAccessArray playerTransforms;
 
     private PlayerSpawner playerSpawner;
-    private TransformAccessArray playerTransforms;
-    private NativeList<byte> sampledStates;
+    private GrassInteractionController grassInteractionController;
+    private PlayerHUD playerHUD;
+    private int localPlayerIndex = -1;
 
     private JobHandle jobHandle;
     private bool jobScheduled;
@@ -60,21 +69,24 @@ public sealed class PlayerSurfaceController : MonoBehaviour
     private float2 surfaceBoundsMin;
     private float2 surfaceBoundsSize;
 
-    private Texture2D controlMap;
-
-    private PlayerHUD playerHUD;
-
     private void Awake()
     {
         CacheMask();
         CacheSurface();
 
         playerTransforms = new TransformAccessArray(16);
-        sampledStates = new NativeList<byte>(16, Unity.Collections.Allocator.Persistent);
-        sampledUVs = new NativeList<float2>(16, Unity.Collections.Allocator.Persistent);
+        sampledStates = new NativeList<byte>(16, Allocator.Persistent);
+        sampledUVs = new NativeList<float2>(16, Allocator.Persistent);
+        previousPositions = new NativeList<float3>(16, Allocator.Persistent);
+        grassDrawResults = new NativeList<byte>(16, Allocator.Persistent);
 
         playerSpawner = ServiceLocator.Get<PlayerSpawner>();
         playerSpawner.OnPlayerSpawned += OnPlayerSpawned;
+    }
+
+    private void Start()
+    {
+        grassInteractionController = ServiceLocator.Get<GrassInteractionController>();
     }
 
     private void CacheMask()
@@ -83,7 +95,6 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
         maskWidth = data.alphamapWidth;
         maskHeight = data.alphamapHeight;
-        controlMap = data.GetAlphamapTexture(0);
 
         int layerCount = data.alphamapLayers;
 
@@ -95,7 +106,7 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         }
 
         float[,,] alphamaps = data.GetAlphamaps(0, 0, maskWidth, maskHeight);
-        surfaceMap = new NativeArray<byte>(maskWidth * maskHeight, Unity.Collections.Allocator.Persistent, NativeArrayOptions.UninitializedMemory);
+        surfaceMap = new NativeArray<byte>(maskWidth * maskHeight, Allocator.Persistent, NativeArrayOptions.UninitializedMemory);
 
         for (int y = 0; y < maskHeight; y++)
         {
@@ -144,52 +155,19 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         previousDebugUVs.Add(Vector2.zero);
         debugDirections.Add(Vector2.zero);
 
+        Vector3 position = player.transform.position;
+
         playerTransforms.Add(player.transform);
         sampledStates.Add(0);
         sampledUVs.Add(float2.zero);
+        previousPositions.Add(new float3(position.x, position.y, position.z));
+        grassDrawResults.Add(0);
+
         if (player.HasStateAuthority)
-            playerHUD = player.gameObject.GetComponentInChildren<PlayerHUD>();
-    }
-
-    private void OnGUI()
-    {
-        if (!showDebug)
-            return;
-
-        Rect textureRect = new Rect(10f, 10f, debugTextureSize, debugTextureSize);
-        GUI.DrawTexture(textureRect, groundMask, ScaleMode.StretchToFill, false);
-
-        for (int i = 0; i < previousDebugUVs.Count; i++)
         {
-            Vector2 uv = previousDebugUVs[i];
-            Vector2 position = new Vector2(
-                textureRect.x + uv.x * textureRect.width,
-                textureRect.y + (1f - uv.y) * textureRect.height);
-
-            Vector2 direction = new Vector2(debugDirections[i].x, -debugDirections[i].y);
-            Color markerColor = previousStates[i] == 1 ? Color.yellow : Color.green;
-
-            Color oldColor = GUI.color;
-            GUI.color = markerColor;
-            GUI.DrawTexture(new Rect(position.x - markerSize * 0.5f, position.y - markerSize * 0.5f, markerSize, markerSize), Texture2D.whiteTexture);
-            GUI.color = oldColor;
-
-            DrawGUILine(position, position + direction * directionLength, Color.red, directionWidth);
+            localPlayerIndex = players.Count - 1;
+            playerHUD = player.gameObject.GetComponentInChildren<PlayerHUD>();
         }
-    }
-
-    private static void DrawGUILine(Vector2 start, Vector2 end, Color color, float width)
-    {
-        Vector2 delta = end - start;
-        Matrix4x4 oldMatrix = GUI.matrix;
-        Color oldColor = GUI.color;
-
-        GUI.color = color;
-        GUIUtility.RotateAroundPivot(Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg, start);
-        GUI.DrawTexture(new Rect(start.x, start.y - width * 0.5f, delta.magnitude, width), Texture2D.whiteTexture);
-
-        GUI.matrix = oldMatrix;
-        GUI.color = oldColor;
     }
 
     private void Update()
@@ -204,6 +182,8 @@ public sealed class PlayerSurfaceController : MonoBehaviour
             SurfaceMap = surfaceMap,
             Results = sampledStates.AsArray(),
             UVResults = sampledUVs.AsArray(),
+            PreviousPositions = previousPositions.AsArray(),
+            GrassDrawResults = grassDrawResults.AsArray(),
 
             MaskWidth = maskWidth,
             MaskHeight = maskHeight,
@@ -213,6 +193,10 @@ public sealed class PlayerSurfaceController : MonoBehaviour
             InverseSurfaceScale = inverseSurfaceScale,
             SurfaceBoundsMin = surfaceBoundsMin,
             SurfaceBoundsSize = surfaceBoundsSize,
+
+            MinimumGrassMoveDistanceSquared = minimumGrassMoveDistance * minimumGrassMoveDistance,
+            GrassTeleportThresholdSquared = grassTeleportThreshold * grassTeleportThreshold,
+            GrassSurfaceType = (byte)SurfaceType.Grass,
 
             FlipU = flipU ? (byte)1 : (byte)0,
             FlipV = flipV ? (byte)1 : (byte)0
@@ -237,17 +221,22 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
         NativeArray<byte> states = sampledStates.AsArray();
         NativeArray<float2> uvs = sampledUVs.AsArray();
+        NativeArray<byte> grassDraws = grassDrawResults.AsArray();
+
+        grassInteractionController?.DrawAtUVs(uvs, grassDraws);
 
         for (int i = 0; i < states.Length; i++)
         {
-            Vector2 currentUV = uvs[i];
+            Vector2 currentUV = new Vector2(uvs[i].x, uvs[i].y);
             Vector2 direction = currentUV - previousDebugUVs[i];
 
             if (direction.sqrMagnitude > 0.000001f)
                 debugDirections[i] = direction.normalized;
 
             previousDebugUVs[i] = currentUV;
-            playerHUD.UpdateMap(currentUV);
+
+            if (i == localPlayerIndex && playerHUD != null)
+                playerHUD.UpdateMap(currentUV);
 
             if (states[i] == previousStates[i])
                 continue;
@@ -257,12 +246,54 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         }
     }
 
+    private void OnGUI()
+    {
+        if (!showDebug)
+            return;
+
+        Rect textureRect = new Rect(10f, 10f, debugTextureSize, debugTextureSize);
+        GUI.DrawTexture(textureRect, groundMask, ScaleMode.StretchToFill, false);
+
+        for (int i = 0; i < previousDebugUVs.Count; i++)
+        {
+            Vector2 uv = previousDebugUVs[i];
+            Vector2 position = new Vector2(
+                textureRect.x + uv.x * textureRect.width,
+                textureRect.y + (1f - uv.y) * textureRect.height);
+
+            Vector2 direction = new Vector2(debugDirections[i].x, -debugDirections[i].y);
+            Color markerColor = previousStates[i] == (byte)SurfaceType.Grass ? Color.yellow : Color.green;
+
+            Color oldColor = GUI.color;
+            GUI.color = markerColor;
+            GUI.DrawTexture(new Rect(position.x - markerSize * 0.5f, position.y - markerSize * 0.5f, markerSize, markerSize), Texture2D.whiteTexture);
+            GUI.color = oldColor;
+
+            DrawGUILine(position, position + direction * directionLength, Color.red, directionWidth);
+        }
+    }
+
+    private static void DrawGUILine(Vector2 start, Vector2 end, Color color, float width)
+    {
+        Vector2 delta = end - start;
+        Matrix4x4 oldMatrix = GUI.matrix;
+        Color oldColor = GUI.color;
+
+        GUI.color = color;
+        GUIUtility.RotateAroundPivot(Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg, start);
+        GUI.DrawTexture(new Rect(start.x, start.y - width * 0.5f, delta.magnitude, width), Texture2D.whiteTexture);
+
+        GUI.matrix = oldMatrix;
+        GUI.color = oldColor;
+    }
+
     private void OnDestroy()
     {
         if (jobScheduled)
             jobHandle.Complete();
 
-        playerSpawner.OnPlayerSpawned -= OnPlayerSpawned;
+        if (playerSpawner != null)
+            playerSpawner.OnPlayerSpawned -= OnPlayerSpawned;
 
         if (playerTransforms.isCreated)
             playerTransforms.Dispose();
@@ -270,11 +301,17 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         if (sampledStates.IsCreated)
             sampledStates.Dispose();
 
-        if (surfaceMap.IsCreated)
-            surfaceMap.Dispose();
-
         if (sampledUVs.IsCreated)
             sampledUVs.Dispose();
+
+        if (previousPositions.IsCreated)
+            previousPositions.Dispose();
+
+        if (grassDrawResults.IsCreated)
+            grassDrawResults.Dispose();
+
+        if (surfaceMap.IsCreated)
+            surfaceMap.Dispose();
     }
 
     [BurstCompile]
@@ -283,6 +320,8 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         [Unity.Collections.ReadOnly] public NativeArray<byte> SurfaceMap;
         [WriteOnly] public NativeArray<byte> Results;
         [WriteOnly] public NativeArray<float2> UVResults;
+        public NativeArray<float3> PreviousPositions;
+        [WriteOnly] public NativeArray<byte> GrassDrawResults;
 
         public int MaskWidth;
         public int MaskHeight;
@@ -293,6 +332,10 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         public float2 SurfaceBoundsMin;
         public float2 SurfaceBoundsSize;
 
+        public float MinimumGrassMoveDistanceSquared;
+        public float GrassTeleportThresholdSquared;
+        public byte GrassSurfaceType;
+
         public byte FlipU;
         public byte FlipV;
 
@@ -300,8 +343,11 @@ public sealed class PlayerSurfaceController : MonoBehaviour
         {
             Vector3 position = transform.position;
             float3 worldPosition = new float3(position.x, position.y, position.z);
-            float3 localPosition = math.mul(InverseSurfaceRotation, worldPosition - SurfacePosition) * InverseSurfaceScale;
 
+            float distanceSquared = math.lengthsq(worldPosition - PreviousPositions[index]);
+            PreviousPositions[index] = worldPosition;
+
+            float3 localPosition = math.mul(InverseSurfaceRotation, worldPosition - SurfacePosition) * InverseSurfaceScale;
             float2 uv = (localPosition.xz - SurfaceBoundsMin) / SurfaceBoundsSize;
 
             if (FlipU != 0)
@@ -315,8 +361,12 @@ public sealed class PlayerSurfaceController : MonoBehaviour
 
             int x = math.min((int)(uv.x * MaskWidth), MaskWidth - 1);
             int y = math.min((int)(uv.y * MaskHeight), MaskHeight - 1);
+            byte surface = SurfaceMap[y * MaskWidth + x];
 
-            Results[index] = SurfaceMap[y * MaskWidth + x];
+            Results[index] = surface;
+
+            bool moved = distanceSquared >= MinimumGrassMoveDistanceSquared && distanceSquared <= GrassTeleportThresholdSquared;
+            GrassDrawResults[index] = (byte)(moved && surface == GrassSurfaceType ? 1 : 0);
         }
     }
 }

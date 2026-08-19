@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
-    <ui:VisualElement name="panel-root" class="section-card game-card game-section-card screen-space-panel screen-space-panel--left blocks-player-input screen-space-panel--full-height screen-space-game-panel">
+    <ui:VisualElement name="panel-root" class="section-card game-card game-section-card screen-space-panel screen-space-panel--full-height screen-space-game-panel screen-space-panel--right">
         <ui:VisualElement class="game-hero game-section-hero game-section-hero--last-pirate"/>
         <ui:VisualElement class="game-copy game-section-copy">
             <ui:VisualElement class="section-heading-row game-section-heading-row" style="justify-content: flex-start; align-self: auto; align-content: auto;">

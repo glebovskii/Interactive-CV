@@ -639,6 +639,22 @@ MonoBehaviour:
     m_Key: intro.controls_title
     m_Metadata:
       m_Items: []
+  - m_Id: 9503862880972800
+    m_Key: grass.draw_distance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9506141801525248
+    m_Key: menu.quality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9506218209161216
+    m_Key: menu.quality_mobile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9506275549491200
+    m_Key: menu.quality_pc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

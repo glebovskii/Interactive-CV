@@ -671,6 +671,22 @@ MonoBehaviour:
     m_Localized: Steuerung
     m_Metadata:
       m_Items: []
+  - m_Id: 9503862880972800
+    m_Localized: Distanz zeichnen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9506141801525248
+    m_Localized: "Qualit\xE4t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9506218209161216
+    m_Localized: Mobile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9506275549491200
+    m_Localized: PC
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

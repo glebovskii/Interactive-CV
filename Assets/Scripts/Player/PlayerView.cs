@@ -74,8 +74,8 @@ public class PlayerView : NetworkBehaviour
         cachedMaterial.SetColor(colorId, Color);
         //cachedMaterial.color = Color;
         InitPlayerCameraController();
-        //InitPlayerUI();
-        //playerUI.SetVisible(IsLocalPlayer);
+        InitPlayerUI();
+        playerUI.SetVisible(IsLocalPlayer);
     }
 
     private void OnTriggerExitPlayer(PlayerView playerView)
@@ -106,20 +106,20 @@ public class PlayerView : NetworkBehaviour
             playerCameraController.CinemachineTargetGroup.AddMember(cameraTarget, memberWeight, memberRadius);
     }
 
-    public override void FixedUpdateNetwork()
-    {
-        if (IsLocalPlayer)
-            animator.SetFloat(SpeedId, playerMovement.SqrMagnitude, 0.1f, Runner.DeltaTime);
-    }
-
     //public override void Render()
     //{
     //    HandleAnimator();
     //}
 
+    public override void FixedUpdateNetwork()
+    {
+        HandleAnimator();
+    }
+
     private void HandleAnimator()
     {
-        animator.SetFloat(SpeedId, playerMovement.SqrMagnitude);
+        if (IsLocalPlayer)
+            animator.SetFloat(SpeedId, playerMovement.SqrMagnitude, 0.1f, Runner.DeltaTime);
     }
 
     private void OnDestroy()

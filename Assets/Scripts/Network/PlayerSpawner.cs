@@ -2,6 +2,7 @@ using Fusion;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
 {

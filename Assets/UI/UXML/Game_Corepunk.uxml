@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:l="UnityEngine.Localization" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS/PortfolioDocument.uss?fileID=7433441132597879392&amp;guid=5b23da99a63c2b44a8c5221e25097d40&amp;type=3#PortfolioDocument"/>
-    <ui:VisualElement name="panel-root" class="section-card game-card corepunk-card screen-space-panel screen-space-panel--left blocks-player-input screen-space-panel--full-height screen-space-game-panel">
+    <ui:VisualElement name="panel-root" class="section-card game-card corepunk-card screen-space-panel screen-space-panel--full-height screen-space-game-panel screen-space-panel--right">
         <ui:VisualElement class="game-hero game-hero--corepunk corepunk-hero"/>
         <ui:VisualElement class="game-copy corepunk-copy">
-            <ui:VisualElement class="section-heading-row corepunk-heading-row">
-                <ui:VisualElement class="corepunk-heading-copy" style="align-items: auto; align-self: flex-start;">
+            <ui:VisualElement class="section-heading-row corepunk-heading-row" style="display: flex; flex-wrap: nowrap;">
+                <ui:VisualElement class="corepunk-heading-copy" style="align-items: auto; align-self: flex-start; display: flex; flex-direction: row;">
                     <ui:VisualElement class="corepunk-title-role-row" style="flex-wrap: wrap; flex-direction: row;">
                         <ui:Label text="Corepunk" class="game-title corepunk-title" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/NotoSans-Regular%20SDF.asset?fileID=11400000&amp;guid=809ef1a1063e09d4f8dc3927e44197ab&amp;type=2#NotoSans-Regular SDF&quot;);"/>
                         <ui:Label text="Technical Artist" selectable="false" focusable="false" class="corepunk-title-role" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/NotoSans-Regular%20SDF.asset?fileID=11400000&amp;guid=809ef1a1063e09d4f8dc3927e44197ab&amp;type=2#NotoSans-Regular SDF&quot;); -unity-text-align: middle-left; white-space: pre; text-overflow: ellipsis;">
@@ -12,8 +12,8 @@
                                 <l:LocalizedString property="text" table="ui" entry="common.technical_artist"/>
                             </Bindings>
                         </ui:Label>
+                        <ui:Label text="Artificial Core · PC MMORPG" class="game-meta corepunk-meta" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/NotoSans-Regular%20SDF.asset?fileID=11400000&amp;guid=809ef1a1063e09d4f8dc3927e44197ab&amp;type=2#NotoSans-Regular SDF&quot;);"/>
                     </ui:VisualElement>
-                    <ui:Label text="Artificial Core · PC MMORPG" class="game-meta corepunk-meta" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/NotoSans-Regular%20SDF.asset?fileID=11400000&amp;guid=809ef1a1063e09d4f8dc3927e44197ab&amp;type=2#NotoSans-Regular SDF&quot;);"/>
                 </ui:VisualElement>
                 <ui:VisualElement focusable="true" class="corepunk-heading-actions">
                     <ui:Button name="button-link" text="View project" tooltip="Open the official Corepunk website" focusable="true" class="secondary-button corepunk-project-button portfolio-pulse-button" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/NotoSans-Regular%20SDF.asset?fileID=11400000&amp;guid=809ef1a1063e09d4f8dc3927e44197ab&amp;type=2#NotoSans-Regular SDF&quot;); white-space: normal;">
@@ -30,7 +30,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement class="bullet-list corepunk-bullet-list">
-                <ui:VisualElement class="bullet-row corepunk-bullet-row">
+                <ui:VisualElement name="VisualElement" class="bullet-row corepunk-bullet-row">
                     <ui:VisualElement class="bullet-dot corepunk-bullet-dot" style="align-self: center; align-items: auto; justify-content: flex-start; flex-wrap: nowrap; flex-direction: column; align-content: stretch;"/>
                     <ui:Label text="Integrated and optimized 3D assets for a large open-world MMORPG while preserving visual quality across platforms." enable-rich-text="true" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" class="bullet-text corepunk-bullet-text" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/NotoSans-Regular%20SDF.asset?fileID=11400000&amp;guid=809ef1a1063e09d4f8dc3927e44197ab&amp;type=2#NotoSans-Regular SDF&quot;);">
                         <Bindings>

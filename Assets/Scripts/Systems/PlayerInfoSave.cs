@@ -8,6 +8,7 @@ public static class PlayerInfoSave
     private const string keyColor_g = "Color_g";
     private const string keyColor_b = "Color_b";
     private const string keySelectedLanguage = "Language";
+    private const string QualityIndexKey = "QualityIndex";
 
     public static void SaveName(string newName)
     {
@@ -43,5 +44,15 @@ public static class PlayerInfoSave
     public static int GetLanguage()
     {
         return PlayerPrefs.GetInt(keySelectedLanguage, 0);
+    }
+
+    public static void SaveQualityIndex(int index)
+    {
+        PlayerPrefs.SetInt(QualityIndexKey, index);
+    }
+
+    public static int GetQualityIndex()
+    {
+        return PlayerPrefs.GetInt(QualityIndexKey, 0);
     }
 }

@@ -1,8 +1,12 @@
 using System.Collections.Generic;
+using Unity.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public sealed class GrassInteractionController : MonoBehaviour
 {
+    private const int MaxBrushPointsPerPass = 32;
+
     [Header("Interaction Map")]
     [SerializeField, Min(64)] private int textureSize = 2048;
     [SerializeField] private Shader drawShader;
@@ -13,23 +17,21 @@ public sealed class GrassInteractionController : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float brushStrength = 1f;
     [SerializeField, Range(0.1f, 8f)] private float brushFalloff = 1f;
 
-    [Header("Surface")]
-    [SerializeField, Min(0f)] private float maximumHeightAboveSurface = 1f;
+    [Header("UV Orientation")]
+    [SerializeField] private bool flipU = true;
+    [SerializeField] private bool flipV = true;
 
-    private readonly List<CharacterGrassInteractor> characters = new();
+    private readonly List<Vector4> brushCoordinates = new(MaxBrushPointsPerPass);
 
     private Material grassMaterial;
     private Material drawMaterial;
     private RenderTexture interactionMap;
-
-    private Transform surfaceTransform;
-    private Bounds surfaceBounds;
-    private Vector3 surfaceScale;
-
+    private RenderTexture scratchMap;
     private bool initialized;
 
     private static readonly int InteractionMapID = Shader.PropertyToID("_InteractionMap");
-    private static readonly int CoordinateID = Shader.PropertyToID("_Coordinate");
+    private static readonly int CoordinatesID = Shader.PropertyToID("_Coordinates");
+    private static readonly int CoordinateCountID = Shader.PropertyToID("_CoordinateCount");
     private static readonly int BrushRadiusID = Shader.PropertyToID("_Size");
     private static readonly int BrushStrengthID = Shader.PropertyToID("_BrushStrength");
     private static readonly int BrushFalloffID = Shader.PropertyToID("_BrushFalloff");
@@ -39,95 +41,108 @@ public sealed class GrassInteractionController : MonoBehaviour
         ServiceLocator.Register(this);
     }
 
+    // Signature is kept so existing setup code does not have to change.
+    // UV calculation now happens once in PlayerSurfaceController's Burst job.
     public void SetTarget(Material material, Transform targetTransform, Mesh mesh)
     {
         ReleaseResources();
 
         grassMaterial = material;
-        surfaceTransform = targetTransform;
-        surfaceBounds = mesh.bounds;
-        surfaceScale = surfaceTransform.lossyScale;
-
-        CreateInteractionMap();
+        CreateInteractionMaps();
         grassMaterial.SetTexture(InteractionMapID, interactionMap);
-
         initialized = true;
     }
 
-    private void CreateInteractionMap()
+    public void DrawAtUVs(NativeArray<float2> uvs, NativeArray<byte> drawMask)
+    {
+        if (!initialized)
+            return;
+
+        bool drew = false;
+        brushCoordinates.Clear();
+
+        for (int i = 0; i < uvs.Length; i++)
+        {
+            if (drawMask[i] == 0)
+                continue;
+
+            float2 uv = uvs[i];
+
+            if (flipU)
+                uv.x = 1f - uv.x;
+
+            if (flipV)
+                uv.y = 1f - uv.y;
+
+            brushCoordinates.Add(new Vector4(uv.x, uv.y, 0f, 0f));
+
+            if (brushCoordinates.Count == MaxBrushPointsPerPass)
+            {
+                BlitBatch();
+                drew = true;
+            }
+        }
+
+        if (brushCoordinates.Count > 0)
+        {
+            BlitBatch();
+            drew = true;
+        }
+
+        if (drew)
+            grassMaterial.SetTexture(InteractionMapID, interactionMap);
+    }
+
+    private void CreateInteractionMaps()
     {
         drawMaterial = new Material(drawShader)
         {
             name = "Grass Interaction Draw Material"
         };
 
-        interactionMap = new RenderTexture(textureSize, textureSize, 0, RenderTextureFormat.R8, RenderTextureReadWrite.Linear)
-        {
-            name = "Grass Interaction Map",
-            filterMode = FilterMode.Bilinear,
-            wrapMode = TextureWrapMode.Clamp,
-            useMipMap = false,
-            autoGenerateMips = false
-        };
+        interactionMap = CreateMap("Grass Interaction Map A");
+        scratchMap = CreateMap("Grass Interaction Map B");
 
-        interactionMap.Create();
-
-        RenderTexture previous = RenderTexture.active;
-        RenderTexture.active = interactionMap;
-        GL.Clear(false, true, Color.black);
-        RenderTexture.active = previous;
+        ClearMap(interactionMap);
+        ClearMap(scratchMap);
 
         drawMaterial.SetFloat(BrushRadiusID, brushRadiusPixels);
         drawMaterial.SetFloat(BrushStrengthID, brushStrength);
         drawMaterial.SetFloat(BrushFalloffID, brushFalloff);
     }
 
-
-    private void DrawAtWorldPosition(Vector3 worldPosition)
+    private RenderTexture CreateMap(string mapName)
     {
-        if (!initialized)
-            return;
+        var map = new RenderTexture(textureSize, textureSize, 0, RenderTextureFormat.R8, RenderTextureReadWrite.Linear)
+        {
+            name = mapName,
+            filterMode = FilterMode.Bilinear,
+            wrapMode = TextureWrapMode.Clamp,
+            useMipMap = false,
+            autoGenerateMips = false
+        };
 
-        Vector3 localPosition = surfaceTransform.InverseTransformPoint(worldPosition);
-
-        float height = Mathf.Abs(localPosition.y - surfaceBounds.center.y) * Mathf.Abs(surfaceScale.y);
-
-        if (height > maximumHeightAboveSurface)
-            return;
-
-        if (localPosition.x < surfaceBounds.min.x || localPosition.x > surfaceBounds.max.x ||
-            localPosition.z < surfaceBounds.min.z || localPosition.z > surfaceBounds.max.z)
-            return;
-
-        Vector2 uv = new(
-            1f - Mathf.InverseLerp(surfaceBounds.min.x, surfaceBounds.max.x, localPosition.x),
-            1f - Mathf.InverseLerp(surfaceBounds.min.z, surfaceBounds.max.z, localPosition.z));
-
-        Blit(uv);
+        map.Create();
+        return map;
     }
 
-    private void Blit(Vector2 uv)
+    private static void ClearMap(RenderTexture map)
     {
-        drawMaterial.SetVector(CoordinateID, uv);
-
-        RenderTexture temporary = RenderTexture.GetTemporary(interactionMap.descriptor);
-
-        Graphics.Blit(interactionMap, temporary);
-        Graphics.Blit(temporary, interactionMap, drawMaterial);
-
-        RenderTexture.ReleaseTemporary(temporary);
+        RenderTexture previous = RenderTexture.active;
+        RenderTexture.active = map;
+        GL.Clear(false, true, Color.black);
+        RenderTexture.active = previous;
     }
 
-    public void Register(CharacterGrassInteractor characterGrassInteractor)
+    private void BlitBatch()
     {
-        characters.Add(characterGrassInteractor);
-        characterGrassInteractor.OnWalk += DrawAtWorldPosition;
-    }
+        drawMaterial.SetInt(CoordinateCountID, brushCoordinates.Count);
+        drawMaterial.SetVectorArray(CoordinatesID, brushCoordinates);
 
-    public void Unregister(CharacterGrassInteractor characterGrassInteractor)
-    {
-        characters.Remove(characterGrassInteractor);
-        characterGrassInteractor.OnWalk -= DrawAtWorldPosition;
+        Graphics.Blit(interactionMap, scratchMap, drawMaterial);
+
+        (interactionMap, scratchMap) = (scratchMap, interactionMap);
+        brushCoordinates.Clear();
     }
 
     private void OnGUI()
@@ -138,12 +153,6 @@ public sealed class GrassInteractionController : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (CharacterGrassInteractor character in characters)
-        {
-            if (character != null)
-                character.OnWalk -= DrawAtWorldPosition;
-        }
-
         ReleaseResources();
     }
 
@@ -157,14 +166,20 @@ public sealed class GrassInteractionController : MonoBehaviour
             drawMaterial = null;
         }
 
-        if (interactionMap != null)
-        {
-            interactionMap.Release();
-            Destroy(interactionMap);
-            interactionMap = null;
-        }
+        ReleaseMap(ref interactionMap);
+        ReleaseMap(ref scratchMap);
 
         grassMaterial = null;
-        surfaceTransform = null;
+        brushCoordinates.Clear();
+    }
+
+    private static void ReleaseMap(ref RenderTexture map)
+    {
+        if (map == null)
+            return;
+
+        map.Release();
+        Destroy(map);
+        map = null;
     }
 }

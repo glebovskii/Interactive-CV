@@ -17,10 +17,10 @@ GameObject:
   - component: {fileID: 7826994490954851516}
   - component: {fileID: 4936536806661504634}
   - component: {fileID: 8333996507032165700}
-  - component: {fileID: 8244001945155035591}
   - component: {fileID: 5335421626971615330}
   - component: {fileID: 5621686937078193238}
   - component: {fileID: 2365839873146056567}
+  - component: {fileID: 8027451465636057825}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -121,9 +121,9 @@ MonoBehaviour:
   - {fileID: 7511645092575362281}
   - {fileID: 8508008017542183307}
   - {fileID: 4936536806661504634}
-  - {fileID: 8244001945155035591}
   - {fileID: 5335421626971615330}
   - {fileID: 2365839873146056567}
+  - {fileID: 8027451465636057825}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &8508008017542183307
 MonoBehaviour:
@@ -235,20 +235,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8244001945155035591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383688313207201357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb3a1aef2ec162043a37cf22f799b813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterGrassInteractor
-  minimumMoveDistance: 0.001
-  teleportThreshold: 2
 --- !u!114 &5335421626971615330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +368,24 @@ MonoBehaviour:
   _Axis: 0
   _Direction: 0
   dissolveColor: {r: 137.187, g: 0, b: 96.31743, a: 0}
+--- !u!114 &8027451465636057825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383688313207201357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 506319458, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkMecanimAnimator
+  Animator: {fileID: 7823364879267345985}
+  ApplyTiming: 2
+  SyncSettings: 2
+  StateHashes: 00000000a1f7ab0dbb6691e72b1a167c7940695520e23b685928a8ce
+  TriggerHashes: 00000000
+  TotalWords: 1
 --- !u!1 &3728992260341715850
 GameObject:
   m_ObjectHideFlags: 0

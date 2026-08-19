@@ -55,6 +55,14 @@
                             <ui:Slider name="slider-distance-attenuation" low-value="0.1" high-value="5" value="1" show-input-field="true" picking-mode="Position" class="shader-slider"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="shader-control-row">
+                            <ui:Label text="Draw Distance" class="shader-control-label">
+                                <Bindings>
+                                    <l:LocalizedString property="text" table="ui" entry="grass.draw_distance"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Slider name="slider-draw-distance" low-value="0" high-value="100" value="20" show-input-field="true" picking-mode="Position" class="shader-slider"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="shader-control-row">
                             <ui:Label text="Density" class="shader-control-label">
                                 <Bindings>
                                     <l:LocalizedString property="text" table="ui" entry="grass.density"/>

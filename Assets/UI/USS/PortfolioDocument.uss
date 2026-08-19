@@ -1521,12 +1521,12 @@ Button {
 .screen-space-game-panel .portfolio-pulse-button {
     scale: 1 1;
     transition-property: background-color, border-color, scale;
-    transition-duration: 0.12s, 0.12s, 0.55s;
-    transition-timing-function: ease-out, ease-out, ease-in-out;
+    transition-duration: 0.12s, 0.12s, 1.15s;
+    transition-timing-function: ease-out, ease-out, ease-out;
 }
 
 .screen-space-game-panel .portfolio-pulse-button.portfolio-pulse-button--expanded {
-    scale: 1.035 1.035;
+    scale: 1.25 1.25;
 }
 
 .screen-space-game-panel .portfolio-pulse-button:hover {

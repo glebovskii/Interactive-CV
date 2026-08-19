@@ -12,8 +12,9 @@ public sealed class GrassShaderPanelController : MonoBehaviour
 
     private const float DefaultScale = 2166f;
     private const int DefaultShellCount = 117;
-    private const float DefaultShellLength = 0.061f;
+    private const float DefaultShellLength = 0.11f;
     private const float DefaultDistanceAttenuation = 1f;
+    private const float DefaultCameraDistanceThreshold = 35f;
     private const float DefaultDensity = 3066f;
     private const float DefaultNoiseMin = 0f;
     private const float DefaultNoiseMax = 1f;
@@ -28,7 +29,7 @@ public sealed class GrassShaderPanelController : MonoBehaviour
     private const float DefaultTurbulenceStrength = 0.16f;
 
     private static readonly Color DefaultShellColor = new(107f / 255f, 149f / 255f, 9f / 255f, 1f);
-    private static readonly Color DefaultBaseColor = new(45f / 255f, 184f/255f, 144f / 255f, 1f);
+    private static readonly Color DefaultBaseColor = new(45f / 255f, 184f / 255f, 144f / 255f, 1f);
     private static readonly Vector3 DefaultWindDirection = new(0.03f, 0f, 1f);
 
     [SerializeField] private PanelRenderer panelRenderer;
@@ -118,6 +119,7 @@ public sealed class GrassShaderPanelController : MonoBehaviour
         BindInt("slider-shell-count", "shellCount", DefaultShellCount);
         BindFloat("slider-shell-length", "shellLength", DefaultShellLength);
         BindFloat("slider-distance-attenuation", "distanceAttenuation", DefaultDistanceAttenuation);
+        BindFloat("slider-draw-distance", "cameraDistanceThreshold", DefaultCameraDistanceThreshold);
         BindFloat("slider-density", "density", DefaultDensity);
         BindFloat("slider-noise-min", "noiseMin", DefaultNoiseMin);
         BindFloat("slider-noise-max", "noiseMax", DefaultNoiseMax);
@@ -243,6 +245,7 @@ public sealed class GrassShaderPanelController : MonoBehaviour
         SetMember("shellCount", DefaultShellCount);
         SetMember("shellLength", DefaultShellLength);
         SetMember("distanceAttenuation", DefaultDistanceAttenuation);
+        SetMember("cameraDistanceThreshold", DefaultCameraDistanceThreshold);
         SetMember("density", DefaultDensity);
         SetMember("noiseMin", DefaultNoiseMin);
         SetMember("noiseMax", DefaultNoiseMax);
@@ -268,6 +271,7 @@ public sealed class GrassShaderPanelController : MonoBehaviour
         SetSliderInt("slider-shell-count", GetMember("shellCount", DefaultShellCount));
         SetSlider("slider-shell-length", GetMember("shellLength", DefaultShellLength));
         SetSlider("slider-distance-attenuation", GetMember("distanceAttenuation", DefaultDistanceAttenuation));
+        SetSlider("slider-draw-distance", GetMember("cameraDistanceThreshold", DefaultCameraDistanceThreshold));
         SetSlider("slider-density", GetMember("density", DefaultDensity));
         SetSlider("slider-noise-min", GetMember("noiseMin", DefaultNoiseMin));
         SetSlider("slider-noise-max", GetMember("noiseMax", DefaultNoiseMax));
