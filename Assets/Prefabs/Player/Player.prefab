@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 5621686937078193238}
   - component: {fileID: 2365839873146056567}
   - component: {fileID: 8027451465636057825}
+  - component: {fileID: 4318419520824077253}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -124,6 +125,7 @@ MonoBehaviour:
   - {fileID: 5335421626971615330}
   - {fileID: 2365839873146056567}
   - {fileID: 8027451465636057825}
+  - {fileID: 4318419520824077253}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &8508008017542183307
 MonoBehaviour:
@@ -386,6 +388,18 @@ MonoBehaviour:
   StateHashes: 00000000a1f7ab0dbb6691e72b1a167c7940695520e23b685928a8ce
   TriggerHashes: 00000000
   TotalWords: 1
+--- !u!114 &4318419520824077253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383688313207201357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363b44ac450e2ca47a5785b51f6c1268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUpdateCamera
 --- !u!1 &3728992260341715850
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +959,10 @@ PrefabInstance:
     - target: {fileID: 9051439246268189601, guid: 017c7ff4400072b4bbe588828740ca60, type: 3}
       propertyPath: m_Name
       value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051439246268189601, guid: 017c7ff4400072b4bbe588828740ca60, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

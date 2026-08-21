@@ -1,12 +1,10 @@
 using Fusion;
-using System;
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class PlayerUpdateCamera : NetworkBehaviour
+public sealed class PlayerUpdateCamera : NetworkBehaviour
 {
-    CinemachineBrain brain;
-    private NetworkObject player;
+    private CinemachineBrain brain;
 
     public override void Spawned()
     {
@@ -17,20 +15,10 @@ public class PlayerUpdateCamera : NetworkBehaviour
         }
 
         brain = Camera.main.GetComponent<CinemachineBrain>();
-
-        var spawner = ServiceLocator.Get<PlayerSpawner>();
-        spawner.OnPlayerSpawned += OnPlayerJoined;
-    }
-
-    private void OnPlayerJoined(NetworkObject player)
-    {
-        if (player.HasStateAuthority)
-            this.player = player;
     }
 
     public override void Render()
     {
-        if (player.HasStateAuthority)
-            brain.ManualUpdate();
+        brain.ManualUpdate();
     }
 }

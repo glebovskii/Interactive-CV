@@ -163,8 +163,8 @@ Material:
     - _Zeta: 0.01
     - _n: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.45872867, b: 0.51267254, a: 1}
-    - _Color: {r: 1, g: 0.60235256, b: 0.239239, a: 1}
+    - _BaseColor: {r: 1, g: 0.28196675, b: 0.41057655, a: 1}
+    - _Color: {r: 1, g: 0.29824266, b: 0.23561609, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

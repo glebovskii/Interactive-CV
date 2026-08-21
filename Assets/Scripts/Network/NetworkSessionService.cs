@@ -35,7 +35,7 @@ public sealed class NetworkSessionService : MonoBehaviour
     private void Awake()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
-Application.targetFrameRate = -1;
+        Application.targetFrameRate = -1;
 QualitySettings.vSyncCount = 0;
 #endif
         DontDestroyOnLoad(gameObject);

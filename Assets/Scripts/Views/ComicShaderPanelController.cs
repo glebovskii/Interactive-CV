@@ -116,10 +116,10 @@ namespace Prymara
             BindKeywordToggle(root, "toggle-kuwahara", useKuwahara, "kuwahara-fields", true);
             BindKeywordToggle(root, "toggle-oil", useOil, "oil-fields", false);
 
-            BindFloat(root, "slider-edge-strength", EdgeStrength, 4.36f);
-            BindFloat(root, "slider-edge-thickness", Thickness, 0.04f);
-            BindFloat(root, "slider-edge-threshold", Threshold, 0.4f);
-            BindFloat(root, "slider-edge-power", EdgePower, 0.66f);
+            BindFloat(root, "slider-edge-strength", EdgeStrength, 7.03f);
+            BindFloat(root, "slider-edge-thickness", Thickness, 0.1f);
+            BindFloat(root, "slider-edge-threshold", Threshold, 0.287f);
+            BindFloat(root, "slider-edge-power", EdgePower, 0.14f);
             BindFloat(root, "slider-edge-softness", Softness, 0.3f);
             BindFloat(root, "slider-edge-min-depth", MinEdgeDepth, 0f);
 
@@ -137,11 +137,11 @@ namespace Prymara
 
             BindInt(root, "slider-kuwahara-kernel", KernelSize, 17f);
             BindInt(root, "slider-kuwahara-sector-count", SectorCount, 3f);
-            BindFloat(root, "slider-kuwahara-hardness", Hardness, 4.22f);
-            BindFloat(root, "slider-kuwahara-q", VariancePower, 44f);
-            BindFloat(root, "slider-kuwahara-alpha", KuwaharaAlpha, 1f);
-            BindFloat(root, "slider-kuwahara-zero-crossing", ZeroCrossing, 5.8f);
-            BindFloat(root, "slider-kuwahara-zeta", Zeta, 0.3f);
+            BindFloat(root, "slider-kuwahara-hardness", Hardness, 2.82f);
+            BindFloat(root, "slider-kuwahara-q", VariancePower, 500f);
+            BindFloat(root, "slider-kuwahara-alpha", KuwaharaAlpha, 0.246f);
+            BindFloat(root, "slider-kuwahara-zero-crossing", ZeroCrossing, 171.5f);
+            BindFloat(root, "slider-kuwahara-zeta", Zeta, 16.83f);
             BindFloat(root, "slider-kuwahara-min-depth", KuwaharaMinDepth, 0f);
 
             BindFloat(root, "slider-oil-radius", OilRadius, 4f);

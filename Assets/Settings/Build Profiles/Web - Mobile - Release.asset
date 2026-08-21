@@ -44,7 +44,7 @@ MonoBehaviour:
     - line: '|   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b:
         0.1254902, a: 1}'
     - line: '|   m_ShowUnitySplashScreen: 0'
-    - line: '|   m_ShowUnitySplashLogo: 1'
+    - line: '|   m_ShowUnitySplashLogo: 0'
     - line: '|   m_SplashScreenOverlayOpacity: 1'
     - line: '|   m_SplashScreenAnimation: 1'
     - line: '|   m_SplashScreenLogoStyle: 1'
@@ -567,7 +567,7 @@ MonoBehaviour:
     - line: '|       m_SubKind: '
     - line: '|   m_BuildTargetBatching:'
     - line: '|   - m_BuildTarget: WebGL'
-    - line: '|     m_StaticBatching: 1'
+    - line: '|     m_StaticBatching: 0'
     - line: '|     m_DynamicBatching: 0'
     - line: '|   m_BuildTargetShaderSettings:'
     - line: '|   - m_BuildTarget: WebGL'
@@ -585,6 +585,9 @@ MonoBehaviour:
     - line: '|   - m_BuildTarget: AndroidPlayer'
     - line: '|     m_APIs: 150000000b000000'
     - line: '|     m_Automatic: 0'
+    - line: '|   - m_BuildTarget: WebGLSupport'
+    - line: '|     m_APIs: 1c0000000b000000'
+    - line: '|     m_Automatic: 1'
     - line: '|   m_DefaultShaderChunkSizeInMB: 16'
     - line: '|   m_DefaultShaderChunkCount: 0'
     - line: '|   openGLRequireES31: 0'
@@ -608,7 +611,7 @@ MonoBehaviour:
     - line: '|     m_EncodingQuality: 0'
     - line: '|   m_BuildTargetGroupLightmapSettings:'
     - line: '|   - m_BuildTarget: WebGL'
-    - line: '|     m_TextureStreamingEnabled: 1'
+    - line: '|     m_TextureStreamingEnabled: 0'
     - line: '|     m_TextureStreamingPriority: 0'
     - line: '|   m_BuildTargetGroupLoadStoreDebugModeSettings: []'
     - line: '|   m_BuildTargetNormalMapEncoding:'
@@ -863,7 +866,7 @@ MonoBehaviour:
     - line: '|   webGLMemorySize: 32'
     - line: '|   webGLExceptionSupport: 1'
     - line: '|   webGLNameFilesAsHashes: 0'
-    - line: '|   webGLShowDiagnostics: 1'
+    - line: '|   webGLShowDiagnostics: 0'
     - line: '|   webGLDataCaching: 0'
     - line: '|   webGLDebugSymbols: 2'
     - line: '|   webGLEmscriptenArgs: '
@@ -882,7 +885,7 @@ MonoBehaviour:
     - line: '|   webGLMemoryLinearGrowthStep: 16'
     - line: '|   webGLMemoryGeometricGrowthStep: 0.2'
     - line: '|   webGLMemoryGeometricGrowthCap: 96'
-    - line: '|   webGLPowerPreference: 0'
+    - line: '|   webGLPowerPreference: 2'
     - line: '|   webGLWebAssemblyTable: 1'
     - line: '|   webGLWebAssemblyBigInt: 1'
     - line: '|   webGLCloseOnQuit: 0'
@@ -912,7 +915,7 @@ MonoBehaviour:
     - line: '|   scriptingBackend:'
     - line: '|     Android: 1'
     - line: '|   il2cppCompilerConfiguration:'
-    - line: '|     WebGL: 2'
+    - line: '|     WebGL: 1'
     - line: '|   il2cppCodeGeneration:'
     - line: '|     WebGL: 0'
     - line: '|   il2cppLTOMode: {}'
@@ -1035,8 +1038,8 @@ MonoBehaviour:
     - rid: 2841968323481305193
       type: {class: WebGLPlatformSettings, ns: UnityEditor.WebGL, asm: UnityEditor.WebGL.Extensions}
       data:
-        m_Development: 1
-        m_ConnectProfiler: 1
+        m_Development: 0
+        m_ConnectProfiler: 0
         m_BuildWithDeepProfilingSupport: 0
         m_BuildWithCodeCoverage: 0
         m_AllowDebugging: 0
@@ -1050,7 +1053,7 @@ MonoBehaviour:
         m_InsightsSettingsContainer:
           m_BuildProfileEngineDiagnosticsState: 2
         m_AdaptivePerformanceEnabled: 0
-        m_CodeOptimization: 3
+        m_CodeOptimization: 1
         m_WebGLClientBrowserPath: 
         m_WebGLClientBrowserType: 0
-        m_WebGLTextureSubtarget: 4
+        m_WebGLTextureSubtarget: 3

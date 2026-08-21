@@ -45,6 +45,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ClearCoatMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -117,7 +121,9 @@ Material:
     - _Ambient_Strength: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _BlendOp: 0
     - _BumpScale: 1
+    - _ClearCoat: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -137,7 +143,7 @@ Material:
     - _GlossyReflections: 1
     - _Hardness: 1
     - _Kernel: 2
-    - _Metallic: 0
+    - _Metallic: 0.397
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -148,9 +154,9 @@ Material:
     - _Sharpness: 1
     - _Shininess: 0
     - _Size: 0
-    - _Smoothness: 1
+    - _Smoothness: 0.608
     - _SmoothnessSource: 0
-    - _SmoothnessTextureChannel: 0
+    - _SmoothnessTextureChannel: 1
     - _SpecSource: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -165,7 +171,7 @@ Material:
     - _Zeta: 0.01
     - _n: 0
     m_Colors:
-    - _BaseColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive: {r: 0, g: 0, b: 0, a: 0}

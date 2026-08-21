@@ -98,7 +98,7 @@ Material:
     - _Alpha: 0.01
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Ambient_Occlusion: 0
+    - _Ambient_Occlusion: 0.766
     - _Ambient_Saturation: 0
     - _Ambient_Step: 0
     - _Ambient_Strength: 0
@@ -137,7 +137,7 @@ Material:
     - _Sharpness: 1
     - _Shininess: 0
     - _Size: 0
-    - _Smoothness: 0.306
+    - _Smoothness: 0.167
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
@@ -154,7 +154,7 @@ Material:
     - _Zeta: 0.01
     - _n: 0
     m_Colors:
-    - _BaseColor: {r: 0.66792446, g: 0.6484777, b: 0.311278, a: 1}
+    - _BaseColor: {r: 0.82233775, g: 0.8352941, b: 0.22352938, a: 1}
     - _Color: {r: 0.6754716, g: 0.6492118, b: 0.19754349, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive: {r: 1, g: 0.7542191, b: 0, a: 0}

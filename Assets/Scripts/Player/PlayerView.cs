@@ -72,7 +72,6 @@ public class PlayerView : NetworkBehaviour
         }
 
         cachedMaterial.SetColor(colorId, Color);
-        //cachedMaterial.color = Color;
         InitPlayerCameraController();
         InitPlayerUI();
         playerUI.SetVisible(IsLocalPlayer);

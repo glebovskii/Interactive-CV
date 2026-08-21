@@ -94,13 +94,13 @@ Material:
     - _Alpha: 0.01
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Ambient_Occlusion: 0.988
+    - _Ambient_Occlusion: 1
     - _Ambient_Saturation: 0
     - _Ambient_Step: 0
     - _Ambient_Strength: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BumpScale: 5
+    - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -112,7 +112,7 @@ Material:
     - _Direct_Ambient_Strength: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _EnvironmentReflections: 1
+    - _EnvironmentReflections: 0
     - _Fresnel: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -121,7 +121,7 @@ Material:
     - _Hardness: 1
     - _Kernel: 2
     - _Metallic: 1
-    - _OcclusionStrength: 1
+    - _OcclusionStrength: 0
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -130,11 +130,11 @@ Material:
     - _Sharpness: 1
     - _Shininess: 0
     - _Size: 0
-    - _Smoothness: 1
+    - _Smoothness: 0.789
     - _SmoothnessSource: 0
-    - _SmoothnessTextureChannel: 1
+    - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
-    - _SpecularHighlights: 1
+    - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Step: 0

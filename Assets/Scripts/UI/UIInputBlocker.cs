@@ -9,13 +9,10 @@ public sealed class UIInputBlocker : MonoBehaviour
 
     private PanelRenderer panelRenderer;
     private VisualElement root;
-    [SerializeField] private bool ignore;
 
     private void Awake()
     {
         panelRenderer = GetComponent<PanelRenderer>();
-        if (ignore)
-            return;
         panelRenderer.RegisterUIReloadCallback(OnUIReload);
     }
 
@@ -29,7 +26,6 @@ public sealed class UIInputBlocker : MonoBehaviour
 
     private void OnUIReload(PanelRenderer renderer, VisualElement newRoot, int version)
     {
-        if(ignore) return;
         if (root != null)
             activeRoots.Remove(root);
 

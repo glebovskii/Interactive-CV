@@ -81,7 +81,6 @@ MonoBehaviour:
       - rid: 177945473090060296
       - rid: 177945473090060297
       - rid: 177945473090060302
-      - rid: 177945473090060303
       - rid: 177945473090060304
   m_AssetVersion: 10
   m_ObsoleteDefaultVolumeProfile: {fileID: 0}
@@ -440,7 +439,7 @@ MonoBehaviour:
       type: {class: ShaderStrippingSetting, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
       data:
         m_Version: 0
-        m_ExportShaderVariants: 1
+        m_ExportShaderVariants: 0
         m_ShaderVariantLogLevel: 1
         m_StripRuntimeDebugShaders: 1
     - rid: 6852985685364965393

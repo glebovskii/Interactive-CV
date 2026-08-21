@@ -38,7 +38,7 @@ public class SimpleShell : MonoBehaviour
     public int scale = 1600;
     public float margin = 1;
     [Range(0f, 100f)]
-    public float cameraDistanceThreshold = 20f;
+    public float cameraDistanceThreshold = 35f;
 
     [Range(1, 256)]
     public int shellCount = 16;
